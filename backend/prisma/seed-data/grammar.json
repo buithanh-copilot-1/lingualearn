@@ -128,5 +128,187 @@
         "explanation": "Third Conditional — regret about past."
       }
     ]
+  },
+  {
+    "id": "g6",
+    "title": "Articles (a / an / the)",
+    "description": "Choose the correct article — a common challenge for Vietnamese learners.",
+    "level": "beginner",
+    "rules": [
+      "Use \"a\" before consonant sounds: a book, a university (yoo- sound).",
+      "Use \"an\" before vowel sounds: an apple, an hour (silent h).",
+      "Use \"the\" for specific or known things: the book on the table.",
+      "No article for general plural/uncountable nouns: I like music. Cats are cute."
+    ],
+    "examples": [
+      {
+        "sentence": "She is an honest person.",
+        "explanation": "\"Honest\" starts with a vowel sound — use \"an\"."
+      },
+      {
+        "sentence": "The sun is bright today.",
+        "explanation": "\"The\" — we know which sun (unique thing)."
+      },
+      {
+        "sentence": "I need a pen.",
+        "explanation": "\"A\" — any pen, not a specific one."
+      }
+    ]
+  },
+  {
+    "id": "g7",
+    "title": "Modal Verbs",
+    "description": "Express ability, permission, obligation, and advice with modals.",
+    "level": "intermediate",
+    "rules": [
+      "Can / Could — ability or polite request: \"Can you help me?\"",
+      "Must / Have to — obligation: \"You must wear a seatbelt.\"",
+      "Should / Ought to — advice: \"You should drink more water.\"",
+      "May / Might — possibility: \"It might rain later.\" Modals are followed by base verb (no \"to\")."
+    ],
+    "examples": [
+      {
+        "sentence": "You should see a doctor.",
+        "explanation": "Advice — \"should\" + base verb."
+      },
+      {
+        "sentence": "Can I borrow your pen?",
+        "explanation": "Polite permission request with \"can\"."
+      },
+      {
+        "sentence": "Students must submit homework on time.",
+        "explanation": "Strong obligation with \"must\"."
+      }
+    ]
+  },
+  {
+    "id": "g8",
+    "title": "Future Tenses (will / going to)",
+    "description": "Talk about plans, predictions, and spontaneous decisions.",
+    "level": "intermediate",
+    "rules": [
+      "Will + base verb — predictions or instant decisions: \"I'll call you.\"",
+      "Be going to + base verb — planned intentions: \"I'm going to study tonight.\"",
+      "Present Continuous for fixed arrangements: \"We're meeting at 3 PM.\"",
+      "Time expressions: tomorrow, next week, soon, in two hours."
+    ],
+    "examples": [
+      {
+        "sentence": "I'm going to visit my parents this weekend.",
+        "explanation": "Planned intention — \"going to\"."
+      },
+      {
+        "sentence": "I think it will rain tomorrow.",
+        "explanation": "Prediction without evidence — \"will\"."
+      },
+      {
+        "sentence": "Look at those clouds — it's going to rain!",
+        "explanation": "Prediction with present evidence — \"going to\"."
+      }
+    ]
+  },
+  {
+    "id": "g9",
+    "title": "Comparatives & Superlatives",
+    "description": "Compare people, places, and things using -er/-est or more/most.",
+    "level": "intermediate",
+    "rules": [
+      "Short adjectives: add -er / -est (tall → taller → tallest).",
+      "Long adjectives: more / most (beautiful → more beautiful → most beautiful).",
+      "Irregular: good → better → best; bad → worse → worst.",
+      "Use \"than\" in comparisons: \"Hanoi is bigger than Hue.\" As...as for equality."
+    ],
+    "examples": [
+      {
+        "sentence": "This book is more interesting than that one.",
+        "explanation": "Long adjective — use \"more...than\"."
+      },
+      {
+        "sentence": "She is the best student in the class.",
+        "explanation": "Superlative with \"the\" + -est."
+      },
+      {
+        "sentence": "English is as important as math.",
+        "explanation": "Equal comparison — \"as...as\"."
+      }
+    ]
+  },
+  {
+    "id": "g10",
+    "title": "Prepositions of Time & Place",
+    "description": "Master in, on, at and other prepositions Vietnamese speakers often confuse.",
+    "level": "beginner",
+    "rules": [
+      "Time — at (at 7 PM, at night), on (on Monday, on July 1), in (in 2024, in summer).",
+      "Place — at (at the station), on (on the table), in (in Hanoi, in the room).",
+      "Movement — to (go to school), from (from Vietnam), into (walk into the shop).",
+      "Fixed phrases: interested in, good at, depend on — memorize as chunks."
+    ],
+    "examples": [
+      {
+        "sentence": "I was born in 1995 in Vietnam.",
+        "explanation": "Year and country — use \"in\"."
+      },
+      {
+        "sentence": "The meeting is on Friday at 2 PM.",
+        "explanation": "Day — \"on\"; clock time — \"at\"."
+      },
+      {
+        "sentence": "She is good at speaking English.",
+        "explanation": "Fixed collocation — \"good at\" + noun/-ing."
+      }
+    ]
+  },
+  {
+    "id": "g11",
+    "title": "Passive Voice",
+    "description": "Focus on the action or result rather than who performs it.",
+    "level": "advanced",
+    "rules": [
+      "Form: be + past participle — \"The letter was written yesterday.\"",
+      "Use when the doer is unknown or unimportant: \"English is spoken worldwide.\"",
+      "By-phrase adds the agent: \"The song was written by Taylor Swift.\"",
+      "Common in formal writing, news, and academic English."
+    ],
+    "examples": [
+      {
+        "sentence": "The homework was checked by the teacher.",
+        "explanation": "Passive with \"by\" showing the agent."
+      },
+      {
+        "sentence": "Rice is grown in many parts of Vietnam.",
+        "explanation": "General truth — passive without agent."
+      },
+      {
+        "sentence": "The project will be completed next month.",
+        "explanation": "Future passive — \"will be\" + past participle."
+      }
+    ]
+  },
+  {
+    "id": "g12",
+    "title": "Reported Speech",
+    "description": "Report what someone said without quoting their exact words.",
+    "level": "advanced",
+    "rules": [
+      "Present → Past: \"I am tired\" → He said (that) he was tired.",
+      "Past Simple → Past Perfect: \"I saw her\" → He said he had seen her.",
+      "Will → Would: \"I will help\" → She said she would help.",
+      "Questions and commands change structure: \"Where do you live?\" → He asked where I lived."
+    ],
+    "examples": [
+      {
+        "sentence": "She told me (that) she was studying English.",
+        "explanation": "Present Continuous → Past Continuous in reported speech."
+      },
+      {
+        "sentence": "He asked if I could speak Vietnamese.",
+        "explanation": "Yes/No question — use \"if/whether\"."
+      },
+      {
+        "sentence": "The teacher told us to open our books.",
+        "explanation": "Command → tell/ask + object + to-infinitive."
+      }
+    ]
   }
 ]

@@ -208,5 +208,495 @@
     "explanation": "Grateful means feeling or showing thanks for something received.",
     "category": "Vocabulary",
     "level": "beginner"
+  },
+  {
+    "id": "q16",
+    "question": "Which preposition is correct: \"The meeting is ___ Monday\"?",
+    "options": [
+      "at",
+      "in",
+      "on",
+      "by"
+    ],
+    "correctIndex": 2,
+    "explanation": "Use \"on\" for days of the week: on Monday, on Friday.",
+    "category": "Grammar",
+    "level": "beginner"
+  },
+  {
+    "id": "q17",
+    "question": "What is the correct response to \"Thank you\"?",
+    "options": [
+      "You're welcome.",
+      "I'm fine.",
+      "Nice to meet you.",
+      "See you later."
+    ],
+    "correctIndex": 0,
+    "explanation": "\"You're welcome\" is the standard polite reply to \"Thank you.\"",
+    "category": "Conversation",
+    "level": "beginner"
+  },
+  {
+    "id": "q18",
+    "question": "Choose the correct article: \"I need ___ umbrella.\"",
+    "options": [
+      "a",
+      "an",
+      "the",
+      "no article"
+    ],
+    "correctIndex": 1,
+    "explanation": "\"Umbrella\" starts with a vowel sound — use \"an\".",
+    "category": "Grammar",
+    "level": "beginner"
+  },
+  {
+    "id": "q19",
+    "question": "What does \"delicious\" mean?",
+    "options": [
+      "Expensive",
+      "Tasty / very good to eat",
+      "Spicy only",
+      "Cold"
+    ],
+    "correctIndex": 1,
+    "explanation": "Delicious means food that tastes very good.",
+    "category": "Vocabulary",
+    "level": "beginner"
+  },
+  {
+    "id": "q20",
+    "question": "Which sentence uses Present Continuous correctly?",
+    "options": [
+      "She is cook dinner.",
+      "She cooking dinner.",
+      "She is cooking dinner.",
+      "She are cooking dinner."
+    ],
+    "correctIndex": 2,
+    "explanation": "Present Continuous: am/is/are + verb-ing → \"She is cooking dinner.\"",
+    "category": "Grammar",
+    "level": "beginner"
+  },
+  {
+    "id": "q21",
+    "question": "At a shop, how do you ask about price?",
+    "options": [
+      "How many is this?",
+      "How much is this?",
+      "What price are you?",
+      "How cost this?"
+    ],
+    "correctIndex": 1,
+    "explanation": "\"How much is this?\" is the natural way to ask about price.",
+    "category": "Conversation",
+    "level": "beginner"
+  },
+  {
+    "id": "q22",
+    "question": "What does \"passport\" mean?",
+    "options": [
+      "Plane ticket",
+      "Official travel document",
+      "Hotel key",
+      "Boarding pass"
+    ],
+    "correctIndex": 1,
+    "explanation": "A passport is an official document needed for international travel.",
+    "category": "Vocabulary",
+    "level": "beginner"
+  },
+  {
+    "id": "q23",
+    "question": "Which modal verb expresses advice?",
+    "options": [
+      "must",
+      "should",
+      "can",
+      "will"
+    ],
+    "correctIndex": 1,
+    "explanation": "\"Should\" is commonly used to give advice: \"You should rest.\"",
+    "category": "Grammar",
+    "level": "intermediate"
+  },
+  {
+    "id": "q24",
+    "question": "Choose the correct comparative: \"This book is ___ than that one.\"",
+    "options": [
+      "more good",
+      "gooder",
+      "better",
+      "best"
+    ],
+    "correctIndex": 2,
+    "explanation": "\"Good\" has an irregular comparative form: good → better → best.",
+    "category": "Grammar",
+    "level": "intermediate"
+  },
+  {
+    "id": "q25",
+    "question": "What does \"deadline\" mean?",
+    "options": [
+      "A type of meeting",
+      "The final date/time something must be finished",
+      "A lunch break",
+      "A job title"
+    ],
+    "correctIndex": 1,
+    "explanation": "A deadline is the latest time by which a task must be completed.",
+    "category": "Vocabulary",
+    "level": "intermediate"
+  },
+  {
+    "id": "q26",
+    "question": "Which sentence is in the passive voice?",
+    "options": [
+      "The chef cooked the meal.",
+      "The meal was cooked by the chef.",
+      "The chef is cooking the meal.",
+      "The chef will cook the meal."
+    ],
+    "correctIndex": 1,
+    "explanation": "Passive voice: be + past participle — \"The meal was cooked.\"",
+    "category": "Grammar",
+    "level": "advanced"
+  },
+  {
+    "id": "q27",
+    "question": "How do you politely ask someone to repeat what they said?",
+    "options": [
+      "What?",
+      "Repeat!",
+      "Could you say that again, please?",
+      "Speak louder now."
+    ],
+    "correctIndex": 2,
+    "explanation": "\"Could you say that again, please?\" is polite and appropriate.",
+    "category": "Conversation",
+    "level": "beginner"
+  },
+  {
+    "id": "q28",
+    "question": "First Conditional structure is:",
+    "options": [
+      "If + past, would + verb",
+      "If + present, will + verb",
+      "If + past perfect, would have + verb",
+      "If + will, present"
+    ],
+    "correctIndex": 1,
+    "explanation": "First Conditional: If + present simple, will + base verb.",
+    "category": "Grammar",
+    "level": "advanced"
+  },
+  {
+    "id": "q29",
+    "question": "What does \"feedback\" mean?",
+    "options": [
+      "A type of food",
+      "Comments about how well you did something",
+      "A computer error",
+      "A travel delay"
+    ],
+    "correctIndex": 1,
+    "explanation": "Feedback is information or comments about your performance or work.",
+    "category": "Vocabulary",
+    "level": "intermediate"
+  },
+  {
+    "id": "q30",
+    "question": "Which time expression goes with Present Perfect?",
+    "options": [
+      "yesterday",
+      "last year",
+      "for three years",
+      "in 2019"
+    ],
+    "correctIndex": 2,
+    "explanation": "\"For three years\" shows duration up to now — used with Present Perfect.",
+    "category": "Grammar",
+    "level": "intermediate"
+  },
+  {
+    "id": "q31",
+    "question": "At the doctor, you say:",
+    "options": [
+      "I have headache.",
+      "I have a headache.",
+      "I am headache.",
+      "Headache I have."
+    ],
+    "correctIndex": 1,
+    "explanation": "Use \"a/an\" with countable symptoms: \"I have a headache.\"",
+    "category": "Conversation",
+    "level": "beginner"
+  },
+  {
+    "id": "q32",
+    "question": "\"I'm going to study tonight\" expresses:",
+    "options": [
+      "A past habit",
+      "A planned intention",
+      "A completed action",
+      "A hypothetical situation"
+    ],
+    "correctIndex": 1,
+    "explanation": "\"Going to\" is used for plans and intentions already decided.",
+    "category": "Grammar",
+    "level": "intermediate"
+  },
+  {
+    "id": "q33",
+    "question": "What does \"symptom\" mean?",
+    "options": [
+      "A type of medicine",
+      "A sign of illness",
+      "A doctor's appointment",
+      "A health insurance card"
+    ],
+    "correctIndex": 1,
+    "explanation": "A symptom is a physical or mental sign that you are ill (e.g. fever, cough).",
+    "category": "Vocabulary",
+    "level": "intermediate"
+  },
+  {
+    "id": "q34",
+    "question": "Reported speech: He said, \"I am tired.\" → He said that he ___ tired.",
+    "options": [
+      "is",
+      "was",
+      "will be",
+      "has been"
+    ],
+    "correctIndex": 1,
+    "explanation": "Present \"am\" backshifts to \"was\" in reported speech.",
+    "category": "Grammar",
+    "level": "advanced"
+  },
+  {
+    "id": "q35",
+    "question": "Which phrase is used to start a presentation?",
+    "options": [
+      "Goodbye everyone.",
+      "Today I'll talk about...",
+      "I don't know.",
+      "Where is the exit?"
+    ],
+    "correctIndex": 1,
+    "explanation": "\"Today I'll talk about...\" clearly introduces your presentation topic.",
+    "category": "Conversation",
+    "level": "advanced"
+  },
+  {
+    "id": "q36",
+    "question": "What is the superlative form of \"interesting\"?",
+    "options": [
+      "interestinger",
+      "most interesting",
+      "interestingest",
+      "more interesting"
+    ],
+    "correctIndex": 1,
+    "explanation": "Long adjectives use \"most\" for superlative: the most interesting.",
+    "category": "Grammar",
+    "level": "intermediate"
+  },
+  {
+    "id": "q37",
+    "question": "What does \"download\" mean?",
+    "options": [
+      "Upload a file to the internet",
+      "Copy data from the internet to your device",
+      "Delete an app",
+      "Print a document"
+    ],
+    "correctIndex": 1,
+    "explanation": "Download means to transfer a file from the internet to your device.",
+    "category": "Vocabulary",
+    "level": "beginner"
+  },
+  {
+    "id": "q38",
+    "question": "Which preposition: \"I live ___ Ho Chi Minh City.\"",
+    "options": [
+      "at",
+      "on",
+      "in",
+      "to"
+    ],
+    "correctIndex": 2,
+    "explanation": "Use \"in\" for cities and countries: in Ho Chi Minh City, in Vietnam.",
+    "category": "Grammar",
+    "level": "beginner"
+  },
+  {
+    "id": "q39",
+    "question": "Second Conditional example:",
+    "options": [
+      "If it rains, I will stay home.",
+      "If I were you, I would apologize.",
+      "If I had known, I would have called.",
+      "If you heat ice, it melts."
+    ],
+    "correctIndex": 1,
+    "explanation": "Second Conditional: If + past, would — hypothetical present/future.",
+    "category": "Grammar",
+    "level": "advanced"
+  },
+  {
+    "id": "q40",
+    "question": "What does \"recommend\" mean?",
+    "options": [
+      "To refuse",
+      "To suggest something good",
+      "To forget",
+      "To complain"
+    ],
+    "correctIndex": 1,
+    "explanation": "Recommend means to suggest that something is good or suitable.",
+    "category": "Vocabulary",
+    "level": "intermediate"
+  },
+  {
+    "id": "q41",
+    "question": "In a meeting, \"Let's wrap up\" means:",
+    "options": [
+      "Start the meeting",
+      "Finish or conclude the meeting",
+      "Cancel the meeting",
+      "Take a long break"
+    ],
+    "correctIndex": 1,
+    "explanation": "\"Wrap up\" is an informal way to say finish or conclude something.",
+    "category": "Conversation",
+    "level": "intermediate"
+  },
+  {
+    "id": "q42",
+    "question": "Which is NOT a stative verb (cannot use in continuous)?",
+    "options": [
+      "know",
+      "run",
+      "cook",
+      "swim"
+    ],
+    "correctIndex": 0,
+    "explanation": "\"Know\" is a stative verb — say \"I know\" not \"I am knowing.\"",
+    "category": "Grammar",
+    "level": "intermediate"
+  },
+  {
+    "id": "q43",
+    "question": "What does \"sustainable\" mean?",
+    "options": [
+      "Very fast",
+      "Able to continue over a long period without harm",
+      "Temporary",
+      "Expensive"
+    ],
+    "correctIndex": 1,
+    "explanation": "Sustainable means able to be maintained long-term without negative effects.",
+    "category": "Vocabulary",
+    "level": "advanced"
+  },
+  {
+    "id": "q44",
+    "question": "Past Simple of \"go\" is:",
+    "options": [
+      "goed",
+      "went",
+      "gone",
+      "going"
+    ],
+    "correctIndex": 1,
+    "explanation": "\"Go\" is irregular: go → went (Past Simple) → gone (Past Participle).",
+    "category": "Grammar",
+    "level": "beginner"
+  },
+  {
+    "id": "q45",
+    "question": "How do you ask to try clothes in a shop?",
+    "options": [
+      "Can I eat this on?",
+      "Can I try this on?",
+      "Can I test this in?",
+      "Can I use this up?"
+    ],
+    "correctIndex": 1,
+    "explanation": "\"Can I try this on?\" is the correct phrase for the fitting room.",
+    "category": "Conversation",
+    "level": "beginner"
+  },
+  {
+    "id": "q46",
+    "question": "What does \"criteria\" mean?",
+    "options": [
+      "A single rule",
+      "Standards used to judge or decide something",
+      "A final result",
+      "A type of exam"
+    ],
+    "correctIndex": 1,
+    "explanation": "Criteria (plural of criterion) are standards for making judgments or decisions.",
+    "category": "Vocabulary",
+    "level": "advanced"
+  },
+  {
+    "id": "q47",
+    "question": "\"Must\" in \"You must wear a helmet\" expresses:",
+    "options": [
+      "A suggestion",
+      "Strong obligation / necessity",
+      "A possibility",
+      "A past habit"
+    ],
+    "correctIndex": 1,
+    "explanation": "\"Must\" expresses strong obligation or necessity.",
+    "category": "Grammar",
+    "level": "intermediate"
+  },
+  {
+    "id": "q48",
+    "question": "Weather small talk: \"Nice weather today, ___?\"",
+    "options": [
+      "is it",
+      "isn't it",
+      "does it",
+      "has it"
+    ],
+    "correctIndex": 1,
+    "explanation": "Question tags: positive statement + negative tag → \"isn't it?\"",
+    "category": "Conversation",
+    "level": "intermediate"
+  },
+  {
+    "id": "q49",
+    "question": "What does \"implement\" mean in business?",
+    "options": [
+      "To cancel a plan",
+      "To put a plan into action",
+      "To discuss ideas",
+      "To hire staff"
+    ],
+    "correctIndex": 1,
+    "explanation": "Implement means to put a decision or plan into practical effect.",
+    "category": "Vocabulary",
+    "level": "advanced"
+  },
+  {
+    "id": "q50",
+    "question": "Which sentence uses \"the\" correctly?",
+    "options": [
+      "I love the music.",
+      "The sun rises in the east.",
+      "She is the teacher. (any teacher)",
+      "I go to the school every day. (general habit)"
+    ],
+    "correctIndex": 1,
+    "explanation": "\"The sun\" is unique — we use \"the\" for things there is only one of.",
+    "category": "Grammar",
+    "level": "intermediate"
   }
 ]
