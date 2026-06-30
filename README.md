@@ -33,7 +33,7 @@ Open [http://localhost:5173](http://localhost:5173)
 ### Backend API
 
 ```bash
-cd api
+cd backend
 cp .env.example .env
 npm install
 npm run db:push
@@ -43,13 +43,13 @@ npm run dev
 
 API runs at [http://localhost:3001](http://localhost:3001)
 
-See [api/README.md](api/README.md) for full API documentation.
+See [backend/README.md](backend/README.md) for full API documentation.
 
 ### Production Database (PostgreSQL)
 
 ```bash
 docker compose up -d
-# Update api/.env with PostgreSQL URL and set prisma provider to postgresql
+# Update backend/.env with PostgreSQL URL and set prisma provider to postgresql
 ```
 
 ### Deploy Frontend (Vercel)
@@ -67,7 +67,7 @@ Set **Build Command**: `npm run build`, **Output Directory**: `dist` (or use rep
 The Fastify API runs separately — not on Vercel static hosting:
 
 ```bash
-cd api && npm ci && npm run db:push && npm run db:seed
+cd backend && npm ci && npm run db:push && npm run db:seed
 npm run build && npm run start
 ```
 
@@ -77,7 +77,7 @@ Point frontend `VITE_API_URL` to your API URL when connecting Sprint 2.
 
 ```
 ├── src/              # React frontend
-├── api/              # Fastify backend
+├── backend/          # Fastify backend
 │   ├── prisma/       # Schema, seed data, migrations
 │   └── src/          # API routes & services
 └── docker-compose.yml

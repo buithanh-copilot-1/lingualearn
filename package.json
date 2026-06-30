@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build && cp dist/index.html dist/404.html",
-    "build:all": "npm run build && cd api && npm ci && npm run build",
-    "start": "npm run build:all && cd api && npm run start",
+    "build:all": "npm run build && cd backend && npm ci && npm run build",
+    "start": "npm run build:all && cd backend && npm run start",
     "lint": "oxlint",
     "preview": "vite preview"
   },

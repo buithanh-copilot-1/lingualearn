@@ -11,11 +11,11 @@ node_modules
 dist
 dist-ssr
 *.local
-api/node_modules
-api/dist
-api/.env
-api/prisma/dev.db
-api/prisma/dev.db-journal
+backend/node_modules
+backend/dist
+backend/.env
+backend/prisma/dev.db
+backend/prisma/dev.db-journal
 .env
 
 # Editor directories and files

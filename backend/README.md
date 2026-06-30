@@ -16,7 +16,7 @@ Backend REST API for the LinguaLearn English learning platform.
 **Development (SQLite — default):**
 
 ```bash
-cd api
+cd backend
 cp .env.example .env
 npm install
 npm run db:push
@@ -29,7 +29,7 @@ npm run db:seed
 # From repo root — requires Docker
 docker compose up -d
 
-# Update api/.env:
+# Update backend/.env:
 # DATABASE_URL="postgresql://lingualearn:lingualearn@localhost:5432/lingualearn?schema=public"
 
 # Change prisma/schema.prisma provider to "postgresql", then:
