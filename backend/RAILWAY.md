@@ -11,7 +11,22 @@ Hướng dẫn deploy **LinguaLearn API** lên [Railway](https://railway.app).
 ## Bước 2 — Thêm PostgreSQL
 
 1. Trong project → **+ New** → **Database** → **PostgreSQL**
-2. Railway tự tạo biến `DATABASE_URL` và link vào service backend
+2. Railway tự tạo biến `DATABASE_URL` trên service Postgres
+
+### ⚠️ Quan trọng — Liên kết DB với Backend
+
+**Postgres và Backend là 2 service riêng.** Backend cần biến `DATABASE_URL`:
+
+1. Mở service **backend** (không phải Postgres)
+2. Tab **Variables** → **+ New Variable** → **Add Variable Reference**
+3. Chọn service **Postgres** → chọn `DATABASE_URL`
+4. **Redeploy** backend
+
+Nếu thiếu bước này, API chạy nhưng **không có table** trong database.
+
+Khi deploy thành công, `start:prod` sẽ tự:
+- `prisma db push` — tạo/cập nhật tables
+- `npm run db:seed` — seed nếu database trống
 
 ## Bước 3 — Cấu hình Environment Variables
 
