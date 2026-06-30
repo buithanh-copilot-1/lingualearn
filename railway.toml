@@ -1,11 +1,11 @@
-# Use this when Railway Root Directory is the repo root (not backend/)
+# Repo root deploy (Root Directory empty)
 [build]
 builder = "nixpacks"
-buildCommand = "cd backend && npm ci && npm run build"
+buildCommand = "cd backend && npm ci && npm run railway:build"
 
 [deploy]
 startCommand = "cd backend && npm run start:prod"
 healthcheckPath = "/health"
-healthcheckTimeout = 300
+healthcheckTimeout = 120
 restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 5
