@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "build": "prisma generate && tsc",
-    "railway:build": "prisma generate && tsc && prisma db push --skip-generate",
+    "railway:build": "prisma generate && tsc",
     "start": "node dist/index.js",
     "start:prod": "node scripts/railway-start.mjs",
     "postinstall": "prisma generate",
