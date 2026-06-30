@@ -25,29 +25,33 @@ export default function Lessons() {
       </div>
 
       <div className="filters">
-        <div className="filter-group">
-          <label>Level:</label>
-          {(['all', 'beginner', 'intermediate', 'advanced'] as Level[]).map((l) => (
-            <button
-              key={l}
-              className={`filter-btn ${level === l ? 'active' : ''}`}
-              onClick={() => setLevel(l)}
-            >
-              {l === 'all' ? 'All' : l.charAt(0).toUpperCase() + l.slice(1)}
-            </button>
-          ))}
+        <div className="filter-scroll">
+          <div className="filter-group">
+            <label>Level:</label>
+            {(['all', 'beginner', 'intermediate', 'advanced'] as Level[]).map((l) => (
+              <button
+                key={l}
+                className={`filter-btn ${level === l ? 'active' : ''}`}
+                onClick={() => setLevel(l)}
+              >
+                {l === 'all' ? 'All' : l.charAt(0).toUpperCase() + l.slice(1)}
+              </button>
+            ))}
+          </div>
         </div>
-        <div className="filter-group">
-          <label>Category:</label>
-          {(['all', 'conversation', 'grammar', 'vocabulary', 'listening'] as Category[]).map((c) => (
-            <button
-              key={c}
-              className={`filter-btn ${category === c ? 'active' : ''}`}
-              onClick={() => setCategory(c)}
-            >
-              {c === 'all' ? 'All' : c.charAt(0).toUpperCase() + c.slice(1)}
-            </button>
-          ))}
+        <div className="filter-scroll">
+          <div className="filter-group">
+            <label>Category:</label>
+            {(['all', 'conversation', 'grammar', 'vocabulary', 'listening'] as Category[]).map((c) => (
+              <button
+                key={c}
+                className={`filter-btn ${category === c ? 'active' : ''}`}
+                onClick={() => setCategory(c)}
+              >
+                {c === 'all' ? 'All' : c.charAt(0).toUpperCase() + c.slice(1)}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 

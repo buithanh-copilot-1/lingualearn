@@ -39,7 +39,7 @@ export default function LessonCard({ lesson, completed, onComplete }: Props) {
         ))}
       </ul>
       {!completed && onComplete && (
-        <button className="btn btn-primary" onClick={onComplete}>
+        <button className="btn btn-primary btn-block" onClick={onComplete}>
           Mark as Complete
         </button>
       )}

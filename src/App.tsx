@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import MobileBottomNav from './components/MobileBottomNav';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Lessons from './pages/Lessons';
@@ -25,6 +26,7 @@ export default function App() {
           </Routes>
         </main>
         <Footer />
+        <MobileBottomNav />
       </div>
     </BrowserRouter>
   );

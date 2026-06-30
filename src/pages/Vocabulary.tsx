@@ -32,16 +32,18 @@ export default function Vocabulary() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <div className="filter-group">
-          {(['all', 'beginner', 'intermediate', 'advanced'] as Level[]).map((l) => (
-            <button
-              key={l}
-              className={`filter-btn ${level === l ? 'active' : ''}`}
-              onClick={() => setLevel(l)}
-            >
-              {l === 'all' ? 'All' : l.charAt(0).toUpperCase() + l.slice(1)}
-            </button>
-          ))}
+        <div className="filter-scroll">
+          <div className="filter-group">
+            {(['all', 'beginner', 'intermediate', 'advanced'] as Level[]).map((l) => (
+              <button
+                key={l}
+                className={`filter-btn ${level === l ? 'active' : ''}`}
+                onClick={() => setLevel(l)}
+              >
+                {l === 'all' ? 'All' : l.charAt(0).toUpperCase() + l.slice(1)}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
