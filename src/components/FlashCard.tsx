@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import type { VocabWord } from '../types';
+import { useLanguage } from '../context/LanguageContext';
+import { speakWord } from '../utils/speech';
 
 interface Props {
   word: VocabWord;
@@ -9,6 +11,7 @@ interface Props {
 
 export default function FlashCard({ word, learned, onLearn }: Props) {
   const [flipped, setFlipped] = useState(false);
+  const { tr } = useLanguage();
 
   return (
     <div
@@ -20,7 +23,13 @@ export default function FlashCard({ word, learned, onLearn }: Props) {
           <span className={`badge badge-${word.level}`}>{word.level}</span>
           <h3 className="flashcard-word">{word.word}</h3>
           <p className="flashcard-phonetic">{word.phonetic}</p>
-          <p className="flashcard-hint">Click to flip</p>
+          <button
+            className="btn btn-sm btn-outline pronounce-btn"
+            onClick={(e) => { e.stopPropagation(); speakWord(word.word); }}
+          >
+            🔊 {tr.vocabulary.pronounce}
+          </button>
+          <p className="flashcard-hint">{tr.vocabulary.flipHint}</p>
         </div>
         <div className="flashcard-back">
           <p className="flashcard-meaning">{word.meaning}</p>
@@ -34,10 +43,10 @@ export default function FlashCard({ word, learned, onLearn }: Props) {
                 onLearn();
               }}
             >
-              Mark as Learned
+              {tr.vocabulary.markLearned}
             </button>
           )}
-          {learned && <span className="badge badge-done">✓ Learned</span>}
+          {learned && <span className="badge badge-done">✓ {tr.vocabulary.learned}</span>}
         </div>
       </div>
     </div>

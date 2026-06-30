@@ -40,6 +40,7 @@ export const lessons: Lesson[] = [
     level: 'beginner',
     category: 'grammar',
     duration: 25,
+    grammarTopicId: 'g1',
     content: [
       'Use Present Simple for habits, routines, and general truths.',
       'Structure: Subject + base verb (add -s/-es for he/she/it).',
@@ -72,6 +73,7 @@ export const lessons: Lesson[] = [
     level: 'intermediate',
     category: 'grammar',
     duration: 30,
+    grammarTopicId: 'g3',
     content: [
       'Use Past Simple for actions completed at a specific time in the past.',
       'Regular verbs: add -ed (walk → walked, play → played).',
@@ -97,4 +99,84 @@ export const lessons: Lesson[] = [
       'Proofread before sending. Check spelling, tone, and attachments.',
     ],
   },
+  {
+    id: 'l7',
+    title: 'Airport & Flight Announcements',
+    description: 'Understand common airport and flight announcements in English.',
+    level: 'intermediate',
+    category: 'listening',
+    duration: 25,
+    content: [
+      '"Now boarding flight..." — Passengers with this flight should go to the gate.',
+      '"Final call for passengers..." — Last chance to board the plane.',
+      '"Please proceed to gate number..." — Go to the specified gate.',
+      '"We are now preparing for departure." — The plane is about to leave.',
+      '"Please fasten your seatbelt." — Safety instruction before takeoff.',
+      '"Ladies and gentlemen, welcome aboard." — Standard greeting from cabin crew.',
+    ],
+  },
+  {
+    id: 'l8',
+    title: 'Daily Life Vocabulary',
+    description: 'Essential words for describing your daily routine and activities.',
+    level: 'beginner',
+    category: 'vocabulary',
+    duration: 20,
+    content: [
+      'Wake up — Get out of bed in the morning.',
+      'Get dressed — Put on clothes.',
+      'Commute — Travel to work or school.',
+      'Have lunch — Eat the midday meal.',
+      'Hang out — Spend time relaxing with friends.',
+      'Go to bed — Prepare to sleep at night.',
+    ],
+  },
+  {
+    id: 'l9',
+    title: 'Hotel Check-in',
+    description: 'Phrases for checking into a hotel and requesting services.',
+    level: 'beginner',
+    category: 'listening',
+    duration: 20,
+    content: [
+      '"I have a reservation under the name..." — Tell the receptionist your booking.',
+      '"Could I have a room with a view?" — Request a specific room type.',
+      '"What time is checkout?" — Ask about leaving time.',
+      '"Is breakfast included?" — Check if meals are part of your stay.',
+      '"Could you call a taxi for me?" — Request transport help.',
+      '"The Wi-Fi password, please." — Ask for internet access.',
+    ],
+  },
+  {
+    id: 'l10',
+    title: 'Job Interview Skills',
+    description: 'Key phrases and strategies for English job interviews.',
+    level: 'advanced',
+    category: 'conversation',
+    duration: 40,
+    content: [
+      '"Tell me about yourself." — Give a brief professional summary (1-2 minutes).',
+      '"What are your strengths?" — Highlight relevant skills with examples.',
+      '"Why do you want this job?" — Connect your goals with the company.',
+      '"Do you have any questions?" — Always prepare 2-3 thoughtful questions.',
+      '"I\'m very interested in this opportunity." — Show enthusiasm.',
+      'Follow up with a thank-you email within 24 hours.',
+    ],
+  },
 ];
+
+export function getLessonById(id: string) {
+  return lessons.find((l) => l.id === id);
+}
+
+export function getNextLessonId(currentId: string): string | null {
+  const idx = lessons.findIndex((l) => l.id === currentId);
+  if (idx === -1 || idx >= lessons.length - 1) return null;
+  return lessons[idx + 1].id;
+}
+
+export function getPrevLessonId(currentId: string): string | null {
+  const idx = lessons.findIndex((l) => l.id === currentId);
+  if (idx <= 0) return null;
+  return lessons[idx - 1].id;
+}

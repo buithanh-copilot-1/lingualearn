@@ -1,17 +1,19 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 
 const navItems = [
-  { path: '/', label: 'Home', icon: '🏠' },
-  { path: '/lessons', label: 'Lessons', icon: '📚' },
-  { path: '/vocabulary', label: 'Vocabulary', icon: '📝' },
-  { path: '/grammar', label: 'Grammar', icon: '✏️' },
-  { path: '/quiz', label: 'Quiz', icon: '🎯' },
-  { path: '/progress', label: 'Progress', icon: '📊' },
+  { path: '/', labelKey: 'home' as const, icon: '🏠' },
+  { path: '/lessons', labelKey: 'lessons' as const, icon: '📚' },
+  { path: '/vocabulary', labelKey: 'vocabulary' as const, icon: '📝' },
+  { path: '/grammar', labelKey: 'grammar' as const, icon: '✏️' },
+  { path: '/quiz', labelKey: 'quiz' as const, icon: '🎯' },
+  { path: '/progress', labelKey: 'progress' as const, icon: '📊' },
 ];
 
 export default function Navbar() {
   const location = useLocation();
+  const { tr } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -36,12 +38,17 @@ export default function Navbar() {
             <li key={item.path}>
               <Link
                 to={item.path}
-                className={location.pathname === item.path ? 'active' : ''}
+                className={location.pathname === item.path || (item.path !== '/' && location.pathname.startsWith(item.path)) ? 'active' : ''}
               >
-                {item.label}
+                {tr.nav[item.labelKey]}
               </Link>
             </li>
           ))}
+          <li>
+            <Link to="/settings" className={location.pathname === '/settings' ? 'active' : ''}>
+              {tr.nav.settings}
+            </Link>
+          </li>
         </ul>
 
         <button
@@ -64,7 +71,7 @@ export default function Navbar() {
 
       <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
         <ul className="mobile-nav-links">
-          {navItems.map((item) => (
+          {[...navItems, { path: '/settings', labelKey: 'settings' as const, icon: '⚙️' }].map((item) => (
             <li key={item.path}>
               <Link
                 to={item.path}
@@ -72,7 +79,7 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(false)}
               >
                 <span className="mobile-nav-icon">{item.icon}</span>
-                {item.label}
+                {tr.nav[item.labelKey]}
               </Link>
             </li>
           ))}

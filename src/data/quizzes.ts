@@ -107,8 +107,61 @@ export const quizzes: QuizQuestion[] = [
     question: 'Choose the correct article: "___ honest person"',
     options: ['a', 'an', 'the', 'no article'],
     correctIndex: 1,
-    explanation: 'Use "an" before words starting with a vowel sound. "Honest" starts with a silent "h" (vowel sound).',
+    explanation: 'Use "an" before words starting with a vowel sound. "Honest" starts with a silent "h".',
     category: 'Grammar',
     level: 'intermediate',
   },
+  {
+    id: 'q11',
+    question: 'How do you respond to "How are you?"',
+    options: ['I am John.', 'I\'m fine, thank you.', 'I\'m from Vietnam.', 'Nice to meet you.'],
+    correctIndex: 1,
+    explanation: 'The standard polite response is "I\'m fine, thank you. And you?"',
+    category: 'Conversation',
+    level: 'beginner',
+  },
+  {
+    id: 'q12',
+    question: 'What does "opportunity" mean?',
+    options: ['A problem', 'A chance to do something', 'A mistake', 'A difficulty'],
+    correctIndex: 1,
+    explanation: 'An opportunity is a favorable chance or situation to achieve something.',
+    category: 'Vocabulary',
+    level: 'beginner',
+  },
+  {
+    id: 'q13',
+    question: 'Which is correct for he/she/it in Present Continuous?',
+    options: ['He go', 'He is go', 'He is going', 'He going'],
+    correctIndex: 2,
+    explanation: 'Present Continuous: am/is/are + verb-ing. "He is going."',
+    category: 'Grammar',
+    level: 'beginner',
+  },
+  {
+    id: 'q14',
+    question: 'At the airport, "boarding" means:',
+    options: ['Buying a ticket', 'Getting on the plane', 'Checking luggage', 'Going through security'],
+    correctIndex: 1,
+    explanation: 'Boarding is the process of passengers getting on the aircraft.',
+    category: 'Conversation',
+    level: 'intermediate',
+  },
+  {
+    id: 'q15',
+    question: 'What does "grateful" mean?',
+    options: ['Angry', 'Thankful', 'Tired', 'Confused'],
+    correctIndex: 1,
+    explanation: 'Grateful means feeling or showing thanks for something received.',
+    category: 'Vocabulary',
+    level: 'beginner',
+  },
 ];
+
+export function filterQuizzes(category: string, level: string): QuizQuestion[] {
+  return quizzes.filter((q) => {
+    if (category !== 'all' && q.category.toLowerCase() !== category) return false;
+    if (level !== 'all' && q.level !== level) return false;
+    return true;
+  });
+}

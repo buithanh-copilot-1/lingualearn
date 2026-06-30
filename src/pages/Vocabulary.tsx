@@ -1,46 +1,72 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { vocabulary } from '../data/vocabulary';
 import { useProgress } from '../hooks/useProgress';
+import { useLanguage } from '../context/LanguageContext';
 import FlashCard from '../components/FlashCard';
+import type { Level } from '../types';
 
-type Level = 'all' | 'beginner' | 'intermediate' | 'advanced';
+type LevelFilter = 'all' | Level;
 
 export default function Vocabulary() {
   const { progress, learnWord } = useProgress();
-  const [level, setLevel] = useState<Level>('all');
+  const { tr } = useLanguage();
+  const [level, setLevel] = useState<LevelFilter>('all');
+  const [category, setCategory] = useState('all');
   const [search, setSearch] = useState('');
+
+  const categories = useMemo(() => ['all', ...new Set(vocabulary.map((w) => w.category))], []);
 
   const filtered = vocabulary.filter((w) => {
     if (level !== 'all' && w.level !== level) return false;
+    if (category !== 'all' && w.category !== category) return false;
     if (search && !w.word.toLowerCase().includes(search.toLowerCase()) &&
         !w.meaning.toLowerCase().includes(search.toLowerCase())) return false;
     return true;
   });
 
+  const unlearnedCount = vocabulary.filter((w) => !progress.learnedWords.includes(w.id)).length;
+
   return (
     <div className="page">
       <div className="page-header">
-        <h1>Vocabulary</h1>
-        <p>Flip flashcards to learn new words. Meanings shown in Vietnamese.</p>
+        <h1>{tr.vocabulary.title}</h1>
+        <p>{tr.vocabulary.subtitle}</p>
       </div>
+
+      {unlearnedCount > 0 && (
+        <Link to="/vocabulary/study" className="study-banner">
+          <div>
+            <strong>{tr.vocabulary.studyMode}</strong>
+            <span>{tr.vocabulary.studySubtitle} ({unlearnedCount})</span>
+          </div>
+          <span className="study-banner-arrow">→</span>
+        </Link>
+      )}
 
       <div className="filters">
         <input
           type="text"
           className="search-input"
-          placeholder="Search words..."
+          placeholder={tr.vocabulary.search}
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
         <div className="filter-scroll">
           <div className="filter-group">
-            {(['all', 'beginner', 'intermediate', 'advanced'] as Level[]).map((l) => (
-              <button
-                key={l}
-                className={`filter-btn ${level === l ? 'active' : ''}`}
-                onClick={() => setLevel(l)}
-              >
-                {l === 'all' ? 'All' : l.charAt(0).toUpperCase() + l.slice(1)}
+            {(['all', 'beginner', 'intermediate', 'advanced'] as LevelFilter[]).map((l) => (
+              <button key={l} className={`filter-btn ${level === l ? 'active' : ''}`} onClick={() => setLevel(l)}>
+                {l === 'all' ? tr.lessons.all : tr.levels[l]}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="filter-scroll">
+          <div className="filter-group">
+            <label>{tr.vocabulary.category}:</label>
+            {categories.map((c) => (
+              <button key={c} className={`filter-btn ${category === c ? 'active' : ''}`} onClick={() => setCategory(c)}>
+                {c === 'all' ? tr.lessons.all : c}
               </button>
             ))}
           </div>
@@ -58,9 +84,7 @@ export default function Vocabulary() {
         ))}
       </div>
 
-      {filtered.length === 0 && (
-        <p className="empty-state">No words match your search.</p>
-      )}
+      {filtered.length === 0 && <p className="empty-state">{tr.vocabulary.noMatch}</p>}
     </div>
   );
 }

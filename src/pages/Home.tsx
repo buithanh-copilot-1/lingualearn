@@ -1,32 +1,33 @@
 import { Link } from 'react-router-dom';
 import { lessons } from '../data/lessons';
 import { vocabulary } from '../data/vocabulary';
-import { quizzes } from '../data/quizzes';
 import { useProgress } from '../hooks/useProgress';
+import { useLanguage } from '../context/LanguageContext';
+import { getAchievements, getUnlockedCount } from '../utils/achievements';
 import ProgressBar from '../components/ProgressBar';
+import DailyGoalCard from '../components/DailyGoalCard';
 
 export default function Home() {
   const { progress } = useProgress();
+  const { tr } = useLanguage();
+  const achievements = getAchievements(progress);
 
   const stats = [
-    { label: 'Lessons', value: progress.completedLessons.length, total: lessons.length, icon: '📚' },
-    { label: 'Words', value: progress.learnedWords.length, total: vocabulary.length, icon: '📝' },
-    { label: 'Quizzes', value: progress.quizScores.length, total: quizzes.length, icon: '🎯' },
-    { label: 'Streak', value: progress.streak, total: null, icon: '🔥' },
+    { label: tr.home.lessons, value: progress.completedLessons.length, total: lessons.length, icon: '📚' },
+    { label: tr.home.words, value: progress.learnedWords.length, total: vocabulary.length, icon: '📝' },
+    { label: tr.home.quizzes, value: progress.quizScores.length, total: null, icon: '🎯' },
+    { label: tr.home.streak, value: progress.streak, total: null, icon: '🔥' },
   ];
 
   return (
     <div className="page home-page">
       <section className="hero">
         <div className="hero-content">
-          <h1>Master English with <span className="highlight">LinguaLearn</span></h1>
-          <p className="hero-subtitle">
-            Interactive lessons, vocabulary flashcards, grammar guides, and quizzes —
-            designed for Vietnamese learners.
-          </p>
+          <h1>{tr.home.title} <span className="highlight">LinguaLearn</span></h1>
+          <p className="hero-subtitle">{tr.home.subtitle}</p>
           <div className="hero-actions">
-            <Link to="/lessons" className="btn btn-primary btn-lg">Start Learning</Link>
-            <Link to="/quiz" className="btn btn-outline btn-lg">Take a Quiz</Link>
+            <Link to="/lessons" className="btn btn-primary btn-lg">{tr.home.startLearning}</Link>
+            <Link to="/quiz" className="btn btn-outline btn-lg">{tr.home.takeQuiz}</Link>
           </div>
         </div>
         <div className="hero-stats">
@@ -43,48 +44,60 @@ export default function Home() {
       </section>
 
       <section className="section">
-        <h2>Your Progress</h2>
+        <h2>{tr.home.dailyGoal}</h2>
+        <DailyGoalCard />
+      </section>
+
+      <section className="section">
+        <h2>{tr.home.yourProgress}</h2>
         <div className="progress-grid">
-          <ProgressBar
-            label="Lessons Completed"
-            value={progress.completedLessons.length}
-            max={lessons.length}
-          />
-          <ProgressBar
-            label="Vocabulary Learned"
-            value={progress.learnedWords.length}
-            max={vocabulary.length}
-          />
-          <ProgressBar
-            label="Quizzes Taken"
-            value={progress.quizScores.length}
-            max={quizzes.length}
-          />
+          <ProgressBar label={tr.home.lessonsCompleted} value={progress.completedLessons.length} max={lessons.length} />
+          <ProgressBar label={tr.home.vocabularyLearned} value={progress.learnedWords.length} max={vocabulary.length} />
+          <ProgressBar label={tr.home.quizzesTaken} value={progress.quizScores.length} max={Math.max(progress.quizScores.length, 1)} />
         </div>
       </section>
 
       <section className="section">
-        <h2>What You'll Learn</h2>
+        <div className="section-header-row">
+          <h2>{tr.home.achievements}</h2>
+          <span className="section-badge">{getUnlockedCount(progress)}/{achievements.length}</span>
+        </div>
+        <div className="achievement-preview">
+          {achievements.filter((a) => a.unlocked).slice(0, 4).map((a) => (
+            <div key={a.id} className="achievement-chip unlocked">
+              <span>{a.icon}</span>
+              <span>{tr.achievements[a.titleKey as keyof typeof tr.achievements]}</span>
+            </div>
+          ))}
+          {getUnlockedCount(progress) === 0 && (
+            <p className="muted-text">{tr.progress.locked} — {tr.home.startLearning}!</p>
+          )}
+        </div>
+        <Link to="/progress" className="link-more">→ {tr.nav.progress}</Link>
+      </section>
+
+      <section className="section">
+        <h2>{tr.home.whatYouLearn}</h2>
         <div className="feature-grid">
           <Link to="/lessons" className="feature-card">
             <span className="feature-icon">💬</span>
-            <h3>Conversation</h3>
-            <p>Real-world phrases for travel, dining, business, and daily life.</p>
+            <h3>{tr.home.conversation}</h3>
+            <p>{tr.home.conversationDesc}</p>
           </Link>
           <Link to="/vocabulary" className="feature-card">
             <span className="feature-icon">📖</span>
-            <h3>Vocabulary</h3>
-            <p>Flashcards with pronunciation, meanings in Vietnamese, and examples.</p>
+            <h3>{tr.nav.vocabulary}</h3>
+            <p>{tr.home.vocabularyDesc}</p>
           </Link>
           <Link to="/grammar" className="feature-card">
             <span className="feature-icon">📝</span>
-            <h3>Grammar</h3>
-            <p>Clear rules and examples from Present Simple to Conditionals.</p>
+            <h3>{tr.nav.grammar}</h3>
+            <p>{tr.home.grammarDesc}</p>
           </Link>
           <Link to="/quiz" className="feature-card">
             <span className="feature-icon">🎯</span>
-            <h3>Quizzes</h3>
-            <p>Test your knowledge with instant feedback and explanations.</p>
+            <h3>{tr.nav.quiz}</h3>
+            <p>{tr.home.quizDesc}</p>
           </Link>
         </div>
       </section>

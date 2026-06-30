@@ -1,86 +1,167 @@
-import { useState } from 'react';
-import { quizzes } from '../data/quizzes';
+import { useState, useEffect, useCallback } from 'react';
+import { filterQuizzes } from '../data/quizzes';
 import { useProgress } from '../hooks/useProgress';
-import type { QuizQuestion } from '../types';
+import { useLanguage } from '../context/LanguageContext';
+import type { QuizLevel, QuizMode } from '../types';
+
+type Phase = 'select' | 'playing' | 'finished';
 
 export default function Quiz() {
   const { saveQuizScore } = useProgress();
+  const { tr } = useLanguage();
+
+  const [phase, setPhase] = useState<Phase>('select');
+  const [mode, setMode] = useState<QuizMode>('all');
+  const [level, setLevel] = useState<QuizLevel>('all');
+  const [questions, setQuestions] = useState(filterQuizzes('all', 'all'));
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
-  const [score, setScore] = useState(0);
-  const [finished, setFinished] = useState(false);
   const [answers, setAnswers] = useState<boolean[]>([]);
 
-  const question: QuizQuestion = quizzes[current];
+  const question = questions[current];
+  const score = answers.filter(Boolean).length;
 
-  function handleSelect(index: number) {
-    if (selected !== null) return;
+  const startQuiz = useCallback(() => {
+    const filtered = filterQuizzes(mode === 'all' ? 'all' : mode, level);
+    if (filtered.length === 0) return;
+    setQuestions(filtered);
+    setCurrent(0);
+    setSelected(null);
+    setAnswers([]);
+    setPhase('playing');
+  }, [mode, level]);
+
+  const handleSelect = useCallback((index: number) => {
+    if (selected !== null || !question) return;
     setSelected(index);
     const correct = index === question.correctIndex;
-    if (correct) setScore((s) => s + 1);
     setAnswers((a) => [...a, correct]);
-  }
+  }, [selected, question]);
 
-  function handleNext() {
-    if (current + 1 >= quizzes.length) {
-      const finalScore = score;
-      setFinished(true);
-      saveQuizScore('full-quiz', finalScore, quizzes.length);
+  const handleNext = useCallback(() => {
+    if (current + 1 >= questions.length) {
+      const finalScore = answers.filter(Boolean).length;
+      const quizId = `quiz-${mode}-${level}`;
+      saveQuizScore(quizId, finalScore, questions.length);
+      setPhase('finished');
       return;
     }
     setCurrent((c) => c + 1);
     setSelected(null);
-  }
+  }, [current, questions.length, answers, mode, level, saveQuizScore]);
 
-  function handleRestart() {
-    setCurrent(0);
-    setSelected(null);
-    setScore(0);
-    setFinished(false);
-    setAnswers([]);
-  }
+  useEffect(() => {
+    if (phase !== 'playing') return;
 
-  if (finished) {
-    const pct = Math.round((score / quizzes.length) * 100);
+    function onKey(e: KeyboardEvent) {
+      const key = e.key.toLowerCase();
+      if (selected === null) {
+        const map: Record<string, number> = { '1': 0, '2': 1, '3': 2, '4': 3, a: 0, b: 1, c: 2, d: 3 };
+        if (key in map) handleSelect(map[key]);
+      } else if (key === 'enter') {
+        handleNext();
+      }
+    }
+
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [phase, selected, handleSelect, handleNext]);
+
+  if (phase === 'select') {
+    const preview = filterQuizzes(mode === 'all' ? 'all' : mode, level);
     return (
       <div className="page">
-        <div className="quiz-result">
-          <h1>Quiz Complete!</h1>
-          <div className="result-score">
-            <span className="result-number">{score}/{quizzes.length}</span>
-            <span className="result-pct">{pct}%</span>
+        <div className="page-header">
+          <h1>{tr.quiz.title}</h1>
+          <p>{tr.quiz.subtitle}</p>
+        </div>
+
+        <div className="quiz-select-card">
+          <h3>{tr.quiz.selectMode}</h3>
+
+          <div className="quiz-mode-grid">
+            {(['all', 'grammar', 'conversation', 'vocabulary'] as QuizMode[]).map((m) => (
+              <button
+                key={m}
+                className={`quiz-mode-btn ${mode === m ? 'active' : ''}`}
+                onClick={() => setMode(m)}
+              >
+                {m === 'all' ? tr.quiz.allQuestions : tr.categories[m as keyof typeof tr.categories] ?? m}
+              </button>
+            ))}
           </div>
-          <p className="result-message">
-            {pct >= 80 ? '🎉 Excellent work!' : pct >= 60 ? '👍 Good job! Keep practicing.' : '💪 Keep studying — you\'ll improve!'}
-          </p>
-          <button className="btn btn-primary btn-lg" onClick={handleRestart}>
-            Try Again
-          </button>
+
+          <div className="filter-scroll">
+            <div className="filter-group">
+              {(['all', 'beginner', 'intermediate', 'advanced'] as QuizLevel[]).map((l) => (
+                <button
+                  key={l}
+                  className={`filter-btn ${level === l ? 'active' : ''}`}
+                  onClick={() => setLevel(l)}
+                >
+                  {l === 'all' ? tr.lessons.all : tr.levels[l]}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <p className="quiz-preview-count">{preview.length} {tr.quiz.question.toLowerCase()}s</p>
+
+          {preview.length === 0 ? (
+            <p className="empty-state">{tr.quiz.noQuestions}</p>
+          ) : (
+            <button className="btn btn-primary btn-lg btn-block" onClick={startQuiz}>
+              {tr.quiz.title}
+            </button>
+          )}
         </div>
       </div>
     );
   }
 
+  if (phase === 'finished') {
+    const pct = Math.round((score / questions.length) * 100);
+    return (
+      <div className="page">
+        <div className="quiz-result">
+          <h1>{tr.quiz.complete}</h1>
+          <div className="result-score">
+            <span className="result-number">{score}/{questions.length}</span>
+            <span className="result-pct">{pct}%</span>
+          </div>
+          <p className="result-message">
+            {pct >= 80 ? `🎉 ${tr.quiz.excellent}` : pct >= 60 ? `👍 ${tr.quiz.good}` : `💪 ${tr.quiz.keepGoing}`}
+          </p>
+          <div className="quiz-result-actions">
+            <button className="btn btn-primary btn-block" onClick={startQuiz}>{tr.quiz.tryAgain}</button>
+            <button className="btn btn-outline btn-block" onClick={() => setPhase('select')}>{tr.quiz.changeMode}</button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (!question) return null;
+
   return (
     <div className="page">
       <div className="page-header">
-        <h1>Quiz</h1>
-        <p>Question {current + 1} of {quizzes.length}</p>
+        <h1>{tr.quiz.title}</h1>
+        <p>{tr.quiz.question} {current + 1} {tr.quiz.of} {questions.length}</p>
       </div>
 
       <div className="quiz-progress">
         <div className="quiz-progress-bar">
-          <div
-            className="quiz-progress-fill"
-            style={{ width: `${((current) / quizzes.length) * 100}%` }}
-          />
+          <div className="quiz-progress-fill" style={{ width: `${(current / questions.length) * 100}%` }} />
         </div>
-        <span>Score: {score}</span>
+        <span>{tr.quiz.score}: {score}</span>
       </div>
+
+      <p className="keyboard-hint">{tr.quiz.keyboardHint}</p>
 
       <div className="quiz-card">
         <div className="quiz-meta">
-          <span className={`badge badge-${question.level}`}>{question.level}</span>
+          <span className={`badge badge-${question.level}`}>{tr.levels[question.level]}</span>
           <span className="quiz-category">{question.category}</span>
         </div>
         <h2 className="quiz-question">{question.question}</h2>
@@ -91,16 +172,9 @@ export default function Quiz() {
             if (selected !== null) {
               if (i === question.correctIndex) cls += ' correct';
               else if (i === selected) cls += ' wrong';
-            } else if (selected === i) {
-              cls += ' selected';
             }
             return (
-              <button
-                key={i}
-                className={cls}
-                onClick={() => handleSelect(i)}
-                disabled={selected !== null}
-              >
+              <button key={i} className={cls} onClick={() => handleSelect(i)} disabled={selected !== null}>
                 <span className="option-letter">{String.fromCharCode(65 + i)}</span>
                 {option}
               </button>
@@ -110,10 +184,10 @@ export default function Quiz() {
 
         {selected !== null && (
           <div className="quiz-feedback">
-            <p>{answers[answers.length - 1] ? '✅ Correct!' : '❌ Incorrect.'}</p>
+            <p>{answers[answers.length - 1] ? `✅ ${tr.quiz.correct}` : `❌ ${tr.quiz.incorrect}`}</p>
             <p className="quiz-explanation">{question.explanation}</p>
-            <button className="btn btn-primary" onClick={handleNext}>
-              {current + 1 >= quizzes.length ? 'See Results' : 'Next Question'}
+            <button className="btn btn-primary btn-block" onClick={handleNext}>
+              {current + 1 >= questions.length ? tr.quiz.seeResults : tr.quiz.next}
             </button>
           </div>
         )}
