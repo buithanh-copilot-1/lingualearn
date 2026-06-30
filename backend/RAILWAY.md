@@ -49,6 +49,29 @@ Railway tự build và deploy khi push lên `main`.
 
 Sau deploy, copy **Public URL** (ví dụ `https://lingualearn-api-production.up.railway.app`).
 
+## Cập nhật Production DB từ máy local
+
+1. Copy `backend/.env.production.example` → `backend/.env.production`
+2. Dán **DATABASE_PUBLIC_URL** từ Railway (tab Variables của Postgres — dùng URL **public**, không dùng `*.railway.internal`)
+3. Chạy:
+
+```bash
+cd backend
+npm run db:prod:update        # đồng bộ schema + seed nội dung
+npm run db:prod:push          # chỉ schema (prisma db push)
+npm run db:prod:seed          # chỉ seed (lessons, vocab, grammar, quiz)
+npm run db:prod:update -- --yes   # bỏ qua xác nhận
+```
+
+Windows PowerShell:
+
+```powershell
+cd backend
+.\scripts\update-prod-db.ps1 -Yes
+```
+
+> **Lưu ý:** Không commit file `.env.production`. Script sẽ hỏi xác nhận trước khi ghi lên DB production.
+
 ## Bước 5 — Seed dữ liệu (chạy 1 lần)
 
 Cài [Railway CLI](https://docs.railway.app/develop/cli):

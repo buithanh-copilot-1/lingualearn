@@ -13,7 +13,10 @@
     "db:migrate": "prisma migrate dev",
     "db:push": "prisma db push",
     "db:seed": "tsx prisma/seed.ts",
-    "db:studio": "prisma studio"
+    "db:studio": "prisma studio",
+    "db:prod:update": "tsx scripts/update-prod-db.ts",
+    "db:prod:push": "tsx scripts/update-prod-db.ts --push-only",
+    "db:prod:seed": "tsx scripts/update-prod-db.ts --seed-only"
   },
   "dependencies": {
     "@fastify/cors": "^11.0.1",
