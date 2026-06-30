@@ -26,9 +26,13 @@ jobs:
           cache: npm
 
       - run: npm ci
+
+      # Root domain / custom domain: base path is /
+      # For project pages only (username.github.io/repo-name/), set repo variable:
+      #   VITE_BASE_PATH=/lingualearn/
       - run: npm run build
         env:
-          VITE_BASE_PATH: /lingualearn/
+          VITE_BASE_PATH: ${{ vars.VITE_BASE_PATH || '/' }}
 
       - uses: actions/upload-pages-artifact@v3
         with:
