@@ -1341,3 +1341,188 @@ body {
   border-color: var(--primary);
   background: #eef2ff;
 }
+
+/* ===== Practice hub ===== */
+.practice-card { position: relative; }
+.practice-badge {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  background: var(--primary);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+}
+
+/* ===== Notice banner ===== */
+.notice {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius);
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+.notice-warning { background: #fffbeb; border: 1px solid #fde68a; color: #92400e; }
+.notice strong { font-weight: 700; }
+
+/* ===== Spaced Review ===== */
+.review-grades {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+  max-width: 480px;
+  margin: 1.5rem auto 0;
+}
+.review-grade { color: white; padding: 0.7rem 0.5rem; }
+.grade-again { background: var(--danger); }
+.grade-again:hover { background: #dc2626; }
+.grade-hard { background: var(--warning); }
+.grade-hard:hover { background: #d97706; }
+.grade-good { background: var(--success); }
+.grade-good:hover { background: #059669; }
+.grade-easy { background: var(--accent); }
+.grade-easy:hover { background: #0891b2; }
+
+.review-stats {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.25rem 0;
+}
+.review-stat { font-size: 0.85rem; color: var(--text-muted); }
+.review-stat strong { display: block; font-size: 1.5rem; color: var(--text); }
+
+/* ===== Speaking & Pronunciation ===== */
+.speaking-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.75rem;
+  max-width: 640px;
+  margin: 1.5rem auto 0;
+}
+.speaking-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+.speaking-category { font-size: 0.8rem; color: var(--text-muted); font-weight: 600; }
+.speaking-target { font-size: 1.5rem; font-weight: 600; line-height: 1.4; margin-bottom: 0.5rem; }
+.speaking-translation { color: var(--text-muted); margin-bottom: 1.25rem; }
+.word-ok { color: var(--success); }
+.word-miss { color: var(--danger); text-decoration: underline wavy; }
+
+.speaking-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.btn.recording { animation: pulse 1.2s infinite; }
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(79, 70, 229, 0); }
+}
+
+.speaking-result {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.accuracy-ring {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 6px solid var(--border);
+}
+.accuracy-ring.good { border-color: var(--success); }
+.accuracy-ring.low { border-color: var(--warning); }
+.accuracy-value { font-size: 1.75rem; font-weight: 800; }
+.accuracy-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; }
+.speaking-feedback { font-weight: 600; margin: 0.85rem 0 0.5rem; }
+.speaking-heard { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem; }
+
+.speaking-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ===== Dictionary ===== */
+.dict-search { display: flex; gap: 0.75rem; margin-bottom: 1.5rem; }
+.dict-search .search-input { flex: 1; }
+.dict-result {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.75rem;
+}
+.dict-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.dict-word { font-size: 2rem; font-weight: 800; }
+.dict-phonetic { color: var(--primary); font-size: 1.1rem; }
+.dict-meaning { margin-bottom: 1.25rem; }
+.dict-pos {
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  text-transform: lowercase;
+}
+.dict-definitions { padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.dict-definitions li::marker { color: var(--primary); font-weight: 700; }
+.dict-example { color: var(--text-muted); font-style: italic; margin-top: 0.25rem; }
+.dict-synonyms { font-size: 0.85rem; color: var(--accent); margin-top: 0.25rem; }
+.dict-credit { font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem; text-align: right; }
+
+/* ===== Idioms & Phrasal Verbs ===== */
+.idiom-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+.idiom-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+}
+.idiom-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.idiom-phrase { font-size: 1.15rem; font-weight: 700; color: var(--primary); }
+.idiom-tags { display: flex; align-items: center; gap: 0.4rem; flex-shrink: 0; }
+.badge-type { background: #ede9fe; color: #6d28d9; }
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 0.1rem;
+  line-height: 1;
+}
+.idiom-meaning { margin-bottom: 0.4rem; }
+.idiom-gloss { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.6rem; }
+.idiom-example { font-style: italic; color: var(--text); font-size: 0.9rem; }
+
+@media (max-width: 640px) {
+  .review-grades { gap: 0.4rem; }
+  .review-grade { padding: 0.7rem 0.25rem; font-size: 0.8rem; }
+  .speaking-target { font-size: 1.25rem; }
+  .speaking-actions .btn { flex: 1; min-height: 44px; }
+  .dict-search .btn { min-height: 44px; }
+  .idiom-list { grid-template-columns: 1fr; }
+}

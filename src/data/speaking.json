@@ -1,0 +1,100 @@
+[
+  {
+    "id": "sp1",
+    "text": "Good morning! How are you today?",
+    "translation": "Chào buổi sáng! Hôm nay bạn thế nào?",
+    "category": "Greetings",
+    "level": "beginner"
+  },
+  {
+    "id": "sp2",
+    "text": "Nice to meet you. My name is Anna.",
+    "translation": "Rất vui được gặp bạn. Tôi tên là Anna.",
+    "category": "Greetings",
+    "level": "beginner"
+  },
+  {
+    "id": "sp3",
+    "text": "Could you help me, please?",
+    "translation": "Bạn có thể giúp tôi được không?",
+    "category": "Daily life",
+    "level": "beginner"
+  },
+  {
+    "id": "sp4",
+    "text": "I would like a cup of coffee.",
+    "translation": "Tôi muốn một tách cà phê.",
+    "category": "Dining",
+    "level": "beginner"
+  },
+  {
+    "id": "sp5",
+    "text": "How much does this cost?",
+    "translation": "Cái này giá bao nhiêu?",
+    "category": "Shopping",
+    "level": "beginner"
+  },
+  {
+    "id": "sp6",
+    "text": "Excuse me, where is the train station?",
+    "translation": "Xin lỗi, nhà ga ở đâu vậy?",
+    "category": "Travel",
+    "level": "beginner"
+  },
+  {
+    "id": "sp7",
+    "text": "I am learning English to improve my career.",
+    "translation": "Tôi đang học tiếng Anh để phát triển sự nghiệp.",
+    "category": "Daily life",
+    "level": "intermediate"
+  },
+  {
+    "id": "sp8",
+    "text": "Could you please speak more slowly?",
+    "translation": "Bạn có thể nói chậm hơn được không?",
+    "category": "Daily life",
+    "level": "intermediate"
+  },
+  {
+    "id": "sp9",
+    "text": "I think we should look at this from a different angle.",
+    "translation": "Tôi nghĩ chúng ta nên nhìn nhận điều này từ góc độ khác.",
+    "category": "Business",
+    "level": "advanced"
+  },
+  {
+    "id": "sp10",
+    "text": "Thank you for your time. I really appreciate it.",
+    "translation": "Cảm ơn bạn đã dành thời gian. Tôi thực sự trân trọng điều đó.",
+    "category": "Business",
+    "level": "intermediate"
+  },
+  {
+    "id": "sp11",
+    "text": "What do you usually do on weekends?",
+    "translation": "Bạn thường làm gì vào cuối tuần?",
+    "category": "Conversation",
+    "level": "beginner"
+  },
+  {
+    "id": "sp12",
+    "text": "The weather is wonderful today, isn't it?",
+    "translation": "Hôm nay thời tiết tuyệt vời nhỉ?",
+    "category": "Conversation",
+    "level": "intermediate"
+  },
+  {
+    "id": "sp13",
+    "text": "I am looking forward to hearing from you.",
+    "translation": "Tôi mong sớm nhận được phản hồi từ bạn.",
+    "category": "Business",
+    "level": "advanced"
+  },
+  {
+    "id": "sp14",
+    "text": "Practice makes perfect, so keep going.",
+    "translation": "Có công mài sắt có ngày nên kim, vậy nên hãy tiếp tục.",
+    "category": "Motivation",
+    "level": "intermediate"
+  }
+]

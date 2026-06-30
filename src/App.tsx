@@ -12,6 +12,11 @@ import Vocabulary from './pages/Vocabulary';
 import VocabularyStudy from './pages/VocabularyStudy';
 import Grammar from './pages/Grammar';
 import Quiz from './pages/Quiz';
+import Practice from './pages/Practice';
+import Review from './pages/Review';
+import Speaking from './pages/Speaking';
+import Dictionary from './pages/Dictionary';
+import Idioms from './pages/Idioms';
 import ProgressPage from './pages/Progress';
 import Settings from './pages/Settings';
 import Auth from './pages/Auth';
@@ -35,6 +40,11 @@ export default function App() {
                   <Route path="/vocabulary/study" element={<VocabularyStudy />} />
                   <Route path="/grammar" element={<Grammar />} />
                   <Route path="/quiz" element={<Quiz />} />
+                  <Route path="/practice" element={<Practice />} />
+                  <Route path="/review" element={<Review />} />
+                  <Route path="/speaking" element={<Speaking />} />
+                  <Route path="/dictionary" element={<Dictionary />} />
+                  <Route path="/idioms" element={<Idioms />} />
                   <Route path="/progress" element={<ProgressPage />} />
                   <Route path="/settings" element={<Settings />} />
                   <Route path="/auth" element={<Auth />} />

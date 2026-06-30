@@ -1,7 +1,7 @@
 import type { Locale } from '../types';
 
 const en = {
-  nav: { home: 'Home', lessons: 'Lessons', vocabulary: 'Vocabulary', grammar: 'Grammar', quiz: 'Quiz', progress: 'Progress', settings: 'Settings', login: 'Sign In', logout: 'Sign Out' },
+  nav: { home: 'Home', lessons: 'Lessons', vocabulary: 'Vocabulary', grammar: 'Grammar', quiz: 'Quiz', practice: 'Practice', progress: 'Progress', settings: 'Settings', login: 'Sign In', logout: 'Sign Out' },
   bottom: { home: 'Home', lessons: 'Lessons', words: 'Words', quiz: 'Quiz', stats: 'Stats' },
   home: {
     title: 'Master English with',
@@ -14,6 +14,7 @@ const en = {
     achievements: 'Achievements',
     lessons: 'Lessons', words: 'Words', quizzes: 'Quizzes', streak: 'Streak',
     lessonsCompleted: 'Lessons Completed', vocabularyLearned: 'Vocabulary Learned', quizzesTaken: 'Quizzes Taken',
+    moreWays: 'More Ways to Learn',
     conversation: 'Conversation', vocabularyDesc: 'Flashcards with pronunciation, meanings in Vietnamese, and examples.',
     grammarDesc: 'Clear rules and examples from Present Simple to Conditionals.',
     quizDesc: 'Test your knowledge with instant feedback and explanations.',
@@ -96,10 +97,51 @@ const en = {
     grammarMaster: 'Grammar Guru', grammarMasterDesc: 'Review all grammar topics',
     allLessons: 'Course Complete', allLessonsDesc: 'Complete all lessons',
   },
+  practice: {
+    title: 'Practice', subtitle: 'Sharpen your English with spaced repetition, speaking practice, a live dictionary, and idioms.',
+    review: 'Spaced Review', reviewDesc: 'Review vocabulary at the optimal time using the SM-2 algorithm.',
+    speaking: 'Speaking & Pronunciation', speakingDesc: 'Record yourself and get instant pronunciation feedback.',
+    dictionary: 'Dictionary', dictionaryDesc: 'Look up any English word — meanings, phonetics, and audio.',
+    idioms: 'Idioms & Phrasal Verbs', idiomsDesc: 'Common idioms and phrasal verbs with Vietnamese meanings.',
+    dueNow: 'due now', newWords: 'new',
+  },
+  review: {
+    title: 'Spaced Review', subtitle: 'Review the right words at the right time.',
+    empty: 'Nothing to review right now!', emptyHint: 'Come back later or learn new words in Vocabulary.',
+    startReview: 'Start Review', showAnswer: 'Show Answer',
+    again: 'Again', hard: 'Hard', good: 'Good', easy: 'Easy',
+    sessionDone: 'Review session complete!', reviewedCount: 'Cards reviewed',
+    due: 'Due', learning: 'Learning', mature: 'Mature', remaining: 'Remaining',
+    exit: 'Back to Practice', backToReview: 'Review again',
+  },
+  speaking: {
+    title: 'Speaking & Pronunciation', subtitle: 'Listen, repeat, and get instant feedback on your pronunciation.',
+    listen: 'Listen', record: 'Tap to speak', recording: 'Listening…', stop: 'Stop',
+    yourSpeech: 'What we heard', accuracy: 'Accuracy', tryAgain: 'Try again', next: 'Next sentence',
+    notSupported: 'Speech recognition is not supported in this browser.',
+    notSupportedHint: 'Try Google Chrome or Microsoft Edge on desktop or Android.',
+    micHint: 'Allow microphone access when prompted.',
+    perfect: 'Perfect pronunciation! 🎉', great: 'Great job! Keep it up.', keepPracticing: 'Keep practicing — you\'ll get there!',
+    level: 'Level', category: 'Topic',
+  },
+  dictionary: {
+    title: 'Dictionary', subtitle: 'Look up any English word with meanings, phonetics, and audio.',
+    search: 'Type a word…', searchBtn: 'Search', listen: 'Listen',
+    notFound: 'No definition found. Check the spelling and try again.',
+    error: 'Could not reach the dictionary. Check your connection.',
+    examples: 'Example', synonyms: 'Synonyms', prompt: 'Search for a word to see its definition.',
+    poweredBy: 'Powered by Free Dictionary API',
+  },
+  idioms: {
+    title: 'Idioms & Phrasal Verbs', subtitle: 'Common expressions every English learner should know.',
+    search: 'Search idioms...', noMatch: 'No expressions match your search.',
+    all: 'All', idiom: 'Idioms', phrasal: 'Phrasal Verbs',
+    meaning: 'Meaning', example: 'Example', listen: 'Listen',
+  },
 } as const;
 
 const vi = {
-  nav: { home: 'Trang chủ', lessons: 'Bài học', vocabulary: 'Từ vựng', grammar: 'Ngữ pháp', quiz: 'Kiểm tra', progress: 'Tiến độ', settings: 'Cài đặt', login: 'Đăng nhập', logout: 'Đăng xuất' },
+  nav: { home: 'Trang chủ', lessons: 'Bài học', vocabulary: 'Từ vựng', grammar: 'Ngữ pháp', quiz: 'Kiểm tra', practice: 'Luyện tập', progress: 'Tiến độ', settings: 'Cài đặt', login: 'Đăng nhập', logout: 'Đăng xuất' },
   bottom: { home: 'Trang chủ', lessons: 'Bài học', words: 'Từ vựng', quiz: 'Kiểm tra', stats: 'Tiến độ' },
   home: {
     title: 'Học tiếng Anh với',
@@ -112,6 +154,7 @@ const vi = {
     achievements: 'Thành tích',
     lessons: 'Bài học', words: 'Từ vựng', quizzes: 'Kiểm tra', streak: 'Chuỗi ngày',
     lessonsCompleted: 'Bài học hoàn thành', vocabularyLearned: 'Từ vựng đã học', quizzesTaken: 'Bài kiểm tra đã làm',
+    moreWays: 'Cách học khác',
     conversation: 'Giao tiếp', vocabularyDesc: 'Flashcard với phiên âm, nghĩa tiếng Việt và ví dụ.',
     grammarDesc: 'Quy tắc và ví dụ rõ ràng từ Present Simple đến Conditionals.',
     quizDesc: 'Kiểm tra kiến thức với phản hồi và giải thích ngay lập tức.',
@@ -193,6 +236,47 @@ const vi = {
     streak7: 'Không thể cản', streak7Desc: 'Duy trì chuỗi 7 ngày',
     grammarMaster: 'Bậc thầy ngữ pháp', grammarMasterDesc: 'Xem hết tất cả chủ đề ngữ pháp',
     allLessons: 'Hoàn thành khóa học', allLessonsDesc: 'Hoàn thành tất cả bài học',
+  },
+  practice: {
+    title: 'Luyện tập', subtitle: 'Rèn tiếng Anh với ôn tập ngắt quãng, luyện nói, tra từ điển và thành ngữ.',
+    review: 'Ôn tập ngắt quãng', reviewDesc: 'Ôn từ vựng đúng thời điểm tối ưu theo thuật toán SM-2.',
+    speaking: 'Luyện nói & phát âm', speakingDesc: 'Ghi âm giọng của bạn và nhận phản hồi phát âm ngay lập tức.',
+    dictionary: 'Từ điển', dictionaryDesc: 'Tra bất kỳ từ tiếng Anh nào — nghĩa, phiên âm và âm thanh.',
+    idioms: 'Thành ngữ & Cụm động từ', idiomsDesc: 'Thành ngữ và cụm động từ thông dụng kèm nghĩa tiếng Việt.',
+    dueNow: 'cần ôn', newWords: 'từ mới',
+  },
+  review: {
+    title: 'Ôn tập ngắt quãng', subtitle: 'Ôn đúng từ vào đúng thời điểm.',
+    empty: 'Hiện chưa có từ nào cần ôn!', emptyHint: 'Quay lại sau hoặc học từ mới ở mục Từ vựng.',
+    startReview: 'Bắt đầu ôn', showAnswer: 'Hiện đáp án',
+    again: 'Lại', hard: 'Khó', good: 'Tốt', easy: 'Dễ',
+    sessionDone: 'Đã hoàn thành phiên ôn tập!', reviewedCount: 'Số thẻ đã ôn',
+    due: 'Cần ôn', learning: 'Đang học', mature: 'Đã thuộc', remaining: 'Còn lại',
+    exit: 'Về Luyện tập', backToReview: 'Ôn tiếp',
+  },
+  speaking: {
+    title: 'Luyện nói & phát âm', subtitle: 'Nghe, lặp lại và nhận phản hồi phát âm tức thì.',
+    listen: 'Nghe', record: 'Chạm để nói', recording: 'Đang nghe…', stop: 'Dừng',
+    yourSpeech: 'Chúng tôi nghe được', accuracy: 'Độ chính xác', tryAgain: 'Thử lại', next: 'Câu tiếp theo',
+    notSupported: 'Trình duyệt này không hỗ trợ nhận diện giọng nói.',
+    notSupportedHint: 'Hãy dùng Google Chrome hoặc Microsoft Edge trên máy tính hoặc Android.',
+    micHint: 'Cho phép truy cập micro khi được hỏi.',
+    perfect: 'Phát âm hoàn hảo! 🎉', great: 'Làm tốt lắm! Tiếp tục nhé.', keepPracticing: 'Cứ luyện tập — bạn sẽ làm được!',
+    level: 'Trình độ', category: 'Chủ đề',
+  },
+  dictionary: {
+    title: 'Từ điển', subtitle: 'Tra bất kỳ từ tiếng Anh nào kèm nghĩa, phiên âm và âm thanh.',
+    search: 'Nhập một từ…', searchBtn: 'Tra', listen: 'Nghe',
+    notFound: 'Không tìm thấy định nghĩa. Hãy kiểm tra chính tả và thử lại.',
+    error: 'Không kết nối được từ điển. Hãy kiểm tra kết nối mạng.',
+    examples: 'Ví dụ', synonyms: 'Từ đồng nghĩa', prompt: 'Tìm một từ để xem định nghĩa.',
+    poweredBy: 'Cung cấp bởi Free Dictionary API',
+  },
+  idioms: {
+    title: 'Thành ngữ & Cụm động từ', subtitle: 'Những cách diễn đạt thông dụng mà người học tiếng Anh nên biết.',
+    search: 'Tìm thành ngữ...', noMatch: 'Không tìm thấy cách diễn đạt phù hợp.',
+    all: 'Tất cả', idiom: 'Thành ngữ', phrasal: 'Cụm động từ',
+    meaning: 'Nghĩa', example: 'Ví dụ', listen: 'Nghe',
   },
 };
 

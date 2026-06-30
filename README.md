@@ -8,6 +8,10 @@ Interactive English learning platform designed for Vietnamese learners.
 - **Vocabulary** — Flashcards with TTS, study mode, Vietnamese meanings
 - **Grammar** — Grammar guides with progress tracking
 - **Quiz** — Category/level quizzes with server-side answer validation
+- **Spaced Review (SRS)** — Vocabulary review scheduled with the SuperMemo SM-2 algorithm (stored locally)
+- **Speaking & Pronunciation** — Record yourself with the Web Speech API and get instant word-by-word accuracy feedback
+- **Dictionary** — Live word lookup (meanings, phonetics, audio) via the free [dictionaryapi.dev](https://dictionaryapi.dev)
+- **Idioms & Phrasal Verbs** — Curated common expressions with Vietnamese meanings and examples
 - **Progress** — Streaks, daily goals, achievements
 - **i18n** — Vietnamese / English UI
 

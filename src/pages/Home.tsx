@@ -106,6 +106,32 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
+      <section className="section">
+        <h2>{tr.home.moreWays}</h2>
+        <div className="feature-grid">
+          <Link to="/review" className="feature-card">
+            <span className="feature-icon">🔁</span>
+            <h3>{tr.practice.review}</h3>
+            <p>{tr.practice.reviewDesc}</p>
+          </Link>
+          <Link to="/speaking" className="feature-card">
+            <span className="feature-icon">🎤</span>
+            <h3>{tr.practice.speaking}</h3>
+            <p>{tr.practice.speakingDesc}</p>
+          </Link>
+          <Link to="/dictionary" className="feature-card">
+            <span className="feature-icon">📖</span>
+            <h3>{tr.practice.dictionary}</h3>
+            <p>{tr.practice.dictionaryDesc}</p>
+          </Link>
+          <Link to="/idioms" className="feature-card">
+            <span className="feature-icon">💡</span>
+            <h3>{tr.practice.idioms}</h3>
+            <p>{tr.practice.idiomsDesc}</p>
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }

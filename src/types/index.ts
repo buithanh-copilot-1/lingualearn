@@ -42,6 +42,37 @@ export interface GrammarTopic {
   level: Level;
 }
 
+export type IdiomType = 'idiom' | 'phrasal';
+
+export interface Idiom {
+  id: string;
+  phrase: string;
+  type: IdiomType;
+  meaning: string;      // Vietnamese meaning
+  meaningEn: string;    // English gloss / definition
+  example: string;
+  level: Level;
+}
+
+export interface PracticeSentence {
+  id: string;
+  text: string;
+  translation: string;  // Vietnamese
+  category: string;
+  level: Level;
+}
+
+export type SrsGrade = 'again' | 'hard' | 'good' | 'easy';
+
+export interface SrsCard {
+  wordId: string;
+  repetitions: number;  // consecutive successful reviews
+  interval: number;     // days until next review
+  easeFactor: number;   // SM-2 ease factor (>= 1.3)
+  due: string;          // ISO date (YYYY-MM-DD) the card is next due
+  lastReviewed: string; // ISO date of last review
+}
+
 export interface QuizScore {
   quizId: string;
   score: number;

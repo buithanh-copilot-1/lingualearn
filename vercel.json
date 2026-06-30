@@ -3,6 +3,14 @@
   "outputDirectory": "dist",
   "installCommand": "npm ci",
   "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://lingualearn-production-43da.up.railway.app/api/:path*"
+    },
+    {
+      "source": "/health",
+      "destination": "https://lingualearn-production-43da.up.railway.app/health"
+    },
     { "source": "/((?!assets/).*)", "destination": "/index.html" }
   ]
 }

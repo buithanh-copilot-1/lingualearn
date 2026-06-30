@@ -1,0 +1,218 @@
+[
+  {
+    "id": "id1",
+    "phrase": "break the ice",
+    "type": "idiom",
+    "meaning": "phá vỡ sự ngại ngùng, bắt đầu trò chuyện",
+    "meaningEn": "to do or say something to relieve tension or get a conversation going",
+    "example": "He told a joke to break the ice at the meeting.",
+    "level": "intermediate"
+  },
+  {
+    "id": "id2",
+    "phrase": "a piece of cake",
+    "type": "idiom",
+    "meaning": "rất dễ dàng",
+    "meaningEn": "something very easy to do",
+    "example": "The exam was a piece of cake.",
+    "level": "beginner"
+  },
+  {
+    "id": "id3",
+    "phrase": "hit the books",
+    "type": "idiom",
+    "meaning": "học hành chăm chỉ",
+    "meaningEn": "to study hard",
+    "example": "I have to hit the books this weekend before the test.",
+    "level": "intermediate"
+  },
+  {
+    "id": "id4",
+    "phrase": "under the weather",
+    "type": "idiom",
+    "meaning": "cảm thấy không khỏe, ốm",
+    "meaningEn": "feeling slightly ill",
+    "example": "She's feeling a bit under the weather today.",
+    "level": "intermediate"
+  },
+  {
+    "id": "id5",
+    "phrase": "once in a blue moon",
+    "type": "idiom",
+    "meaning": "hiếm khi, thỉnh thoảng lắm mới",
+    "meaningEn": "very rarely",
+    "example": "We only go to the cinema once in a blue moon.",
+    "level": "intermediate"
+  },
+  {
+    "id": "id6",
+    "phrase": "the ball is in your court",
+    "type": "idiom",
+    "meaning": "đến lượt bạn quyết định/hành động",
+    "meaningEn": "it is up to you to make the next decision or step",
+    "example": "I've made my offer, so the ball is in your court now.",
+    "level": "advanced"
+  },
+  {
+    "id": "id7",
+    "phrase": "cost an arm and a leg",
+    "type": "idiom",
+    "meaning": "rất đắt đỏ",
+    "meaningEn": "to be very expensive",
+    "example": "That new phone costs an arm and a leg.",
+    "level": "intermediate"
+  },
+  {
+    "id": "id8",
+    "phrase": "bite off more than you can chew",
+    "type": "idiom",
+    "meaning": "ôm đồm quá sức mình",
+    "meaningEn": "to take on more than you can handle",
+    "example": "By taking three jobs, he bit off more than he could chew.",
+    "level": "advanced"
+  },
+  {
+    "id": "id9",
+    "phrase": "get out of hand",
+    "type": "idiom",
+    "meaning": "vượt khỏi tầm kiểm soát",
+    "meaningEn": "to become difficult to control",
+    "example": "The party got out of hand after midnight.",
+    "level": "intermediate"
+  },
+  {
+    "id": "id10",
+    "phrase": "call it a day",
+    "type": "idiom",
+    "meaning": "dừng công việc lại (cho hôm nay)",
+    "meaningEn": "to stop working on something for the day",
+    "example": "We've done enough — let's call it a day.",
+    "level": "intermediate"
+  },
+  {
+    "id": "id11",
+    "phrase": "on the same page",
+    "type": "idiom",
+    "meaning": "cùng quan điểm, hiểu giống nhau",
+    "meaningEn": "to share the same understanding or opinion",
+    "example": "Let's make sure we're all on the same page before we start.",
+    "level": "intermediate"
+  },
+  {
+    "id": "id12",
+    "phrase": "speak of the devil",
+    "type": "idiom",
+    "meaning": "vừa nhắc đã thấy mặt",
+    "meaningEn": "said when a person you were just talking about appears",
+    "example": "Speak of the devil — here comes John now!",
+    "level": "advanced"
+  },
+  {
+    "id": "id13",
+    "phrase": "give up",
+    "type": "phrasal",
+    "meaning": "từ bỏ, bỏ cuộc",
+    "meaningEn": "to stop trying to do something",
+    "example": "Don't give up — you're almost there!",
+    "level": "beginner"
+  },
+  {
+    "id": "id14",
+    "phrase": "look forward to",
+    "type": "phrasal",
+    "meaning": "mong đợi, trông chờ",
+    "meaningEn": "to feel excited about something that will happen",
+    "example": "I look forward to meeting you next week.",
+    "level": "beginner"
+  },
+  {
+    "id": "id15",
+    "phrase": "find out",
+    "type": "phrasal",
+    "meaning": "tìm ra, phát hiện",
+    "meaningEn": "to discover information",
+    "example": "I need to find out what time the train leaves.",
+    "level": "beginner"
+  },
+  {
+    "id": "id16",
+    "phrase": "carry on",
+    "type": "phrasal",
+    "meaning": "tiếp tục",
+    "meaningEn": "to continue doing something",
+    "example": "Please carry on with your work.",
+    "level": "beginner"
+  },
+  {
+    "id": "id17",
+    "phrase": "put off",
+    "type": "phrasal",
+    "meaning": "trì hoãn, hoãn lại",
+    "meaningEn": "to postpone or delay something",
+    "example": "We had to put off the meeting until Friday.",
+    "level": "intermediate"
+  },
+  {
+    "id": "id18",
+    "phrase": "run out of",
+    "type": "phrasal",
+    "meaning": "hết, cạn (cái gì đó)",
+    "meaningEn": "to have no more of something left",
+    "example": "We've run out of milk.",
+    "level": "beginner"
+  },
+  {
+    "id": "id19",
+    "phrase": "get along with",
+    "type": "phrasal",
+    "meaning": "hòa hợp, hợp tính với ai",
+    "meaningEn": "to have a good relationship with someone",
+    "example": "She gets along with all her colleagues.",
+    "level": "intermediate"
+  },
+  {
+    "id": "id20",
+    "phrase": "look after",
+    "type": "phrasal",
+    "meaning": "chăm sóc, trông nom",
+    "meaningEn": "to take care of someone or something",
+    "example": "Can you look after my dog this weekend?",
+    "level": "beginner"
+  },
+  {
+    "id": "id21",
+    "phrase": "come up with",
+    "type": "phrasal",
+    "meaning": "nghĩ ra, đưa ra (ý tưởng)",
+    "meaningEn": "to think of an idea or plan",
+    "example": "She came up with a brilliant solution.",
+    "level": "intermediate"
+  },
+  {
+    "id": "id22",
+    "phrase": "turn down",
+    "type": "phrasal",
+    "meaning": "từ chối; vặn nhỏ (âm lượng)",
+    "meaningEn": "to reject an offer; or to reduce volume",
+    "example": "He turned down the job offer.",
+    "level": "intermediate"
+  },
+  {
+    "id": "id23",
+    "phrase": "set up",
+    "type": "phrasal",
+    "meaning": "thiết lập, tạo dựng",
+    "meaningEn": "to arrange or establish something",
+    "example": "They set up a new company last year.",
+    "level": "intermediate"
+  },
+  {
+    "id": "id24",
+    "phrase": "bring up",
+    "type": "phrasal",
+    "meaning": "nêu ra (chủ đề); nuôi dạy",
+    "meaningEn": "to mention a topic; or to raise a child",
+    "example": "She brought up an interesting point in the discussion.",
+    "level": "intermediate"
+  }
+]
