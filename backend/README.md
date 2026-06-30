@@ -13,32 +13,21 @@ Backend REST API for the LinguaLearn English learning platform.
 
 ### 1. Database
 
-**Development (SQLite — default):**
+**Development (PostgreSQL via Docker):**
 
 ```bash
+# From repo root
+docker compose up -d
+
 cd backend
 cp .env.example .env
 npm install
 npm run db:push
 npm run db:seed
-```
-
-**Production (PostgreSQL via Docker):**
-
-```bash
-# From repo root — requires Docker
-docker compose up -d
-
-# Update backend/.env:
-# DATABASE_URL="postgresql://lingualearn:lingualearn@localhost:5432/lingualearn?schema=public"
-
-# Change prisma/schema.prisma provider to "postgresql", then:
-npm run db:push && npm run db:seed
-```
-
-```bash
 npm run dev
 ```
+
+**Production (Railway):** see [RAILWAY.md](./RAILWAY.md)
 
 API runs at **http://localhost:3001**
 

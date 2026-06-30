@@ -62,16 +62,24 @@ npm run build   # local test
 
 Set **Build Command**: `npm run build`, **Output Directory**: `dist` (or use repo `vercel.json`).
 
-### Deploy API (Railway / Render / VPS)
+### Deploy API (Railway — recommended)
 
-The Fastify API runs separately — not on Vercel static hosting:
+See **[backend/RAILWAY.md](backend/RAILWAY.md)** for step-by-step guide.
+
+Quick summary:
+1. Railway → New Project → GitHub repo → **Root Directory: `backend`**
+2. Add **PostgreSQL** database
+3. Set env: `JWT_SECRET`, `JWT_REFRESH_SECRET`, `CORS_ORIGIN`, `NODE_ENV=production`
+4. Deploy → run `railway run npm run db:seed` once
+5. Copy Railway public URL for frontend API connection
+
+### Deploy API (VPS / Docker)
 
 ```bash
+docker compose up -d
 cd backend && npm ci && npm run db:push && npm run db:seed
-npm run build && npm run start
+npm run build && npm run start:prod
 ```
-
-Point frontend `VITE_API_URL` to your API URL when connecting Sprint 2.
 
 ## Project Structure
 

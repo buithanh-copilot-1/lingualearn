@@ -23,7 +23,7 @@ const authPlugin = fp(async (app) => {
 const app = Fastify({ logger: true });
 
 await app.register(cors, {
-  origin: config.corsOrigin,
+  origin: config.corsOrigins,
   credentials: true,
 });
 
