@@ -1,24 +1,4 @@
 import type { VocabWord } from '../types';
+import vocabularyData from './vocabulary.json';
 
-export const vocabulary: VocabWord[] = [
-  { id: 'v1', word: 'achieve', phonetic: '/əˈtʃiːv/', meaning: 'đạt được, hoàn thành', example: 'She achieved her goal of learning English.', category: 'General', level: 'intermediate' },
-  { id: 'v2', word: 'benefit', phonetic: '/ˈbenɪfɪt/', meaning: 'lợi ích', example: 'Exercise has many health benefits.', category: 'General', level: 'beginner' },
-  { id: 'v3', word: 'challenge', phonetic: '/ˈtʃælɪndʒ/', meaning: 'thử thách', example: 'Learning a new language is a challenge.', category: 'General', level: 'beginner' },
-  { id: 'v4', word: 'determine', phonetic: '/dɪˈtɜːrmɪn/', meaning: 'xác định, quyết định', example: 'Hard work determines success.', category: 'General', level: 'intermediate' },
-  { id: 'v5', word: 'efficient', phonetic: '/ɪˈfɪʃnt/', meaning: 'hiệu quả', example: 'This method is more efficient.', category: 'Business', level: 'intermediate' },
-  { id: 'v6', word: 'fascinating', phonetic: '/ˈfæsɪneɪtɪŋ/', meaning: 'hấp dẫn, lôi cuốn', example: 'The documentary was fascinating.', category: 'General', level: 'intermediate' },
-  { id: 'v7', word: 'grateful', phonetic: '/ˈɡreɪtfəl/', meaning: 'biết ơn', example: 'I am grateful for your help.', category: 'General', level: 'beginner' },
-  { id: 'v8', word: 'hesitate', phonetic: '/ˈhezɪteɪt/', meaning: 'do dự, ngần ngại', example: 'Don\'t hesitate to ask questions.', category: 'General', level: 'intermediate' },
-  { id: 'v9', word: 'innovative', phonetic: '/ˈɪnəveɪtɪv/', meaning: 'sáng tạo, đổi mới', example: 'The company is known for innovative products.', category: 'Business', level: 'advanced' },
-  { id: 'v10', word: 'journey', phonetic: '/ˈdʒɜːrni/', meaning: 'hành trình', example: 'Life is a journey, not a destination.', category: 'Travel', level: 'beginner' },
-  { id: 'v11', word: 'knowledge', phonetic: '/ˈnɒlɪdʒ/', meaning: 'kiến thức', example: 'Knowledge is power.', category: 'Education', level: 'beginner' },
-  { id: 'v12', word: 'leverage', phonetic: '/ˈlevərɪdʒ/', meaning: 'tận dụng, đòn bẩy', example: 'We can leverage technology to improve learning.', category: 'Business', level: 'advanced' },
-  { id: 'v13', word: 'motivate', phonetic: '/ˈmoʊtɪveɪt/', meaning: 'thúc đẩy, tạo động lực', example: 'Good teachers motivate their students.', category: 'Education', level: 'intermediate' },
-  { id: 'v14', word: 'negotiate', phonetic: '/nɪˈɡoʊʃieɪt/', meaning: 'đàm phán', example: 'They negotiated a better deal.', category: 'Business', level: 'advanced' },
-  { id: 'v15', word: 'opportunity', phonetic: '/ˌɒpərˈtuːnəti/', meaning: 'cơ hội', example: 'This is a great opportunity to learn.', category: 'General', level: 'beginner' },
-  { id: 'v16', word: 'perseverance', phonetic: '/ˌpɜːrsəˈvɪərəns/', meaning: 'kiên trì', example: 'Success requires perseverance.', category: 'General', level: 'advanced' },
-  { id: 'v17', word: 'reliable', phonetic: '/rɪˈlaɪəbl/', meaning: 'đáng tin cậy', example: 'He is a reliable colleague.', category: 'Business', level: 'intermediate' },
-  { id: 'v18', word: 'significant', phonetic: '/sɪɡˈnɪfɪkənt/', meaning: 'đáng kể, quan trọng', example: 'There was a significant improvement.', category: 'General', level: 'intermediate' },
-  { id: 'v19', word: 'thorough', phonetic: '/ˈθʌrə/', meaning: 'kỹ lưỡng, toàn diện', example: 'She did a thorough review of the report.', category: 'Business', level: 'advanced' },
-  { id: 'v20', word: 'versatile', phonetic: '/ˈvɜːrsətl/', meaning: 'linh hoạt, đa năng', example: 'English is a versatile language.', category: 'General', level: 'advanced' },
-];
+export const vocabulary = vocabularyData as VocabWord[];
