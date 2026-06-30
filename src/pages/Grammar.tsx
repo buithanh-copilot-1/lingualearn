@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { grammarTopics } from '../data/grammar';
+import { useGrammar } from '../hooks/useContent';
 import { useProgress } from '../hooks/useProgress';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -7,12 +7,7 @@ export default function Grammar() {
   const { progress, reviewGrammar } = useProgress();
   const { tr } = useLanguage();
   const [search, setSearch] = useState('');
-
-  const filtered = grammarTopics.filter((t) => {
-    if (!search) return true;
-    const q = search.toLowerCase();
-    return t.title.toLowerCase().includes(q) || t.description.toLowerCase().includes(q);
-  });
+  const { data: filtered, loading, error } = useGrammar({ search });
 
   return (
     <div className="page">
@@ -28,6 +23,9 @@ export default function Grammar() {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
+
+      {loading && <p className="muted-text">Loading...</p>}
+      {error && <p className="api-fallback-note">Offline mode — using cached data</p>}
 
       <div className="grammar-list">
         {filtered.map((topic) => {
@@ -70,7 +68,7 @@ export default function Grammar() {
         })}
       </div>
 
-      {filtered.length === 0 && <p className="empty-state">{tr.grammar.noMatch}</p>}
+      {!loading && filtered.length === 0 && <p className="empty-state">{tr.grammar.noMatch}</p>}
     </div>
   );
 }

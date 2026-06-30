@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { lessons } from '../data/lessons';
+import { useLessons } from '../hooks/useContent';
 import { useProgress } from '../hooks/useProgress';
 import { useLanguage } from '../context/LanguageContext';
 import LessonCard from '../components/LessonCard';
@@ -13,12 +13,7 @@ export default function Lessons() {
   const { tr } = useLanguage();
   const [level, setLevel] = useState<LevelFilter>('all');
   const [category, setCategory] = useState<CategoryFilter>('all');
-
-  const filtered = lessons.filter((l) => {
-    if (level !== 'all' && l.level !== level) return false;
-    if (category !== 'all' && l.category !== category) return false;
-    return true;
-  });
+  const { data: filtered, loading, error } = useLessons({ level, category });
 
   return (
     <div className="page">
@@ -50,6 +45,9 @@ export default function Lessons() {
         </div>
       </div>
 
+      {loading && <p className="muted-text">Loading...</p>}
+      {error && <p className="api-fallback-note">Offline mode — using cached data</p>}
+
       <div className="lesson-grid">
         {filtered.map((lesson) => (
           <LessonCard
@@ -60,7 +58,7 @@ export default function Lessons() {
         ))}
       </div>
 
-      {filtered.length === 0 && <p className="empty-state">{tr.lessons.noMatch}</p>}
+      {!loading && filtered.length === 0 && <p className="empty-state">{tr.lessons.noMatch}</p>}
     </div>
   );
 }

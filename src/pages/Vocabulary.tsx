@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { vocabulary } from '../data/vocabulary';
+import { useVocabulary } from '../hooks/useContent';
 import { useProgress } from '../hooks/useProgress';
 import { useLanguage } from '../context/LanguageContext';
 import FlashCard from '../components/FlashCard';
@@ -14,16 +14,12 @@ export default function Vocabulary() {
   const [level, setLevel] = useState<LevelFilter>('all');
   const [category, setCategory] = useState('all');
   const [search, setSearch] = useState('');
+  const { data: vocabulary, loading, error } = useVocabulary({ level, category, search });
 
-  const categories = useMemo(() => ['all', ...new Set(vocabulary.map((w) => w.category))], []);
-
-  const filtered = vocabulary.filter((w) => {
-    if (level !== 'all' && w.level !== level) return false;
-    if (category !== 'all' && w.category !== category) return false;
-    if (search && !w.word.toLowerCase().includes(search.toLowerCase()) &&
-        !w.meaning.toLowerCase().includes(search.toLowerCase())) return false;
-    return true;
-  });
+  const categories = useMemo(
+    () => ['all', ...new Set(vocabulary.map((w) => w.category))],
+    [vocabulary],
+  );
 
   const unlearnedCount = vocabulary.filter((w) => !progress.learnedWords.includes(w.id)).length;
 
@@ -73,8 +69,11 @@ export default function Vocabulary() {
         </div>
       </div>
 
+      {loading && <p className="muted-text">Loading...</p>}
+      {error && <p className="api-fallback-note">Offline mode — using cached data</p>}
+
       <div className="flashcard-grid">
-        {filtered.map((word) => (
+        {vocabulary.map((word) => (
           <FlashCard
             key={word.id}
             word={word}
@@ -84,7 +83,7 @@ export default function Vocabulary() {
         ))}
       </div>
 
-      {filtered.length === 0 && <p className="empty-state">{tr.vocabulary.noMatch}</p>}
+      {!loading && vocabulary.length === 0 && <p className="empty-state">{tr.vocabulary.noMatch}</p>}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import type { Locale } from '../types';
 
 const en = {
-  nav: { home: 'Home', lessons: 'Lessons', vocabulary: 'Vocabulary', grammar: 'Grammar', quiz: 'Quiz', progress: 'Progress', settings: 'Settings' },
+  nav: { home: 'Home', lessons: 'Lessons', vocabulary: 'Vocabulary', grammar: 'Grammar', quiz: 'Quiz', progress: 'Progress', settings: 'Settings', login: 'Sign In', logout: 'Sign Out' },
   bottom: { home: 'Home', lessons: 'Lessons', words: 'Words', quiz: 'Quiz', stats: 'Stats' },
   home: {
     title: 'Master English with',
@@ -66,6 +66,19 @@ const en = {
     language: 'Interface Language', english: 'English', vietnamese: 'Tiếng Việt',
     dailyGoals: 'Daily Goals', lessonsPerDay: 'Lessons per day', wordsPerDay: 'Words per day', quizzesPerDay: 'Quizzes per day',
     data: 'Data Management',
+    account: 'Account', signedInAs: 'Signed in as', syncNote: 'Your progress is synced to the cloud.',
+    guestNote: 'Sign in to sync progress across devices.',
+  },
+  auth: {
+    loginTitle: 'Welcome back',
+    registerTitle: 'Create account',
+    loginSubtitle: 'Sign in to sync your learning progress.',
+    registerSubtitle: 'Create an account to save progress in the cloud.',
+    email: 'Email', password: 'Password', displayName: 'Display name',
+    displayNamePlaceholder: 'Your name (optional)',
+    login: 'Sign In', register: 'Sign Up', submitting: 'Please wait...',
+    noAccount: "Don't have an account?", hasAccount: 'Already have an account?',
+    backHome: '← Back to home',
   },
   notFound: { title: 'Page Not Found', subtitle: 'The page you\'re looking for doesn\'t exist.', backHome: 'Back to Home' },
   levels: { beginner: 'Beginner', intermediate: 'Intermediate', advanced: 'Advanced' },
@@ -86,7 +99,7 @@ const en = {
 } as const;
 
 const vi = {
-  nav: { home: 'Trang chủ', lessons: 'Bài học', vocabulary: 'Từ vựng', grammar: 'Ngữ pháp', quiz: 'Kiểm tra', progress: 'Tiến độ', settings: 'Cài đặt' },
+  nav: { home: 'Trang chủ', lessons: 'Bài học', vocabulary: 'Từ vựng', grammar: 'Ngữ pháp', quiz: 'Kiểm tra', progress: 'Tiến độ', settings: 'Cài đặt', login: 'Đăng nhập', logout: 'Đăng xuất' },
   bottom: { home: 'Trang chủ', lessons: 'Bài học', words: 'Từ vựng', quiz: 'Kiểm tra', stats: 'Tiến độ' },
   home: {
     title: 'Học tiếng Anh với',
@@ -151,6 +164,19 @@ const vi = {
     language: 'Ngôn ngữ giao diện', english: 'English', vietnamese: 'Tiếng Việt',
     dailyGoals: 'Mục tiêu hàng ngày', lessonsPerDay: 'Bài học mỗi ngày', wordsPerDay: 'Từ vựng mỗi ngày', quizzesPerDay: 'Bài kiểm tra mỗi ngày',
     data: 'Quản lý dữ liệu',
+    account: 'Tài khoản', signedInAs: 'Đang đăng nhập', syncNote: 'Tiến độ của bạn được đồng bộ lên đám mây.',
+    guestNote: 'Đăng nhập để đồng bộ tiến độ trên nhiều thiết bị.',
+  },
+  auth: {
+    loginTitle: 'Chào mừng trở lại',
+    registerTitle: 'Tạo tài khoản',
+    loginSubtitle: 'Đăng nhập để đồng bộ tiến độ học tập.',
+    registerSubtitle: 'Tạo tài khoản để lưu tiến độ trên đám mây.',
+    email: 'Email', password: 'Mật khẩu', displayName: 'Tên hiển thị',
+    displayNamePlaceholder: 'Tên của bạn (tùy chọn)',
+    login: 'Đăng nhập', register: 'Đăng ký', submitting: 'Đang xử lý...',
+    noAccount: 'Chưa có tài khoản?', hasAccount: 'Đã có tài khoản?',
+    backHome: '← Về trang chủ',
   },
   notFound: { title: 'Không tìm thấy trang', subtitle: 'Trang bạn tìm không tồn tại.', backHome: 'Về trang chủ' },
   levels: { beginner: 'Cơ bản', intermediate: 'Trung cấp', advanced: 'Nâng cao' },

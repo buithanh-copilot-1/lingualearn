@@ -1,6 +1,4 @@
-import { lessons } from '../data/lessons';
-import { vocabulary } from '../data/vocabulary';
-import { grammarTopics } from '../data/grammar';
+import { useAllLessons, useAllVocabulary, useAllGrammar } from '../hooks/useContent';
 import { useProgress } from '../hooks/useProgress';
 import { useLanguage } from '../context/LanguageContext';
 import { getAchievements } from '../utils/achievements';
@@ -12,6 +10,9 @@ import { Link } from 'react-router-dom';
 export default function ProgressPage() {
   const { progress, resetProgress } = useProgress();
   const { tr, locale } = useLanguage();
+  const { data: lessons } = useAllLessons();
+  const { data: vocabulary } = useAllVocabulary();
+  const { data: grammarTopics } = useAllGrammar();
   const achievements = getAchievements(progress);
 
   const avgScore =

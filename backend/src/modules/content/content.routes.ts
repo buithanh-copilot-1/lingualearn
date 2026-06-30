@@ -1,6 +1,7 @@
 import type { FastifyInstance } from 'fastify';
 import { prisma } from '../../lib/prisma.js';
 import type { Level, LessonCategory } from '../../types.js';
+import { bumpDailyGoal, updateUserStreak, buildProgressResponse } from '../progress/progress.service.js';
 import { z } from 'zod';
 
 const submitSchema = z.object({
@@ -181,15 +182,25 @@ export async function contentRoutes(app: FastifyInstance) {
 
     const total = body.data.answers.length;
 
+    const userId = request.user.sub;
+
     await prisma.quizAttempt.create({
       data: {
-        userId: request.user.sub,
+        userId,
         quizId: body.data.quizId,
         score,
         total,
       },
     });
 
-    return { score, total, results };
+    await bumpDailyGoal(userId, 'quizzesDone');
+    await updateUserStreak(userId);
+
+    return {
+      score,
+      total,
+      results,
+      progress: await buildProgressResponse(userId),
+    };
   });
 }

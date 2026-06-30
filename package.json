@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && cp dist/index.html dist/404.html",
+    "build": "tsc -b && vite build && node -e \"import { copyFileSync } from 'fs'; copyFileSync('dist/index.html','dist/404.html')\"",
     "build:all": "npm run build && cd backend && npm ci && npm run build",
     "start": "npm run build:all && cd backend && npm run start",
     "lint": "oxlint",

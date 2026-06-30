@@ -1,16 +1,25 @@
 import { useParams, Link } from 'react-router-dom';
-import { getLessonById, getNextLessonId, getPrevLessonId } from '../data/lessons';
+import { useLesson, useAllLessons, getNextLessonId, getPrevLessonId } from '../hooks/useContent';
 import { useProgress } from '../hooks/useProgress';
 import { useLanguage } from '../context/LanguageContext';
 import { useState } from 'react';
 
 export default function LessonDetail() {
   const { id } = useParams<{ id: string }>();
-  const lesson = id ? getLessonById(id) : undefined;
+  const { data: lesson, loading } = useLesson(id);
+  const { data: allLessons } = useAllLessons();
   const { progress, completeLesson } = useProgress();
   const { tr, locale } = useLanguage();
   const [step, setStep] = useState(0);
   const [finished, setFinished] = useState(false);
+
+  if (loading) {
+    return (
+      <div className="page">
+        <p className="muted-text">Loading...</p>
+      </div>
+    );
+  }
 
   if (!lesson) {
     return (
@@ -25,8 +34,10 @@ export default function LessonDetail() {
 
   const isCompleted = progress.completedLessons.includes(lesson.id);
   const totalSteps = lesson.content.length;
-  const nextLessonId = getNextLessonId(lesson.id);
-  const prevLessonId = getPrevLessonId(lesson.id);
+  const nextLessonId = getNextLessonId(allLessons, lesson.id);
+  const prevLessonId = getPrevLessonId(allLessons, lesson.id);
+  const nextLesson = nextLessonId ? allLessons.find((l) => l.id === nextLessonId) : undefined;
+  const prevLesson = prevLessonId ? allLessons.find((l) => l.id === prevLessonId) : undefined;
 
   function handleFinish() {
     completeLesson(lesson!.id, lesson!.duration);
@@ -41,9 +52,9 @@ export default function LessonDetail() {
           <h1>{tr.lessons.completed}</h1>
           <p>{lesson.title}</p>
           <div className="lesson-complete-actions">
-            {nextLessonId && (
+            {nextLessonId && nextLesson && (
               <Link to={`/lessons/${nextLessonId}`} className="btn btn-primary btn-block">
-                {tr.lessons.next}: {getLessonById(nextLessonId)?.title}
+                {tr.lessons.next}: {nextLesson.title}
               </Link>
             )}
             <Link to="/lessons" className="btn btn-outline btn-block">{tr.lessons.backToList}</Link>
@@ -104,14 +115,14 @@ export default function LessonDetail() {
       </div>
 
       <div className="lesson-nav-row">
-        {prevLessonId && (
+        {prevLessonId && prevLesson && (
           <Link to={`/lessons/${prevLessonId}`} className="lesson-nav-link">
-            ← {getLessonById(prevLessonId)?.title}
+            ← {prevLesson.title}
           </Link>
         )}
-        {nextLessonId && (
+        {nextLessonId && nextLesson && (
           <Link to={`/lessons/${nextLessonId}`} className="lesson-nav-link next">
-            {getLessonById(nextLessonId)?.title} →
+            {nextLesson.title} →
           </Link>
         )}
       </div>

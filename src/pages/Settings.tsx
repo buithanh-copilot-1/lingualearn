@@ -1,10 +1,13 @@
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { useProgress } from '../hooks/useProgress';
+import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../context/LanguageContext';
 import type { Locale } from '../types';
 
 export default function Settings() {
   const { progress, updateSettings, exportProgress, importProgress } = useProgress();
+  const { user, isAuthenticated, logout } = useAuth();
   const { tr, locale, setLocale } = useLanguage();
   const fileRef = useRef<HTMLInputElement>(null);
   const { settings } = progress;
@@ -22,6 +25,24 @@ export default function Settings() {
       <div className="page-header">
         <h1>{tr.settings.title}</h1>
         <p>{tr.settings.subtitle}</p>
+      </div>
+
+      <div className="settings-section">
+        <h3>{tr.settings.account}</h3>
+        {isAuthenticated && user ? (
+          <div className="account-info">
+            <p><strong>{tr.settings.signedInAs}</strong> {user.email}</p>
+            <p className="muted-text">{tr.settings.syncNote}</p>
+            <button className="btn btn-outline btn-block" onClick={() => void logout()}>
+              {tr.nav.logout}
+            </button>
+          </div>
+        ) : (
+          <div className="account-info">
+            <p className="muted-text">{tr.settings.guestNote}</p>
+            <Link to="/auth" className="btn btn-primary btn-block">{tr.nav.login}</Link>
+          </div>
+        )}
       </div>
 
       <div className="settings-section">

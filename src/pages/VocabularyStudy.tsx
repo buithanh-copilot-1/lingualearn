@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { vocabulary } from '../data/vocabulary';
+import { useAllVocabulary } from '../hooks/useContent';
 import { useProgress } from '../hooks/useProgress';
 import { useLanguage } from '../context/LanguageContext';
 import { speakWord } from '../utils/speech';
 
 export default function VocabularyStudy() {
+  const { data: vocabulary, loading } = useAllVocabulary();
   const { progress, learnWord } = useProgress();
   const { tr } = useLanguage();
   const unlearned = vocabulary.filter((w) => !progress.learnedWords.includes(w.id));
@@ -29,6 +30,14 @@ export default function VocabularyStudy() {
   function handleReview() {
     setFlipped(false);
     setIndex((i) => (i + 1) % unlearned.length);
+  }
+
+  if (loading) {
+    return (
+      <div className="page">
+        <p className="muted-text">Loading...</p>
+      </div>
+    );
   }
 
   if (unlearned.length === 0) {

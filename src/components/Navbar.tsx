@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
+import { useAuth } from '../context/AuthContext';
 
 const navItems = [
   { path: '/', labelKey: 'home' as const, icon: '🏠' },
@@ -14,6 +15,7 @@ const navItems = [
 export default function Navbar() {
   const location = useLocation();
   const { tr } = useLanguage();
+  const { isAuthenticated, logout } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -49,6 +51,17 @@ export default function Navbar() {
               {tr.nav.settings}
             </Link>
           </li>
+          <li>
+            {isAuthenticated ? (
+              <button type="button" className="nav-auth-btn" onClick={() => void logout()}>
+                {tr.nav.logout}
+              </button>
+            ) : (
+              <Link to="/auth" className={location.pathname === '/auth' ? 'active' : ''}>
+                {tr.nav.login}
+              </Link>
+            )}
+          </li>
         </ul>
 
         <button
@@ -83,6 +96,23 @@ export default function Navbar() {
               </Link>
             </li>
           ))}
+          <li>
+            {isAuthenticated ? (
+              <button
+                type="button"
+                className="mobile-nav-auth"
+                onClick={() => { void logout(); setMenuOpen(false); }}
+              >
+                <span className="mobile-nav-icon">🚪</span>
+                {tr.nav.logout}
+              </button>
+            ) : (
+              <Link to="/auth" className={location.pathname === '/auth' ? 'active' : ''} onClick={() => setMenuOpen(false)}>
+                <span className="mobile-nav-icon">👤</span>
+                {tr.nav.login}
+              </Link>
+            )}
+          </li>
         </ul>
       </div>
     </nav>

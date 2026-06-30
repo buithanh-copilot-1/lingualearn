@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
-import { lessons } from '../data/lessons';
-import { vocabulary } from '../data/vocabulary';
 import { useProgress } from '../hooks/useProgress';
+import { useAllLessons, useAllVocabulary } from '../hooks/useContent';
 import { useLanguage } from '../context/LanguageContext';
 import { getAchievements, getUnlockedCount } from '../utils/achievements';
 import ProgressBar from '../components/ProgressBar';
@@ -10,6 +9,8 @@ import DailyGoalCard from '../components/DailyGoalCard';
 export default function Home() {
   const { progress } = useProgress();
   const { tr } = useLanguage();
+  const { data: lessons, loading } = useAllLessons();
+  const { data: vocabulary } = useAllVocabulary();
   const achievements = getAchievements(progress);
 
   const stats = [
@@ -50,11 +51,15 @@ export default function Home() {
 
       <section className="section">
         <h2>{tr.home.yourProgress}</h2>
-        <div className="progress-grid">
-          <ProgressBar label={tr.home.lessonsCompleted} value={progress.completedLessons.length} max={lessons.length} />
-          <ProgressBar label={tr.home.vocabularyLearned} value={progress.learnedWords.length} max={vocabulary.length} />
-          <ProgressBar label={tr.home.quizzesTaken} value={progress.quizScores.length} max={Math.max(progress.quizScores.length, 1)} />
-        </div>
+        {loading ? (
+          <p className="muted-text">Loading...</p>
+        ) : (
+          <div className="progress-grid">
+            <ProgressBar label={tr.home.lessonsCompleted} value={progress.completedLessons.length} max={lessons.length} />
+            <ProgressBar label={tr.home.vocabularyLearned} value={progress.learnedWords.length} max={vocabulary.length} />
+            <ProgressBar label={tr.home.quizzesTaken} value={progress.quizScores.length} max={Math.max(progress.quizScores.length, 1)} />
+          </div>
+        )}
       </section>
 
       <section className="section">
