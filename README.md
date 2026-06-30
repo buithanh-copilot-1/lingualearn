@@ -52,6 +52,27 @@ docker compose up -d
 # Update api/.env with PostgreSQL URL and set prisma provider to postgresql
 ```
 
+### Deploy Frontend (Vercel)
+
+Vercel deploys the **static frontend only** (`dist/`). SPA routing is handled via `vercel.json` rewrites.
+
+```bash
+npm run build   # local test
+```
+
+Set **Build Command**: `npm run build`, **Output Directory**: `dist` (or use repo `vercel.json`).
+
+### Deploy API (Railway / Render / VPS)
+
+The Fastify API runs separately — not on Vercel static hosting:
+
+```bash
+cd api && npm ci && npm run db:push && npm run db:seed
+npm run build && npm run start
+```
+
+Point frontend `VITE_API_URL` to your API URL when connecting Sprint 2.
+
 ## Project Structure
 
 ```
