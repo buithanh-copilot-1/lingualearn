@@ -944,6 +944,13 @@ body {
 .achievement-card strong { display: block; font-size: 0.9rem; }
 .achievement-card p { font-size: 0.8rem; color: var(--text-muted); margin: 0; }
 
+.pagination {
+  display: flex; align-items: center; justify-content: center; gap: 1rem;
+  margin-top: 1.5rem; flex-wrap: wrap;
+}
+.pagination-info { font-size: 0.9rem; color: var(--text-muted); }
+.page-meta { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem; }
+
 /* Quiz Select */
 .quiz-select-card {
   background: var(--surface);

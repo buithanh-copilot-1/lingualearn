@@ -18,6 +18,9 @@ backend/prisma/dev.db
 backend/prisma/dev.db-journal
 .env
 
+# Vocabulary build cache (generated; vocabulary.json is committed)
+scripts/vocab-data/build-cache.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

@@ -10,7 +10,8 @@
     "start": "npm run build:all && cd backend && npm run start",
     "lint": "oxlint",
     "preview": "vite preview",
-    "sync:seed": "tsx scripts/sync-seed-data.ts"
+    "sync:seed": "tsx scripts/sync-seed-data.ts",
+    "build:vocab": "tsx scripts/build-vocabulary.ts"
   },
   "dependencies": {
     "react": "^19.2.7",

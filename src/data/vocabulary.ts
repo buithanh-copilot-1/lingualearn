@@ -1,87 +1,13 @@
 import type { VocabWord } from '../types';
+import vocabularyData from './vocabulary.json';
 
-export const vocabulary: VocabWord[] = [
-  { id: 'v1', word: 'achieve', phonetic: '/əˈtʃiːv/', meaning: 'đạt được, hoàn thành', example: 'She achieved her goal of learning English.', category: 'General', level: 'intermediate' },
-  { id: 'v2', word: 'benefit', phonetic: '/ˈbenɪfɪt/', meaning: 'lợi ích', example: 'Exercise has many health benefits.', category: 'General', level: 'beginner' },
-  { id: 'v3', word: 'challenge', phonetic: '/ˈtʃælɪndʒ/', meaning: 'thử thách', example: 'Learning a new language is a challenge.', category: 'General', level: 'beginner' },
-  { id: 'v4', word: 'determine', phonetic: '/dɪˈtɜːrmɪn/', meaning: 'xác định, quyết định', example: 'Hard work determines success.', category: 'General', level: 'intermediate' },
-  { id: 'v5', word: 'efficient', phonetic: '/ɪˈfɪʃnt/', meaning: 'hiệu quả', example: 'This method is more efficient.', category: 'Business', level: 'intermediate' },
-  { id: 'v6', word: 'fascinating', phonetic: '/ˈfæsɪneɪtɪŋ/', meaning: 'hấp dẫn, lôi cuốn', example: 'The documentary was fascinating.', category: 'General', level: 'intermediate' },
-  { id: 'v7', word: 'grateful', phonetic: '/ˈɡreɪtfəl/', meaning: 'biết ơn', example: 'I am grateful for your help.', category: 'General', level: 'beginner' },
-  { id: 'v8', word: 'hesitate', phonetic: '/ˈhezɪteɪt/', meaning: 'do dự, ngần ngại', example: 'Don\'t hesitate to ask questions.', category: 'General', level: 'intermediate' },
-  { id: 'v9', word: 'innovative', phonetic: '/ˈɪnəveɪtɪv/', meaning: 'sáng tạo, đổi mới', example: 'The company is known for innovative products.', category: 'Business', level: 'advanced' },
-  { id: 'v10', word: 'journey', phonetic: '/ˈdʒɜːrni/', meaning: 'hành trình', example: 'Life is a journey, not a destination.', category: 'Travel', level: 'beginner' },
-  { id: 'v11', word: 'knowledge', phonetic: '/ˈnɒlɪdʒ/', meaning: 'kiến thức', example: 'Knowledge is power.', category: 'Education', level: 'beginner' },
-  { id: 'v12', word: 'leverage', phonetic: '/ˈlevərɪdʒ/', meaning: 'tận dụng, đòn bẩy', example: 'We can leverage technology to improve learning.', category: 'Business', level: 'advanced' },
-  { id: 'v13', word: 'motivate', phonetic: '/ˈmoʊtɪveɪt/', meaning: 'thúc đẩy, tạo động lực', example: 'Good teachers motivate their students.', category: 'Education', level: 'intermediate' },
-  { id: 'v14', word: 'negotiate', phonetic: '/nɪˈɡoʊʃieɪt/', meaning: 'đàm phán', example: 'They negotiated a better deal.', category: 'Business', level: 'advanced' },
-  { id: 'v15', word: 'opportunity', phonetic: '/ˌɒpərˈtuːnəti/', meaning: 'cơ hội', example: 'This is a great opportunity to learn.', category: 'General', level: 'beginner' },
-  { id: 'v16', word: 'perseverance', phonetic: '/ˌpɜːrsəˈvɪərəns/', meaning: 'kiên trì', example: 'Success requires perseverance.', category: 'General', level: 'advanced' },
-  { id: 'v17', word: 'reliable', phonetic: '/rɪˈlaɪəbl/', meaning: 'đáng tin cậy', example: 'He is a reliable colleague.', category: 'Business', level: 'intermediate' },
-  { id: 'v18', word: 'significant', phonetic: '/sɪɡˈnɪfɪkənt/', meaning: 'đáng kể, quan trọng', example: 'There was a significant improvement.', category: 'General', level: 'intermediate' },
-  { id: 'v19', word: 'thorough', phonetic: '/ˈθʌrə/', meaning: 'kỹ lưỡng, toàn diện', example: 'She did a thorough review of the report.', category: 'Business', level: 'advanced' },
-  { id: 'v20', word: 'versatile', phonetic: '/ˈvɜːrsətl/', meaning: 'linh hoạt, đa năng', example: 'English is a versatile language.', category: 'General', level: 'advanced' },
-  // ── A1–A2: Daily & travel essentials ──
-  { id: 'v21', word: 'appointment', phonetic: '/əˈpɔɪntmənt/', meaning: 'cuộc hẹn, lịch hẹn', example: 'I have a doctor\'s appointment at 3 PM.', category: 'Daily Life', level: 'beginner' },
-  { id: 'v22', word: 'borrow', phonetic: '/ˈbɒrəʊ/', meaning: 'mượn', example: 'Can I borrow your pen?', category: 'Daily Life', level: 'beginner' },
-  { id: 'v23', word: 'cheap', phonetic: '/tʃiːp/', meaning: 'rẻ', example: 'This shirt is very cheap.', category: 'Daily Life', level: 'beginner' },
-  { id: 'v24', word: 'delicious', phonetic: '/dɪˈlɪʃəs/', meaning: 'ngon', example: 'The pho was delicious.', category: 'Food', level: 'beginner' },
-  { id: 'v25', word: 'expensive', phonetic: '/ɪkˈspensɪv/', meaning: 'đắt', example: 'That restaurant is too expensive.', category: 'Daily Life', level: 'beginner' },
-  { id: 'v26', word: 'friendly', phonetic: '/ˈfrendli/', meaning: 'thân thiện', example: 'The staff were very friendly.', category: 'General', level: 'beginner' },
-  { id: 'v27', word: 'guest', phonetic: '/ɡest/', meaning: 'khách', example: 'We have guests coming for dinner.', category: 'Daily Life', level: 'beginner' },
-  { id: 'v28', word: 'hungry', phonetic: '/ˈhʌŋɡri/', meaning: 'đói', example: 'I\'m hungry. Let\'s get lunch.', category: 'Food', level: 'beginner' },
-  { id: 'v29', word: 'important', phonetic: '/ɪmˈpɔːrtnt/', meaning: 'quan trọng', example: 'Sleep is important for health.', category: 'General', level: 'beginner' },
-  { id: 'v30', word: 'neighbor', phonetic: '/ˈneɪbər/', meaning: 'hàng xóm', example: 'Our neighbor is very helpful.', category: 'Daily Life', level: 'beginner' },
-  { id: 'v31', word: 'passport', phonetic: '/ˈpæspɔːrt/', meaning: 'hộ chiếu', example: 'Don\'t forget your passport at the airport.', category: 'Travel', level: 'beginner' },
-  { id: 'v32', word: 'remember', phonetic: '/rɪˈmembər/', meaning: 'nhớ', example: 'Remember to lock the door.', category: 'General', level: 'beginner' },
-  { id: 'v33', word: 'schedule', phonetic: '/ˈskedʒuːl/', meaning: 'lịch trình', example: 'What\'s your schedule tomorrow?', category: 'Daily Life', level: 'beginner' },
-  { id: 'v34', word: 'ticket', phonetic: '/ˈtɪkɪt/', meaning: 'vé', example: 'I bought a train ticket online.', category: 'Travel', level: 'beginner' },
-  { id: 'v35', word: 'weather', phonetic: '/ˈweðər/', meaning: 'thời tiết', example: 'The weather is nice today.', category: 'Daily Life', level: 'beginner' },
-  { id: 'v36', word: 'comfortable', phonetic: '/ˈkʌmftəbl/', meaning: 'thoải mái', example: 'These shoes are very comfortable.', category: 'Daily Life', level: 'beginner' },
-  { id: 'v37', word: 'direction', phonetic: '/dɪˈrekʃn/', meaning: 'hướng, chỉ đường', example: 'Can you give me directions to the station?', category: 'Travel', level: 'beginner' },
-  { id: 'v38', word: 'exercise', phonetic: '/ˈeksərsaɪz/', meaning: 'tập thể dục', example: 'I exercise every morning.', category: 'Health', level: 'beginner' },
-  { id: 'v39', word: 'grocery', phonetic: '/ˈɡroʊsəri/', meaning: 'thực phẩm, cửa hàng tạp hóa', example: 'I need to buy groceries after work.', category: 'Food', level: 'beginner' },
-  { id: 'v40', word: 'helpful', phonetic: '/ˈhelpfl/', meaning: 'hữu ích, hay giúp đỡ', example: 'Thank you — that was very helpful.', category: 'General', level: 'beginner' },
-  // ── B1: Intermediate core ──
-  { id: 'v41', word: 'accurate', phonetic: '/ˈækjərət/', meaning: 'chính xác', example: 'Please give an accurate description.', category: 'General', level: 'intermediate' },
-  { id: 'v42', word: 'announce', phonetic: '/əˈnaʊns/', meaning: 'công bố, thông báo', example: 'They will announce the results tomorrow.', category: 'Business', level: 'intermediate' },
-  { id: 'v43', word: 'agenda', phonetic: '/əˈdʒendə/', meaning: 'chương trình nghị sự', example: 'What\'s on the agenda for today\'s meeting?', category: 'Business', level: 'intermediate' },
-  { id: 'v44', word: 'collaborate', phonetic: '/kəˈlæbəreɪt/', meaning: 'hợp tác', example: 'We collaborate with teams in Singapore.', category: 'Business', level: 'intermediate' },
-  { id: 'v45', word: 'complaint', phonetic: '/kəmˈpleɪnt/', meaning: 'khiếu nại, phàn nàn', example: 'The customer filed a complaint.', category: 'Business', level: 'intermediate' },
-  { id: 'v46', word: 'deadline', phonetic: '/ˈdedlaɪn/', meaning: 'hạn chót', example: 'The deadline is Friday at noon.', category: 'Business', level: 'intermediate' },
-  { id: 'v47', word: 'discuss', phonetic: '/dɪˈskʌs/', meaning: 'thảo luận', example: 'Let\'s discuss this in the meeting.', category: 'General', level: 'intermediate' },
-  { id: 'v48', word: 'environment', phonetic: '/ɪnˈvaɪrənmənt/', meaning: 'môi trường', example: 'We should protect the environment.', category: 'General', level: 'intermediate' },
-  { id: 'v49', word: 'feedback', phonetic: '/ˈfiːdbæk/', meaning: 'phản hồi', example: 'I appreciate your honest feedback.', category: 'Business', level: 'intermediate' },
-  { id: 'v50', word: 'improve', phonetic: '/ɪmˈpruːv/', meaning: 'cải thiện', example: 'My pronunciation has improved a lot.', category: 'Education', level: 'intermediate' },
-  { id: 'v51', word: 'ingredient', phonetic: '/ɪnˈɡriːdiənt/', meaning: 'nguyên liệu', example: 'List all the ingredients on the label.', category: 'Food', level: 'intermediate' },
-  { id: 'v52', word: 'maintain', phonetic: '/meɪnˈteɪn/', meaning: 'duy trì', example: 'It\'s hard to maintain a daily study habit.', category: 'General', level: 'intermediate' },
-  { id: 'v53', word: 'persuade', phonetic: '/pərˈsweɪd/', meaning: 'thuyết phục', example: 'She persuaded me to join the course.', category: 'General', level: 'intermediate' },
-  { id: 'v54', word: 'occasion', phonetic: '/əˈkeɪʒn/', meaning: 'dịp, sự kiện', example: 'We dress formally on special occasions.', category: 'General', level: 'intermediate' },
-  { id: 'v55', word: 'patient', phonetic: '/ˈpeɪʃnt/', meaning: 'kiên nhẫn; bệnh nhân', example: 'Be patient — learning takes time.', category: 'Health', level: 'intermediate' },
-  { id: 'v56', word: 'recommend', phonetic: '/ˌrekəˈmend/', meaning: 'giới thiệu, đề xuất', example: 'I recommend this restaurant.', category: 'General', level: 'intermediate' },
-  { id: 'v57', word: 'reduce', phonetic: '/rɪˈdjuːs/', meaning: 'giảm bớt', example: 'Try to reduce screen time before bed.', category: 'Health', level: 'intermediate' },
-  { id: 'v58', word: 'responsible', phonetic: '/rɪˈspɒnsəbl/', meaning: 'có trách nhiệm', example: 'She is responsible for the project.', category: 'Business', level: 'intermediate' },
-  { id: 'v59', word: 'symptom', phonetic: '/ˈsɪmptəm/', meaning: 'triệu chứng', example: 'Fever is a common symptom of flu.', category: 'Health', level: 'intermediate' },
-  { id: 'v60', word: 'translate', phonetic: '/trænsˈleɪt/', meaning: 'dịch', example: 'Can you translate this sentence for me?', category: 'Education', level: 'intermediate' },
-  // ── B1–B2: Technology & academic ──
-  { id: 'v61', word: 'application', phonetic: '/ˌæplɪˈkeɪʃn/', meaning: 'ứng dụng; đơn xin', example: 'Submit your job application online.', category: 'Technology', level: 'intermediate' },
-  { id: 'v62', word: 'download', phonetic: '/ˌdaʊnˈləʊd/', meaning: 'tải xuống', example: 'Download the app from the store.', category: 'Technology', level: 'beginner' },
-  { id: 'v63', word: 'password', phonetic: '/ˈpæswɜːrd/', meaning: 'mật khẩu', example: 'Use a strong password for your account.', category: 'Technology', level: 'beginner' },
-  { id: 'v64', word: 'research', phonetic: '/rɪˈsɜːrtʃ/', meaning: 'nghiên cứu', example: 'She is doing research on language learning.', category: 'Education', level: 'intermediate' },
-  { id: 'v65', word: 'update', phonetic: '/ʌpˈdeɪt/', meaning: 'cập nhật', example: 'Please update the document before the meeting.', category: 'Technology', level: 'intermediate' },
-  { id: 'v66', word: 'analyse', phonetic: '/ˈænəlaɪz/', meaning: 'phân tích', example: 'We need to analyse the survey results.', category: 'Education', level: 'advanced' },
-  { id: 'v67', word: 'assumption', phonetic: '/əˈsʌmpʃn/', meaning: 'giả định', example: 'Don\'t make assumptions without evidence.', category: 'General', level: 'advanced' },
-  { id: 'v68', word: 'comprehensive', phonetic: '/ˌkɒmprɪˈhensɪv/', meaning: 'toàn diện', example: 'This is a comprehensive guide to grammar.', category: 'Education', level: 'advanced' },
-  { id: 'v69', word: 'consequence', phonetic: '/ˈkɒnsɪkwəns/', meaning: 'hậu quả', example: 'Every decision has consequences.', category: 'General', level: 'advanced' },
-  { id: 'v70', word: 'contribute', phonetic: '/kənˈtrɪbjuːt/', meaning: 'đóng góp', example: 'Everyone should contribute to the discussion.', category: 'Business', level: 'intermediate' },
-  { id: 'v71', word: 'criteria', phonetic: '/kraɪˈtɪəriə/', meaning: 'tiêu chí', example: 'What are the criteria for this scholarship?', category: 'Education', level: 'advanced' },
-  { id: 'v72', word: 'demonstrate', phonetic: '/ˈdemənstreɪt/', meaning: 'chứng minh, trình bày', example: 'The demo will demonstrate the new feature.', category: 'Business', level: 'advanced' },
-  { id: 'v73', word: 'emphasis', phonetic: '/ˈemfəsɪs/', meaning: 'sự nhấn mạnh', example: 'The course puts emphasis on speaking skills.', category: 'Education', level: 'advanced' },
-  { id: 'v74', word: 'implement', phonetic: '/ˈɪmplɪment/', meaning: 'triển khai, thực hiện', example: 'We will implement the plan next quarter.', category: 'Business', level: 'advanced' },
-  { id: 'v75', word: 'interpret', phonetic: '/ɪnˈtɜːrprɪt/', meaning: 'diễn giải, phiên dịch', example: 'It\'s easy to misinterpret tone in emails.', category: 'General', level: 'advanced' },
-  { id: 'v76', word: 'perspective', phonetic: '/pərˈspektɪv/', meaning: 'góc nhìn, quan điểm', example: 'Try to see it from another perspective.', category: 'General', level: 'advanced' },
-  { id: 'v77', word: 'priority', phonetic: '/praɪˈɒrəti/', meaning: 'ưu tiên', example: 'Learning English is my top priority.', category: 'Business', level: 'intermediate' },
-  { id: 'v78', word: 'strategy', phonetic: '/ˈstrætədʒi/', meaning: 'chiến lược', example: 'We need a clear marketing strategy.', category: 'Business', level: 'intermediate' },
-  { id: 'v79', word: 'sustainable', phonetic: '/səˈsteɪnəbl/', meaning: 'bền vững', example: 'Sustainable habits lead to long-term success.', category: 'General', level: 'advanced' },
-  { id: 'v80', word: 'withdraw', phonetic: '/wɪðˈdrɔː/', meaning: 'rút (tiền); rút lui', example: 'I withdrew cash from the ATM.', category: 'Daily Life', level: 'intermediate' },
-];
+export const vocabulary: VocabWord[] = vocabularyData as VocabWord[];
+
+export function getVocabById(id: string): VocabWord | undefined {
+  return vocabulary.find((w) => w.id === id);
+}
+
+export function getVocabByCategory(category: string): VocabWord[] {
+  if (category === 'all') return vocabulary;
+  return vocabulary.filter((w) => w.category === category);
+}
