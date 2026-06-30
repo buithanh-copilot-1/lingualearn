@@ -11,6 +11,7 @@ import { authenticate } from './middleware/authenticate.js';
 import { authRoutes } from './modules/auth/auth.routes.js';
 import { progressRoutes } from './modules/progress/progress.routes.js';
 import { contentRoutes } from './modules/content/content.routes.js';
+import { bootstrapDatabase } from './bootstrap.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const frontendDist = join(__dirname, '../../dist');
@@ -53,8 +54,14 @@ if (existsSync(frontendDist)) {
 }
 
 try {
+  console.log('Booting lingualearn-api...');
+  console.log('PORT:', process.env.PORT ?? '(default 3001)');
+  console.log('DATABASE_URL:', process.env.DATABASE_URL ? 'set' : 'MISSING');
+  console.log('JWT_SECRET:', process.env.JWT_SECRET ? 'set' : 'MISSING');
+
   await app.listen({ port: config.port, host: config.host });
   console.log(`Server running at http://${config.host}:${config.port}`);
+  bootstrapDatabase(app);
 } catch (err) {
   app.log.error(err);
   process.exit(1);

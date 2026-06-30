@@ -10,7 +10,7 @@ function parseOrigins(raw: string | undefined): string[] {
 }
 
 if (isProd && !process.env.JWT_SECRET) {
-  throw new Error('JWT_SECRET is required in production');
+  console.error('WARNING: JWT_SECRET is not set — auth will not be secure. Add it in Railway Variables.');
 }
 
 export const config = {

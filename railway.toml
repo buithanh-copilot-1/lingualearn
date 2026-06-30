@@ -1,10 +1,9 @@
-# Repo root deploy (Root Directory empty)
 [build]
 builder = "nixpacks"
 buildCommand = "cd backend && npm ci && npm run railway:build"
 
 [deploy]
-startCommand = "cd backend && npm run start:prod"
+startCommand = "cd backend && node dist/index.js"
 healthcheckPath = "/health"
 healthcheckTimeout = 120
 restartPolicyType = "on_failure"
