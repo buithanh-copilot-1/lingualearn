@@ -3,9 +3,7 @@ import { AuthProvider } from './context/AuthContext';
 import { ProgressProvider } from './context/ProgressContext';
 import { LanguageProvider } from './context/LanguageContext';
 import { OnboardingGate, ProgressSync } from './components/OnboardingGate';
-import Navbar from './components/Navbar';
-import MobileBottomNav from './components/MobileBottomNav';
-import Footer from './components/Footer';
+import AppLayout from './components/AppLayout';
 import Home from './pages/Home';
 import Lessons from './pages/Lessons';
 import LessonDetail from './pages/LessonDetail';
@@ -30,9 +28,8 @@ export default function App() {
           <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '') || undefined}>
             <ProgressSync />
             <div className="app">
-              <Navbar />
-              <main className="main-content">
-                <Routes>
+              <Routes>
+                <Route element={<AppLayout />}>
                   <Route path="/placement" element={<Placement />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/register" element={<Register />} />
@@ -49,10 +46,8 @@ export default function App() {
                     <Route path="/settings" element={<Settings />} />
                     <Route path="*" element={<NotFound />} />
                   </Route>
-                </Routes>
-              </main>
-              <Footer />
-              <MobileBottomNav />
+                </Route>
+              </Routes>
             </div>
           </BrowserRouter>
         </LanguageProvider>
