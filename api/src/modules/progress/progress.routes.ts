@@ -8,7 +8,7 @@ import {
   importProgress,
   ensureUserRecords,
 } from './progress.service.js';
-import type { Locale } from '@prisma/client';
+import type { Locale } from '../../types.js';
 
 const settingsSchema = z.object({
   locale: z.enum(['en', 'vi']).optional(),

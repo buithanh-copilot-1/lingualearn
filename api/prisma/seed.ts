@@ -1,10 +1,13 @@
-import { PrismaClient, Level, LessonCategory } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
 import { readFileSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const prisma = new PrismaClient();
+
+type Level = 'beginner' | 'intermediate' | 'advanced';
+type LessonCategory = 'conversation' | 'grammar' | 'vocabulary' | 'listening';
 
 interface SeedLesson {
   id: string;

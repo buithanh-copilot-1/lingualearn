@@ -1,6 +1,6 @@
 import { prisma } from '../../lib/prisma.js';
 import { todayDate } from '../../utils/streak.js';
-import type { Locale } from '@prisma/client';
+import type { Locale } from '../../types.js';
 
 export interface ProgressResponse {
   completedLessons: string[];

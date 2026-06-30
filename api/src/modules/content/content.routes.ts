@@ -1,6 +1,6 @@
 import type { FastifyInstance } from 'fastify';
 import { prisma } from '../../lib/prisma.js';
-import type { Level, LessonCategory } from '@prisma/client';
+import type { Level, LessonCategory } from '../../types.js';
 import { z } from 'zod';
 
 const submitSchema = z.object({
@@ -162,7 +162,7 @@ export async function contentRoutes(app: FastifyInstance) {
       where: { id: { in: questionIds } },
     });
 
-    const questionMap = new Map(questions.map((q) => [q.id, q]));
+    const questionMap = new Map(questions.map((q) => [q.id, q] as const));
     let score = 0;
     const results = body.data.answers.map((a) => {
       const q = questionMap.get(a.questionId);
