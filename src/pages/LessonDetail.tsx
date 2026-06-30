@@ -1,8 +1,10 @@
 import { useParams, Link } from 'react-router-dom';
 import { getLessonById, getNextLessonId, getPrevLessonId } from '../data/lessons';
+import { getListeningComprehension, extractListeningScript } from '../data/listeningData';
 import { useProgress } from '../context/ProgressContext';
 import { useLanguage } from '../context/LanguageContext';
-import { useState } from 'react';
+import { speakEnglish, stopSpeaking } from '../utils/speech';
+import { useState, useEffect } from 'react';
 
 export default function LessonDetail() {
   const { id } = useParams<{ id: string }>();
@@ -11,6 +13,23 @@ export default function LessonDetail() {
   const { tr, locale } = useLanguage();
   const [step, setStep] = useState(0);
   const [finished, setFinished] = useState(false);
+  const [comprehensionPhase, setComprehensionPhase] = useState(false);
+  const [cqIndex, setCqIndex] = useState(0);
+  const [cqSelected, setCqSelected] = useState<number | null>(null);
+  const [cqCorrect, setCqCorrect] = useState(0);
+  const [autoPlay, setAutoPlay] = useState(true);
+
+  const isListening = lesson?.category === 'listening';
+  const comprehension = lesson ? getListeningComprehension(lesson.id) : [];
+  const hasComprehension = comprehension.length > 0;
+
+  useEffect(() => () => stopSpeaking(), []);
+
+  useEffect(() => {
+    if (!lesson || !isListening || !autoPlay) return;
+    const script = extractListeningScript(lesson.content[step]);
+    speakEnglish(script, 0.82);
+  }, [step, lesson, isListening, autoPlay]);
 
   if (!lesson) {
     return (
@@ -27,10 +46,32 @@ export default function LessonDetail() {
   const totalSteps = lesson.content.length;
   const nextLessonId = getNextLessonId(lesson.id);
   const prevLessonId = getPrevLessonId(lesson.id);
+  const cq = comprehension[cqIndex];
 
   function handleFinish() {
+    if (hasComprehension && !comprehensionPhase) {
+      setComprehensionPhase(true);
+      stopSpeaking();
+      return;
+    }
     completeLesson(lesson!.id, lesson!.duration);
     setFinished(true);
+  }
+
+  function handleCqSelect(index: number) {
+    if (cqSelected !== null || !cq) return;
+    setCqSelected(index);
+    if (index === cq.correctIndex) setCqCorrect((c) => c + 1);
+  }
+
+  function handleCqNext() {
+    if (cqIndex + 1 >= comprehension.length) {
+      completeLesson(lesson!.id, lesson!.duration);
+      setFinished(true);
+      return;
+    }
+    setCqIndex((i) => i + 1);
+    setCqSelected(null);
   }
 
   if (finished) {
@@ -40,6 +81,9 @@ export default function LessonDetail() {
           <span className="complete-icon">🎉</span>
           <h1>{tr.lessons.completed}</h1>
           <p>{lesson.title}</p>
+          {hasComprehension && (
+            <p className="comprehension-score">{tr.listening.comprehensionScore}: {cqCorrect}/{comprehension.length}</p>
+          )}
           <div className="lesson-complete-actions">
             {nextLessonId && (
               <Link to={`/lessons/${nextLessonId}`} className="btn btn-primary btn-block">
@@ -53,6 +97,46 @@ export default function LessonDetail() {
     );
   }
 
+  if (comprehensionPhase && cq) {
+    return (
+      <div className="page lesson-detail-page">
+        <div className="lesson-detail-header">
+          <h1>{tr.listening.comprehensionTitle}</h1>
+          <p>{lesson.title} · {cqIndex + 1}/{comprehension.length}</p>
+        </div>
+        <div className="quiz-card">
+          <h2 className="quiz-question">{cq.question}</h2>
+          <div className="quiz-options">
+            {cq.options.map((option, i) => {
+              let cls = 'quiz-option';
+              if (cqSelected !== null) {
+                if (i === cq.correctIndex) cls += ' correct';
+                else if (i === cqSelected) cls += ' wrong';
+              }
+              return (
+                <button key={i} className={cls} onClick={() => handleCqSelect(i)} disabled={cqSelected !== null}>
+                  <span className="option-letter">{String.fromCharCode(65 + i)}</span>
+                  {option}
+                </button>
+              );
+            })}
+          </div>
+          {cqSelected !== null && (
+            <div className="quiz-feedback">
+              <p>{cqSelected === cq.correctIndex ? `✅ ${tr.quiz.correct}` : `❌ ${tr.quiz.incorrect}`}</p>
+              <p className="quiz-explanation">{cq.explanation}</p>
+              <button className="btn btn-primary btn-block" onClick={handleCqNext}>
+                {cqIndex + 1 >= comprehension.length ? tr.lessons.finish : tr.quiz.next}
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
+
+  const listenScript = extractListeningScript(lesson.content[step]);
+
   return (
     <div className="page lesson-detail-page">
       <div className="lesson-detail-header">
@@ -64,9 +148,20 @@ export default function LessonDetail() {
         </div>
         <h1>{lesson.title}</h1>
         <p className="lesson-detail-desc">{lesson.description}</p>
+        {isListening && (
+          <div className="listening-controls">
+            <button type="button" className="btn btn-primary btn-sm" onClick={() => speakEnglish(listenScript, 0.82)}>
+              🔊 {tr.listening.listenAgain}
+            </button>
+            <label className="listening-autoplay">
+              <input type="checkbox" checked={autoPlay} onChange={(e) => setAutoPlay(e.target.checked)} />
+              {tr.listening.autoPlay}
+            </label>
+          </div>
+        )}
         {lesson.grammarTopicId && (
-          <Link to="/grammar" className="grammar-link">
-            ✏️ {locale === 'vi' ? 'Xem thêm ngữ pháp' : 'View grammar topic'} →
+          <Link to={`/grammar/${lesson.grammarTopicId}/practice`} className="grammar-link">
+            ✏️ {locale === 'vi' ? 'Luyện ngữ pháp' : 'Practice grammar'} →
           </Link>
         )}
       </div>
@@ -80,16 +175,13 @@ export default function LessonDetail() {
         </div>
       </div>
 
-      <div className="step-card">
+      <div className={`step-card ${isListening ? 'listening-step' : ''}`}>
+        {isListening && <span className="listening-label">🎧 {tr.listening.playing}</span>}
         <p className="step-content">{lesson.content[step]}</p>
       </div>
 
       <div className="step-nav">
-        <button
-          className="btn btn-outline"
-          disabled={step === 0}
-          onClick={() => setStep((s) => s - 1)}
-        >
+        <button className="btn btn-outline" disabled={step === 0} onClick={() => setStep((s) => s - 1)}>
           {tr.lessons.prev}
         </button>
         {step < totalSteps - 1 ? (
@@ -98,7 +190,7 @@ export default function LessonDetail() {
           </button>
         ) : (
           <button className="btn btn-primary" onClick={handleFinish}>
-            {tr.lessons.finish}
+            {hasComprehension ? tr.listening.startComprehension : tr.lessons.finish}
           </button>
         )}
       </div>

@@ -59,11 +59,15 @@ model RefreshToken {
 }
 
 model UserSettings {
-  userId          String @id @map("user_id")
-  locale          Locale @default(vi)
-  dailyLessonGoal Int    @default(1) @map("daily_lesson_goal")
-  dailyWordGoal   Int    @default(5) @map("daily_word_goal")
-  dailyQuizGoal   Int    @default(1) @map("daily_quiz_goal")
+  userId             String  @id @map("user_id")
+  locale             Locale  @default(vi)
+  dailyLessonGoal    Int     @default(1) @map("daily_lesson_goal")
+  dailyWordGoal      Int     @default(5) @map("daily_word_goal")
+  dailyQuizGoal      Int     @default(1) @map("daily_quiz_goal")
+  dailyReviewGoal    Int     @default(20) @map("daily_review_goal")
+  preferredLevel     String  @default("all") @map("preferred_level")
+  placementLevel     Level?  @map("placement_level")
+  onboardingComplete Boolean @default(false) @map("onboarding_complete")
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -71,10 +75,11 @@ model UserSettings {
 }
 
 model UserProgress {
-  userId             String    @id @map("user_id")
-  streak             Int       @default(0)
-  lastStudyDate      DateTime? @map("last_study_date")
-  totalStudyMinutes  Int       @default(0) @map("total_study_minutes")
+  userId            String    @id @map("user_id")
+  streak            Int       @default(0)
+  lastStudyDate     DateTime? @map("last_study_date")
+  totalStudyMinutes Int       @default(0) @map("total_study_minutes")
+  dataJson          Json?     @map("data_json")
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -238,6 +243,7 @@ model DailyGoalLog {
   lessonsDone  Int      @default(0) @map("lessons_done")
   wordsLearned Int      @default(0) @map("words_learned")
   quizzesDone  Int      @default(0) @map("quizzes_done")
+  reviewsDone  Int      @default(0) @map("reviews_done")
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 

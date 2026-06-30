@@ -13,6 +13,7 @@ export interface Lesson {
   duration: number;
   content: string[];
   grammarTopicId?: string;
+  comprehension?: ComprehensionQuestion[];
 }
 
 export interface VocabWord {
@@ -42,6 +43,22 @@ export interface GrammarTopic {
   rules: string[];
   examples: { sentence: string; explanation: string }[];
   level: Level;
+}
+
+export interface GrammarExercise {
+  id: string;
+  topicId: string;
+  question: string;
+  options: string[];
+  correctIndex: number;
+  explanation: string;
+}
+
+export interface ComprehensionQuestion {
+  question: string;
+  options: string[];
+  correctIndex: number;
+  explanation: string;
 }
 
 export interface QuizScore {
@@ -74,12 +91,15 @@ export interface UserSettings {
   dailyQuizGoal: number;
   dailyReviewGoal: number;
   preferredLevel: Level | 'all';
+  onboardingComplete: boolean;
+  placementLevel: Level | null;
 }
 
 export interface UserProgress {
   completedLessons: string[];
   learnedWords: string[];
   reviewedGrammar: string[];
+  grammarPracticePassed: string[];
   wordReviews: Record<string, WordReviewState>;
   quizScores: QuizScore[];
   streak: number;

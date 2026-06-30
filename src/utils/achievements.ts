@@ -16,7 +16,7 @@ const ACHIEVEMENT_DEFS = [
   { id: 'perfect-quiz', icon: '💯', titleKey: 'perfectQuiz', descKey: 'perfectQuizDesc', check: (p: UserProgress) => p.quizScores.some((q) => q.score === q.total && q.total > 0) },
   { id: 'streak-3', icon: '🔥', titleKey: 'streak3', descKey: 'streak3Desc', check: (p: UserProgress) => p.streak >= 3 },
   { id: 'streak-7', icon: '⚡', titleKey: 'streak7', descKey: 'streak7Desc', check: (p: UserProgress) => p.streak >= 7 },
-  { id: 'grammar-master', icon: '✏️', titleKey: 'grammarMaster', descKey: 'grammarMasterDesc', check: (p: UserProgress) => p.reviewedGrammar.length >= grammarTopics.length },
+  { id: 'grammar-master', icon: '✏️', titleKey: 'grammarMaster', descKey: 'grammarMasterDesc', check: (p: UserProgress) => p.grammarPracticePassed.length >= grammarTopics.length },
 ] as const;
 
 export function getAchievements(progress: UserProgress): Achievement[] {

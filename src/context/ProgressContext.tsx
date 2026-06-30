@@ -12,6 +12,8 @@ const defaultSettings: UserSettings = {
   dailyQuizGoal: 1,
   dailyReviewGoal: 20,
   preferredLevel: 'all',
+  onboardingComplete: false,
+  placementLevel: null,
 };
 
 function freshDailyGoals(): DailyGoalProgress {
@@ -22,6 +24,7 @@ const defaultProgress: UserProgress = {
   completedLessons: [],
   learnedWords: [],
   reviewedGrammar: [],
+  grammarPracticePassed: [],
   wordReviews: {},
   quizScores: [],
   streak: 0,
@@ -34,6 +37,7 @@ const defaultProgress: UserProgress = {
 function migrate(raw: Partial<UserProgress>): UserProgress {
   const merged = { ...defaultProgress, ...raw } as UserProgress;
   if (!merged.reviewedGrammar) merged.reviewedGrammar = [];
+  if (!merged.grammarPracticePassed) merged.grammarPracticePassed = [];
   if (!merged.wordReviews) merged.wordReviews = {};
   if (!merged.settings) merged.settings = { ...defaultSettings };
   merged.settings = {
@@ -41,6 +45,10 @@ function migrate(raw: Partial<UserProgress>): UserProgress {
     ...merged.settings,
     dailyReviewGoal: merged.settings.dailyReviewGoal ?? 20,
     preferredLevel: merged.settings.preferredLevel ?? 'all',
+    onboardingComplete: merged.settings.onboardingComplete ?? (
+      merged.completedLessons.length > 0 || merged.learnedWords.length > 0
+    ),
+    placementLevel: merged.settings.placementLevel ?? null,
   };
   if (!merged.dailyGoals) merged.dailyGoals = freshDailyGoals();
   if (merged.dailyGoals.reviewsDone === undefined) {
@@ -170,6 +178,33 @@ function useProgressState() {
     });
   }, []);
 
+  const passGrammarPractice = useCallback((topicId: string) => {
+    setProgress((prev) => {
+      const updated = updateStreak(prev);
+      if (updated.grammarPracticePassed.includes(topicId)) return updated;
+      const reviewedGrammar = updated.reviewedGrammar.includes(topicId)
+        ? updated.reviewedGrammar
+        : [...updated.reviewedGrammar, topicId];
+      return {
+        ...updated,
+        reviewedGrammar,
+        grammarPracticePassed: [...updated.grammarPracticePassed, topicId],
+      };
+    });
+  }, []);
+
+  const completeOnboarding = useCallback((placementLevel: UserSettings['placementLevel']) => {
+    setProgress((prev) => ({
+      ...prev,
+      settings: {
+        ...prev.settings,
+        onboardingComplete: true,
+        placementLevel,
+        preferredLevel: placementLevel ?? 'all',
+      },
+    }));
+  }, []);
+
   const saveQuizScore = useCallback((quizId: string, score: number, total: number) => {
     setProgress((prev) => {
       const updated = ensureTodayGoals(updateStreak(prev));
@@ -232,6 +267,8 @@ function useProgressState() {
     learnWord,
     rateWord,
     reviewGrammar,
+    passGrammarPractice,
+    completeOnboarding,
     saveQuizScore,
     updateSettings,
     resetProgress,

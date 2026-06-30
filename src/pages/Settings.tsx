@@ -1,11 +1,14 @@
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { useProgress } from '../context/ProgressContext';
 import { useLanguage } from '../context/LanguageContext';
+import { useAuth } from '../context/AuthContext';
 import type { Locale } from '../types';
 
 export default function Settings() {
   const { progress, updateSettings, exportProgress, importProgress } = useProgress();
   const { tr, locale, setLocale } = useLanguage();
+  const { isAuthenticated, apiEnabled, logout, user } = useAuth();
   const fileRef = useRef<HTMLInputElement>(null);
   const { settings } = progress;
 
@@ -74,6 +77,25 @@ export default function Settings() {
           />
         </div>
       </div>
+
+      {apiEnabled && (
+        <div className="settings-section">
+          <h3>{tr.auth.syncEnabled}</h3>
+          {isAuthenticated ? (
+            <>
+              <p className="settings-hint">{tr.auth.loggedInAs} {user?.email}</p>
+              <button type="button" className="btn btn-outline btn-block" onClick={() => logout()}>
+                {tr.auth.logout}
+              </button>
+            </>
+          ) : (
+            <div className="settings-actions">
+              <Link to="/login" className="btn btn-primary btn-block">{tr.auth.login}</Link>
+              <Link to="/register" className="btn btn-outline btn-block">{tr.auth.register}</Link>
+            </div>
+          )}
+        </div>
+      )}
 
       <div className="settings-section">
         <h3>{tr.settings.data}</h3>

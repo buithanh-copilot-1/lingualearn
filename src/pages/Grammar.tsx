@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { grammarTopics } from '../data/grammar';
+import { getExercisesForTopic } from '../data/grammarExercises';
 import { useProgress } from '../context/ProgressContext';
 import { useLanguage } from '../context/LanguageContext';
+import { useState } from 'react';
 
 export default function Grammar() {
   const { progress, reviewGrammar } = useProgress();
@@ -32,12 +34,15 @@ export default function Grammar() {
       <div className="grammar-list">
         {filtered.map((topic) => {
           const reviewed = progress.reviewedGrammar.includes(topic.id);
+          const practiced = progress.grammarPracticePassed.includes(topic.id);
+          const exerciseCount = getExercisesForTopic(topic.id).length;
           return (
             <div key={topic.id} className={`grammar-card ${reviewed ? 'reviewed' : ''}`}>
               <div className="grammar-card-header">
                 <h2>{topic.title}</h2>
                 <span className={`badge badge-${topic.level}`}>{tr.levels[topic.level]}</span>
-                {reviewed && <span className="badge badge-done">✓ {tr.grammar.reviewed}</span>}
+                {practiced && <span className="badge badge-done">✓ {tr.grammar.practiceDone}</span>}
+                {reviewed && !practiced && <span className="badge badge-done">✓ {tr.grammar.reviewed}</span>}
               </div>
               <p className="grammar-desc">{topic.description}</p>
 
@@ -60,11 +65,18 @@ export default function Grammar() {
                 ))}
               </div>
 
-              {!reviewed && (
-                <button className="btn btn-primary btn-block" onClick={() => reviewGrammar(topic.id)}>
-                  {tr.grammar.markReviewed}
-                </button>
-              )}
+              <div className="grammar-card-actions">
+                {exerciseCount > 0 && (
+                  <Link to={`/grammar/${topic.id}/practice`} className="btn btn-primary">
+                    {practiced ? tr.grammar.practiceAgain : tr.grammar.startPractice}
+                  </Link>
+                )}
+                {!reviewed && (
+                  <button className="btn btn-outline" onClick={() => reviewGrammar(topic.id)}>
+                    {tr.grammar.markReviewed}
+                  </button>
+                )}
+              </div>
             </div>
           );
         })}

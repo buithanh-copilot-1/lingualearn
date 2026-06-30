@@ -1011,6 +1011,31 @@ body {
 .curriculum-unit-header p { margin: 0; font-size: 0.85rem; color: var(--text-muted); }
 .curriculum-progress { font-weight: 700; color: var(--primary); white-space: nowrap; }
 
+.grammar-card-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+.grammar-card-actions .btn { flex: 1; min-width: 140px; }
+
+.listening-controls { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin: 0.75rem 0; }
+.listening-autoplay { font-size: 0.85rem; display: flex; align-items: center; gap: 0.35rem; }
+.listening-step { border-left: 4px solid var(--primary); }
+.listening-label { display: block; font-size: 0.8rem; color: var(--primary); margin-bottom: 0.5rem; font-weight: 600; }
+.comprehension-score { color: var(--text-muted); margin: 0.5rem 0; }
+
+.placement-page { max-width: 640px; margin: 0 auto; }
+.placement-level-badge { margin: 1rem 0; }
+.placement-level-badge .badge { font-size: 1rem; padding: 0.5rem 1rem; }
+.placement-skip { display: block; margin: 1rem auto 0; color: var(--text-muted); background: none; border: none; cursor: pointer; }
+
+.auth-page { display: flex; justify-content: center; align-items: flex-start; padding-top: 2rem; }
+.auth-card { background: white; border: 1px solid #e5e7eb; border-radius: var(--radius-lg); padding: 1.5rem; width: 100%; max-width: 400px; }
+.auth-form { display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem; }
+.auth-form label { display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.85rem; font-weight: 600; }
+.auth-form input { padding: 0.6rem 0.75rem; border: 1px solid #d1d5db; border-radius: var(--radius); font-size: 1rem; }
+.auth-error { color: #b91c1c; font-size: 0.85rem; margin: 0; }
+.auth-switch { text-align: center; font-size: 0.9rem; margin-top: 1rem; }
+.settings-hint { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem; }
+.nav-auth-btn { background: none; border: none; color: var(--text); cursor: pointer; font: inherit; padding: 0.5rem 0.75rem; }
+.nav-auth-btn:hover { color: var(--primary); }
+
 /* Quiz Select */
 .quiz-select-card {
   background: var(--surface);

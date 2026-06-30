@@ -6,6 +6,8 @@ export interface ProgressResponse {
   completedLessons: string[];
   learnedWords: string[];
   reviewedGrammar: string[];
+  grammarPracticePassed: string[];
+  wordReviews: Record<string, unknown>;
   quizScores: { quizId: string; score: number; total: number; date: string }[];
   streak: number;
   lastStudyDate: string;
@@ -15,14 +17,24 @@ export interface ProgressResponse {
     lessonsDone: number;
     wordsLearned: number;
     quizzesDone: number;
+    reviewsDone: number;
   };
   settings: {
     locale: Locale;
     dailyLessonGoal: number;
     dailyWordGoal: number;
     dailyQuizGoal: number;
+    dailyReviewGoal: number;
+    preferredLevel: string;
+    placementLevel: string | null;
+    onboardingComplete: boolean;
   };
 }
+
+type DataJson = {
+  wordReviews?: Record<string, unknown>;
+  grammarPracticePassed?: string[];
+};
 
 export async function ensureUserRecords(userId: string) {
   await prisma.userSettings.upsert({
@@ -100,10 +112,14 @@ export async function buildProgressResponse(userId: string): Promise<ProgressRes
     getOrCreateDailyLog(userId),
   ]);
 
+  const dataJson = (progress.dataJson ?? {}) as DataJson;
+
   return {
     completedLessons: lessonCompletions.map((c) => c.lessonId),
     learnedWords: wordProgress.map((w) => w.wordId),
     reviewedGrammar: grammarReviews.map((g) => g.topicId),
+    grammarPracticePassed: dataJson.grammarPracticePassed ?? [],
+    wordReviews: dataJson.wordReviews ?? {},
     quizScores: quizAttempts.map((q) => ({
       quizId: q.quizId,
       score: q.score,
@@ -118,12 +134,17 @@ export async function buildProgressResponse(userId: string): Promise<ProgressRes
       lessonsDone: dailyLog.lessonsDone,
       wordsLearned: dailyLog.wordsLearned,
       quizzesDone: dailyLog.quizzesDone,
+      reviewsDone: dailyLog.reviewsDone,
     },
     settings: {
       locale: settings.locale,
       dailyLessonGoal: settings.dailyLessonGoal,
       dailyWordGoal: settings.dailyWordGoal,
       dailyQuizGoal: settings.dailyQuizGoal,
+      dailyReviewGoal: settings.dailyReviewGoal,
+      preferredLevel: settings.preferredLevel,
+      placementLevel: settings.placementLevel,
+      onboardingComplete: settings.onboardingComplete,
     },
   };
 }
@@ -208,4 +229,98 @@ export async function importProgress(userId: string, data: ImportProgressPayload
       });
     }
   }
+}
+
+export async function syncFullProgress(userId: string, payload: Record<string, unknown>) {
+  await ensureUserRecords(userId);
+
+  const settings = payload.settings as ProgressResponse['settings'] | undefined;
+  const dailyGoals = payload.dailyGoals as ProgressResponse['dailyGoals'] | undefined;
+
+  if (settings) {
+    await prisma.userSettings.update({
+      where: { userId },
+      data: {
+        locale: settings.locale,
+        dailyLessonGoal: settings.dailyLessonGoal,
+        dailyWordGoal: settings.dailyWordGoal,
+        dailyQuizGoal: settings.dailyQuizGoal,
+        dailyReviewGoal: settings.dailyReviewGoal ?? 20,
+        preferredLevel: settings.preferredLevel ?? 'all',
+        placementLevel: settings.placementLevel as 'beginner' | 'intermediate' | 'advanced' | null | undefined,
+        onboardingComplete: settings.onboardingComplete ?? false,
+      },
+    });
+  }
+
+  await prisma.userProgress.update({
+    where: { userId },
+    data: {
+      streak: (payload.streak as number) ?? 0,
+      totalStudyMinutes: (payload.totalStudyMinutes as number) ?? 0,
+      lastStudyDate: payload.lastStudyDate
+        ? new Date(payload.lastStudyDate as string)
+        : null,
+      dataJson: {
+        wordReviews: payload.wordReviews ?? {},
+        grammarPracticePassed: payload.grammarPracticePassed ?? [],
+      },
+    },
+  });
+
+  if (dailyGoals) {
+    const today = todayDate();
+    await prisma.dailyGoalLog.upsert({
+      where: { userId_date: { userId, date: today } },
+      update: {
+        lessonsDone: dailyGoals.lessonsDone,
+        wordsLearned: dailyGoals.wordsLearned,
+        quizzesDone: dailyGoals.quizzesDone,
+        reviewsDone: dailyGoals.reviewsDone ?? 0,
+      },
+      create: {
+        userId,
+        date: today,
+        lessonsDone: dailyGoals.lessonsDone,
+        wordsLearned: dailyGoals.wordsLearned,
+        quizzesDone: dailyGoals.quizzesDone,
+        reviewsDone: dailyGoals.reviewsDone ?? 0,
+      },
+    });
+  }
+
+  const completedLessons = payload.completedLessons as string[] | undefined;
+  if (completedLessons) {
+    for (const lessonId of completedLessons) {
+      await prisma.lessonCompletion.upsert({
+        where: { userId_lessonId: { userId, lessonId } },
+        update: {},
+        create: { userId, lessonId },
+      });
+    }
+  }
+
+  const learnedWords = payload.learnedWords as string[] | undefined;
+  if (learnedWords) {
+    for (const wordId of learnedWords) {
+      await prisma.wordProgress.upsert({
+        where: { userId_wordId: { userId, wordId } },
+        update: {},
+        create: { userId, wordId },
+      });
+    }
+  }
+
+  const reviewedGrammar = payload.reviewedGrammar as string[] | undefined;
+  if (reviewedGrammar) {
+    for (const topicId of reviewedGrammar) {
+      await prisma.grammarReview.upsert({
+        where: { userId_topicId: { userId, topicId } },
+        update: {},
+        create: { userId, topicId },
+      });
+    }
+  }
+
+  return buildProgressResponse(userId);
 }

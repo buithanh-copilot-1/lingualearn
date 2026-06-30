@@ -7,6 +7,7 @@ import {
   updateUserStreak,
   importProgress,
   ensureUserRecords,
+  syncFullProgress,
 } from './progress.service.js';
 import type { Locale } from '../../types.js';
 
@@ -186,6 +187,14 @@ export async function progressRoutes(app: FastifyInstance) {
 
     await importProgress(request.user.sub, body.data);
     return buildProgressResponse(request.user.sub);
+  });
+
+  app.put('/sync', async (request, reply) => {
+    const body = request.body;
+    if (!body || typeof body !== 'object') {
+      return reply.status(400).send({ error: 'Invalid sync payload' });
+    }
+    return syncFullProgress(request.user.sub, body as Record<string, unknown>);
   });
 
   app.delete('/', async (request) => {
