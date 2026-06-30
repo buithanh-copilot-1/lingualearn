@@ -18,7 +18,7 @@ import './index.css';
 export default function App() {
   return (
     <LanguageProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '') || undefined}>
         <div className="app">
           <Navbar />
           <main className="main-content">
