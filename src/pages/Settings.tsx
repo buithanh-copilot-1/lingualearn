@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { useProgress } from '../hooks/useProgress';
+import { useProgress } from '../context/ProgressContext';
 import { useLanguage } from '../context/LanguageContext';
 import type { Locale } from '../types';
 
@@ -55,6 +55,14 @@ export default function Settings() {
             type="number" min={1} max={50}
             value={settings.dailyWordGoal}
             onChange={(e) => updateSettings({ dailyWordGoal: +e.target.value })}
+          />
+        </div>
+        <div className="settings-goal-row">
+          <label>{tr.settings.reviewsPerDay}</label>
+          <input
+            type="number" min={5} max={100}
+            value={settings.dailyReviewGoal}
+            onChange={(e) => updateSettings({ dailyReviewGoal: +e.target.value })}
           />
         </div>
         <div className="settings-goal-row">

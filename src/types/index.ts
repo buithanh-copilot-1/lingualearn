@@ -1,6 +1,8 @@
 export type Level = 'beginner' | 'intermediate' | 'advanced';
 export type LessonCategory = 'conversation' | 'grammar' | 'vocabulary' | 'listening';
 export type Locale = 'en' | 'vi';
+export type SrsRating = 'again' | 'hard' | 'good' | 'easy';
+export type StudyMode = 'mixed' | 'review' | 'new';
 
 export interface Lesson {
   id: string;
@@ -54,6 +56,15 @@ export interface DailyGoalProgress {
   lessonsDone: number;
   wordsLearned: number;
   quizzesDone: number;
+  reviewsDone: number;
+}
+
+export interface WordReviewState {
+  ease: number;
+  interval: number;
+  repetitions: number;
+  nextReview: string;
+  lastRating?: SrsRating;
 }
 
 export interface UserSettings {
@@ -61,12 +72,15 @@ export interface UserSettings {
   dailyLessonGoal: number;
   dailyWordGoal: number;
   dailyQuizGoal: number;
+  dailyReviewGoal: number;
+  preferredLevel: Level | 'all';
 }
 
 export interface UserProgress {
   completedLessons: string[];
   learnedWords: string[];
   reviewedGrammar: string[];
+  wordReviews: Record<string, WordReviewState>;
   quizScores: QuizScore[];
   streak: number;
   lastStudyDate: string;

@@ -1,7 +1,7 @@
 import { lessons } from '../data/lessons';
 import { vocabulary } from '../data/vocabulary';
 import { grammarTopics } from '../data/grammar';
-import { useProgress } from '../hooks/useProgress';
+import { useProgress } from '../context/ProgressContext';
 import { useLanguage } from '../context/LanguageContext';
 import { getAchievements } from '../utils/achievements';
 import { getQuizLabel } from '../utils/quizLabels';

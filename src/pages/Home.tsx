@@ -1,16 +1,19 @@
 import { Link } from 'react-router-dom';
 import { lessons } from '../data/lessons';
 import { vocabulary } from '../data/vocabulary';
-import { useProgress } from '../hooks/useProgress';
+import { useProgress } from '../context/ProgressContext';
 import { useLanguage } from '../context/LanguageContext';
 import { getAchievements, getUnlockedCount } from '../utils/achievements';
+import { getDueWordIds } from '../utils/srs';
 import ProgressBar from '../components/ProgressBar';
 import DailyGoalCard from '../components/DailyGoalCard';
+import LearningPathCard from '../components/LearningPathCard';
 
 export default function Home() {
   const { progress } = useProgress();
   const { tr } = useLanguage();
   const achievements = getAchievements(progress);
+  const dueCount = getDueWordIds(progress).length;
 
   const stats = [
     { label: tr.home.lessons, value: progress.completedLessons.length, total: lessons.length, icon: '📚' },
@@ -26,7 +29,9 @@ export default function Home() {
           <h1>{tr.home.title} <span className="highlight">LinguaLearn</span></h1>
           <p className="hero-subtitle">{tr.home.subtitle}</p>
           <div className="hero-actions">
-            <Link to="/lessons" className="btn btn-primary btn-lg">{tr.home.startLearning}</Link>
+            <Link to="/vocabulary/study?mode=mixed" className="btn btn-primary btn-lg">
+              {dueCount > 0 ? tr.home.startReview : tr.home.startLearning}
+            </Link>
             <Link to="/quiz" className="btn btn-outline btn-lg">{tr.home.takeQuiz}</Link>
           </div>
         </div>
@@ -41,6 +46,10 @@ export default function Home() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="section">
+        <LearningPathCard />
       </section>
 
       <section className="section">

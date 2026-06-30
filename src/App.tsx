@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ProgressProvider } from './context/ProgressContext';
 import { LanguageProvider } from './context/LanguageContext';
 import Navbar from './components/Navbar';
 import MobileBottomNav from './components/MobileBottomNav';
@@ -17,8 +18,9 @@ import './index.css';
 
 export default function App() {
   return (
-    <LanguageProvider>
-      <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '') || undefined}>
+    <ProgressProvider>
+      <LanguageProvider>
+        <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '') || undefined}>
         <div className="app">
           <Navbar />
           <main className="main-content">
@@ -38,7 +40,8 @@ export default function App() {
           <Footer />
           <MobileBottomNav />
         </div>
-      </BrowserRouter>
-    </LanguageProvider>
+        </BrowserRouter>
+      </LanguageProvider>
+    </ProgressProvider>
   );
 }

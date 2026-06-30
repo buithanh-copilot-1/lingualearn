@@ -1,5 +1,5 @@
 import { createContext, useContext, useCallback, type ReactNode } from 'react';
-import { useProgress } from '../hooks/useProgress';
+import { useProgress } from '../context/ProgressContext';
 import { t, type TranslationKeys } from '../i18n/translations';
 import type { Locale } from '../types';
 

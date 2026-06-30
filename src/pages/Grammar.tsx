@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { grammarTopics } from '../data/grammar';
-import { useProgress } from '../hooks/useProgress';
+import { useProgress } from '../context/ProgressContext';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function Grammar() {

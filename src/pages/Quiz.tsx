@@ -1,10 +1,21 @@
 import { useState, useEffect, useCallback } from 'react';
 import { filterQuizzes } from '../data/quizzes';
-import { useProgress } from '../hooks/useProgress';
+import { useProgress } from '../context/ProgressContext';
 import { useLanguage } from '../context/LanguageContext';
 import type { QuizLevel, QuizMode } from '../types';
 
 type Phase = 'select' | 'playing' | 'finished';
+
+const QUIZ_SESSION_SIZE = 15;
+
+function shuffle<T>(arr: T[]): T[] {
+  const copy = [...arr];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
 
 export default function Quiz() {
   const { saveQuizScore } = useProgress();
@@ -24,7 +35,8 @@ export default function Quiz() {
   const startQuiz = useCallback(() => {
     const filtered = filterQuizzes(mode === 'all' ? 'all' : mode, level);
     if (filtered.length === 0) return;
-    setQuestions(filtered);
+    const session = shuffle(filtered).slice(0, QUIZ_SESSION_SIZE);
+    setQuestions(session);
     setCurrent(0);
     setSelected(null);
     setAnswers([]);
@@ -105,7 +117,10 @@ export default function Quiz() {
             </div>
           </div>
 
-          <p className="quiz-preview-count">{preview.length} {tr.quiz.question.toLowerCase()}s</p>
+          <p className="quiz-preview-count">
+            {Math.min(preview.length, QUIZ_SESSION_SIZE)} {tr.quiz.question.toLowerCase()}s
+            {preview.length > QUIZ_SESSION_SIZE && ` (${tr.quiz.sessionFrom} ${preview.length})`}
+          </p>
 
           {preview.length === 0 ? (
             <p className="empty-state">{tr.quiz.noQuestions}</p>

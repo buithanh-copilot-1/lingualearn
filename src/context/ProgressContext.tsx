@@ -1,27 +1,28 @@
-import { useState, useEffect, useCallback } from 'react';
-import type { UserProgress, UserSettings, DailyGoalProgress } from '../types';
+import { useState, useEffect, useCallback, type ReactNode } from 'react';
+import { createContext, useContext } from 'react';
+import type { UserProgress, UserSettings, DailyGoalProgress, SrsRating } from '../types';
+import { initialReviewState, migrateWordReviews, scheduleReview, todayStr } from '../utils/srs';
 
 const STORAGE_KEY = 'lingualearn-progress';
 
 const defaultSettings: UserSettings = {
   locale: 'vi',
   dailyLessonGoal: 1,
-  dailyWordGoal: 5,
+  dailyWordGoal: 10,
   dailyQuizGoal: 1,
+  dailyReviewGoal: 20,
+  preferredLevel: 'all',
 };
 
-function todayStr() {
-  return new Date().toISOString().split('T')[0];
-}
-
 function freshDailyGoals(): DailyGoalProgress {
-  return { date: todayStr(), lessonsDone: 0, wordsLearned: 0, quizzesDone: 0 };
+  return { date: todayStr(), lessonsDone: 0, wordsLearned: 0, quizzesDone: 0, reviewsDone: 0 };
 }
 
 const defaultProgress: UserProgress = {
   completedLessons: [],
   learnedWords: [],
   reviewedGrammar: [],
+  wordReviews: {},
   quizScores: [],
   streak: 0,
   lastStudyDate: '',
@@ -31,13 +32,24 @@ const defaultProgress: UserProgress = {
 };
 
 function migrate(raw: Partial<UserProgress>): UserProgress {
-  const merged = { ...defaultProgress, ...raw };
+  const merged = { ...defaultProgress, ...raw } as UserProgress;
   if (!merged.reviewedGrammar) merged.reviewedGrammar = [];
+  if (!merged.wordReviews) merged.wordReviews = {};
   if (!merged.settings) merged.settings = { ...defaultSettings };
-  if (!merged.dailyGoals || merged.dailyGoals.date !== todayStr()) {
+  merged.settings = {
+    ...defaultSettings,
+    ...merged.settings,
+    dailyReviewGoal: merged.settings.dailyReviewGoal ?? 20,
+    preferredLevel: merged.settings.preferredLevel ?? 'all',
+  };
+  if (!merged.dailyGoals) merged.dailyGoals = freshDailyGoals();
+  if (merged.dailyGoals.reviewsDone === undefined) {
+    merged.dailyGoals = { ...merged.dailyGoals, reviewsDone: 0 };
+  }
+  if (merged.dailyGoals.date !== todayStr()) {
     merged.dailyGoals = freshDailyGoals();
   }
-  return merged;
+  return migrateWordReviews(merged);
 }
 
 function loadProgress(): UserProgress {
@@ -47,7 +59,7 @@ function loadProgress(): UserProgress {
   } catch {
     /* ignore */
   }
-  return { ...defaultProgress, dailyGoals: freshDailyGoals(), settings: { ...defaultSettings } };
+  return migrate({ ...defaultProgress, dailyGoals: freshDailyGoals(), settings: { ...defaultSettings } });
 }
 
 function saveProgress(progress: UserProgress) {
@@ -74,14 +86,14 @@ function ensureTodayGoals(progress: UserProgress): UserProgress {
 
 function bumpDaily(
   goals: DailyGoalProgress,
-  field: keyof Pick<DailyGoalProgress, 'lessonsDone' | 'wordsLearned' | 'quizzesDone'>,
+  field: keyof Pick<DailyGoalProgress, 'lessonsDone' | 'wordsLearned' | 'quizzesDone' | 'reviewsDone'>,
 ): DailyGoalProgress {
   const today = todayStr();
   const base = goals.date === today ? goals : freshDailyGoals();
   return { ...base, [field]: base[field] + 1 };
 }
 
-export function useProgress() {
+function useProgressState() {
   const [progress, setProgress] = useState<UserProgress>(loadProgress);
 
   useEffect(() => {
@@ -107,12 +119,43 @@ export function useProgress() {
   const learnWord = useCallback((wordId: string) => {
     setProgress((prev) => {
       let updated = ensureTodayGoals(updateStreak(prev));
-      if (updated.learnedWords.includes(wordId)) return updated;
+      const isNew = !updated.learnedWords.includes(wordId);
+      const wordReviews = { ...updated.wordReviews };
+      if (!wordReviews[wordId]) {
+        wordReviews[wordId] = scheduleReview(initialReviewState(), 'good');
+      }
+      if (!isNew) return { ...updated, wordReviews };
       return {
         ...updated,
         learnedWords: [...updated.learnedWords, wordId],
+        wordReviews,
         dailyGoals: bumpDaily(updated.dailyGoals, 'wordsLearned'),
       };
+    });
+  }, []);
+
+  const rateWord = useCallback((wordId: string, rating: SrsRating) => {
+    setProgress((prev) => {
+      let updated = ensureTodayGoals(updateStreak(prev));
+      const isNew = !updated.learnedWords.includes(wordId);
+      const current = updated.wordReviews[wordId] ?? initialReviewState();
+      const wordReviews = {
+        ...updated.wordReviews,
+        [wordId]: scheduleReview(current, rating),
+      };
+
+      let dailyGoals = updated.dailyGoals;
+      if (isNew && (rating === 'good' || rating === 'easy')) {
+        dailyGoals = bumpDaily(dailyGoals, 'wordsLearned');
+      } else if (!isNew) {
+        dailyGoals = bumpDaily(dailyGoals, 'reviewsDone');
+      }
+
+      const learnedWords = isNew && (rating === 'good' || rating === 'easy')
+        ? [...updated.learnedWords, wordId]
+        : updated.learnedWords;
+
+      return { ...updated, wordReviews, learnedWords, dailyGoals };
     });
   }, []);
 
@@ -187,6 +230,7 @@ export function useProgress() {
     progress,
     completeLesson,
     learnWord,
+    rateWord,
     reviewGrammar,
     saveQuizScore,
     updateSettings,
@@ -194,4 +238,19 @@ export function useProgress() {
     exportProgress,
     importProgress,
   };
+}
+
+type ProgressContextValue = ReturnType<typeof useProgressState>;
+
+const ProgressContext = createContext<ProgressContextValue | null>(null);
+
+export function ProgressProvider({ children }: { children: ReactNode }) {
+  const value = useProgressState();
+  return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;
+}
+
+export function useProgress(): ProgressContextValue {
+  const ctx = useContext(ProgressContext);
+  if (!ctx) throw new Error('useProgress must be used within ProgressProvider');
+  return ctx;
 }

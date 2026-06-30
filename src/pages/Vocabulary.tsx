@@ -1,9 +1,10 @@
 import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { vocabulary } from '../data/vocabulary';
-import { useProgress } from '../hooks/useProgress';
+import { useProgress } from '../context/ProgressContext';
 import { useLanguage } from '../context/LanguageContext';
 import FlashCard from '../components/FlashCard';
+import { getDueWordIds } from '../utils/srs';
 import type { Level } from '../types';
 
 type LevelFilter = 'all' | Level;
@@ -33,6 +34,7 @@ export default function Vocabulary() {
   const paged = filtered.slice((safePage - 1) * PAGE_SIZE, safePage * PAGE_SIZE);
 
   const unlearnedCount = vocabulary.filter((w) => !progress.learnedWords.includes(w.id)).length;
+  const dueCount = getDueWordIds(progress).length;
 
   const resetPage = () => setPage(1);
 
@@ -44,11 +46,15 @@ export default function Vocabulary() {
         <p className="page-meta">{vocabulary.length} {tr.nav.vocabulary.toLowerCase()}</p>
       </div>
 
-      {unlearnedCount > 0 && (
-        <Link to="/vocabulary/study" className="study-banner">
+      {(dueCount > 0 || unlearnedCount > 0) && (
+        <Link to={`/vocabulary/study?mode=${dueCount > 0 ? 'mixed' : 'new'}`} className="study-banner">
           <div>
             <strong>{tr.vocabulary.studyMode}</strong>
-            <span>{tr.vocabulary.studySubtitle} ({unlearnedCount})</span>
+            <span>
+              {dueCount > 0 && `${dueCount} ${tr.learningPath.dueWords}`}
+              {dueCount > 0 && unlearnedCount > 0 && ' · '}
+              {unlearnedCount > 0 && `${unlearnedCount} ${tr.vocabulary.newCard.toLowerCase()}`}
+            </span>
           </div>
           <span className="study-banner-arrow">→</span>
         </Link>

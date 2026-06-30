@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { getLessonById, getNextLessonId, getPrevLessonId } from '../data/lessons';
-import { useProgress } from '../hooks/useProgress';
+import { useProgress } from '../context/ProgressContext';
 import { useLanguage } from '../context/LanguageContext';
 import { useState } from 'react';
 
