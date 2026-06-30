@@ -145,7 +145,10 @@ npm run dev
 
 | Lỗi | Cách xử lý |
 |-----|------------|
-| `JWT_SECRET is required` | Thêm `JWT_SECRET` trong Railway Variables |
+| Service **CRASHED** ngay khi start | Xem **Deploy Logs**. Thường thiếu `DATABASE_URL` hoặc `JWT_SECRET` |
+| `DATABASE_URL is not set` | Backend → Variables → **Variable Reference** → Postgres → `DATABASE_URL` |
+| `JWT_SECRET is required` | Thêm `JWT_SECRET` và `JWT_REFRESH_SECRET` trên service backend |
+| `dist/index.js not found` | Đặt **Root Directory** = `backend`, hoặc deploy từ repo root (đã có `railway.toml` ở root) |
 | CORS error trên browser | Thêm URL Vercel vào `CORS_ORIGIN` |
 | Empty lessons/vocab | Chạy `railway run npm run db:seed` |
 | Build fail | Kiểm tra Root Directory = `backend` |

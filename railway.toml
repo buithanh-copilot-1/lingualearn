@@ -1,0 +1,11 @@
+# Use this when Railway Root Directory is the repo root (not backend/)
+[build]
+builder = "nixpacks"
+buildCommand = "cd backend && npm ci && npm run build"
+
+[deploy]
+startCommand = "cd backend && npm run start:prod"
+healthcheckPath = "/health"
+healthcheckTimeout = 300
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 5
