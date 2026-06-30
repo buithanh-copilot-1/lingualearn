@@ -1,0 +1,164 @@
+[
+  {
+    "id": "l1",
+    "title": "Greetings & Introductions",
+    "description": "Learn how to greet people and introduce yourself in everyday situations.",
+    "level": "beginner",
+    "category": "conversation",
+    "duration": 15,
+    "content": [
+      "Hello / Hi — informal greeting used with friends and peers.",
+      "Good morning / Good afternoon / Good evening — formal time-based greetings.",
+      "How are you? — Common question. Reply: \"I'm fine, thank you. And you?\"",
+      "Nice to meet you — Used when meeting someone for the first time.",
+      "My name is... / I'm... — Two ways to introduce yourself.",
+      "Where are you from? — Ask about someone's origin. Reply: \"I'm from Vietnam.\""
+    ]
+  },
+  {
+    "id": "l2",
+    "title": "At the Restaurant",
+    "description": "Essential phrases for ordering food and drinks at a restaurant.",
+    "level": "beginner",
+    "category": "conversation",
+    "duration": 20,
+    "content": [
+      "A table for two, please. — Request a table when arriving.",
+      "Can I see the menu? — Ask to view available dishes.",
+      "I'd like to order... — Polite way to place an order.",
+      "What do you recommend? — Ask the waiter for suggestions.",
+      "Could I have the bill, please? — Request the check when finished.",
+      "Is service included? — Ask about tipping policy."
+    ]
+  },
+  {
+    "id": "l3",
+    "title": "Present Simple Tense",
+    "description": "Master the most fundamental English tense for daily communication.",
+    "level": "beginner",
+    "category": "grammar",
+    "duration": 25,
+    "grammarTopicId": "g1",
+    "content": [
+      "Use Present Simple for habits, routines, and general truths.",
+      "Structure: Subject + base verb (add -s/-es for he/she/it).",
+      "I work / You work / He works / She works / It works / We work / They work.",
+      "Negative: Subject + do/does + not + base verb. \"I don't like coffee.\"",
+      "Questions: Do/Does + subject + base verb? \"Do you speak English?\"",
+      "Time expressions: always, usually, often, sometimes, never, every day."
+    ]
+  },
+  {
+    "id": "l4",
+    "title": "Travel & Directions",
+    "description": "Navigate cities, ask for directions, and use public transport.",
+    "level": "intermediate",
+    "category": "conversation",
+    "duration": 20,
+    "content": [
+      "Excuse me, how do I get to...? — Ask for directions politely.",
+      "Go straight / Turn left / Turn right — Basic direction words.",
+      "It's about 10 minutes on foot. — Describe distance and time.",
+      "Where is the nearest bus stop? — Find public transport.",
+      "One ticket to..., please. — Buy transport tickets.",
+      "Is this seat taken? — Ask before sitting down."
+    ]
+  },
+  {
+    "id": "l5",
+    "title": "Past Simple Tense",
+    "description": "Talk about completed actions and events in the past.",
+    "level": "intermediate",
+    "category": "grammar",
+    "duration": 30,
+    "grammarTopicId": "g3",
+    "content": [
+      "Use Past Simple for actions completed at a specific time in the past.",
+      "Regular verbs: add -ed (walk → walked, play → played).",
+      "Irregular verbs: memorize forms (go → went, eat → ate, see → saw).",
+      "Negative: Subject + did + not + base verb. \"She didn't come.\"",
+      "Questions: Did + subject + base verb? \"Did you enjoy the movie?\"",
+      "Time expressions: yesterday, last week, ago, in 2020."
+    ]
+  },
+  {
+    "id": "l6",
+    "title": "Business Email Writing",
+    "description": "Write professional emails for workplace communication.",
+    "level": "advanced",
+    "category": "conversation",
+    "duration": 35,
+    "content": [
+      "Subject line: Be clear and specific. \"Meeting Request — Project Update\"",
+      "Opening: \"Dear Mr./Ms. [Name],\" or \"Hi [First Name],\" for informal.",
+      "Purpose: State your reason early. \"I am writing to inquire about...\"",
+      "Body: Keep paragraphs short. One idea per paragraph.",
+      "Closing: \"Best regards,\" / \"Sincerely,\" / \"Thank you,\"",
+      "Proofread before sending. Check spelling, tone, and attachments."
+    ]
+  },
+  {
+    "id": "l7",
+    "title": "Airport & Flight Announcements",
+    "description": "Understand common airport and flight announcements in English.",
+    "level": "intermediate",
+    "category": "listening",
+    "duration": 25,
+    "content": [
+      "\"Now boarding flight...\" — Passengers with this flight should go to the gate.",
+      "\"Final call for passengers...\" — Last chance to board the plane.",
+      "\"Please proceed to gate number...\" — Go to the specified gate.",
+      "\"We are now preparing for departure.\" — The plane is about to leave.",
+      "\"Please fasten your seatbelt.\" — Safety instruction before takeoff.",
+      "\"Ladies and gentlemen, welcome aboard.\" — Standard greeting from cabin crew."
+    ]
+  },
+  {
+    "id": "l8",
+    "title": "Daily Life Vocabulary",
+    "description": "Essential words for describing your daily routine and activities.",
+    "level": "beginner",
+    "category": "vocabulary",
+    "duration": 20,
+    "content": [
+      "Wake up — Get out of bed in the morning.",
+      "Get dressed — Put on clothes.",
+      "Commute — Travel to work or school.",
+      "Have lunch — Eat the midday meal.",
+      "Hang out — Spend time relaxing with friends.",
+      "Go to bed — Prepare to sleep at night."
+    ]
+  },
+  {
+    "id": "l9",
+    "title": "Hotel Check-in",
+    "description": "Phrases for checking into a hotel and requesting services.",
+    "level": "beginner",
+    "category": "listening",
+    "duration": 20,
+    "content": [
+      "\"I have a reservation under the name...\" — Tell the receptionist your booking.",
+      "\"Could I have a room with a view?\" — Request a specific room type.",
+      "\"What time is checkout?\" — Ask about leaving time.",
+      "\"Is breakfast included?\" — Check if meals are part of your stay.",
+      "\"Could you call a taxi for me?\" — Request transport help.",
+      "\"The Wi-Fi password, please.\" — Ask for internet access."
+    ]
+  },
+  {
+    "id": "l10",
+    "title": "Job Interview Skills",
+    "description": "Key phrases and strategies for English job interviews.",
+    "level": "advanced",
+    "category": "conversation",
+    "duration": 40,
+    "content": [
+      "\"Tell me about yourself.\" — Give a brief professional summary (1-2 minutes).",
+      "\"What are your strengths?\" — Highlight relevant skills with examples.",
+      "\"Why do you want this job?\" — Connect your goals with the company.",
+      "\"Do you have any questions?\" — Always prepare 2-3 thoughtful questions.",
+      "\"I'm very interested in this opportunity.\" — Show enthusiasm.",
+      "Follow up with a thank-you email within 24 hours."
+    ]
+  }
+]

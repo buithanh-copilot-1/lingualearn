@@ -1,0 +1,246 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum Level {
+  beginner
+  intermediate
+  advanced
+}
+
+enum LessonCategory {
+  conversation
+  grammar
+  vocabulary
+  listening
+}
+
+enum Locale {
+  en
+  vi
+}
+
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String   @map("password_hash")
+  displayName  String?  @map("display_name")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  refreshTokens      RefreshToken[]
+  settings           UserSettings?
+  progress           UserProgress?
+  lessonCompletions  LessonCompletion[]
+  wordProgress       WordProgress[]
+  grammarReviews     GrammarReview[]
+  quizAttempts       QuizAttempt[]
+  dailyGoalLogs      DailyGoalLog[]
+
+  @@map("users")
+}
+
+model RefreshToken {
+  id        String   @id @default(uuid())
+  userId    String   @map("user_id")
+  tokenHash String   @map("token_hash")
+  expiresAt DateTime @map("expires_at")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("refresh_tokens")
+}
+
+model UserSettings {
+  userId          String @id @map("user_id")
+  locale          Locale @default(vi)
+  dailyLessonGoal Int    @default(1) @map("daily_lesson_goal")
+  dailyWordGoal   Int    @default(5) @map("daily_word_goal")
+  dailyQuizGoal   Int    @default(1) @map("daily_quiz_goal")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_settings")
+}
+
+model UserProgress {
+  userId             String    @id @map("user_id")
+  streak             Int       @default(0)
+  lastStudyDate      DateTime? @map("last_study_date")
+  totalStudyMinutes  Int       @default(0) @map("total_study_minutes")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_progress")
+}
+
+model Lesson {
+  id             String         @id
+  title          String
+  description    String
+  level          Level
+  category       LessonCategory
+  duration       Int
+  grammarTopicId String?        @map("grammar_topic_id")
+  sortOrder      Int            @default(0) @map("sort_order")
+  isPublished    Boolean        @default(true) @map("is_published")
+  createdAt      DateTime       @default(now()) @map("created_at")
+
+  steps              LessonStep[]
+  grammarTopic       GrammarTopic?      @relation(fields: [grammarTopicId], references: [id])
+  lessonCompletions  LessonCompletion[]
+
+  @@map("lessons")
+}
+
+model LessonStep {
+  id        String @id @default(uuid())
+  lessonId  String @map("lesson_id")
+  stepOrder Int    @map("step_order")
+  body      String
+
+  lesson Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@unique([lessonId, stepOrder])
+  @@map("lesson_steps")
+}
+
+model VocabWord {
+  id          String @id
+  word        String
+  phonetic    String
+  meaning     String
+  example     String
+  category    String
+  level       Level
+  isPublished Boolean @default(true) @map("is_published")
+
+  wordProgress WordProgress[]
+
+  @@map("vocab_words")
+}
+
+model GrammarTopic {
+  id          String @id
+  title       String
+  description String
+  level       Level
+
+  lessons        Lesson[]
+  rules          GrammarRule[]
+  examples       GrammarExample[]
+  grammarReviews GrammarReview[]
+
+  @@map("grammar_topics")
+}
+
+model GrammarRule {
+  id        String @id @default(uuid())
+  topicId   String @map("topic_id")
+  ruleOrder Int    @map("rule_order")
+  body      String
+
+  topic GrammarTopic @relation(fields: [topicId], references: [id], onDelete: Cascade)
+
+  @@unique([topicId, ruleOrder])
+  @@map("grammar_rules")
+}
+
+model GrammarExample {
+  id          String @id @default(uuid())
+  topicId     String @map("topic_id")
+  sentence    String
+  explanation String
+
+  topic GrammarTopic @relation(fields: [topicId], references: [id], onDelete: Cascade)
+
+  @@map("grammar_examples")
+}
+
+model QuizQuestion {
+  id           String @id
+  question     String
+  options      Json
+  correctIndex Int    @map("correct_index")
+  explanation  String
+  category     String
+  level        Level
+  isPublished  Boolean @default(true) @map("is_published")
+
+  @@map("quiz_questions")
+}
+
+model LessonCompletion {
+  id           String   @id @default(uuid())
+  userId       String   @map("user_id")
+  lessonId     String   @map("lesson_id")
+  studyMinutes Int      @default(0) @map("study_minutes")
+  completedAt  DateTime @default(now()) @map("completed_at")
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, lessonId])
+  @@map("lesson_completions")
+}
+
+model WordProgress {
+  id        String   @id @default(uuid())
+  userId    String   @map("user_id")
+  wordId    String   @map("word_id")
+  learnedAt DateTime @default(now()) @map("learned_at")
+
+  user User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  word VocabWord @relation(fields: [wordId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, wordId])
+  @@map("word_progress")
+}
+
+model GrammarReview {
+  id         String   @id @default(uuid())
+  userId     String   @map("user_id")
+  topicId    String   @map("topic_id")
+  reviewedAt DateTime @default(now()) @map("reviewed_at")
+
+  user  User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  topic GrammarTopic @relation(fields: [topicId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, topicId])
+  @@map("grammar_reviews")
+}
+
+model QuizAttempt {
+  id          String   @id @default(uuid())
+  userId      String   @map("user_id")
+  quizId      String   @map("quiz_id")
+  score       Int
+  total       Int
+  attemptedAt DateTime @default(now()) @map("attempted_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("quiz_attempts")
+}
+
+model DailyGoalLog {
+  id           String   @id @default(uuid())
+  userId       String   @map("user_id")
+  date         DateTime
+  lessonsDone  Int      @default(0) @map("lessons_done")
+  wordsLearned Int      @default(0) @map("words_learned")
+  quizzesDone  Int      @default(0) @map("quizzes_done")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, date])
+  @@map("daily_goal_logs")
+}

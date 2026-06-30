@@ -1,47 +1,65 @@
 # LinguaLearn
 
-Interactive English learning website designed for Vietnamese learners.
+Interactive English learning platform designed for Vietnamese learners.
 
 ## Features
 
-- **Lessons** — Conversation and grammar lessons from beginner to advanced
-- **Vocabulary** — Flip flashcards with pronunciation, Vietnamese meanings, and examples
-- **Grammar** — Clear grammar guides with rules and examples
-- **Quiz** — Interactive quizzes with instant feedback
-- **Progress Tracking** — Streak counter, study time, and completion stats (saved in browser)
+- **Lessons** — Step-by-step lessons from beginner to advanced
+- **Vocabulary** — Flashcards with TTS, study mode, Vietnamese meanings
+- **Grammar** — Grammar guides with progress tracking
+- **Quiz** — Category/level quizzes with server-side answer validation
+- **Progress** — Streaks, daily goals, achievements
+- **i18n** — Vietnamese / English UI
 
 ## Tech Stack
 
-- React 19 + TypeScript
-- Vite
-- React Router
-- LocalStorage for progress persistence
+| Layer | Stack |
+|-------|-------|
+| Frontend | React 19, TypeScript, Vite, React Router |
+| Backend | Fastify, Prisma, JWT auth |
+| Database | SQLite (dev) / PostgreSQL (production) |
 
 ## Getting Started
+
+### Frontend
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) in your browser.
+Open [http://localhost:5173](http://localhost:5173)
 
-## Build
+### Backend API
 
 ```bash
-npm run build
-npm run preview
+cd api
+cp .env.example .env
+npm install
+npm run db:push
+npm run db:seed
+npm run dev
+```
+
+API runs at [http://localhost:3001](http://localhost:3001)
+
+See [api/README.md](api/README.md) for full API documentation.
+
+### Production Database (PostgreSQL)
+
+```bash
+docker compose up -d
+# Update api/.env with PostgreSQL URL and set prisma provider to postgresql
 ```
 
 ## Project Structure
 
 ```
-src/
-├── components/   # Reusable UI components
-├── data/         # Lessons, vocabulary, quizzes, grammar content
-├── hooks/        # Custom React hooks (progress tracking)
-├── pages/        # Route pages
-└── types/        # TypeScript interfaces
+├── src/              # React frontend
+├── api/              # Fastify backend
+│   ├── prisma/       # Schema, seed data, migrations
+│   └── src/          # API routes & services
+└── docker-compose.yml
 ```
 
 ## License
