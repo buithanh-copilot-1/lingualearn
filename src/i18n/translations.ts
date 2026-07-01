@@ -3,7 +3,7 @@ import type { Locale } from '../types';
 const en = {
   common: { loading: 'Loading...', listening: 'Playing...' },
   nav: { home: 'Home', lessons: 'Lessons', vocabulary: 'Vocabulary', grammar: 'Grammar', quiz: 'Quiz', practice: 'Practice', toeic: 'TOEIC', progress: 'Progress', settings: 'Settings', profile: 'Profile', login: 'Sign In', logout: 'Sign Out' },
-  bottom: { home: 'Home', lessons: 'Lessons', words: 'Words', practice: 'Practice', stats: 'Stats' },
+  bottom: { home: 'Home', lessons: 'Lessons', practice: 'Practice', review: 'Review', stats: 'Progress' },
   home: {
     title: 'Master English with',
     subtitle: 'Interactive lessons, vocabulary flashcards, grammar guides, and quizzes — designed for Vietnamese learners.',
@@ -207,7 +207,7 @@ const en = {
 const vi = {
   common: { loading: 'Đang tải...', listening: 'Đang phát...' },
   nav: { home: 'Trang chủ', lessons: 'Bài học', vocabulary: 'Từ vựng', grammar: 'Ngữ pháp', quiz: 'Kiểm tra', practice: 'Luyện tập', toeic: 'TOEIC', progress: 'Tiến độ', settings: 'Cài đặt', profile: 'Trang cá nhân', login: 'Đăng nhập', logout: 'Đăng xuất' },
-  bottom: { home: 'Trang chủ', lessons: 'Bài học', words: 'Từ vựng', practice: 'Luyện tập', stats: 'Tiến độ' },
+  bottom: { home: 'Trang chủ', lessons: 'Bài học', practice: 'Luyện tập', review: 'Ôn tập', stats: 'Tiến độ' },
   home: {
     title: 'Học tiếng Anh với',
     subtitle: 'Bài học tương tác, flashcard từ vựng, hướng dẫn ngữ pháp và bài kiểm tra — dành cho người Việt.',
