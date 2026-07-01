@@ -95,6 +95,10 @@ npm run build && npm run start:prod
 └── docker-compose.yml
 ```
 
+## Author
+
+**Bùi Thành** — [GitHub](https://github.com/buithanh-copilot-1)
+
 ## License
 
 MIT
