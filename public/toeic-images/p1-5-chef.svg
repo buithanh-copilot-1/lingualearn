@@ -1,17 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320">
-  <rect width="480" height="320" fill="#fde68a" opacity="0.4"/>
-  <rect width="480" height="230" fill="#f1f5f9"/>
-  <rect y="230" width="480" height="90" fill="#cbd5e1"/>
-  <rect x="140" y="200" width="220" height="90" rx="6" fill="#94a3b8"/>
-  <rect x="140" y="200" width="220" height="10" fill="#64748b"/>
+  <rect width="480" height="320" fill="#e2e2e2" opacity="0.4"/>
+  <rect width="480" height="230" fill="#f4f4f4"/>
+  <rect y="230" width="480" height="90" fill="#d3d3d3"/>
+  <rect x="140" y="200" width="220" height="90" rx="6" fill="#a1a1a1"/>
+  <rect x="140" y="200" width="220" height="10" fill="#727272"/>
   <g>
-    <ellipse cx="240" cy="120" rx="30" ry="30" fill="#f2c9a0"/>
-    <path d="M212 108 Q212 70 240 68 Q268 70 268 108 Q268 90 240 90 Q212 90 212 108 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
-    <rect x="205" y="148" width="70" height="90" rx="14" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
+    <ellipse cx="240" cy="120" rx="30" ry="30" fill="#d1d1d1"/>
+    <path d="M212 108 Q212 70 240 68 Q268 70 268 108 Q268 90 240 90 Q212 90 212 108 Z" fill="#ffffff" stroke="#d3d3d3" stroke-width="2"/>
+    <rect x="205" y="148" width="70" height="90" rx="14" fill="#ffffff" stroke="#a1a1a1" stroke-width="3"/>
   </g>
-  <rect x="180" y="205" width="60" height="8" rx="4" fill="#16a34a"/>
-  <rect x="190" y="200" width="10" height="14" fill="#16a34a"/>
-  <rect x="210" y="200" width="10" height="14" fill="#16a34a"/>
-  <rect x="230" y="200" width="10" height="14" fill="#dc2626"/>
-  <rect x="150" y="195" width="30" height="6" rx="3" fill="#334155"/>
+  <rect x="180" y="205" width="60" height="8" rx="4" fill="#6f6f6f"/>
+  <rect x="190" y="200" width="10" height="14" fill="#6f6f6f"/>
+  <rect x="210" y="200" width="10" height="14" fill="#6f6f6f"/>
+  <rect x="230" y="200" width="10" height="14" fill="#5c5c5c"/>
+  <rect x="150" y="195" width="30" height="6" rx="3" fill="#3f3f3f"/>
 </svg>

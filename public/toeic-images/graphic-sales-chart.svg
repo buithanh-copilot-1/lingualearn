@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320">
+  <rect width="480" height="320" fill="#ffffff" stroke="#171717" stroke-width="2"/>
+  <text x="240" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#171717">QUARTERLY SALES BY PRODUCT</text>
+
+  <line x1="60" y1="270" x2="440" y2="270" stroke="#171717" stroke-width="2"/>
+  <line x1="60" y1="60" x2="60" y2="270" stroke="#171717" stroke-width="2"/>
+
+  <text x="50" y="75" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#525252">400</text>
+  <text x="50" y="128" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#525252">300</text>
+  <text x="50" y="181" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#525252">200</text>
+  <text x="50" y="234" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#525252">100</text>
+
+  <line x1="55" y1="70" x2="440" y2="70" stroke="#d4d4d4" stroke-width="1"/>
+  <line x1="55" y1="123" x2="440" y2="123" stroke="#d4d4d4" stroke-width="1"/>
+  <line x1="55" y1="176" x2="440" y2="176" stroke="#d4d4d4" stroke-width="1"/>
+  <line x1="55" y1="229" x2="440" y2="229" stroke="#d4d4d4" stroke-width="1"/>
+
+  <rect x="100" y="150" width="55" height="120" fill="#a1a1a1" stroke="#171717" stroke-width="1.5"/>
+  <rect x="190" y="97" width="55" height="173" fill="#525252" stroke="#171717" stroke-width="1.5"/>
+  <rect x="280" y="176" width="55" height="94" fill="#d4d4d4" stroke="#171717" stroke-width="1.5"/>
+  <rect x="370" y="123" width="55" height="147" fill="#737373" stroke="#171717" stroke-width="1.5"/>
+
+  <text x="127" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#171717">Product A</text>
+  <text x="217" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#171717">Product B</text>
+  <text x="307" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#171717">Product C</text>
+  <text x="397" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#171717">Product D</text>
+
+  <text x="240" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#525252">Units sold, in thousands</text>
+</svg>

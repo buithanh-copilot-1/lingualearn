@@ -1,20 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320">
-  <rect width="480" height="320" fill="#e2e8f0"/>
-  <rect y="250" width="480" height="70" fill="#94a3b8"/>
+  <rect width="480" height="320" fill="#e7e7e7"/>
+  <rect y="250" width="480" height="70" fill="#a1a1a1"/>
   <g>
-    <rect x="120" y="140" width="260" height="90" rx="10" fill="#dc2626"/>
-    <polygon points="140,140 190,90 330,90 380,140" fill="#b91c1c"/>
-    <rect x="130" y="150" width="70" height="40" fill="#334155"/>
-    <circle cx="170" cy="230" r="26" fill="#1e293b"/>
-    <circle cx="330" cy="230" r="26" fill="#1e293b"/>
+    <rect x="120" y="140" width="260" height="90" rx="10" fill="#5c5c5c"/>
+    <polygon points="140,140 190,90 330,90 380,140" fill="#4b4b4b"/>
+    <rect x="130" y="150" width="70" height="40" fill="#3f3f3f"/>
+    <circle cx="170" cy="230" r="26" fill="#282828"/>
+    <circle cx="330" cy="230" r="26" fill="#282828"/>
   </g>
   <g>
-    <rect x="150" y="70" width="120" height="20" fill="#94a3b8" transform="rotate(-15 150 70)"/>
+    <rect x="150" y="70" width="120" height="20" fill="#a1a1a1" transform="rotate(-15 150 70)"/>
   </g>
   <g>
-    <ellipse cx="230" cy="185" rx="24" ry="24" fill="#f2c9a0"/>
-    <rect x="206" y="205" width="48" height="60" rx="12" fill="#f59e0b"/>
-    <rect x="200" y="200" width="60" height="12" fill="#334155"/>
+    <ellipse cx="230" cy="185" rx="24" ry="24" fill="#d1d1d1"/>
+    <rect x="206" y="205" width="48" height="60" rx="12" fill="#a7a7a7"/>
+    <rect x="200" y="200" width="60" height="12" fill="#3f3f3f"/>
   </g>
-  <circle cx="235" cy="150" r="8" fill="#fbbf24" opacity="0.8"/>
+  <circle cx="235" cy="150" r="8" fill="#bfbfbf" opacity="0.8"/>
 </svg>

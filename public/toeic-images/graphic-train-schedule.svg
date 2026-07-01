@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320">
+  <rect width="480" height="320" fill="#ffffff" stroke="#171717" stroke-width="2"/>
+  <text x="240" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#171717">DEPARTURE SCHEDULE</text>
+  <line x1="20" y1="50" x2="460" y2="50" stroke="#171717" stroke-width="2"/>
+
+  <text x="40" y="80" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#171717">Train</text>
+  <text x="180" y="80" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#171717">Destination</text>
+  <text x="320" y="80" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#171717">Departs</text>
+  <line x1="20" y1="92" x2="460" y2="92" stroke="#171717" stroke-width="1.5"/>
+
+  <text x="40" y="120" font-family="Arial, sans-serif" font-size="15" fill="#171717">101</text>
+  <text x="180" y="120" font-family="Arial, sans-serif" font-size="15" fill="#171717">Central Station</text>
+  <text x="320" y="120" font-family="Arial, sans-serif" font-size="15" fill="#171717">9:00 A.M.</text>
+  <line x1="20" y1="132" x2="460" y2="132" stroke="#171717" stroke-width="1"/>
+
+  <text x="40" y="160" font-family="Arial, sans-serif" font-size="15" fill="#171717">102</text>
+  <text x="180" y="160" font-family="Arial, sans-serif" font-size="15" fill="#171717">Riverside</text>
+  <text x="320" y="160" font-family="Arial, sans-serif" font-size="15" fill="#171717">9:45 A.M.</text>
+  <line x1="20" y1="172" x2="460" y2="172" stroke="#171717" stroke-width="1"/>
+
+  <text x="40" y="200" font-family="Arial, sans-serif" font-size="15" fill="#171717">103</text>
+  <text x="180" y="200" font-family="Arial, sans-serif" font-size="15" fill="#171717">Central Station</text>
+  <text x="320" y="200" font-family="Arial, sans-serif" font-size="15" fill="#171717">10:30 A.M.</text>
+  <line x1="20" y1="212" x2="460" y2="212" stroke="#171717" stroke-width="1"/>
+
+  <text x="40" y="240" font-family="Arial, sans-serif" font-size="15" fill="#171717">104</text>
+  <text x="180" y="240" font-family="Arial, sans-serif" font-size="15" fill="#171717">North Hills</text>
+  <text x="320" y="240" font-family="Arial, sans-serif" font-size="15" fill="#171717">11:15 A.M.</text>
+  <line x1="20" y1="252" x2="460" y2="252" stroke="#171717" stroke-width="1.5"/>
+
+  <text x="240" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#525252">All departures leave from Platform 2</text>
+</svg>

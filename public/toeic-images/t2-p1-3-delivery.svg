@@ -1,26 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320">
-  <rect width="480" height="320" fill="#f1f5f9"/>
-  <rect y="250" width="480" height="70" fill="#cbd5e1"/>
+  <rect width="480" height="320" fill="#f4f4f4"/>
+  <rect y="250" width="480" height="70" fill="#d3d3d3"/>
   <g>
-    <rect x="260" y="130" width="170" height="100" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"/>
-    <rect x="260" y="150" width="170" height="10" fill="#94a3b8"/>
-    <circle cx="300" cy="250" r="20" fill="#1e293b"/>
-    <circle cx="400" cy="250" r="20" fill="#1e293b"/>
-    <rect x="230" y="160" width="40" height="60" fill="#e2e8f0" stroke="#94a3b8" stroke-width="3"/>
+    <rect x="260" y="130" width="170" height="100" rx="6" fill="#fafafa" stroke="#a1a1a1" stroke-width="3"/>
+    <rect x="260" y="150" width="170" height="10" fill="#a1a1a1"/>
+    <circle cx="300" cy="250" r="20" fill="#282828"/>
+    <circle cx="400" cy="250" r="20" fill="#282828"/>
+    <rect x="230" y="160" width="40" height="60" fill="#e7e7e7" stroke="#a1a1a1" stroke-width="3"/>
   </g>
   <g>
-    <rect x="130" y="190" width="46" height="46" fill="#d97706"/>
-    <line x1="130" y1="213" x2="176" y2="213" stroke="#92400e" stroke-width="3"/>
-    <line x1="153" y1="190" x2="153" y2="236" stroke="#92400e" stroke-width="3"/>
+    <rect x="130" y="190" width="46" height="46" fill="#878787"/>
+    <line x1="130" y1="213" x2="176" y2="213" stroke="#535353" stroke-width="3"/>
+    <line x1="153" y1="190" x2="153" y2="236" stroke="#535353" stroke-width="3"/>
   </g>
   <g>
-    <rect x="80" y="205" width="42" height="42" fill="#d97706"/>
-    <line x1="80" y1="226" x2="122" y2="226" stroke="#92400e" stroke-width="3"/>
-    <line x1="101" y1="205" x2="101" y2="247" stroke="#92400e" stroke-width="3"/>
+    <rect x="80" y="205" width="42" height="42" fill="#878787"/>
+    <line x1="80" y1="226" x2="122" y2="226" stroke="#535353" stroke-width="3"/>
+    <line x1="101" y1="205" x2="101" y2="247" stroke="#535353" stroke-width="3"/>
   </g>
   <g>
-    <ellipse cx="200" cy="150" rx="24" ry="24" fill="#f2c9a0"/>
-    <rect x="176" y="174" width="48" height="70" rx="12" fill="#0891b2"/>
-    <rect x="176" y="170" width="48" height="14" fill="#0e7490"/>
+    <ellipse cx="200" cy="150" rx="24" ry="24" fill="#d1d1d1"/>
+    <rect x="176" y="174" width="48" height="70" rx="12" fill="#6c6c6c"/>
+    <rect x="176" y="170" width="48" height="14" fill="#595959"/>
   </g>
 </svg>

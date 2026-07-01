@@ -1,22 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320">
-  <rect width="480" height="320" fill="#f0f9ff"/>
-  <rect y="260" width="480" height="60" fill="#e2e8f0"/>
-  <rect x="40" y="40" width="90" height="220" fill="#bae6fd" opacity="0.5"/>
-  <rect x="350" y="40" width="90" height="220" fill="#bae6fd" opacity="0.5"/>
+  <rect width="480" height="320" fill="#f7f7f7"/>
+  <rect y="260" width="480" height="60" fill="#e7e7e7"/>
+  <rect x="40" y="40" width="90" height="220" fill="#dbdbdb" opacity="0.5"/>
+  <rect x="350" y="40" width="90" height="220" fill="#dbdbdb" opacity="0.5"/>
   <g>
-    <ellipse cx="190" cy="140" rx="28" ry="28" fill="#f2c9a0"/>
-    <path d="M162 128 Q162 95 190 92 Q218 95 218 128" fill="#1e293b"/>
-    <rect x="162" y="168" width="56" height="80" rx="14" fill="#4f46e5"/>
+    <ellipse cx="190" cy="140" rx="28" ry="28" fill="#d1d1d1"/>
+    <path d="M162 128 Q162 95 190 92 Q218 95 218 128" fill="#282828"/>
+    <rect x="162" y="168" width="56" height="80" rx="14" fill="#5b5b5b"/>
   </g>
   <g>
-    <ellipse cx="290" cy="140" rx="28" ry="28" fill="#d9a066"/>
-    <path d="M262 128 Q262 92 290 90 Q318 92 318 128" fill="#0f172a"/>
-    <rect x="262" y="168" width="56" height="80" rx="14" fill="#0891b2"/>
+    <ellipse cx="290" cy="140" rx="28" ry="28" fill="#aaaaaa"/>
+    <path d="M262 128 Q262 92 290 90 Q318 92 318 128" fill="#171717"/>
+    <rect x="262" y="168" width="56" height="80" rx="14" fill="#6c6c6c"/>
   </g>
-  <rect x="215" y="195" width="50" height="18" rx="8" fill="#fbbf24"/>
+  <rect x="215" y="195" width="50" height="18" rx="8" fill="#bfbfbf"/>
   <g>
-    <rect x="235" y="150" width="34" height="22" rx="3" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
-    <line x1="240" y1="158" x2="264" y2="158" stroke="#94a3b8" stroke-width="2"/>
-    <line x1="240" y1="165" x2="258" y2="165" stroke="#94a3b8" stroke-width="2"/>
+    <rect x="235" y="150" width="34" height="22" rx="3" fill="#ffffff" stroke="#a1a1a1" stroke-width="2"/>
+    <line x1="240" y1="158" x2="264" y2="158" stroke="#a1a1a1" stroke-width="2"/>
+    <line x1="240" y1="165" x2="258" y2="165" stroke="#a1a1a1" stroke-width="2"/>
   </g>
 </svg>

@@ -725,6 +725,105 @@
       "level": "beginner"
     },
     {
+      "id": "toeic-p3-13",
+      "part": "part3",
+      "groupId": "toeic-p3-g5",
+      "imageUrl": "/toeic-images/graphic-train-schedule.svg",
+      "imageDesc": "A departure schedule board listing train numbers, destinations, and departure times.",
+      "audioScript": "Man: Hi, I need a ticket to Central Station. What's the earliest train I can catch?\nWoman: Let me check the board... The earliest one to Central Station leaves at 9:00. There's a later one too, but that first one should get you there in time for your meeting.\nMan: Perfect, I'll take the 9:00 one. Which platform does it leave from?\nWoman: All our trains leave from Platform 2 this week.",
+      "question": "What does the man want to do?",
+      "options": [
+        "Cancel a reservation",
+        "Buy a ticket to Central Station",
+        "Report a delayed train",
+        "Change his seat"
+      ],
+      "correctIndex": 1,
+      "explanation": "The man says \"I need a ticket to Central Station\".",
+      "explanationVi": "Người đàn ông nói \"Tôi cần mua vé đến Central Station\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p3-14",
+      "part": "part3",
+      "groupId": "toeic-p3-g5",
+      "imageUrl": "/toeic-images/graphic-train-schedule.svg",
+      "imageDesc": "A departure schedule board listing train numbers, destinations, and departure times.",
+      "audioScript": "Man: Hi, I need a ticket to Central Station. What's the earliest train I can catch?\nWoman: Let me check the board... The earliest one to Central Station leaves at 9:00. There's a later one too, but that first one should get you there in time for your meeting.\nMan: Perfect, I'll take the 9:00 one. Which platform does it leave from?\nWoman: All our trains leave from Platform 2 this week.",
+      "question": "Look at the graphic. Which train will the man take?",
+      "options": ["Train 101", "Train 102", "Train 103", "Train 104"],
+      "correctIndex": 0,
+      "explanation": "The schedule shows Train 101 departs for Central Station at 9:00 A.M., matching the earliest train the man chooses.",
+      "explanationVi": "Bảng giờ tàu cho thấy Train 101 khởi hành đến Central Station lúc 9:00 sáng, khớp với chuyến sớm nhất mà người đàn ông chọn.",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-p3-15",
+      "part": "part3",
+      "groupId": "toeic-p3-g5",
+      "imageUrl": "/toeic-images/graphic-train-schedule.svg",
+      "imageDesc": "A departure schedule board listing train numbers, destinations, and departure times.",
+      "audioScript": "Man: Hi, I need a ticket to Central Station. What's the earliest train I can catch?\nWoman: Let me check the board... The earliest one to Central Station leaves at 9:00. There's a later one too, but that first one should get you there in time for your meeting.\nMan: Perfect, I'll take the 9:00 one. Which platform does it leave from?\nWoman: All our trains leave from Platform 2 this week.",
+      "question": "Which platform will the man's train leave from?",
+      "options": ["Platform 1", "Platform 2", "Platform 3", "Platform 4"],
+      "correctIndex": 1,
+      "explanation": "The woman says \"All our trains leave from Platform 2 this week\".",
+      "explanationVi": "Người phụ nữ nói \"Tất cả các chuyến tàu tuần này đều khởi hành từ Sân ga 2\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p4-13",
+      "part": "part4",
+      "groupId": "toeic-p4-g5",
+      "imageUrl": "/toeic-images/graphic-sales-chart.svg",
+      "imageDesc": "A bar chart comparing quarterly sales in thousands of units for Product A, B, C, and D.",
+      "audioScript": "Good afternoon, team. Let's review this quarter's sales results. Overall, we saw solid growth across most product lines. Looking at the chart, you'll notice one product clearly outperformed the others, and we believe its new packaging design is the main reason. Let's discuss how we can apply similar design changes to our other products next quarter.",
+      "question": "What is the speaker mainly discussing?",
+      "options": [
+        "A hiring plan",
+        "Quarterly sales results",
+        "A customer complaint",
+        "A new office location"
+      ],
+      "correctIndex": 1,
+      "explanation": "The speaker says \"Let's review this quarter's sales results\".",
+      "explanationVi": "Người nói nói \"Hãy cùng xem lại kết quả doanh số quý này\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p4-14",
+      "part": "part4",
+      "groupId": "toeic-p4-g5",
+      "imageUrl": "/toeic-images/graphic-sales-chart.svg",
+      "imageDesc": "A bar chart comparing quarterly sales in thousands of units for Product A, B, C, and D.",
+      "audioScript": "Good afternoon, team. Let's review this quarter's sales results. Overall, we saw solid growth across most product lines. Looking at the chart, you'll notice one product clearly outperformed the others, and we believe its new packaging design is the main reason. Let's discuss how we can apply similar design changes to our other products next quarter.",
+      "question": "Look at the graphic. Which product performed best this quarter?",
+      "options": ["Product A", "Product B", "Product C", "Product D"],
+      "correctIndex": 1,
+      "explanation": "The chart shows Product B with the tallest bar (about 300 thousand units), matching \"one product clearly outperformed the others\".",
+      "explanationVi": "Biểu đồ cho thấy Product B có cột cao nhất (khoảng 300 nghìn đơn vị), khớp với \"một sản phẩm vượt trội hẳn so với các sản phẩm còn lại\".",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-p4-15",
+      "part": "part4",
+      "groupId": "toeic-p4-g5",
+      "imageUrl": "/toeic-images/graphic-sales-chart.svg",
+      "imageDesc": "A bar chart comparing quarterly sales in thousands of units for Product A, B, C, and D.",
+      "audioScript": "Good afternoon, team. Let's review this quarter's sales results. Overall, we saw solid growth across most product lines. Looking at the chart, you'll notice one product clearly outperformed the others, and we believe its new packaging design is the main reason. Let's discuss how we can apply similar design changes to our other products next quarter.",
+      "question": "What does the speaker suggest doing next quarter?",
+      "options": [
+        "Discontinuing weaker products",
+        "Applying similar packaging design to other products",
+        "Lowering prices on all products",
+        "Hiring a new design team"
+      ],
+      "correctIndex": 1,
+      "explanation": "The speaker suggests they \"apply similar design changes to our other products next quarter\".",
+      "explanationVi": "Người nói đề xuất \"áp dụng thay đổi thiết kế tương tự cho các sản phẩm khác vào quý tới\".",
+      "level": "advanced"
+    },
+    {
       "id": "toeic-p5-1",
       "part": "part5",
       "question": "The new marketing manager will begin work ____ March 1.",
