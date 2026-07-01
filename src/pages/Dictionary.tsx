@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { lookupWord, WordNotFoundError, type DictEntry } from '../api/dictionary';
+import { lookupWordWithVietnamese, WordNotFoundError, type DictEntry } from '../api/dictionary';
 import { speakWord } from '../utils/speech';
 
 type ErrorKind = 'notFound' | 'error' | null;
@@ -20,7 +20,7 @@ export default function Dictionary() {
     setError(null);
     setEntry(null);
     try {
-      setEntry(await lookupWord(term));
+      setEntry(await lookupWordWithVietnamese(term));
     } catch (err) {
       setError(err instanceof WordNotFoundError ? 'notFound' : 'error');
     } finally {
@@ -70,6 +70,11 @@ export default function Dictionary() {
             <div>
               <h2 className="dict-word">{entry.word}</h2>
               {entry.phonetic && <span className="dict-phonetic">{entry.phonetic}</span>}
+              {entry.meaningVi && (
+                <p className="dict-meaning-vi">
+                  <strong>{tr.dictionary.meaningVi}:</strong> {entry.meaningVi}
+                </p>
+              )}
             </div>
             <button className="btn btn-sm btn-outline" onClick={playAudio}>
               🔊 {tr.dictionary.listen}
@@ -83,8 +88,14 @@ export default function Dictionary() {
                 {meaning.definitions.map((def, di) => (
                   <li key={di}>
                     <p>{def.definition}</p>
+                    {def.definitionVi && (
+                      <p className="dict-definition-vi">{def.definitionVi}</p>
+                    )}
                     {def.example && (
                       <p className="dict-example">{tr.dictionary.examples}: "{def.example}"</p>
+                    )}
+                    {def.exampleVi && (
+                      <p className="dict-example-vi">"{def.exampleVi}"</p>
                     )}
                     {def.synonyms.length > 0 && (
                       <p className="dict-synonyms">
