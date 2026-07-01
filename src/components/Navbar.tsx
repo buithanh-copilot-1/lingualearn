@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { useAuth } from '../context/AuthContext';
+import NotificationBell from './NotificationBell';
 
 const navItems = [
   { path: '/', labelKey: 'home' as const, icon: '🏠' },
@@ -52,6 +53,11 @@ export default function Navbar() {
               {tr.nav.settings}
             </Link>
           </li>
+          {isAuthenticated && (
+            <li className="nav-notification-item">
+              <NotificationBell />
+            </li>
+          )}
           <li>
             {isAuthenticated ? (
               <button type="button" className="nav-auth-btn" onClick={() => void logout()}>

@@ -25,6 +25,16 @@ enum Locale {
   vi
 }
 
+enum NotificationType {
+  streak_reminder
+  goal_achieved
+  streak_milestone
+  new_content
+  review_due
+  achievement
+  system
+}
+
 model User {
   id           String   @id @default(uuid())
   email        String   @unique
@@ -33,14 +43,16 @@ model User {
   createdAt    DateTime @default(now()) @map("created_at")
   updatedAt    DateTime @updatedAt @map("updated_at")
 
-  refreshTokens      RefreshToken[]
-  settings           UserSettings?
-  progress           UserProgress?
-  lessonCompletions  LessonCompletion[]
-  wordProgress       WordProgress[]
-  grammarReviews     GrammarReview[]
-  quizAttempts       QuizAttempt[]
-  dailyGoalLogs      DailyGoalLog[]
+  refreshTokens           RefreshToken[]
+  settings                UserSettings?
+  progress                UserProgress?
+  lessonCompletions       LessonCompletion[]
+  wordProgress            WordProgress[]
+  grammarReviews          GrammarReview[]
+  quizAttempts            QuizAttempt[]
+  dailyGoalLogs           DailyGoalLog[]
+  notifications           Notification[]
+  notificationPreferences NotificationPreference?
 
   @@map("users")
 }
@@ -243,4 +255,35 @@ model DailyGoalLog {
 
   @@unique([userId, date])
   @@map("daily_goal_logs")
+}
+
+model Notification {
+  id        String           @id @default(uuid())
+  userId    String           @map("user_id")
+  type      NotificationType
+  title     String
+  message   String
+  data      Json?
+  isRead    Boolean          @default(false) @map("is_read")
+  createdAt DateTime         @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, isRead])
+  @@index([userId, createdAt])
+  @@map("notifications")
+}
+
+model NotificationPreference {
+  userId         String  @id @map("user_id")
+  streakReminder Boolean @default(true) @map("streak_reminder")
+  goalAchieved   Boolean @default(true) @map("goal_achieved")
+  newContent     Boolean @default(true) @map("new_content")
+  reviewDue      Boolean @default(true) @map("review_due")
+  achievements   Boolean @default(true)
+  systemNotices  Boolean @default(true) @map("system_notices")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("notification_preferences")
 }

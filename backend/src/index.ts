@@ -11,6 +11,7 @@ import { authenticate } from './middleware/authenticate.js';
 import { authRoutes } from './modules/auth/auth.routes.js';
 import { progressRoutes } from './modules/progress/progress.routes.js';
 import { contentRoutes } from './modules/content/content.routes.js';
+import { notificationRoutes } from './modules/notification/notification.routes.js';
 import { bootstrapDatabase } from './bootstrap.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -35,6 +36,7 @@ app.get('/health', async () => ({ status: 'ok', service: 'lingualearn-api' }));
 await app.register(authRoutes, { prefix: '/api/auth' });
 await app.register(progressRoutes, { prefix: '/api/progress' });
 await app.register(contentRoutes, { prefix: '/api' });
+await app.register(notificationRoutes, { prefix: '/api/notifications' });
 
 // Serve frontend build with SPA fallback (fixes F5 refresh 404)
 if (existsSync(frontendDist)) {

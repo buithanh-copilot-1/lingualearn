@@ -8,6 +8,7 @@ import {
   importProgress,
   ensureUserRecords,
 } from './progress.service.js';
+import { checkNotificationTriggers } from '../notification/notification.triggers.js';
 import type { Locale } from '../../types.js';
 
 const settingsSchema = z.object({
@@ -113,6 +114,9 @@ export async function progressRoutes(app: FastifyInstance) {
     });
 
     await updateUserStreak(userId);
+    // fire-and-forget: don't block response
+    void checkNotificationTriggers(userId, 'lesson_complete');
+    void checkNotificationTriggers(userId, 'streak_update');
     return buildProgressResponse(userId);
   });
 
@@ -132,6 +136,8 @@ export async function progressRoutes(app: FastifyInstance) {
       await prisma.wordProgress.create({ data: { userId, wordId: id } });
       await bumpDailyGoal(userId, 'wordsLearned');
       await updateUserStreak(userId);
+      void checkNotificationTriggers(userId, 'word_learned');
+      void checkNotificationTriggers(userId, 'streak_update');
     }
 
     return buildProgressResponse(userId);
@@ -175,6 +181,8 @@ export async function progressRoutes(app: FastifyInstance) {
 
     await bumpDailyGoal(userId, 'quizzesDone');
     await updateUserStreak(userId);
+    void checkNotificationTriggers(userId, 'quiz_complete');
+    void checkNotificationTriggers(userId, 'streak_update');
     return buildProgressResponse(userId);
   });
 
