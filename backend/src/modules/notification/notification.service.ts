@@ -1,6 +1,19 @@
 import type { FastifyReply } from 'fastify';
 import type { NotificationType } from '@prisma/client';
 import { prisma } from '../../lib/prisma.js';
+import webpush from 'web-push';
+import { config } from '../../config.js';
+
+// Setup VAPID keys
+try {
+  webpush.setVapidDetails(
+    config.vapidEmail,
+    config.vapidPublicKey,
+    config.vapidPrivateKey
+  );
+} catch (e) {
+  console.error('Failed to set VAPID details:', e);
+}
 
 // ---------------------------------------------------------------------------
 // SSE Connection Manager
@@ -87,6 +100,19 @@ export async function sendNotification(input: CreateNotificationInput) {
     data: notification.data,
     isRead: notification.isRead,
     createdAt: notification.createdAt.toISOString(),
+  });
+
+  // Push via Web Push in the background
+  setImmediate(async () => {
+    try {
+      await sendWebPush(input.userId, {
+        title: notification.title,
+        message: notification.message,
+        data: input.data,
+      });
+    } catch (e) {
+      // Log error silently
+    }
   });
 
   return notification;
@@ -199,4 +225,69 @@ export async function updatePreferences(
     update: data,
     create: { userId, ...data },
   });
+}
+
+// ---------------------------------------------------------------------------
+// Web Push Subscription Management & Sending
+// ---------------------------------------------------------------------------
+
+export async function addPushSubscription(
+  userId: string,
+  subscription: { endpoint: string; keys: { p256dh: string; auth: string } },
+) {
+  return prisma.pushSubscription.upsert({
+    where: { endpoint: subscription.endpoint },
+    update: {
+      userId,
+      p256dh: subscription.keys.p256dh,
+      auth: subscription.keys.auth,
+    },
+    create: {
+      userId,
+      endpoint: subscription.endpoint,
+      p256dh: subscription.keys.p256dh,
+      auth: subscription.keys.auth,
+    },
+  });
+}
+
+export async function removePushSubscription(userId: string, endpoint: string) {
+  try {
+    await prisma.pushSubscription.delete({
+      where: { endpoint },
+    });
+  } catch {
+    // Already deleted
+  }
+}
+
+export async function sendWebPush(userId: string, payload: { title: string; message: string; data?: any }) {
+  const subscriptions = await prisma.pushSubscription.findMany({
+    where: { userId },
+  });
+
+  if (subscriptions.length === 0) return;
+
+  const body = JSON.stringify(payload);
+
+  const tasks = subscriptions.map(async (sub) => {
+    const webPushSubscription = {
+      endpoint: sub.endpoint,
+      keys: {
+        p256dh: sub.p256dh,
+        auth: sub.auth,
+      },
+    };
+
+    try {
+      await webpush.sendNotification(webPushSubscription, body);
+    } catch (err: any) {
+      // 410 (Gone) or 404 (Not Found) means subscription has expired or user revoked it
+      if (err.statusCode === 410 || err.statusCode === 404) {
+        await removePushSubscription(userId, sub.endpoint);
+      }
+    }
+  });
+
+  await Promise.allSettled(tasks);
 }

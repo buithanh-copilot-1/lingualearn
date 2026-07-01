@@ -22,4 +22,7 @@ export const config = {
   accessTokenExpires: process.env.ACCESS_TOKEN_EXPIRES ?? '15m',
   refreshTokenExpiresDays: _refreshDays ? +_refreshDays : 7,
   isProd,
+  vapidPublicKey: process.env.VAPID_PUBLIC_KEY ?? 'BH5g_Z5_9ZAo5HIV1DhUkH1WMGL5SkwJbMekiFTDSmyuttRc1yusmKnyVXWCCClHD_io1wC5M_ctJCJ018oyHak',
+  vapidPrivateKey: process.env.VAPID_PRIVATE_KEY ?? 'ysHbLpGWhI1lK9tXCFGY_4kvjIpqFfKtbUprdnvIo5c',
+  vapidEmail: process.env.VAPID_SUBJECT ?? 'mailto:support@lingualearn.com',
 };

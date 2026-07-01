@@ -10,7 +10,17 @@ import {
   deleteNotification,
   getPreferences,
   updatePreferences,
+  addPushSubscription,
+  removePushSubscription,
 } from './notification.service.js';
+
+const pushSubscriptionSchema = z.object({
+  endpoint: z.string().url(),
+  keys: z.object({
+    p256dh: z.string(),
+    auth: z.string(),
+  }),
+});
 
 const preferencesSchema = z.object({
   streakReminder: z.boolean().optional(),
@@ -127,6 +137,26 @@ export async function notificationRoutes(app: FastifyInstance) {
       return reply.status(400).send({ error: 'Invalid input' });
     }
     return updatePreferences(request.user.sub, body.data);
+  });
+
+  // ── Web Push Subscribe ──────────────────────────────────────────────
+  app.post('/push/subscribe', async (request, reply) => {
+    const body = pushSubscriptionSchema.safeParse(request.body);
+    if (!body.success) {
+      return reply.status(400).send({ error: 'Invalid input' });
+    }
+    await addPushSubscription(request.user.sub, body.data);
+    return { success: true };
+  });
+
+  // ── Web Push Unsubscribe ────────────────────────────────────────────
+  app.post('/push/unsubscribe', async (request, reply) => {
+    const body = z.object({ endpoint: z.string().url() }).safeParse(request.body);
+    if (!body.success) {
+      return reply.status(400).send({ error: 'Invalid input' });
+    }
+    await removePushSubscription(request.user.sub, body.data.endpoint);
+    return { success: true };
   });
 
   // ── Test Schedule Endpoint ──────────────────────────────────────────

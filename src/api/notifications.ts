@@ -85,3 +85,19 @@ export function triggerTestNotification(delayMs: number, message: string) {
     body: JSON.stringify({ delayMs, message }),
   });
 }
+
+export function subscribePush(subscription: any) {
+  return apiFetch<{ success: boolean }>('/api/notifications/push/subscribe', {
+    method: 'POST',
+    auth: true,
+    body: JSON.stringify(subscription),
+  });
+}
+
+export function unsubscribePush(endpoint: string) {
+  return apiFetch<{ success: boolean }>('/api/notifications/push/unsubscribe', {
+    method: 'POST',
+    auth: true,
+    body: JSON.stringify({ endpoint }),
+  });
+}

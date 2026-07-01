@@ -129,6 +129,73 @@ export function NotificationProvider({ children }: { children: ReactNode }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
 
+  // Helper to convert base64 VAPID public key to Uint8Array
+  const urlBase64ToUint8Array = (base64String: string) => {
+    const padding = '='.repeat((4 - (base64String.length % 4)) % 4);
+    const base64 = (base64String + padding).replace(/\-/g, '+').replace(/_/g, '/');
+    const rawData = window.atob(base64);
+    const outputArray = new Uint8Array(rawData.length);
+    for (let i = 0; i < rawData.length; ++i) {
+      outputArray[i] = rawData.charCodeAt(i);
+    }
+    return outputArray;
+  };
+
+  // Register Service Worker & Subscribe to Web Push
+  useEffect(() => {
+    if (!isAuthenticated) return;
+
+    async function registerWebPush() {
+      if (!('serviceWorker' in navigator) || !('PushManager' in window)) {
+        return;
+      }
+
+      try {
+        // 1. Request permission if not determined
+        if (Notification.permission === 'default') {
+          await Notification.requestPermission();
+        }
+
+        if (Notification.permission !== 'granted') {
+          return;
+        }
+
+        // 2. Register Service Worker
+        const registration = await navigator.serviceWorker.register('/sw.js');
+
+        // 3. Check for existing subscription
+        let subscription = await registration.pushManager.getSubscription();
+
+        // 4. If no subscription exists, create one
+        if (!subscription) {
+          const vapidPublicKey = 'BH5g_Z5_9ZAo5HIV1DhUkH1WMGL5SkwJbMekiFTDSmyuttRc1yusmKnyVXWCCClHD_io1wC5M_ctJCJ018oyHak';
+          const applicationServerKey = urlBase64ToUint8Array(vapidPublicKey);
+          
+          subscription = await registration.pushManager.subscribe({
+            userVisibleOnly: true,
+            applicationServerKey,
+          });
+        }
+
+        // 5. Send subscription info to backend
+        const subJson = subscription.toJSON();
+        if (subJson.endpoint && subJson.keys?.p256dh && subJson.keys?.auth) {
+          await notifApi.subscribePush({
+            endpoint: subJson.endpoint,
+            keys: {
+              p256dh: subJson.keys.p256dh,
+              auth: subJson.keys.auth,
+            },
+          });
+        }
+      } catch (err) {
+        console.error('Web Push registration failed:', err);
+      }
+    }
+
+    void registerWebPush();
+  }, [isAuthenticated]);
+
   function startPolling() {
     if (pollTimerRef.current) return;
     pollTimerRef.current = setInterval(() => {
