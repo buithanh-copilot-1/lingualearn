@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { idioms } from '../data/idioms';
-import { speakWord } from '../utils/speech';
+import ListenButton from '../components/ListenButton';
 import type { IdiomType } from '../types';
 
 type TypeFilter = 'all' | IdiomType;
@@ -70,13 +70,11 @@ export default function Idioms() {
                 <span className="badge badge-type">
                   {item.type === 'idiom' ? tr.idioms.idiom : tr.idioms.phrasal}
                 </span>
-                <button
-                  className="icon-btn"
-                  aria-label={tr.idioms.listen}
-                  onClick={() => speakWord(item.phrase)}
-                >
-                  🔊
-                </button>
+                <ListenButton
+                  text={item.phrase}
+                  label={tr.idioms.listen}
+                  variant="icon"
+                />
               </div>
             </div>
             <p className="idiom-meaning"><strong>{tr.idioms.meaning}:</strong> {item.meaning}</p>

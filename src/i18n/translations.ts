@@ -1,7 +1,7 @@
 import type { Locale } from '../types';
 
 const en = {
-  common: { loading: 'Loading...' },
+  common: { loading: 'Loading...', listening: 'Playing...' },
   nav: { home: 'Home', lessons: 'Lessons', vocabulary: 'Vocabulary', grammar: 'Grammar', quiz: 'Quiz', practice: 'Practice', progress: 'Progress', settings: 'Settings', login: 'Sign In', logout: 'Sign Out' },
   bottom: { home: 'Home', lessons: 'Lessons', words: 'Words', practice: 'Practice', stats: 'Stats' },
   home: {
@@ -171,7 +171,7 @@ const en = {
 } as const;
 
 const vi = {
-  common: { loading: 'Đang tải...' },
+  common: { loading: 'Đang tải...', listening: 'Đang phát...' },
   nav: { home: 'Trang chủ', lessons: 'Bài học', vocabulary: 'Từ vựng', grammar: 'Ngữ pháp', quiz: 'Kiểm tra', practice: 'Luyện tập', progress: 'Tiến độ', settings: 'Cài đặt', login: 'Đăng nhập', logout: 'Đăng xuất' },
   bottom: { home: 'Trang chủ', lessons: 'Bài học', words: 'Từ vựng', practice: 'Luyện tập', stats: 'Tiến độ' },
   home: {

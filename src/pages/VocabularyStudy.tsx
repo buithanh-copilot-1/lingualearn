@@ -4,7 +4,8 @@ import { useAllVocabulary } from '../hooks/useContent';
 import { useProgress } from '../hooks/useProgress';
 import { useLanguage } from '../context/LanguageContext';
 import VocabWordDetail from '../components/VocabWordDetail';
-import { speakWord } from '../utils/speech';
+import ListenButton from '../components/ListenButton';
+import { useSpeechState } from '../hooks/useSpeech';
 
 export default function VocabularyStudy() {
   const { data: vocabulary, loading } = useAllVocabulary();
@@ -16,6 +17,7 @@ export default function VocabularyStudy() {
   const [sessionLearned, setSessionLearned] = useState(0);
 
   const word = unlearned[index];
+  const { isSpeaking } = useSpeechState(word?.word);
   const sessionTotal = unlearned.length;
   const sessionPct = sessionTotal > 0 ? Math.round((index / sessionTotal) * 100) : 0;
 
@@ -72,17 +74,16 @@ export default function VocabularyStudy() {
       </div>
 
       {!revealed ? (
-        <div className="study-prompt-card">
+        <div className={`study-prompt-card ${isSpeaking ? 'study-prompt-playing' : ''}`}>
           <span className={`badge badge-${word.level}`}>{tr.levels[word.level]}</span>
-          <h2 className="study-prompt-word">{word.word}</h2>
+          <h2 className={`study-prompt-word ${isSpeaking ? 'speaking-word-active' : ''}`}>{word.word}</h2>
           <p className="study-prompt-phonetic">{word.phonetic}</p>
-          <button
-            type="button"
-            className="btn btn-outline pronounce-btn"
-            onClick={() => speakWord(word.word)}
-          >
-            🔊 {tr.vocabulary.pronounce}
-          </button>
+          <ListenButton
+            text={word.word}
+            label={tr.vocabulary.pronounce}
+            variant="large"
+            className="pronounce-btn"
+          />
           <p className="study-prompt-hint">{tr.vocabulary.studyPrompt}</p>
           <button
             type="button"

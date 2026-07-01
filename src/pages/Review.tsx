@@ -4,7 +4,8 @@ import { useAllVocabulary } from '../hooks/useContent';
 import { useSrs } from '../hooks/useSrs';
 import { useProgress } from '../hooks/useProgress';
 import { useLanguage } from '../context/LanguageContext';
-import { speakWord } from '../utils/speech';
+import ListenButton from '../components/ListenButton';
+import { useSpeechState } from '../hooks/useSpeech';
 import type { SrsGrade, VocabWord } from '../types';
 
 export default function Review() {
@@ -27,6 +28,7 @@ export default function Review() {
   }, [vocabulary, buildQueue]);
 
   const card = queue[0];
+  const { isSpeaking } = useSpeechState(card?.word);
   const { stats } = counts(vocabulary);
 
   function handleGrade(g: SrsGrade) {
@@ -95,18 +97,18 @@ export default function Review() {
         </span>
       </div>
 
-      <div className={`study-card ${flipped ? 'flipped' : ''}`} onClick={() => setFlipped(!flipped)}>
+      <div className={`study-card ${flipped ? 'flipped' : ''} ${isSpeaking ? 'study-card-playing' : ''}`} onClick={() => setFlipped(!flipped)}>
         <div className="study-card-inner">
           <div className="study-card-front">
             <span className={`badge badge-${card.level}`}>{tr.levels[card.level]}</span>
-            <h2>{card.word}</h2>
+            <h2 className={isSpeaking ? 'speaking-word-active' : ''}>{card.word}</h2>
             <p className="flashcard-phonetic">{card.phonetic}</p>
-            <button
-              className="btn btn-sm btn-outline pronounce-btn"
-              onClick={(e) => { e.stopPropagation(); speakWord(card.word); }}
-            >
-              🔊 {tr.vocabulary.pronounce}
-            </button>
+            <ListenButton
+              text={card.word}
+              label={tr.vocabulary.pronounce}
+              className="pronounce-btn"
+              stopPropagation
+            />
             <p className="flashcard-hint">{tr.vocabulary.flipHint}</p>
           </div>
           <div className="study-card-back">

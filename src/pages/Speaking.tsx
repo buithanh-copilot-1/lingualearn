@@ -2,7 +2,8 @@ import { useState, useMemo, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { practiceSentences } from '../data/speaking';
-import { speakWord } from '../utils/speech';
+import ListenButton from '../components/ListenButton';
+import { useSpeechState } from '../hooks/useSpeech';
 import {
   isRecognitionSupported,
   createRecognizer,
@@ -29,6 +30,8 @@ export default function Speaking() {
     [level],
   );
   const sentence = sentences[index % Math.max(sentences.length, 1)];
+  const sentenceId = sentence ? `speaking:${sentence.id}` : '';
+  const { isSpeaking: isPlayingModel } = useSpeechState(sentenceId);
 
   // Stop any in-flight recognition when navigating away.
   useEffect(() => () => recognizerRef.current?.stop(), []);
@@ -101,13 +104,21 @@ export default function Speaking() {
       </div>
 
       {sentence && (
-        <div className="speaking-card">
+        <div className={`speaking-card ${listening ? 'speaking-card-recording' : ''} ${isPlayingModel ? 'speaking-card-playing' : ''}`}>
           <div className="speaking-meta">
             <span className={`badge badge-${sentence.level}`}>{tr.levels[sentence.level]}</span>
             <span className="speaking-category">{sentence.category}</span>
           </div>
 
-          <p className="speaking-target">
+          {listening && (
+            <div className="listening-indicator" aria-live="polite">
+              <span className="listening-indicator-ring" />
+              <span className="listening-indicator-ring listening-indicator-ring-delay" />
+              <span className="listening-indicator-dot" />
+            </div>
+          )}
+
+          <p className={`speaking-target ${isPlayingModel ? 'speaking-target-playing' : ''}`}>
             {result
               ? result.words.map((w, i) => (
                   <span key={i} className={w.matched ? 'word-ok' : 'word-miss'}>
@@ -119,15 +130,28 @@ export default function Speaking() {
           <p className="speaking-translation">{sentence.translation}</p>
 
           <div className="speaking-actions">
-            <button className="btn btn-outline" onClick={() => speakWord(sentence.text)}>
-              🔊 {tr.speaking.listen}
-            </button>
+            <ListenButton
+              text={sentence.text}
+              label={tr.speaking.listen}
+              id={sentenceId}
+              variant="outline"
+            />
             <button
-              className={`btn btn-primary ${listening ? 'recording' : ''}`}
+              type="button"
+              className={`btn btn-primary record-btn ${listening ? 'record-btn-active' : ''}`}
               onClick={handleRecord}
               disabled={!supported || listening}
             >
-              {listening ? `🎙️ ${tr.speaking.recording}` : `🎤 ${tr.speaking.record}`}
+              <span className="record-btn-icon" aria-hidden>
+                {listening ? (
+                  <span className="record-btn-pulse">
+                    <span /><span /><span />
+                  </span>
+                ) : (
+                  '🎤'
+                )}
+              </span>
+              <span>{listening ? tr.speaking.recording : tr.speaking.record}</span>
             </button>
           </div>
 
