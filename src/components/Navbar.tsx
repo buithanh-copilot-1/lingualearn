@@ -4,6 +4,21 @@ import { useLanguage } from '../context/LanguageContext';
 import { useAuth } from '../context/AuthContext';
 import NotificationBell from './NotificationBell';
 
+function getInitials(nameOrEmail?: string | null): string {
+  if (!nameOrEmail) return 'U';
+  // Remove Vietnamese diacritics / tone marks
+  const clean = nameOrEmail.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  if (clean.includes('@')) {
+    const parts = clean.split('@')[0];
+    return parts.substring(0, 2).toUpperCase();
+  }
+  const words = clean.trim().split(/\s+/);
+  if (words.length >= 2) {
+    return (words[0][0] + words[words.length - 1][0]).toUpperCase();
+  }
+  return clean.substring(0, 2).toUpperCase();
+}
+
 const navItems = [
   { path: '/', labelKey: 'home' as const, icon: '🏠' },
   { path: '/lessons', labelKey: 'lessons' as const, icon: '📚' },
@@ -24,9 +39,7 @@ export default function Navbar() {
   const avatarRef = useRef<HTMLDivElement>(null);
   const avatarRefMobile = useRef<HTMLDivElement>(null);
 
-  const initials = user?.displayName
-    ? user.displayName.substring(0, 2).toUpperCase()
-    : user?.email.substring(0, 2).toUpperCase() || 'U';
+  const initials = getInitials(user?.displayName || user?.email);
 
   useEffect(() => {
     setMenuOpen(false);
@@ -71,17 +84,18 @@ export default function Navbar() {
           <span className="logo-text">LinguaLearn</span>
         </Link>
 
-        <ul className="nav-links desktop-nav">
-          {navItems.map((item) => (
-            <li key={item.path}>
-              <Link
-                to={item.path}
-                className={location.pathname === item.path || (item.path !== '/' && location.pathname.startsWith(item.path)) ? 'active' : ''}
-              >
-                {tr.nav[item.labelKey]}
-              </Link>
-            </li>
-          ))}
+        <div className="navbar-right">
+          <ul className="nav-links desktop-nav">
+            {navItems.map((item) => (
+              <li key={item.path}>
+                <Link
+                  to={item.path}
+                  className={location.pathname === item.path || (item.path !== '/' && location.pathname.startsWith(item.path)) ? 'active' : ''}
+                >
+                  {tr.nav[item.labelKey]}
+                </Link>
+              </li>
+            ))}
           <li>
             <Link to="/settings" className={location.pathname === '/settings' ? 'active' : ''}>
               {tr.nav.settings}
@@ -142,62 +156,63 @@ export default function Navbar() {
           </li>
         </ul>
 
-        {isAuthenticated && (
-          <div className="mobile-nav-actions">
-            <NotificationBell />
-            <div className="nav-avatar-wrapper" ref={avatarRefMobile}>
-              <button
-                type="button"
-                className="nav-avatar-btn"
-                onClick={() => setAvatarMenuOpenMobile((o) => !o)}
-                aria-expanded={avatarMenuOpenMobile}
-                title={user?.displayName || user?.email}
-              >
-                <div className="nav-avatar-circle small">
-                  {initials}
-                </div>
-              </button>
-
-              {avatarMenuOpenMobile && (
-                <div className="avatar-dropdown">
-                  <div className="dropdown-header">
-                    <div className="dropdown-name">{user?.displayName || 'User'}</div>
-                    <div className="dropdown-email">{user?.email}</div>
+          {isAuthenticated && (
+            <div className="mobile-nav-actions">
+              <NotificationBell />
+              <div className="nav-avatar-wrapper" ref={avatarRefMobile}>
+                <button
+                  type="button"
+                  className="nav-avatar-btn"
+                  onClick={() => setAvatarMenuOpenMobile((o) => !o)}
+                  aria-expanded={avatarMenuOpenMobile}
+                  title={user?.displayName || user?.email}
+                >
+                  <div className="nav-avatar-circle small">
+                    {initials}
                   </div>
-                  <div className="dropdown-divider" />
-                  <Link to="/profile" className="dropdown-item">
-                    <span className="dropdown-icon">👤</span>
-                    {tr.nav.profile}
-                  </Link>
-                  <Link to="/settings" className="dropdown-item">
-                    <span className="dropdown-icon">⚙️</span>
-                    {tr.nav.settings}
-                  </Link>
-                  <div className="dropdown-divider" />
-                  <button
-                    type="button"
-                    className="dropdown-item logout"
-                    onClick={() => void logout()}
-                  >
-                    <span className="dropdown-icon">🚪</span>
-                    {tr.nav.logout}
-                  </button>
-                </div>
-              )}
-            </div>
-          </div>
-        )}
+                </button>
 
-        <button
-          className={`menu-toggle ${menuOpen ? 'open' : ''}`}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={menuOpen}
-        >
-          <span className="menu-bar" />
-          <span className="menu-bar" />
-          <span className="menu-bar" />
-        </button>
+                {avatarMenuOpenMobile && (
+                  <div className="avatar-dropdown">
+                    <div className="dropdown-header">
+                      <div className="dropdown-name">{user?.displayName || 'User'}</div>
+                      <div className="dropdown-email">{user?.email}</div>
+                    </div>
+                    <div className="dropdown-divider" />
+                    <Link to="/profile" className="dropdown-item">
+                      <span className="dropdown-icon">👤</span>
+                      {tr.nav.profile}
+                    </Link>
+                    <Link to="/settings" className="dropdown-item">
+                      <span className="dropdown-icon">⚙️</span>
+                      {tr.nav.settings}
+                    </Link>
+                    <div className="dropdown-divider" />
+                    <button
+                      type="button"
+                      className="dropdown-item logout"
+                      onClick={() => void logout()}
+                    >
+                      <span className="dropdown-icon">🚪</span>
+                      {tr.nav.logout}
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          <button
+            className={`menu-toggle ${menuOpen ? 'open' : ''}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+          >
+            <span className="menu-bar" />
+            <span className="menu-bar" />
+            <span className="menu-bar" />
+          </button>
+        </div>
       </div>
 
       <div

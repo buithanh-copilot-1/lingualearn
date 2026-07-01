@@ -23,9 +23,21 @@ export default function Profile() {
     return null;
   }
 
-  const initials = user.displayName
-    ? user.displayName.substring(0, 2).toUpperCase()
-    : user.email.substring(0, 2).toUpperCase() || 'U';
+  function getInitials(nameOrEmail?: string | null): string {
+    if (!nameOrEmail) return 'U';
+    const clean = nameOrEmail.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    if (clean.includes('@')) {
+      const parts = clean.split('@')[0];
+      return parts.substring(0, 2).toUpperCase();
+    }
+    const words = clean.trim().split(/\s+/);
+    if (words.length >= 2) {
+      return (words[0][0] + words[words.length - 1][0]).toUpperCase();
+    }
+    return clean.substring(0, 2).toUpperCase();
+  }
+
+  const initials = getInitials(user.displayName || user.email);
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
