@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { VocabWord } from '../types';
 import { useLanguage } from '../context/LanguageContext';
-import { speakWord } from '../utils/speech';
+import ListenButton from './ListenButton';
 
 interface Props {
   word: VocabWord;
@@ -23,12 +23,12 @@ export default function FlashCard({ word, learned, onLearn }: Props) {
           <span className={`badge badge-${word.level}`}>{word.level}</span>
           <h3 className="flashcard-word">{word.word}</h3>
           <p className="flashcard-phonetic">{word.phonetic}</p>
-          <button
-            className="btn btn-sm btn-outline pronounce-btn"
-            onClick={(e) => { e.stopPropagation(); speakWord(word.word); }}
-          >
-            🔊 {tr.vocabulary.pronounce}
-          </button>
+          <ListenButton
+            text={word.word}
+            label={tr.vocabulary.pronounce}
+            className="pronounce-btn"
+            stopPropagation
+          />
           <p className="flashcard-hint">{tr.vocabulary.flipHint}</p>
         </div>
         <div className="flashcard-back">

@@ -1,7 +1,7 @@
 import type { VocabWord } from '../types';
 import { useLanguage } from '../context/LanguageContext';
 import { useVocabEnrichment } from '../hooks/useVocabEnrichment';
-import { speakWord } from '../utils/speech';
+import ListenButton from '../components/ListenButton';
 import { categoryLabelVi, resolveExample, usageTip, isGenericExample } from '../utils/vocabDisplay';
 
 interface Props {
@@ -46,13 +46,7 @@ export default function VocabWordDetail({
           <h3 className="vocab-detail-word">{word.word}</h3>
           <p className="vocab-detail-phonetic">{phonetic}</p>
         </div>
-        <button
-          type="button"
-          className="btn btn-sm btn-outline"
-          onClick={() => speakWord(word.word)}
-        >
-          🔊 {tr.vocabulary.pronounce}
-        </button>
+        <ListenButton text={word.word} label={tr.vocabulary.pronounce} />
       </div>
 
       <div className="vocab-detail-tags">

@@ -1,7 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { lookupWordWithVietnamese, WordNotFoundError, type DictEntry } from '../api/dictionary';
-import { speakWord } from '../utils/speech';
+import ListenButton from '../components/ListenButton';
 
 type ErrorKind = 'notFound' | 'error' | null;
 
@@ -25,15 +25,6 @@ export default function Dictionary() {
       setError(err instanceof WordNotFoundError ? 'notFound' : 'error');
     } finally {
       setLoading(false);
-    }
-  }
-
-  function playAudio() {
-    if (!entry) return;
-    if (entry.audio) {
-      void new Audio(entry.audio).play().catch(() => speakWord(entry.word));
-    } else {
-      speakWord(entry.word);
     }
   }
 
@@ -76,9 +67,11 @@ export default function Dictionary() {
                 </p>
               )}
             </div>
-            <button className="btn btn-sm btn-outline" onClick={playAudio}>
-              🔊 {tr.dictionary.listen}
-            </button>
+            <ListenButton
+              text={entry.word}
+              label={tr.dictionary.listen}
+              audioUrl={entry.audio || undefined}
+            />
           </div>
 
           {entry.meanings.map((meaning, mi) => (
