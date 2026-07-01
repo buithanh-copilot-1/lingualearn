@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAllVocabulary } from '../hooks/useContent';
 import { useProgress } from '../hooks/useProgress';
 import { useLanguage } from '../context/LanguageContext';
+import VocabWordDetail from '../components/VocabWordDetail';
 import { speakWord } from '../utils/speech';
 
 export default function VocabularyStudy() {
@@ -11,18 +12,18 @@ export default function VocabularyStudy() {
   const { tr } = useLanguage();
   const unlearned = vocabulary.filter((w) => !progress.learnedWords.includes(w.id));
   const [index, setIndex] = useState(0);
-  const [flipped, setFlipped] = useState(false);
+  const [revealed, setRevealed] = useState(false);
   const [sessionLearned, setSessionLearned] = useState(0);
 
   const word = unlearned[index];
   const sessionTotal = unlearned.length;
-  const sessionPct = sessionTotal > 0 ? Math.round(((index) / sessionTotal) * 100) : 0;
+  const sessionPct = sessionTotal > 0 ? Math.round((index / sessionTotal) * 100) : 0;
 
   function handleKnow() {
     if (word) {
       learnWord(word.id);
       setSessionLearned((s) => s + 1);
-      setFlipped(false);
+      setRevealed(false);
       if (index >= unlearned.length - 1) {
         setIndex(0);
       }
@@ -30,14 +31,14 @@ export default function VocabularyStudy() {
   }
 
   function handleReview() {
-    setFlipped(false);
+    setRevealed(false);
     setIndex((i) => (i + 1) % unlearned.length);
   }
 
   if (loading) {
     return (
       <div className="page">
-        <p className="muted-text">Loading...</p>
+        <p className="muted-text">{tr.vocabulary.loading}</p>
       </div>
     );
   }
@@ -70,39 +71,41 @@ export default function VocabularyStudy() {
         </div>
       </div>
 
-      <div
-        className={`study-card ${flipped ? 'flipped' : ''}`}
-        onClick={() => setFlipped(!flipped)}
-      >
-        <div className="study-card-inner">
-          <div className="study-card-front">
-            <span className={`badge badge-${word.level}`}>{word.level}</span>
-            <h2>{word.word}</h2>
-            <p className="flashcard-phonetic">{word.phonetic}</p>
-            <button
-              className="btn btn-sm btn-outline pronounce-btn"
-              onClick={(e) => { e.stopPropagation(); speakWord(word.word); }}
-            >
-              🔊 {tr.vocabulary.pronounce}
+      {!revealed ? (
+        <div className="study-prompt-card">
+          <span className={`badge badge-${word.level}`}>{tr.levels[word.level]}</span>
+          <h2 className="study-prompt-word">{word.word}</h2>
+          <p className="study-prompt-phonetic">{word.phonetic}</p>
+          <button
+            type="button"
+            className="btn btn-outline pronounce-btn"
+            onClick={() => speakWord(word.word)}
+          >
+            🔊 {tr.vocabulary.pronounce}
+          </button>
+          <p className="study-prompt-hint">{tr.vocabulary.studyPrompt}</p>
+          <button
+            type="button"
+            className="btn btn-primary study-reveal-btn"
+            onClick={() => setRevealed(true)}
+          >
+            {tr.vocabulary.showMeaning}
+          </button>
+        </div>
+      ) : (
+        <>
+          <div className="study-detail-card">
+            <VocabWordDetail word={word} enrich />
+          </div>
+          <div className="study-actions">
+            <button type="button" className="btn btn-outline study-btn-review" onClick={handleReview}>
+              {tr.vocabulary.dontKnow}
             </button>
-            <p className="flashcard-hint">{tr.vocabulary.flipHint}</p>
+            <button type="button" className="btn btn-primary study-btn-know" onClick={handleKnow}>
+              {tr.vocabulary.know}
+            </button>
           </div>
-          <div className="study-card-back">
-            <p className="flashcard-meaning">{word.meaning}</p>
-            <p className="flashcard-example">"{word.example}"</p>
-          </div>
-        </div>
-      </div>
-
-      {flipped && (
-        <div className="study-actions">
-          <button className="btn btn-outline study-btn-review" onClick={handleReview}>
-            {tr.vocabulary.dontKnow}
-          </button>
-          <button className="btn btn-primary study-btn-know" onClick={handleKnow}>
-            {tr.vocabulary.know}
-          </button>
-        </div>
+        </>
       )}
     </div>
   );

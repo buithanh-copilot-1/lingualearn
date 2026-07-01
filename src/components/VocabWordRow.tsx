@@ -1,6 +1,6 @@
 import type { VocabWord } from '../types';
 import { useLanguage } from '../context/LanguageContext';
-import { speakWord } from '../utils/speech';
+import VocabWordDetail from './VocabWordDetail';
 
 interface Props {
   word: VocabWord;
@@ -26,7 +26,11 @@ export default function VocabWordRow({ word, learned, expanded, onToggle, onLear
               <span className={`badge badge-${word.level}`}>{tr.levels[word.level]}</span>
             </div>
             <p className="vocab-row-phonetic">{word.phonetic}</p>
-            {!expanded && <p className="vocab-row-preview">{word.meaning}</p>}
+            {!expanded && (
+              <p className="vocab-row-preview">
+                <span className="vocab-row-preview-label">{tr.vocabulary.meaningVi}:</span> {word.meaning}
+              </p>
+            )}
           </div>
         </div>
         <span className="vocab-row-chevron" aria-hidden>{expanded ? '▲' : '▼'}</span>
@@ -34,26 +38,13 @@ export default function VocabWordRow({ word, learned, expanded, onToggle, onLear
 
       {expanded && (
         <div className="vocab-row-detail">
-          <p className="vocab-row-meaning">{word.meaning}</p>
-          <p className="vocab-row-example">"{word.example}"</p>
-          <div className="vocab-row-meta">
-            <span className="vocab-row-category">{word.category}</span>
-            <div className="vocab-row-actions">
-              <button
-                type="button"
-                className="btn btn-sm btn-outline"
-                onClick={() => speakWord(word.word)}
-              >
-                🔊 {tr.vocabulary.pronounce}
-              </button>
-              {!learned && (
-                <button type="button" className="btn btn-sm btn-primary" onClick={onLearn}>
-                  {tr.vocabulary.markLearned}
-                </button>
-              )}
-              {learned && <span className="badge badge-done">✓ {tr.vocabulary.learned}</span>}
-            </div>
-          </div>
+          <VocabWordDetail
+            word={word}
+            learned={learned}
+            enrich
+            compact
+            onLearn={onLearn}
+          />
         </div>
       )}
     </article>
