@@ -128,4 +128,37 @@ export async function notificationRoutes(app: FastifyInstance) {
     }
     return updatePreferences(request.user.sub, body.data);
   });
+
+  // ── Test Schedule Endpoint ──────────────────────────────────────────
+  app.post('/test-schedule', async (request, reply) => {
+    const bodySchema = z.object({
+      delayMs: z.number().int().min(0),
+      message: z.string().min(1),
+    });
+
+    const parsed = bodySchema.safeParse(request.body);
+    if (!parsed.success) {
+      return reply.status(400).send({ error: 'Invalid input' });
+    }
+
+    const userId = request.user.sub;
+    const { delayMs, message } = parsed.data;
+
+    setTimeout(async () => {
+      try {
+        await import('./notification.service.js').then(({ sendNotification }) =>
+          sendNotification({
+            userId,
+            type: 'system',
+            title: 'Test Notification 🔔',
+            message,
+          })
+        );
+      } catch (err) {
+        app.log.error(err, 'Failed to send test notification');
+      }
+    }, delayMs);
+
+    return { success: true, delayMs };
+  });
 }

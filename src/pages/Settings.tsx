@@ -6,6 +6,7 @@ import { useLanguage } from '../context/LanguageContext';
 import {
   fetchNotificationPreferences,
   updateNotificationPreferences,
+  triggerTestNotification,
   type NotificationPreferences,
 } from '../api/notifications';
 import type { Locale } from '../types';
@@ -18,6 +19,32 @@ export default function Settings() {
   const { settings } = progress;
 
   const [prefs, setPrefs] = useState<NotificationPreferences | null>(null);
+
+  // Test notification states
+  const [testDelay, setTestDelay] = useState(5);
+  const [testUnit, setTestUnit] = useState<'s' | 'm' | 'h'>('s');
+  const [testMessage, setTestMessage] = useState('Đây là thông báo thử nghiệm realtime!');
+  const [testStatus, setTestStatus] = useState<string | null>(null);
+
+  const handleSendTest = async () => {
+    let delayMs = testDelay * 1000;
+    if (testUnit === 'm') delayMs *= 60;
+    if (testUnit === 'h') delayMs *= 3600;
+
+    setTestStatus(locale === 'vi' ? 'Đang lên lịch...' : 'Scheduling...');
+    try {
+      await triggerTestNotification(delayMs, testMessage);
+      setTestStatus(
+        locale === 'vi'
+          ? `Đã lên lịch thành công! Nhận sau ${testDelay}${testUnit}`
+          : `Scheduled successfully! Delivering in ${testDelay}${testUnit}`,
+      );
+      setTimeout(() => setTestStatus(null), 3000);
+    } catch {
+      setTestStatus(locale === 'vi' ? 'Lỗi lên lịch!' : 'Failed to schedule!');
+      setTimeout(() => setTestStatus(null), 3000);
+    }
+  };
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -143,6 +170,64 @@ export default function Settings() {
                 <span className="toggle-slider" />
               </button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {isAuthenticated && prefs && (
+        <div className="settings-section">
+          <h3>{locale === 'vi' ? 'Kiểm thử thông báo (Realtime Test)' : 'Test Notifications (Realtime)'}</h3>
+          <p className="muted-text" style={{ marginBottom: '1rem' }}>
+            {locale === 'vi' 
+              ? 'Lên lịch gửi một thông báo giả lập để kiểm tra tính năng đẩy tin realtime (SSE).' 
+              : 'Schedule a mock notification to verify the realtime SSE push.'}
+          </p>
+          <div className="settings-test-inputs" style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            <div className="settings-goal-row" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <label style={{ flex: 1 }}>{locale === 'vi' ? 'Thời gian chờ:' : 'Delay time:'}</label>
+              <input
+                type="number"
+                min={0}
+                value={testDelay}
+                onChange={(e) => setTestDelay(Math.max(0, +e.target.value))}
+                style={{ width: '80px', padding: '0.4rem', border: '1px solid var(--border)', borderRadius: '6px' }}
+              />
+              <select
+                value={testUnit}
+                onChange={(e) => setTestUnit(e.target.value as 's' | 'm' | 'h')}
+                style={{ padding: '0.4rem', border: '1px solid var(--border)', borderRadius: '6px', background: 'var(--surface)' }}
+              >
+                <option value="s">{locale === 'vi' ? 'giây' : 'seconds'}</option>
+                <option value="m">{locale === 'vi' ? 'phút' : 'minutes'}</option>
+                <option value="h">{locale === 'vi' ? 'giờ' : 'hours'}</option>
+              </select>
+            </div>
+
+            <div className="settings-goal-row" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '0.25rem' }}>
+              <label>{locale === 'vi' ? 'Nội dung thông báo:' : 'Message content:'}</label>
+              <input
+                type="text"
+                value={testMessage}
+                onChange={(e) => setTestMessage(e.target.value)}
+                placeholder="Nội dung kiểm thử..."
+                style={{ width: '100%', padding: '0.5rem', border: '1px solid var(--border)', borderRadius: '6px', fontSize: '0.9rem' }}
+              />
+            </div>
+
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() => void handleSendTest()}
+              style={{ alignSelf: 'flex-start', marginTop: '0.25rem' }}
+            >
+              {locale === 'vi' ? 'Gửi thông báo test' : 'Send Test Notification'}
+            </button>
+
+            {testStatus && (
+              <p className="success-text" style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--success)' }}>
+                {testStatus}
+              </p>
+            )}
           </div>
         </div>
       )}

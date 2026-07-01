@@ -77,3 +77,11 @@ export function updateNotificationPreferences(
     body: JSON.stringify(data),
   });
 }
+
+export function triggerTestNotification(delayMs: number, message: string) {
+  return apiFetch<{ success: boolean; delayMs: number }>('/api/notifications/test-schedule', {
+    method: 'POST',
+    auth: true,
+    body: JSON.stringify({ delayMs, message }),
+  });
+}
