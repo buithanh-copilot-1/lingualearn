@@ -24,6 +24,8 @@ interface NotificationContextValue {
   loadMore: () => Promise<void>;
   hasMore: boolean;
   isLoading: boolean;
+  isPanelOpen: boolean;
+  setIsPanelOpen: (open: boolean) => void;
 }
 
 const NotificationContext = createContext<NotificationContextValue | null>(null);
@@ -37,8 +39,20 @@ export function NotificationProvider({ children }: { children: ReactNode }) {
   const [latestToast, setLatestToast] = useState<NotificationItem | null>(null);
   const [hasMore, setHasMore] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isPanelOpen, setIsPanelOpen] = useState(false);
   const eventSourceRef = useRef<EventSource | null>(null);
   const pollTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  // Check URL query params for automatic notification panel trigger
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('open_notifications') === 'true') {
+      setIsPanelOpen(true);
+      // Clean up search query param so it doesn't trigger on future F5 reloads
+      const newUrl = window.location.pathname + window.location.hash;
+      window.history.replaceState({}, '', newUrl);
+    }
+  }, []);
 
   // Fetch initial notifications
   const fetchInitial = useCallback(async () => {
@@ -272,6 +286,8 @@ export function NotificationProvider({ children }: { children: ReactNode }) {
         loadMore,
         hasMore,
         isLoading,
+        isPanelOpen,
+        setIsPanelOpen,
       }}
     >
       {children}

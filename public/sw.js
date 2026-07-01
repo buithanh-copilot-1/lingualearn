@@ -29,17 +29,19 @@ self.addEventListener('push', (event) => {
 self.addEventListener('notificationclick', (event) => {
   event.notification.close();
 
+  const targetUrl = '/?open_notifications=true';
+
   event.waitUntil(
-    clients.matchAll({ type: 'window' }).then((clientList) => {
-      // If a window is already open, focus it
+    clients.matchAll({ type: 'window', includeUncontrolled: true }).then((clientList) => {
+      // If a window is already open, navigate to targetUrl and focus it
       for (const client of clientList) {
-        if (client.url && 'focus' in client) {
-          return client.focus();
+        if ('focus' in client && 'navigate' in client) {
+          return client.navigate(targetUrl).then((c) => c?.focus());
         }
       }
       // If no window is open, open a new one
       if (clients.openWindow) {
-        return clients.openWindow('/');
+        return clients.openWindow(targetUrl);
       }
     })
   );

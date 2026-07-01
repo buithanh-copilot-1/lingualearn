@@ -3,8 +3,7 @@ import { useNotifications } from '../context/NotificationContext';
 import NotificationPanel from './NotificationPanel';
 
 export default function NotificationBell() {
-  const { unreadCount } = useNotifications();
-  const [isOpen, setIsOpen] = useState(false);
+  const { unreadCount, isPanelOpen, setIsPanelOpen } = useNotifications();
   const [shake, setShake] = useState(false);
   const bellRef = useRef<HTMLDivElement>(null);
   const prevCount = useRef(unreadCount);
@@ -21,24 +20,24 @@ export default function NotificationBell() {
 
   // Close panel when clicking outside
   useEffect(() => {
-    if (!isOpen) return;
+    if (!isPanelOpen) return;
     function handleClickOutside(e: MouseEvent) {
       if (bellRef.current && !bellRef.current.contains(e.target as Node)) {
-        setIsOpen(false);
+        setIsPanelOpen(false);
       }
     }
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [isOpen]);
+  }, [isPanelOpen, setIsPanelOpen]);
 
   return (
     <div className="notification-bell-wrapper" ref={bellRef}>
       <button
         type="button"
         className={`notification-bell-btn ${shake ? 'shake' : ''}`}
-        onClick={() => setIsOpen((o) => !o)}
+        onClick={() => setIsPanelOpen(!isPanelOpen)}
         aria-label={`Notifications${unreadCount > 0 ? ` (${unreadCount} unread)` : ''}`}
-        aria-expanded={isOpen}
+        aria-expanded={isPanelOpen}
       >
         <svg
           className="notification-bell-icon"
@@ -59,7 +58,7 @@ export default function NotificationBell() {
         )}
       </button>
 
-      {isOpen && <NotificationPanel onClose={() => setIsOpen(false)} />}
+      {isPanelOpen && <NotificationPanel onClose={() => setIsPanelOpen(false)} />}
     </div>
   );
 }
