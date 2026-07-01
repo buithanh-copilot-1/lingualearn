@@ -2,7 +2,7 @@ import type { Locale } from '../types';
 
 const en = {
   nav: { home: 'Home', lessons: 'Lessons', vocabulary: 'Vocabulary', grammar: 'Grammar', quiz: 'Quiz', progress: 'Progress', settings: 'Settings' },
-  bottom: { home: 'Home', lessons: 'Lessons', words: 'Words', quiz: 'Quiz', stats: 'Stats' },
+  bottom: { home: 'Home', lessons: 'Lessons', study: 'Study', quiz: 'Quiz', stats: 'Progress' },
   home: {
     title: 'Master English with',
     subtitle: 'Interactive lessons, vocabulary flashcards, grammar guides, and quizzes — designed for Vietnamese learners.',
@@ -167,7 +167,7 @@ const en = {
 
 const vi = {
   nav: { home: 'Trang chủ', lessons: 'Bài học', vocabulary: 'Từ vựng', grammar: 'Ngữ pháp', quiz: 'Kiểm tra', progress: 'Tiến độ', settings: 'Cài đặt' },
-  bottom: { home: 'Trang chủ', lessons: 'Bài học', words: 'Từ vựng', quiz: 'Kiểm tra', stats: 'Tiến độ' },
+  bottom: { home: 'Trang chủ', lessons: 'Bài học', study: 'Học ngay', quiz: 'Kiểm tra', stats: 'Tiến độ' },
   home: {
     title: 'Học tiếng Anh với',
     subtitle: 'Bài học tương tác, flashcard từ vựng, hướng dẫn ngữ pháp và bài kiểm tra — dành cho người Việt.',
