@@ -4318,3 +4318,17 @@ body {
   color: #ef4444 !important;
 }
 
+/* Clickable headline styles for pronunciation */
+.clickable-headline {
+  transition: color 0.15s, transform 0.1s;
+  user-select: none;
+}
+
+.clickable-headline:hover {
+  color: var(--primary);
+}
+
+.clickable-headline:active {
+  transform: scale(0.985);
+}
+

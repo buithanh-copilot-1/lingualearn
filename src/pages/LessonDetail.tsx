@@ -292,11 +292,12 @@ export default function LessonDetail() {
     window.speechSynthesis.speak(utterance);
   }, [speechRate]);
 
-  // Auto-play TTS on stepping into a new 'learn' step
+  // Auto-play TTS on stepping into a new step
   useEffect(() => {
     if (flowSteps.length > 0 && stepIndex < flowSteps.length) {
       const step = flowSteps[stepIndex];
-      if (step.type === 'learn') {
+      // Auto-play for learn, choice, and speak steps (avoid play on scramble which would cheat)
+      if (step.type === 'learn' || step.type === 'quiz_choice' || step.type === 'quiz_speak') {
         handlePlaySpeech(step.english);
       }
     }
@@ -309,6 +310,8 @@ export default function LessonDetail() {
     setSpeakingError(null);
     setListening(false);
   }, [stepIndex, flowSteps, handlePlaySpeech]);
+
+
 
   // Clean speaking recognizer ref when component unmounts
   useEffect(() => {
@@ -422,6 +425,77 @@ export default function LessonDetail() {
     }
   };
 
+  // Global Keyboard Shortcuts for better accessibility and desktop user experience
+  useEffect(() => {
+    if (loading || !lesson || flowSteps.length === 0 || finished) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
+        return;
+      }
+
+      const step = flowSteps[stepIndex];
+
+      // 1. Enter Key: Check answer or continue step
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        if (evaluation !== null) {
+          handleNextStep();
+          return;
+        }
+        if (step.type === 'learn') {
+          handleNextStep();
+          return;
+        }
+        const canCheck =
+          (step.type === 'quiz_choice' && selectedOption !== null) ||
+          (step.type === 'quiz_scramble' && scrambleOutput.length > 0);
+
+        if (canCheck && !isChecking) {
+          checkAnswer();
+        }
+        return;
+      }
+
+      // 2. Space Key: Reveal translation or replay audio
+      if (e.key === ' ') {
+        e.preventDefault();
+        if (step.type === 'learn') {
+          if (!showTranslation) {
+            setShowTranslation(true);
+          } else {
+            handlePlaySpeech(step.english);
+          }
+        } else {
+          handlePlaySpeech(step.english);
+        }
+        return;
+      }
+
+      // 3. Choice Keys (1, 2, 3, 4)
+      if (step.type === 'quiz_choice' && evaluation === null) {
+        const optionKeys = ['1', '2', '3', '4', 'a', 'b', 'c', 'd'];
+        const keyIdx = optionKeys.indexOf(e.key.toLowerCase());
+        if (keyIdx !== -1) {
+          const index = keyIdx % 4;
+          if (step.options && index < step.options.length) {
+            e.preventDefault();
+            setSelectedOption(index);
+          }
+        }
+      }
+
+      // 4. Scramble Backspace: Delete last word token
+      if (step.type === 'quiz_scramble' && evaluation === null && e.key === 'Backspace') {
+        e.preventDefault();
+        setScrambleOutput((curr) => curr.slice(0, -1));
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [loading, lesson, flowSteps, stepIndex, evaluation, selectedOption, scrambleOutput, isChecking, showTranslation, handlePlaySpeech, handleNextStep, checkAnswer, finished]);
+
   if (finished) {
     return (
       <div className="page lesson-complete-page">
@@ -496,7 +570,14 @@ export default function LessonDetail() {
             )}
             
             <div className="card-text-section">
-              <h2 className="english-headline">{currentStep.english}</h2>
+              <h2
+                className="english-headline clickable-headline"
+                onClick={() => handlePlaySpeech(currentStep.english)}
+                style={{ cursor: 'pointer' }}
+                title={locale === 'vi' ? 'Bấm để nghe phát âm' : 'Click to hear pronunciation'}
+              >
+                {currentStep.english}
+              </h2>
               
               {/* Speed & Listen Controls */}
               <div className="audio-control-row">
@@ -547,11 +628,16 @@ export default function LessonDetail() {
               {locale === 'vi' ? 'Chọn nghĩa đúng của câu này:' : 'Choose the correct meaning:'}
             </h3>
             
-            <div className="quiz-prompt-bubble">
+            <div
+              className="quiz-prompt-bubble"
+              onClick={() => handlePlaySpeech(currentStep.english)}
+              style={{ cursor: 'pointer' }}
+              title={locale === 'vi' ? 'Bấm để nghe phát âm' : 'Click to hear pronunciation'}
+            >
               <button
                 type="button"
                 className="btn-audio-mini"
-                onClick={() => handlePlaySpeech(currentStep.english)}
+                onClick={(e) => { e.stopPropagation(); handlePlaySpeech(currentStep.english); }}
                 aria-label="Listen"
               >
                 🔊
@@ -609,6 +695,19 @@ export default function LessonDetail() {
                   </button>
                 ))
               )}
+            </div>
+
+            {/* Reset / Reset Button */}
+            <div style={{ display: 'flex', justifyContent: 'flex-end', width: '100%', marginTop: '0.5rem', marginBottom: '1rem' }}>
+              <button
+                type="button"
+                disabled={scrambleOutput.length === 0 || evaluation !== null}
+                className="btn btn-sm btn-outline"
+                style={{ fontSize: '0.8rem', padding: '0.2rem 0.65rem', minHeight: 'auto' }}
+                onClick={() => setScrambleOutput([])}
+              >
+                🔄 {locale === 'vi' ? 'Làm lại' : 'Reset'}
+              </button>
             </div>
 
             {/* Scrambled Inputs */}
