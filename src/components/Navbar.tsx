@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { useAuth } from '../context/AuthContext';
@@ -19,6 +19,10 @@ export default function Navbar() {
   const { tr } = useLanguage();
   const { user, isAuthenticated, logout } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [avatarMenuOpen, setAvatarMenuOpen] = useState(false);
+  const [avatarMenuOpenMobile, setAvatarMenuOpenMobile] = useState(false);
+  const avatarRef = useRef<HTMLDivElement>(null);
+  const avatarRefMobile = useRef<HTMLDivElement>(null);
 
   const initials = user?.displayName
     ? user.displayName.substring(0, 2).toUpperCase()
@@ -26,12 +30,38 @@ export default function Navbar() {
 
   useEffect(() => {
     setMenuOpen(false);
+    setAvatarMenuOpen(false);
+    setAvatarMenuOpenMobile(false);
   }, [location.pathname]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
+
+  // Click outside listener for desktop avatar dropdown
+  useEffect(() => {
+    if (!avatarMenuOpen) return;
+    function handleClickOutside(e: MouseEvent) {
+      if (avatarRef.current && !avatarRef.current.contains(e.target as Node)) {
+        setAvatarMenuOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [avatarMenuOpen]);
+
+  // Click outside listener for mobile avatar dropdown
+  useEffect(() => {
+    if (!avatarMenuOpenMobile) return;
+    function handleClickOutside(e: MouseEvent) {
+      if (avatarRefMobile.current && !avatarRefMobile.current.contains(e.target as Node)) {
+        setAvatarMenuOpenMobile(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [avatarMenuOpenMobile]);
 
   return (
     <nav className="navbar">
@@ -64,11 +94,46 @@ export default function Navbar() {
           )}
           <li>
             {isAuthenticated ? (
-              <Link to="/profile" className="nav-avatar-link" title={user?.displayName || user?.email}>
-                <div className="nav-avatar-circle">
-                  {initials}
-                </div>
-              </Link>
+              <div className="nav-avatar-wrapper" ref={avatarRef}>
+                <button
+                  type="button"
+                  className="nav-avatar-btn"
+                  onClick={() => setAvatarMenuOpen((o) => !o)}
+                  aria-expanded={avatarMenuOpen}
+                  title={user?.displayName || user?.email}
+                >
+                  <div className="nav-avatar-circle">
+                    {initials}
+                  </div>
+                </button>
+
+                {avatarMenuOpen && (
+                  <div className="avatar-dropdown">
+                    <div className="dropdown-header">
+                      <div className="dropdown-name">{user?.displayName || 'User'}</div>
+                      <div className="dropdown-email">{user?.email}</div>
+                    </div>
+                    <div className="dropdown-divider" />
+                    <Link to="/profile" className="dropdown-item">
+                      <span className="dropdown-icon">👤</span>
+                      {tr.nav.profile}
+                    </Link>
+                    <Link to="/settings" className="dropdown-item">
+                      <span className="dropdown-icon">⚙️</span>
+                      {tr.nav.settings}
+                    </Link>
+                    <div className="dropdown-divider" />
+                    <button
+                      type="button"
+                      className="dropdown-item logout"
+                      onClick={() => void logout()}
+                    >
+                      <span className="dropdown-icon">🚪</span>
+                      {tr.nav.logout}
+                    </button>
+                  </div>
+                )}
+              </div>
             ) : (
               <Link to="/auth" className={location.pathname === '/auth' ? 'active' : ''}>
                 {tr.nav.login}
@@ -80,11 +145,46 @@ export default function Navbar() {
         {isAuthenticated && (
           <div className="mobile-nav-actions">
             <NotificationBell />
-            <Link to="/profile" className="mobile-avatar-link" title={user?.displayName || user?.email}>
-              <div className="nav-avatar-circle small">
-                {initials}
-              </div>
-            </Link>
+            <div className="nav-avatar-wrapper" ref={avatarRefMobile}>
+              <button
+                type="button"
+                className="nav-avatar-btn"
+                onClick={() => setAvatarMenuOpenMobile((o) => !o)}
+                aria-expanded={avatarMenuOpenMobile}
+                title={user?.displayName || user?.email}
+              >
+                <div className="nav-avatar-circle small">
+                  {initials}
+                </div>
+              </button>
+
+              {avatarMenuOpenMobile && (
+                <div className="avatar-dropdown">
+                  <div className="dropdown-header">
+                    <div className="dropdown-name">{user?.displayName || 'User'}</div>
+                    <div className="dropdown-email">{user?.email}</div>
+                  </div>
+                  <div className="dropdown-divider" />
+                  <Link to="/profile" className="dropdown-item">
+                    <span className="dropdown-icon">👤</span>
+                    {tr.nav.profile}
+                  </Link>
+                  <Link to="/settings" className="dropdown-item">
+                    <span className="dropdown-icon">⚙️</span>
+                    {tr.nav.settings}
+                  </Link>
+                  <div className="dropdown-divider" />
+                  <button
+                    type="button"
+                    className="dropdown-item logout"
+                    onClick={() => void logout()}
+                  >
+                    <span className="dropdown-icon">🚪</span>
+                    {tr.nav.logout}
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         )}
 
@@ -108,7 +208,11 @@ export default function Navbar() {
 
       <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
         <ul className="mobile-nav-links">
-          {[...navItems, { path: '/settings', labelKey: 'settings' as const, icon: '⚙️' }].map((item) => (
+          {[
+            ...navItems,
+            ...(isAuthenticated ? [{ path: '/profile', labelKey: 'profile' as const, icon: '👤' }] : []),
+            { path: '/settings', labelKey: 'settings' as const, icon: '⚙️' }
+          ].map((item) => (
             <li key={item.path}>
               <Link
                 to={item.path}
