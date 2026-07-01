@@ -93,9 +93,11 @@ body {
   display: flex;
   list-style: none;
   gap: 0.25rem;
+  align-items: center;
 }
 
-.nav-links a {
+.nav-links a,
+.nav-auth-btn {
   text-decoration: none;
   color: var(--text-muted);
   padding: 0.5rem 0.85rem;
@@ -103,10 +105,33 @@ body {
   font-size: 0.9rem;
   font-weight: 500;
   transition: all 0.15s;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 }
 
-.nav-links a:hover { color: var(--primary); background: #eef2ff; }
-.nav-links a.active { color: var(--primary); background: #eef2ff; }
+.nav-links a:hover,
+.nav-auth-btn:hover {
+  color: var(--primary);
+  background: #eef2ff;
+}
+
+.nav-links a.active {
+  color: var(--primary);
+  background: #eef2ff;
+}
+
+.nav-notification-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.25rem;
+}
 
 /* Mobile menu toggle */
 .menu-toggle {
