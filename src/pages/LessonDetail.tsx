@@ -367,6 +367,13 @@ export default function LessonDetail() {
   const nextLesson = nextLessonId ? allLessons.find((l) => l.id === nextLessonId) : undefined;
 
   const currentStep = flowSteps[stepIndex];
+  if (!currentStep) {
+    return (
+      <div className="page">
+        <p className="muted-text">{tr.common.loading}</p>
+      </div>
+    );
+  }
   const progressPercent = Math.round((stepIndex / flowSteps.length) * 100);
 
   // Speaking Attempt logic
@@ -466,6 +473,7 @@ export default function LessonDetail() {
       }
 
       const step = flowSteps[stepIndex];
+      if (!step) return;
 
       // 1. Enter Key: Check answer or continue step
       if (e.key === 'Enter') {
