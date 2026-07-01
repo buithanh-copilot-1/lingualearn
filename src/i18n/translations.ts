@@ -51,9 +51,12 @@ const en = {
     loadingDetail: 'Loading definition...', detailFallback: 'English definition unavailable — Vietnamese meaning shown above.',
   },
   grammar: {
-    title: 'Grammar', subtitle: 'Essential grammar topics with clear rules and practical examples.',
+    title: 'Grammar', subtitle: 'Essential grammar topics with English rules and Vietnamese explanations.',
     rules: 'Rules', examples: 'Examples', markReviewed: 'Mark as Reviewed', reviewed: 'Reviewed',
     search: 'Search grammar topics...', noMatch: 'No topics match your search.',
+    overview: 'Overview', translation: 'Translation', note: 'Explanation',
+    totalTopics: 'Topics', reviewedCount: 'Reviewed', complete: 'complete',
+    progress: 'Progress', loading: 'Loading grammar...', offline: 'Offline mode — using cached data',
   },
   quiz: {
     title: 'Quiz', subtitle: 'Test your English knowledge',
@@ -204,9 +207,12 @@ const vi = {
     loadingDetail: 'Đang tải định nghĩa...', detailFallback: 'Không tải được định nghĩa tiếng Anh — xem nghĩa tiếng Việt phía trên.',
   },
   grammar: {
-    title: 'Ngữ pháp', subtitle: 'Chủ đề ngữ pháp thiết yếu với quy tắc và ví dụ thực tế.',
+    title: 'Ngữ pháp', subtitle: 'Chủ đề ngữ pháp thiết yếu với quy tắc tiếng Anh và giải thích tiếng Việt.',
     rules: 'Quy tắc', examples: 'Ví dụ', markReviewed: 'Đánh dấu đã xem', reviewed: 'Đã xem',
     search: 'Tìm chủ đề ngữ pháp...', noMatch: 'Không tìm thấy chủ đề phù hợp.',
+    overview: 'Tổng quan', translation: 'Dịch', note: 'Giải thích',
+    totalTopics: 'Chủ đề', reviewedCount: 'Đã xem', complete: 'hoàn thành',
+    progress: 'Tiến độ', loading: 'Đang tải ngữ pháp...', offline: 'Chế độ ngoại tuyến — dùng dữ liệu đã lưu',
   },
   quiz: {
     title: 'Kiểm tra', subtitle: 'Kiểm tra kiến thức tiếng Anh của bạn',

@@ -5,6 +5,7 @@ import * as contentApi from '../api/content';
 import { lessons as fallbackLessons } from '../data/lessons';
 import { vocabulary as fallbackVocabulary } from '../data/vocabulary';
 import { grammarTopics as fallbackGrammar } from '../data/grammar';
+import { mergeGrammarWithVi, grammarMatchesSearch } from '../utils/grammarDisplay';
 import { quizzes as fallbackQuizzes } from '../data/quizzes';
 
 interface AsyncState<T> {
@@ -149,17 +150,20 @@ export function useAllVocabulary() {
 export function useGrammar(params?: { search?: string }) {
   const search = params?.search ?? '';
 
-  const filtered = fallbackGrammar.filter((t) => {
-    if (!search) return true;
-    const q = search.toLowerCase();
-    return t.title.toLowerCase().includes(q) || t.description.toLowerCase().includes(q);
-  });
+  const filtered = fallbackGrammar.filter((t) => grammarMatchesSearch(t, search));
 
-  return useAsyncData(
-    () => contentApi.fetchGrammar({ search }),
+  const state = useAsyncData(
+    () =>
+      contentApi.fetchGrammar().then((data) => mergeGrammarWithVi(data, fallbackGrammar)),
     filtered,
-    [search],
+    [],
   );
+
+  const data = search
+    ? state.data.filter((t) => grammarMatchesSearch(t, search))
+    : state.data;
+
+  return { ...state, data };
 }
 
 export function useAllGrammar() {

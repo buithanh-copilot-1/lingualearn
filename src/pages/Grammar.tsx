@@ -1,74 +1,106 @@
-import { useState } from 'react';
-import { useGrammar } from '../hooks/useContent';
+import { useState, useMemo, useEffect } from 'react';
+import { useAllGrammar, useGrammar } from '../hooks/useContent';
 import { useProgress } from '../hooks/useProgress';
 import { useLanguage } from '../context/LanguageContext';
+import GrammarTopicCard from '../components/GrammarTopicCard';
+import { grammarMatchesSearch } from '../utils/grammarDisplay';
+import type { Level } from '../types';
+
+type LevelFilter = 'all' | Level;
 
 export default function Grammar() {
   const { progress, reviewGrammar } = useProgress();
   const { tr } = useLanguage();
   const [search, setSearch] = useState('');
-  const { data: filtered, loading, error } = useGrammar({ search });
+  const [level, setLevel] = useState<LevelFilter>('all');
+  const [expandedId, setExpandedId] = useState<string | null>(null);
+
+  const { data: grammar, loading, error } = useGrammar({ search: '' });
+  const { data: allGrammar } = useAllGrammar();
+
+  const filtered = useMemo(() => {
+    return grammar.filter((topic) => {
+      if (level !== 'all' && topic.level !== level) return false;
+      return grammarMatchesSearch(topic, search);
+    });
+  }, [grammar, level, search]);
+
+  const reviewedSet = useMemo(() => new Set(progress.reviewedGrammar), [progress.reviewedGrammar]);
+  const reviewedCount = allGrammar.filter((t) => reviewedSet.has(t.id)).length;
+  const totalTopics = allGrammar.length;
+  const progressPct = totalTopics > 0 ? Math.round((reviewedCount / totalTopics) * 100) : 0;
+
+  useEffect(() => {
+    setExpandedId(null);
+  }, [search, level]);
 
   return (
-    <div className="page">
+    <div className="page grammar-page">
       <div className="page-header">
         <h1>{tr.grammar.title}</h1>
         <p>{tr.grammar.subtitle}</p>
       </div>
 
-      <input
-        type="text"
-        className="search-input search-full"
-        placeholder={tr.grammar.search}
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
+      <section className="grammar-stats" aria-label={tr.grammar.progress}>
+        <div className="grammar-stat">
+          <span className="grammar-stat-value">{totalTopics}</span>
+          <span className="grammar-stat-label">{tr.grammar.totalTopics}</span>
+        </div>
+        <div className="grammar-stat">
+          <span className="grammar-stat-value">{reviewedCount}</span>
+          <span className="grammar-stat-label">{tr.grammar.reviewedCount}</span>
+        </div>
+        <div className="grammar-progress-wrap">
+          <div className="vocab-progress-bar" role="progressbar" aria-valuenow={progressPct} aria-valuemin={0} aria-valuemax={100}>
+            <div className="vocab-progress-fill" style={{ width: `${progressPct}%` }} />
+          </div>
+          <span className="vocab-progress-label">{progressPct}% {tr.grammar.complete}</span>
+        </div>
+      </section>
 
-      {loading && <p className="muted-text">Loading...</p>}
-      {error && <p className="api-fallback-note">Offline mode — using cached data</p>}
-
-      <div className="grammar-list">
-        {filtered.map((topic) => {
-          const reviewed = progress.reviewedGrammar.includes(topic.id);
-          return (
-            <div key={topic.id} className={`grammar-card ${reviewed ? 'reviewed' : ''}`}>
-              <div className="grammar-card-header">
-                <h2>{topic.title}</h2>
-                <span className={`badge badge-${topic.level}`}>{tr.levels[topic.level]}</span>
-                {reviewed && <span className="badge badge-done">✓ {tr.grammar.reviewed}</span>}
-              </div>
-              <p className="grammar-desc">{topic.description}</p>
-
-              <div className="grammar-section">
-                <h4>{tr.grammar.rules}</h4>
-                <ul>
-                  {topic.rules.map((rule, i) => (
-                    <li key={i}>{rule}</li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="grammar-section">
-                <h4>{tr.grammar.examples}</h4>
-                {topic.examples.map((ex, i) => (
-                  <div key={i} className="grammar-example">
-                    <p className="example-sentence">"{ex.sentence}"</p>
-                    <p className="example-explanation">{ex.explanation}</p>
-                  </div>
-                ))}
-              </div>
-
-              {!reviewed && (
-                <button className="btn btn-primary btn-block" onClick={() => reviewGrammar(topic.id)}>
-                  {tr.grammar.markReviewed}
-                </button>
-              )}
-            </div>
-          );
-        })}
+      <div className="grammar-toolbar">
+        <input
+          type="search"
+          className="search-input grammar-search"
+          placeholder={tr.grammar.search}
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <div className="filter-scroll">
+          <div className="filter-group">
+            {(['all', 'beginner', 'intermediate', 'advanced'] as LevelFilter[]).map((l) => (
+              <button
+                key={l}
+                type="button"
+                className={`filter-btn ${level === l ? 'active' : ''}`}
+                onClick={() => setLevel(l)}
+              >
+                {l === 'all' ? tr.lessons.all : tr.levels[l]}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
 
-      {!loading && filtered.length === 0 && <p className="empty-state">{tr.grammar.noMatch}</p>}
+      {loading && <p className="muted-text">{tr.grammar.loading}</p>}
+      {error && <p className="api-fallback-note">{tr.grammar.offline}</p>}
+
+      <div className="grammar-topic-list">
+        {filtered.map((topic) => (
+          <GrammarTopicCard
+            key={topic.id}
+            topic={topic}
+            reviewed={reviewedSet.has(topic.id)}
+            expanded={expandedId === topic.id}
+            onToggle={() => setExpandedId((id) => (id === topic.id ? null : topic.id))}
+            onReview={() => reviewGrammar(topic.id)}
+          />
+        ))}
+      </div>
+
+      {!loading && filtered.length === 0 && (
+        <p className="empty-state">{tr.grammar.noMatch}</p>
+      )}
     </div>
   );
 }
