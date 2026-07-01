@@ -146,11 +146,6 @@ canvas {
     padding-right: max(1rem, var(--safe-right));
   }
 
-  .bottom-nav {
-    padding-left: var(--safe-left);
-    padding-right: var(--safe-right);
-  }
-
   /* Prevent iOS zoom on input focus */
   .search-input,
   .auth-field input,

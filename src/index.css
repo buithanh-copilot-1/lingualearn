@@ -333,7 +333,6 @@ body {
   right: 0;
   z-index: 100;
   pointer-events: none;
-  padding: 0 10px max(10px, var(--safe-bottom));
 }
 
 .bottom-nav-bar {
@@ -342,20 +341,20 @@ body {
   grid-template-columns: repeat(5, 1fr);
   align-items: end;
   isolation: isolate;
-  background: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.86);
   backdrop-filter: blur(22px) saturate(185%);
   -webkit-backdrop-filter: blur(22px) saturate(185%);
-  border: 1px solid rgba(255, 255, 255, 0.85);
-  border-bottom: none;
-  border-radius: 22px 22px 0 0;
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
   box-shadow:
-    0 -10px 40px rgba(15, 23, 42, 0.09),
-    0 -1px 0 rgba(79, 70, 229, 0.07) inset,
+    0 -10px 32px rgba(15, 23, 42, 0.08),
     0 1px 0 rgba(255, 255, 255, 0.95) inset;
-  padding: 10px 4px 6px;
-  min-height: 62px;
+  padding: 10px 4px calc(6px + var(--safe-bottom));
+  padding-left: max(4px, var(--safe-left));
+  padding-right: max(4px, var(--safe-right));
+  min-height: calc(62px + var(--safe-bottom));
   pointer-events: auto;
   overflow: visible;
+  width: 100%;
 }
 
 .bottom-nav-tab {
