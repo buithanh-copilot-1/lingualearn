@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react';
-import { getActiveSpeechId, subscribeSpeech } from '../utils/speech';
+import { getSpeechState, subscribeSpeech, type SpeechState } from '../utils/speech';
 
 export function useSpeechState(id?: string) {
-  const [activeId, setActiveId] = useState<string | null>(getActiveSpeechId);
+  const [state, setState] = useState<SpeechState>(getSpeechState);
 
-  useEffect(() => subscribeSpeech(setActiveId), []);
+  useEffect(() => subscribeSpeech(setState), []);
+
+  const isMatch = id ? state.id === id : state.id !== null;
 
   return {
-    activeId,
-    isSpeaking: id ? activeId === id : activeId !== null,
+    activeId: state.id,
+    isSpeaking: isMatch && state.status === 'playing',
+    isPaused: isMatch && state.status === 'paused',
   };
 }

@@ -1,15 +1,27 @@
-type SpeechListener = (activeId: string | null) => void;
+export type SpeechStatus = 'idle' | 'playing' | 'paused';
 
-const listeners = new Set<SpeechListener>();
-let activeId: string | null = null;
-let currentAudio: HTMLAudioElement | null = null;
-
-function notify() {
-  listeners.forEach((fn) => fn(activeId));
+export interface SpeechState {
+  id: string | null;
+  status: SpeechStatus;
 }
 
-function setActive(id: string | null) {
-  activeId = id;
+type SpeechListener = (state: SpeechState) => void;
+
+const listeners = new Set<SpeechListener>();
+let state: SpeechState = { id: null, status: 'idle' };
+
+let currentAudio: HTMLAudioElement | null = null;
+// Whether a speechSynthesis utterance is currently loaded (playing or paused).
+// We avoid calling cancel() unless we actually mean to discard it, since
+// cancel() makes the utterance unresumable.
+let hasUtterance = false;
+
+function notify() {
+  listeners.forEach((fn) => fn(state));
+}
+
+function setState(next: SpeechState) {
+  state = next;
   notify();
 }
 
@@ -20,42 +32,71 @@ export function subscribeSpeech(listener: SpeechListener) {
   };
 }
 
-export function getActiveSpeechId() {
-  return activeId;
+export function getSpeechState(): SpeechState {
+  return state;
 }
 
-export function stopSpeech() {
+/** @deprecated Use getSpeechState().id */
+export function getActiveSpeechId() {
+  return state.id;
+}
+
+/** Fully discard any current/paused playback and forget the resume position. */
+function resetPlayback() {
   if (currentAudio) {
     currentAudio.pause();
     currentAudio.currentTime = 0;
     currentAudio = null;
   }
-  if ('speechSynthesis' in window) {
+  if (hasUtterance && 'speechSynthesis' in window) {
     window.speechSynthesis.cancel();
   }
-  setActive(null);
+  hasUtterance = false;
+  setState({ id: null, status: 'idle' });
+}
+
+/**
+ * Pause playback in place (audio currentTime / TTS position preserved) so a
+ * later playSpeech() call with the same id resumes from here instead of
+ * restarting from the beginning.
+ */
+export function stopSpeech() {
+  if (state.status !== 'playing') return;
+  if (currentAudio) {
+    currentAudio.pause();
+  } else if (hasUtterance && 'speechSynthesis' in window) {
+    window.speechSynthesis.pause();
+  }
+  setState({ ...state, status: 'paused' });
+}
+
+/** Fully stop and reset playback, discarding any resume position. */
+export function resetSpeech() {
+  resetPlayback();
 }
 
 function speakTts(text: string, id: string): Promise<void> {
   return new Promise((resolve) => {
     if (!('speechSynthesis' in window)) {
-      setActive(null);
+      setState({ id: null, status: 'idle' });
       resolve();
       return;
     }
 
-    window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'en-US';
     utterance.rate = 0.85;
     utterance.onend = () => {
-      if (activeId === id) setActive(null);
+      hasUtterance = false;
+      if (state.id === id) setState({ id: null, status: 'idle' });
       resolve();
     };
     utterance.onerror = () => {
-      if (activeId === id) setActive(null);
+      hasUtterance = false;
+      if (state.id === id) setState({ id: null, status: 'idle' });
       resolve();
     };
+    hasUtterance = true;
     window.speechSynthesis.speak(utterance);
   });
 }
@@ -65,8 +106,29 @@ export async function playSpeech(
   options?: { audioUrl?: string; id?: string },
 ): Promise<void> {
   const id = options?.id ?? text;
-  stopSpeech();
-  setActive(id);
+
+  // Resume exactly where playback was paused, instead of starting over.
+  if (state.id === id && state.status === 'paused') {
+    if (currentAudio) {
+      setState({ id, status: 'playing' });
+      try {
+        await currentAudio.play();
+      } catch {
+        resetPlayback();
+      }
+      return;
+    }
+    if (hasUtterance && 'speechSynthesis' in window) {
+      setState({ id, status: 'playing' });
+      window.speechSynthesis.resume();
+      return;
+    }
+  }
+
+  // Starting something new (or the previous resource is gone) — discard
+  // whatever was playing/paused before and start fresh.
+  resetPlayback();
+  setState({ id, status: 'playing' });
 
   if (options?.audioUrl) {
     try {
@@ -77,7 +139,7 @@ export async function playSpeech(
         audio.onerror = () => reject(new Error('audio failed'));
         void audio.play().catch(reject);
       });
-      if (activeId === id) setActive(null);
+      if (state.id === id) setState({ id: null, status: 'idle' });
       currentAudio = null;
       return;
     } catch {

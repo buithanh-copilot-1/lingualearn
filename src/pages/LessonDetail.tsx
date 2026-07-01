@@ -145,6 +145,8 @@ export default function LessonDetail() {
   const [showTranslation, setShowTranslation] = useState(false);
   const [speechRate, setSpeechRate] = useState<number>(1.0); // 1.0 = Normal, 0.6 = Slow
   const [isSpeaking, setIsSpeaking] = useState(false);
+  const [isSpeechPaused, setIsSpeechPaused] = useState(false);
+  const pausedSpeechTextRef = useRef<string | null>(null);
 
   // Quiz States
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
@@ -292,29 +294,51 @@ export default function LessonDetail() {
     setFinished(false);
   }, [lesson, locale]);
 
-  // Handle TTS Playback
+  // Handle TTS Playback — "stop" pauses in place so the next play resumes
+  // from the same spot instead of restarting the line from the beginning.
   const handleStopSpeech = useCallback(() => {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
+    if ('speechSynthesis' in window && isSpeaking) {
+      window.speechSynthesis.pause();
+      setIsSpeaking(false);
+      setIsSpeechPaused(true);
     }
-    setIsSpeaking(false);
-  }, []);
+  }, [isSpeaking]);
 
   const handlePlaySpeech = useCallback((text: string) => {
     if (!('speechSynthesis' in window)) return;
-    window.speechSynthesis.cancel();
 
     const cleanText = text.replace(/^[A-Za-z0-9\s]+:\s*/, '');
+
+    // Resume the exact same line that was paused rather than starting over.
+    if (isSpeechPaused && pausedSpeechTextRef.current === cleanText) {
+      window.speechSynthesis.resume();
+      setIsSpeechPaused(false);
+      setIsSpeaking(true);
+      return;
+    }
+
+    window.speechSynthesis.cancel();
+    setIsSpeechPaused(false);
+    pausedSpeechTextRef.current = cleanText;
+
     const utterance = new SpeechSynthesisUtterance(cleanText);
     utterance.lang = 'en-US';
     utterance.rate = speechRate;
 
     utterance.onstart = () => setIsSpeaking(true);
-    utterance.onend = () => setIsSpeaking(false);
-    utterance.onerror = () => setIsSpeaking(false);
+    utterance.onend = () => {
+      setIsSpeaking(false);
+      setIsSpeechPaused(false);
+      pausedSpeechTextRef.current = null;
+    };
+    utterance.onerror = () => {
+      setIsSpeaking(false);
+      setIsSpeechPaused(false);
+      pausedSpeechTextRef.current = null;
+    };
 
     window.speechSynthesis.speak(utterance);
-  }, [speechRate]);
+  }, [speechRate, isSpeechPaused]);
 
   // Auto-play TTS on stepping into a new step
   useEffect(() => {
@@ -631,9 +655,9 @@ export default function LessonDetail() {
               <div className="audio-control-row">
                 <button
                   type="button"
-                  className={`audio-play-btn ${isSpeaking ? 'speaking' : ''}`}
+                  className={`audio-play-btn ${isSpeaking ? 'speaking' : ''} ${isSpeechPaused ? 'paused' : ''}`}
                   onClick={() => handlePlaySpeech(currentStep.english)}
-                  aria-label={locale === 'vi' ? 'Nghe' : 'Listen'}
+                  aria-label={isSpeechPaused ? (locale === 'vi' ? 'Tiếp tục' : 'Resume') : (locale === 'vi' ? 'Nghe' : 'Listen')}
                   disabled={isSpeaking}
                 >
                   <svg className="play-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -646,12 +670,12 @@ export default function LessonDetail() {
                     type="button"
                     className="audio-stop-btn"
                     onClick={handleStopSpeech}
-                    aria-label={locale === 'vi' ? 'Dừng' : 'Stop'}
+                    aria-label={locale === 'vi' ? 'Tạm dừng' : 'Pause'}
                   >
                     <svg className="stop-icon" viewBox="0 0 24 24" fill="currentColor">
                       <rect x="6" y="6" width="12" height="12" rx="1"/>
                     </svg>
-                    <span>{locale === 'vi' ? 'Dừng' : 'Stop'}</span>
+                    <span>{locale === 'vi' ? 'Tạm dừng' : 'Pause'}</span>
                   </button>
                 )}
 
@@ -699,15 +723,21 @@ export default function LessonDetail() {
             >
               <button
                 type="button"
-                className={`btn-audio-mini ${isSpeaking ? 'btn-audio-mini-active' : ''}`}
+                className={`btn-audio-mini ${isSpeaking ? 'btn-audio-mini-active' : ''} ${isSpeechPaused ? 'btn-audio-mini-paused' : ''}`}
                 onClick={(e) => {
                   e.stopPropagation();
                   if (isSpeaking) handleStopSpeech();
                   else handlePlaySpeech(currentStep.english);
                 }}
-                aria-label={isSpeaking ? (locale === 'vi' ? 'Dừng' : 'Stop') : (locale === 'vi' ? 'Nghe' : 'Listen')}
+                aria-label={
+                  isSpeaking
+                    ? (locale === 'vi' ? 'Tạm dừng' : 'Pause')
+                    : isSpeechPaused
+                      ? (locale === 'vi' ? 'Tiếp tục' : 'Resume')
+                      : (locale === 'vi' ? 'Nghe' : 'Listen')
+                }
               >
-                {isSpeaking ? '⏹' : '🔊'}
+                {isSpeaking ? '⏸' : '🔊'}
               </button>
               <span className="quiz-english-text">{currentStep.english}</span>
             </div>
@@ -839,11 +869,20 @@ export default function LessonDetail() {
             <div className="speaking-target-box">
               <button
                 type="button"
-                className="btn-audio-mini"
-                onClick={() => handlePlaySpeech(currentStep.english)}
-                aria-label="Listen"
+                className={`btn-audio-mini ${isSpeaking ? 'btn-audio-mini-active' : ''} ${isSpeechPaused ? 'btn-audio-mini-paused' : ''}`}
+                onClick={() => {
+                  if (isSpeaking) handleStopSpeech();
+                  else handlePlaySpeech(currentStep.english);
+                }}
+                aria-label={
+                  isSpeaking
+                    ? (locale === 'vi' ? 'Tạm dừng' : 'Pause')
+                    : isSpeechPaused
+                      ? (locale === 'vi' ? 'Tiếp tục' : 'Resume')
+                      : (locale === 'vi' ? 'Nghe' : 'Listen')
+                }
               >
-                🔊
+                {isSpeaking ? '⏸' : '🔊'}
               </button>
               <h2 className="speaking-target-phrase">{currentStep.english}</h2>
               <p className="speaking-translation-sub">({currentStep.translation})</p>
