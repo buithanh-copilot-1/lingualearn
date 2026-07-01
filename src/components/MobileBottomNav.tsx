@@ -2,24 +2,24 @@ import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { useSrs } from '../hooks/useSrs';
 import { isDue } from '../utils/srs';
-import { IconBook, IconStar, IconCompass, IconBell, IconUser } from './BottomNavIcons';
+import { IconHome, IconLessons, IconLearn, IconReview, IconUser } from './BottomNavIcons';
 
 const sideItems = {
   left: [
-    { path: '/', labelKey: 'home' as const, Icon: IconBook },
-    { path: '/lessons', labelKey: 'lessons' as const, Icon: IconStar },
+    { path: '/', labelKey: 'home' as const, Icon: IconHome },
+    { path: '/lessons', labelKey: 'lessons' as const, Icon: IconLessons },
   ],
   right: [
-    { path: '/review', labelKey: 'review' as const, Icon: IconBell, badge: true },
-    { path: '/progress', labelKey: 'stats' as const, Icon: IconUser },
+    { path: '/review', labelKey: 'review' as const, Icon: IconReview, badge: true },
+    { path: '/profile', labelKey: 'profile' as const, Icon: IconUser, matchPaths: ['/profile', '/progress', '/settings'] },
   ],
 };
 
 const fabItem = {
   path: '/practice',
   labelKey: 'practice' as const,
-  Icon: IconCompass,
-  matchPaths: ['/practice', '/speaking', '/dictionary', '/idioms', '/quiz'],
+  Icon: IconLearn,
+  matchPaths: ['/practice', '/speaking', '/dictionary', '/idioms', '/quiz', '/vocabulary', '/grammar'],
 };
 
 function isActive(pathname: string, path: string, matchPaths?: string[]): boolean {
@@ -34,16 +34,18 @@ function SideNavItem({
   Icon,
   badge,
   badgeCount,
+  matchPaths,
 }: {
   path: string;
-  labelKey: 'home' | 'lessons' | 'review' | 'stats';
-  Icon: typeof IconBook;
+  labelKey: 'home' | 'lessons' | 'review' | 'profile';
+  Icon: typeof IconHome;
   badge?: boolean;
   badgeCount?: number;
+  matchPaths?: string[];
 }) {
   const location = useLocation();
   const { tr } = useLanguage();
-  const active = isActive(location.pathname, path);
+  const active = isActive(location.pathname, path, matchPaths);
 
   return (
     <Link

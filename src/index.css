@@ -139,6 +139,51 @@ body {
 
 .logo-icon { font-size: 1.5rem; }
 
+.logo-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  flex-shrink: 0;
+}
+
+.navbar-streak-pill {
+  display: none;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  color: #c2410c;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: background 0.15s, transform 0.15s;
+}
+
+.navbar-streak-pill:active {
+  transform: scale(0.96);
+}
+
+.navbar-streak-icon {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.navbar-streak-value {
+  font-variant-numeric: tabular-nums;
+}
+
 .nav-links {
   display: flex;
   list-style: none;
@@ -397,7 +442,7 @@ body {
   height: 58px;
   border-radius: 50%;
   background: #ffffff;
-  box-shadow: 0 0 0 2px var(--primary);
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.35);
 }
 
 .bottom-nav-fab-btn {
@@ -407,9 +452,9 @@ body {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: var(--primary);
+  background: linear-gradient(145deg, var(--primary) 0%, #6366f1 45%, var(--accent) 100%);
   border: 3px solid #ffffff;
-  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);
+  box-shadow: 0 4px 16px rgba(79, 70, 229, 0.35), 0 2px 8px rgba(6, 182, 212, 0.2);
   transition: transform 0.2s var(--ease-spring);
 }
 
@@ -428,7 +473,11 @@ body {
 }
 
 .bottom-nav-fab.active .bottom-nav-fab-ring {
-  box-shadow: 0 0 0 2px var(--primary), 0 0 0 5px rgba(79, 70, 229, 0.15);
+  box-shadow: 0 0 0 2px var(--primary), 0 0 0 5px rgba(6, 182, 212, 0.12);
+}
+
+.bottom-nav-fab.active .bottom-nav-fab-label {
+  color: var(--primary-dark);
 }
 
 /* Footer */
@@ -2449,22 +2498,17 @@ body {
     padding-bottom: calc(1.25rem + var(--bottom-nav-height) + var(--safe-bottom));
   }
 
-  /* Nav */
+  /* Nav — compact top bar; primary nav via bottom tabs */
   .desktop-nav { display: none; }
-  .menu-toggle {
-    display: flex;
-    width: 38px;
-    height: 38px;
-    padding: 8px;
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-  }
+  .menu-toggle,
   .mobile-menu,
-  .mobile-menu-overlay { display: block; }
+  .mobile-menu-overlay { display: none !important; }
 
-  .logo-text { font-size: 1.1rem; }
-  .navbar-inner { padding: 0 1rem; }
+  .logo-text { font-size: 1.05rem; }
+  .logo-mark { width: 30px; height: 30px; font-size: 0.95rem; border-radius: 9px; }
+  .navbar-inner { padding: 0 1rem; gap: 0.5rem; }
+  .navbar-streak-pill { display: inline-flex; }
+  .navbar-right { gap: 0.35rem; }
 
   /* Bottom nav */
   .bottom-nav { display: grid; }
