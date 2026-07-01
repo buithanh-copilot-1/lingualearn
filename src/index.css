@@ -2929,3 +2929,63 @@ body {
     min-width: 0;
   }
 }
+
+/* ── Settings Toggles ────────────────────────────────────────────────── */
+
+.settings-toggles {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.settings-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.settings-toggle-row:last-child {
+  border-bottom: none;
+}
+
+.settings-toggle-row label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.toggle-switch {
+  position: relative;
+  width: 46px;
+  height: 24px;
+  background-color: var(--border);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s;
+  display: inline-flex;
+  align-items: center;
+}
+
+.toggle-switch.active {
+  background-color: var(--primary);
+}
+
+.toggle-slider {
+  position: absolute;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s;
+}
+
+.toggle-switch.active .toggle-slider {
+  transform: translateX(22px);
+}

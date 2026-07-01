@@ -1,8 +1,13 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useProgress } from '../hooks/useProgress';
 import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../context/LanguageContext';
+import {
+  fetchNotificationPreferences,
+  updateNotificationPreferences,
+  type NotificationPreferences,
+} from '../api/notifications';
 import type { Locale } from '../types';
 
 export default function Settings() {
@@ -11,6 +16,29 @@ export default function Settings() {
   const { tr, locale, setLocale } = useLanguage();
   const fileRef = useRef<HTMLInputElement>(null);
   const { settings } = progress;
+
+  const [prefs, setPrefs] = useState<NotificationPreferences | null>(null);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      fetchNotificationPreferences()
+        .then(setPrefs)
+        .catch(() => {});
+    }
+  }, [isAuthenticated]);
+
+  const handlePrefChange = async (key: keyof Omit<NotificationPreferences, 'userId'>) => {
+    if (!prefs) return;
+    const original = { ...prefs };
+    const newValue = !prefs[key];
+    setPrefs({ ...prefs, [key]: newValue });
+    try {
+      await updateNotificationPreferences({ [key]: newValue });
+    } catch {
+      // revert on error
+      setPrefs(original);
+    }
+  };
 
   async function handleImport(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
@@ -44,6 +72,80 @@ export default function Settings() {
           </div>
         )}
       </div>
+
+      {isAuthenticated && prefs && (
+        <div className="settings-section">
+          <h3>{tr.settings.notifications}</h3>
+          <div className="settings-toggles">
+            <div className="settings-toggle-row">
+              <label>{tr.settings.notifStreak}</label>
+              <button
+                type="button"
+                className={`toggle-switch ${prefs.streakReminder ? 'active' : ''}`}
+                onClick={() => void handlePrefChange('streakReminder')}
+                aria-label="Toggle streak reminders"
+              >
+                <span className="toggle-slider" />
+              </button>
+            </div>
+            <div className="settings-toggle-row">
+              <label>{tr.settings.notifGoal}</label>
+              <button
+                type="button"
+                className={`toggle-switch ${prefs.goalAchieved ? 'active' : ''}`}
+                onClick={() => void handlePrefChange('goalAchieved')}
+                aria-label="Toggle goal notifications"
+              >
+                <span className="toggle-slider" />
+              </button>
+            </div>
+            <div className="settings-toggle-row">
+              <label>{tr.settings.notifNewContent}</label>
+              <button
+                type="button"
+                className={`toggle-switch ${prefs.newContent ? 'active' : ''}`}
+                onClick={() => void handlePrefChange('newContent')}
+                aria-label="Toggle new content notifications"
+              >
+                <span className="toggle-slider" />
+              </button>
+            </div>
+            <div className="settings-toggle-row">
+              <label>{tr.settings.notifReview}</label>
+              <button
+                type="button"
+                className={`toggle-switch ${prefs.reviewDue ? 'active' : ''}`}
+                onClick={() => void handlePrefChange('reviewDue')}
+                aria-label="Toggle review reminders"
+              >
+                <span className="toggle-slider" />
+              </button>
+            </div>
+            <div className="settings-toggle-row">
+              <label>{tr.settings.notifAchievements}</label>
+              <button
+                type="button"
+                className={`toggle-switch ${prefs.achievements ? 'active' : ''}`}
+                onClick={() => void handlePrefChange('achievements')}
+                aria-label="Toggle achievement notifications"
+              >
+                <span className="toggle-slider" />
+              </button>
+            </div>
+            <div className="settings-toggle-row">
+              <label>{tr.settings.notifSystem}</label>
+              <button
+                type="button"
+                className={`toggle-switch ${prefs.systemNotices ? 'active' : ''}`}
+                onClick={() => void handlePrefChange('systemNotices')}
+                aria-label="Toggle system notices"
+              >
+                <span className="toggle-slider" />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="settings-section">
         <h3>{tr.settings.language}</h3>
