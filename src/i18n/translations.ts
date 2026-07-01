@@ -83,6 +83,8 @@ const en = {
   },
   progress: {
     title: 'Your Progress', subtitle: 'Track your learning journey and celebrate your achievements.',
+    overallProgress: 'Overall progress', overallHint: 'Average completion across lessons, vocabulary, grammar, and quizzes.',
+    learningAreas: 'Learning areas', noQuizHistory: 'No quizzes taken yet. Test your knowledge to see results here.',
     dayStreak: 'Day Streak', minutesStudied: 'Minutes Studied', avgQuizScore: 'Avg Quiz Score',
     quizHistory: 'Quiz History', reset: 'Reset All Progress',
     resetConfirm: 'Are you sure? All progress will be permanently deleted.',
@@ -260,6 +262,8 @@ const vi = {
   },
   progress: {
     title: 'Tiến độ của bạn', subtitle: 'Theo dõi hành trình học tập và ghi nhận thành tích.',
+    overallProgress: 'Tiến độ tổng thể', overallHint: 'Mức hoàn thành trung bình qua bài học, từ vựng, ngữ pháp và kiểm tra.',
+    learningAreas: 'Các mục học', noQuizHistory: 'Chưa có bài kiểm tra nào. Làm quiz để xem kết quả tại đây.',
     dayStreak: 'Chuỗi ngày', minutesStudied: 'Phút học', avgQuizScore: 'Điểm TB kiểm tra',
     quizHistory: 'Lịch sử kiểm tra', reset: 'Xóa toàn bộ tiến độ',
     resetConfirm: 'Bạn có chắc? Toàn bộ tiến độ sẽ bị xóa vĩnh viễn.',
