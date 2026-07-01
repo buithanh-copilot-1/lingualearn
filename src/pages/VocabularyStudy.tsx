@@ -15,6 +15,8 @@ export default function VocabularyStudy() {
   const [sessionLearned, setSessionLearned] = useState(0);
 
   const word = unlearned[index];
+  const sessionTotal = unlearned.length;
+  const sessionPct = sessionTotal > 0 ? Math.round(((index) / sessionTotal) * 100) : 0;
 
   function handleKnow() {
     if (word) {
@@ -57,9 +59,15 @@ export default function VocabularyStudy() {
       <div className="study-header">
         <Link to="/vocabulary" className="back-link">← {tr.vocabulary.exitStudy}</Link>
         <span className="study-counter">
-          {tr.vocabulary.progress}: {index + 1}/{unlearned.length}
+          {index + 1}/{sessionTotal}
           {sessionLearned > 0 && ` · +${sessionLearned}`}
         </span>
+      </div>
+
+      <div className="study-progress">
+        <div className="vocab-progress-bar" role="progressbar" aria-valuenow={sessionPct} aria-valuemin={0} aria-valuemax={100}>
+          <div className="vocab-progress-fill" style={{ width: `${sessionPct}%` }} />
+        </div>
       </div>
 
       <div
