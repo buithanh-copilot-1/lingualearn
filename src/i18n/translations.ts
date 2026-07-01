@@ -44,6 +44,11 @@ const en = {
     showing: 'Showing {from}–{to} of {total}',
     pageOf: 'Page {page} of {total}', prevPage: 'Previous', nextPage: 'Next',
     loading: 'Loading vocabulary...', offline: 'Offline mode — using cached data',
+    meaningVi: 'Vietnamese meaning', meaningEn: 'English definition',
+    exampleEn: 'Example sentence', exampleVi: 'Translation',
+    synonyms: 'Synonyms', usage: 'Usage tip',
+    showMeaning: 'Show meaning', studyPrompt: 'Try to recall the meaning before revealing.',
+    loadingDetail: 'Loading definition...', detailFallback: 'English definition unavailable — Vietnamese meaning shown above.',
   },
   grammar: {
     title: 'Grammar', subtitle: 'Essential grammar topics with clear rules and practical examples.',
@@ -192,6 +197,11 @@ const vi = {
     showing: 'Hiển thị {from}–{to} / {total} từ',
     pageOf: 'Trang {page} / {total}', prevPage: 'Trước', nextPage: 'Tiếp',
     loading: 'Đang tải từ vựng...', offline: 'Chế độ ngoại tuyến — dùng dữ liệu đã lưu',
+    meaningVi: 'Nghĩa tiếng Việt', meaningEn: 'Định nghĩa tiếng Anh',
+    exampleEn: 'Ví dụ câu', exampleVi: 'Dịch',
+    synonyms: 'Từ đồng nghĩa', usage: 'Cách dùng',
+    showMeaning: 'Xem nghĩa', studyPrompt: 'Hãy thử nhớ nghĩa trước khi xem đáp án.',
+    loadingDetail: 'Đang tải định nghĩa...', detailFallback: 'Không tải được định nghĩa tiếng Anh — xem nghĩa tiếng Việt phía trên.',
   },
   grammar: {
     title: 'Ngữ pháp', subtitle: 'Chủ đề ngữ pháp thiết yếu với quy tắc và ví dụ thực tế.',
