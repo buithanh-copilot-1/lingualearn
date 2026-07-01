@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import MobileBottomNav from './components/MobileBottomNav';
 import Footer from './components/Footer';
 import NotificationToast from './components/NotificationToast';
+import AppSplash from './components/AppSplash';
 import Home from './pages/Home';
 import Lessons from './pages/Lessons';
 import LessonDetail from './pages/LessonDetail';
@@ -38,6 +39,7 @@ export default function App() {
       <AuthProvider>
         <LanguageProvider>
           <NotificationProvider>
+            <AppSplash />
             <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '') || undefined}>
               <div className="app">
                 <Navbar />
