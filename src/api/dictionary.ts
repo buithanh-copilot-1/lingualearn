@@ -2,11 +2,16 @@
 // No API key required. This calls the public endpoint directly from the
 // browser rather than going through our own backend.
 
+import { vocabulary } from '../data/vocabulary';
+import { translateEnToVi, translateManyEnToVi } from './translate';
+
 const DICT_API = 'https://api.dictionaryapi.dev/api/v2/entries/en';
 
 export interface DictDefinition {
   definition: string;
+  definitionVi?: string;
   example?: string;
+  exampleVi?: string;
   synonyms: string[];
 }
 
@@ -19,6 +24,7 @@ export interface DictEntry {
   word: string;
   phonetic: string;
   audio: string;          // audio URL, may be empty
+  meaningVi?: string;     // Vietnamese gloss for the headword
   meanings: DictMeaning[];
 }
 
@@ -88,4 +94,45 @@ export async function lookupWord(word: string): Promise<DictEntry> {
     audio,
     meanings,
   };
+}
+
+function findLocalMeaning(word: string): string | undefined {
+  const match = vocabulary.find((item) => item.word.toLowerCase() === word.toLowerCase());
+  return match?.meaning;
+}
+
+async function enrichWithVietnamese(entry: DictEntry): Promise<DictEntry> {
+  const localMeaning = findLocalMeaning(entry.word);
+  const meaningVi = localMeaning ?? await translateEnToVi(entry.word);
+
+  const definitions = entry.meanings.flatMap((meaning) => meaning.definitions);
+  const textsToTranslate = definitions.flatMap((def) => {
+    const texts = [def.definition];
+    if (def.example) texts.push(def.example);
+    return texts;
+  });
+
+  const translated = textsToTranslate.length > 0
+    ? await translateManyEnToVi(textsToTranslate)
+    : [];
+
+  let index = 0;
+  const meanings = entry.meanings.map((meaning) => ({
+    ...meaning,
+    definitions: meaning.definitions.map((def) => {
+      const definitionVi = translated[index++] ?? '';
+      const exampleVi = def.example ? (translated[index++] ?? '') : undefined;
+      return { ...def, definitionVi, exampleVi };
+    }),
+  }));
+
+  return {
+    ...entry,
+    meaningVi: meaningVi || undefined,
+    meanings,
+  };
+}
+
+export async function lookupWordWithVietnamese(word: string): Promise<DictEntry> {
+  return enrichWithVietnamese(await lookupWord(word));
 }

@@ -1473,6 +1473,22 @@ body {
 }
 .dict-word { font-size: 2rem; font-weight: 800; }
 .dict-phonetic { color: var(--primary); font-size: 1.1rem; }
+.dict-meaning-vi {
+  margin-top: 0.5rem;
+  font-size: 1.05rem;
+  color: var(--accent);
+}
+.dict-definition-vi {
+  color: var(--accent);
+  margin-top: 0.2rem;
+  font-size: 0.95rem;
+}
+.dict-example-vi {
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 0.15rem;
+  font-size: 0.9rem;
+}
 .dict-meaning { margin-bottom: 1.25rem; }
 .dict-pos {
   font-style: italic;
