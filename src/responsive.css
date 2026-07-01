@@ -138,7 +138,7 @@ canvas {
 @media (max-width: 768px) {
   :root {
     --nav-height: 56px;
-    --bottom-nav-height: 56px;
+    --bottom-nav-height: 76px;
   }
 
   .navbar-inner {
@@ -457,10 +457,6 @@ canvas {
 
   .bottom-nav-tab-label {
     font-size: 0.58rem;
-  }
-
-  .bottom-nav-icon {
-    font-size: 1.15rem;
   }
 
   .dashboard-stat-row {

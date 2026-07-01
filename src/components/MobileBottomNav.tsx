@@ -19,6 +19,8 @@ const navTabs: Array<{
   { tab: 'profile', path: '/profile', labelKey: 'profile', Icon: IconUser },
 ];
 
+const NAV_TAB_COUNT = navTabs.length;
+
 function BottomNavTabItem({
   tab,
   path,
@@ -47,7 +49,7 @@ function BottomNavTabItem({
     >
       <span className="bottom-nav-tab-ring">
         <span className="bottom-nav-tab-btn">
-          <Icon className="bottom-nav-tab-icon" strokeWidth={active ? 1.85 : 1.75} />
+          <Icon className="bottom-nav-tab-icon" strokeWidth={active ? 2 : 1.65} />
           {badge && badgeCount !== undefined && badgeCount > 0 && (
             <span className="bottom-nav-badge" aria-label={`${badgeCount} due`}>
               {badgeCount > 99 ? '99+' : badgeCount}
@@ -65,10 +67,28 @@ export default function MobileBottomNav() {
   const { deck } = useSrs();
   const dueCount = Object.values(deck).filter(isDue).length;
   const activeTab = resolveBottomNavTab(location.pathname);
+  const activeIndex = navTabs.findIndex((item) => item.tab === activeTab);
 
   return (
     <nav className="bottom-nav" aria-label="Mobile navigation">
-      <div className="bottom-nav-bar">
+      <div
+        className="bottom-nav-bar"
+        style={
+          {
+            '--nav-tab-count': NAV_TAB_COUNT,
+            '--nav-active-index': activeIndex >= 0 ? activeIndex : 0,
+          } as React.CSSProperties
+        }
+      >
+        <span
+          className={`bottom-nav-glow${activeIndex >= 0 ? ' is-visible' : ''}`}
+          aria-hidden
+        />
+        <span
+          className={`bottom-nav-track${activeIndex >= 0 ? ' is-visible' : ''}`}
+          aria-hidden
+        />
+
         {navTabs.map((item) => (
           <BottomNavTabItem
             key={item.tab}
