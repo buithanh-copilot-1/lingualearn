@@ -164,7 +164,7 @@ export default function Quiz() {
             </div>
           </div>
 
-          {loading && <p className="muted-text">Loading...</p>}
+          {loading && <p className="muted-text">{tr.common.loading}</p>}
           <p className="quiz-preview-count">{preview.length} {tr.quiz.question.toLowerCase()}s</p>
 
           {preview.length === 0 ? (

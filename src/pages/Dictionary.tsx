@@ -58,7 +58,7 @@ export default function Dictionary() {
         </button>
       </form>
 
-      {loading && <p className="muted-text">Loading...</p>}
+      {loading && <p className="muted-text">{tr.common.loading}</p>}
       {error === 'notFound' && <p className="empty-state">{tr.dictionary.notFound}</p>}
       {error === 'error' && <p className="api-fallback-note">{tr.dictionary.error}</p>}
 

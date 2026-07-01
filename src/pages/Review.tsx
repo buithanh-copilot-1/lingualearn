@@ -48,7 +48,7 @@ export default function Review() {
   if (loading) {
     return (
       <div className="page">
-        <p className="muted-text">Loading...</p>
+        <p className="muted-text">{tr.common.loading}</p>
       </div>
     );
   }
@@ -80,7 +80,7 @@ export default function Review() {
   if (!card) {
     return (
       <div className="page">
-        <p className="muted-text">Loading...</p>
+        <p className="muted-text">{tr.common.loading}</p>
       </div>
     );
   }

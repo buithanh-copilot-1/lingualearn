@@ -5,6 +5,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { getAchievements, getUnlockedCount } from '../utils/achievements';
 import ProgressBar from '../components/ProgressBar';
 import DailyGoalCard from '../components/DailyGoalCard';
+import TodayPlanCard from '../components/TodayPlanCard';
 
 export default function Home() {
   const { progress } = useProgress();
@@ -44,6 +45,8 @@ export default function Home() {
         </div>
       </section>
 
+      <TodayPlanCard />
+
       <section className="section">
         <h2>{tr.home.dailyGoal}</h2>
         <DailyGoalCard />
@@ -52,12 +55,16 @@ export default function Home() {
       <section className="section">
         <h2>{tr.home.yourProgress}</h2>
         {loading ? (
-          <p className="muted-text">Loading...</p>
+          <p className="muted-text">{tr.common.loading}</p>
         ) : (
           <div className="progress-grid">
             <ProgressBar label={tr.home.lessonsCompleted} value={progress.completedLessons.length} max={lessons.length} />
             <ProgressBar label={tr.home.vocabularyLearned} value={progress.learnedWords.length} max={vocabulary.length} />
-            <ProgressBar label={tr.home.quizzesTaken} value={progress.quizScores.length} max={Math.max(progress.quizScores.length, 1)} />
+            <ProgressBar
+              label={tr.home.quizzesTaken}
+              value={progress.quizScores.length}
+              max={Math.max(10, progress.quizScores.length)}
+            />
           </div>
         )}
       </section>
