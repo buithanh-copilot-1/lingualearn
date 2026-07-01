@@ -6,6 +6,7 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
+import { isJunkWord } from './vocab-junk.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
@@ -183,9 +184,8 @@ async function main() {
 
   for (const w of raw) {
     if (selected.length >= TARGET_COUNT) break;
-    if (w.length < 2 || w.length > 24) continue;
     if (STOP_WORDS.has(w)) continue;
-    if (/^\d/.test(w)) continue;
+    if (isJunkWord(w)) continue;
     if (seen.has(w)) continue;
     seen.add(w);
     selected.push(w);
