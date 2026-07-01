@@ -71,6 +71,12 @@ export default function Navbar() {
           </li>
         </ul>
 
+        {isAuthenticated && (
+          <div className="mobile-notification-bell">
+            <NotificationBell />
+          </div>
+        )}
+
         <button
           className={`menu-toggle ${menuOpen ? 'open' : ''}`}
           onClick={() => setMenuOpen(!menuOpen)}
