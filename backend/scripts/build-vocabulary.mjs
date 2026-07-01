@@ -1,5 +1,5 @@
 /**
- * Build vocabulary.json with 2000 ESL words for Vietnamese learners.
+ * Build vocabulary.json with 5000 ESL words for Vietnamese learners.
  * Source: backend/prisma/seed-data/vocabulary.json
  * Run: cd backend && npm run build:vocab
  */
@@ -13,7 +13,7 @@ const outPath = join(root, 'prisma', 'seed-data', 'vocabulary.json');
 const wordListPath = join(__dirname, 'vocab-data', 'google-10000.txt');
 const cachePath = join(__dirname, 'vocab-data', 'build-cache.json');
 
-const TARGET_COUNT = 2000;
+const TARGET_COUNT = 5000;
 
 const STOP_WORDS = new Set([
   'the', 'of', 'and', 'to', 'a', 'in', 'for', 'is', 'on', 'that', 'by', 'this', 'with',
@@ -107,8 +107,8 @@ function guessCategory(word) {
 }
 
 function levelFromRank(rank) {
-  if (rank < 700) return 'beginner';
-  if (rank < 1500) return 'intermediate';
+  if (rank < 1750) return 'beginner';
+  if (rank < 3750) return 'intermediate';
   return 'advanced';
 }
 

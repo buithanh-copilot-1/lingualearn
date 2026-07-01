@@ -5,7 +5,7 @@ Interactive English learning platform designed for Vietnamese learners.
 ## Features
 
 - **Lessons** — Step-by-step lessons from beginner to advanced
-- **Vocabulary** — 2000+ flashcards with TTS, study mode, and Vietnamese meanings
+- **Vocabulary** — 5000+ flashcards with TTS, study mode, and Vietnamese meanings
 - **Grammar** — Grammar guides with progress tracking
 - **Quiz** — Category/level quizzes with server-side answer validation
 - **Spaced Review (SRS)** — Vocabulary review scheduled with the SuperMemo SM-2 algorithm (stored locally)
