@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build && node -e \"import { copyFileSync } from 'fs'; copyFileSync('dist/index.html','dist/404.html')\"",
     "sync:data": "cd backend && npm run sync:data",
+    "build:vocab": "cd backend && npm run build:vocab",
     "build:all": "npm run build && cd backend && npm ci && npm run build",
     "start": "npm run build:all && cd backend && npm run start",
     "lint": "oxlint",

@@ -18,6 +18,8 @@ backend/.env.production
 backend/.env.script-bak
 backend/prisma/dev.db
 backend/prisma/dev.db-journal
+backend/scripts/vocab-data/build-cache.json
+backend/scripts/vocab-data/existing-1050.json
 .env
 
 # Editor directories and files
