@@ -2193,6 +2193,31 @@ body {
 }
 .listen-btn-label { white-space: nowrap; }
 
+.listen-btn-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.listen-btn-group-icon {
+  gap: 0.35rem;
+}
+
+.listen-btn-stop {
+  color: var(--danger) !important;
+  border-color: #fca5a5 !important;
+  background: #fef2f2 !important;
+}
+
+.listen-btn-icon.listen-btn-stop {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  padding: 0;
+  font-size: 0.85rem;
+}
+
 .sound-wave {
   display: inline-flex;
   align-items: flex-end;
@@ -3750,6 +3775,43 @@ body {
   width: 24px;
   height: 24px;
   margin-left: 2px;
+}
+
+.audio-stop-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  height: 44px;
+  padding: 0 1rem;
+  border-radius: 999px;
+  border: 1px solid #fca5a5;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform 0.15s, background 0.15s;
+}
+
+.audio-stop-btn:active {
+  transform: scale(0.96);
+}
+
+.audio-stop-btn .stop-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.audio-play-btn:disabled {
+  opacity: 0.65;
+  cursor: default;
+}
+
+.btn-audio-mini-active {
+  background: #fef2f2 !important;
+  color: #b91c1c !important;
+  border-color: #fca5a5 !important;
 }
 
 .speed-toggle-btn {

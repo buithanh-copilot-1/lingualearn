@@ -293,6 +293,13 @@ export default function LessonDetail() {
   }, [lesson, locale]);
 
   // Handle TTS Playback
+  const handleStopSpeech = useCallback(() => {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+    setIsSpeaking(false);
+  }, []);
+
   const handlePlaySpeech = useCallback((text: string) => {
     if (!('speechSynthesis' in window)) return;
     window.speechSynthesis.cancel();
@@ -626,12 +633,27 @@ export default function LessonDetail() {
                   type="button"
                   className={`audio-play-btn ${isSpeaking ? 'speaking' : ''}`}
                   onClick={() => handlePlaySpeech(currentStep.english)}
-                  aria-label="Listen"
+                  aria-label={locale === 'vi' ? 'Nghe' : 'Listen'}
+                  disabled={isSpeaking}
                 >
                   <svg className="play-icon" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M8 5v14l11-7z"/>
                   </svg>
                 </button>
+
+                {isSpeaking && (
+                  <button
+                    type="button"
+                    className="audio-stop-btn"
+                    onClick={handleStopSpeech}
+                    aria-label={locale === 'vi' ? 'Dừng' : 'Stop'}
+                  >
+                    <svg className="stop-icon" viewBox="0 0 24 24" fill="currentColor">
+                      <rect x="6" y="6" width="12" height="12" rx="1"/>
+                    </svg>
+                    <span>{locale === 'vi' ? 'Dừng' : 'Stop'}</span>
+                  </button>
+                )}
 
                 <button
                   type="button"
@@ -677,11 +699,15 @@ export default function LessonDetail() {
             >
               <button
                 type="button"
-                className="btn-audio-mini"
-                onClick={(e) => { e.stopPropagation(); handlePlaySpeech(currentStep.english); }}
-                aria-label="Listen"
+                className={`btn-audio-mini ${isSpeaking ? 'btn-audio-mini-active' : ''}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (isSpeaking) handleStopSpeech();
+                  else handlePlaySpeech(currentStep.english);
+                }}
+                aria-label={isSpeaking ? (locale === 'vi' ? 'Dừng' : 'Stop') : (locale === 'vi' ? 'Nghe' : 'Listen')}
               >
-                🔊
+                {isSpeaking ? '⏹' : '🔊'}
               </button>
               <span className="quiz-english-text">{currentStep.english}</span>
             </div>
