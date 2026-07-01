@@ -20,7 +20,10 @@ export default function GrammarTopicCard({
   const showVi = locale === 'vi' || Boolean(topic.titleVi);
 
   return (
-    <article className={`grammar-topic ${reviewed ? 'grammar-topic-reviewed' : ''} ${expanded ? 'grammar-topic-expanded' : ''}`}>
+    <article
+      id={`grammar-topic-${topic.id}`}
+      className={`grammar-topic ${reviewed ? 'grammar-topic-reviewed' : ''} ${expanded ? 'grammar-topic-expanded' : ''}`}
+    >
       <button type="button" className="grammar-topic-header" onClick={onToggle} aria-expanded={expanded}>
         <div className="grammar-topic-heading">
           <h2>{topic.title}</h2>

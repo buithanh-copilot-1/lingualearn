@@ -29,7 +29,7 @@ export default function LessonCard({ lesson, completed }: Props) {
       <div className="lesson-meta">
         <span>⏱ {lesson.duration} min</span>
         <span>{tr.categories[lesson.category]}</span>
-        <span>{lesson.content.length} {tr.lessons.step.toLowerCase()}s</span>
+        <span>{lesson.content.length} {tr.lessons.steps}</span>
       </div>
       <Link to={`/lessons/${lesson.id}`} className="btn btn-primary btn-block">
         {completed ? tr.lessons.continueLesson : tr.lessons.startLesson}

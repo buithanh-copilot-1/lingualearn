@@ -45,7 +45,7 @@ export default function Lessons() {
         </div>
       </div>
 
-      {loading && <p className="muted-text">Loading...</p>}
+      {loading && <p className="muted-text">{tr.common.loading}</p>}
       {error && <p className="api-fallback-note">Offline mode — using cached data</p>}
 
       <div className="lesson-grid">

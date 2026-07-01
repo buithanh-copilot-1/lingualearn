@@ -9,14 +9,14 @@ export default function LessonDetail() {
   const { data: lesson, loading } = useLesson(id);
   const { data: allLessons } = useAllLessons();
   const { progress, completeLesson } = useProgress();
-  const { tr, locale } = useLanguage();
+  const { tr } = useLanguage();
   const [step, setStep] = useState(0);
   const [finished, setFinished] = useState(false);
 
   if (loading) {
     return (
       <div className="page">
-        <p className="muted-text">Loading...</p>
+        <p className="muted-text">{tr.common.loading}</p>
       </div>
     );
   }
@@ -76,8 +76,8 @@ export default function LessonDetail() {
         <h1>{lesson.title}</h1>
         <p className="lesson-detail-desc">{lesson.description}</p>
         {lesson.grammarTopicId && (
-          <Link to="/grammar" className="grammar-link">
-            ✏️ {locale === 'vi' ? 'Xem thêm ngữ pháp' : 'View grammar topic'} →
+          <Link to={`/grammar?topic=${lesson.grammarTopicId}`} className="grammar-link">
+            ✏️ {tr.lessons.viewGrammar} →
           </Link>
         )}
       </div>

@@ -1,4 +1,5 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { useAllGrammar, useGrammar } from '../hooks/useContent';
 import { useProgress } from '../hooks/useProgress';
 import { useLanguage } from '../context/LanguageContext';
@@ -13,7 +14,10 @@ export default function Grammar() {
   const { tr } = useLanguage();
   const [search, setSearch] = useState('');
   const [level, setLevel] = useState<LevelFilter>('all');
-  const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [searchParams] = useSearchParams();
+  const topicParam = searchParams.get('topic');
+  const [expandedId, setExpandedId] = useState<string | null>(topicParam);
+  const scrolledTopic = useRef<string | null>(null);
 
   const { data: grammar, loading, error } = useGrammar({ search: '' });
   const { data: allGrammar } = useAllGrammar();
@@ -31,8 +35,27 @@ export default function Grammar() {
   const progressPct = totalTopics > 0 ? Math.round((reviewedCount / totalTopics) * 100) : 0;
 
   useEffect(() => {
+    if (!topicParam) return;
+    setLevel('all');
+    setSearch('');
+  }, [topicParam]);
+
+  useEffect(() => {
+    if (topicParam) {
+      setExpandedId(topicParam);
+      return;
+    }
     setExpandedId(null);
-  }, [search, level]);
+  }, [search, level, topicParam]);
+
+  useEffect(() => {
+    if (!topicParam || loading || scrolledTopic.current === topicParam) return;
+    const el = document.getElementById(`grammar-topic-${topicParam}`);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      scrolledTopic.current = topicParam;
+    }
+  }, [topicParam, loading, filtered]);
 
   return (
     <div className="page grammar-page">
