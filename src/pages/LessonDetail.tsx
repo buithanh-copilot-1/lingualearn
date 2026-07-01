@@ -3,7 +3,8 @@ import { getLessonById, getNextLessonId, getPrevLessonId } from '../data/lessons
 import { getListeningComprehension, extractListeningScript } from '../data/listeningData';
 import { useProgress } from '../context/ProgressContext';
 import { useLanguage } from '../context/LanguageContext';
-import { speakEnglish, stopSpeaking } from '../utils/speech';
+import { stopSpeaking } from '../utils/speech';
+import ListeningPlayer from '../components/ListeningPlayer';
 import { useState, useEffect } from 'react';
 
 export default function LessonDetail() {
@@ -17,7 +18,7 @@ export default function LessonDetail() {
   const [cqIndex, setCqIndex] = useState(0);
   const [cqSelected, setCqSelected] = useState<number | null>(null);
   const [cqCorrect, setCqCorrect] = useState(0);
-  const [autoPlay, setAutoPlay] = useState(true);
+  const [autoPlay, setAutoPlay] = useState(false);
 
   const isListening = lesson?.category === 'listening';
   const comprehension = lesson ? getListeningComprehension(lesson.id) : [];
@@ -26,10 +27,14 @@ export default function LessonDetail() {
   useEffect(() => () => stopSpeaking(), []);
 
   useEffect(() => {
-    if (!lesson || !isListening || !autoPlay) return;
-    const script = extractListeningScript(lesson.content[step]);
-    speakEnglish(script, 0.82);
-  }, [step, lesson, isListening, autoPlay]);
+    stopSpeaking();
+    setStep(0);
+    setComprehensionPhase(false);
+    setCqIndex(0);
+    setCqSelected(null);
+    setCqCorrect(0);
+    setFinished(false);
+  }, [id]);
 
   if (!lesson) {
     return (
@@ -47,6 +52,15 @@ export default function LessonDetail() {
   const nextLessonId = getNextLessonId(lesson.id);
   const prevLessonId = getPrevLessonId(lesson.id);
   const cq = comprehension[cqIndex];
+  const listenScript = extractListeningScript(lesson.content[step]);
+  const stepNote = lesson.content[step].includes('—')
+    ? lesson.content[step].split('—').slice(1).join('—').trim()
+    : '';
+
+  function goToStep(next: number) {
+    stopSpeaking();
+    setStep(next);
+  }
 
   function handleFinish() {
     if (hasComprehension && !comprehensionPhase) {
@@ -54,6 +68,7 @@ export default function LessonDetail() {
       stopSpeaking();
       return;
     }
+    stopSpeaking();
     completeLesson(lesson!.id, lesson!.duration);
     setFinished(true);
   }
@@ -135,12 +150,10 @@ export default function LessonDetail() {
     );
   }
 
-  const listenScript = extractListeningScript(lesson.content[step]);
-
   return (
     <div className="page lesson-detail-page">
       <div className="lesson-detail-header">
-        <Link to="/lessons" className="back-link">← {tr.lessons.backToList}</Link>
+        <Link to="/lessons" className="back-link" onClick={() => stopSpeaking()}>← {tr.lessons.backToList}</Link>
         <div className="lesson-detail-meta">
           <span className={`badge badge-${lesson.level}`}>{tr.levels[lesson.level]}</span>
           <span className="badge badge-category">{tr.categories[lesson.category]}</span>
@@ -148,19 +161,8 @@ export default function LessonDetail() {
         </div>
         <h1>{lesson.title}</h1>
         <p className="lesson-detail-desc">{lesson.description}</p>
-        {isListening && (
-          <div className="listening-controls">
-            <button type="button" className="btn btn-primary btn-sm" onClick={() => speakEnglish(listenScript, 0.82)}>
-              🔊 {tr.listening.listenAgain}
-            </button>
-            <label className="listening-autoplay">
-              <input type="checkbox" checked={autoPlay} onChange={(e) => setAutoPlay(e.target.checked)} />
-              {tr.listening.autoPlay}
-            </label>
-          </div>
-        )}
         {lesson.grammarTopicId && (
-          <Link to={`/grammar/${lesson.grammarTopicId}/practice`} className="grammar-link">
+          <Link to={`/grammar/${lesson.grammarTopicId}/practice`} className="grammar-link" onClick={() => stopSpeaking()}>
             ✏️ {locale === 'vi' ? 'Luyện ngữ pháp' : 'Practice grammar'} →
           </Link>
         )}
@@ -175,17 +177,32 @@ export default function LessonDetail() {
         </div>
       </div>
 
-      <div className={`step-card ${isListening ? 'listening-step' : ''}`}>
-        {isListening && <span className="listening-label">🎧 {tr.listening.playing}</span>}
-        <p className="step-content">{lesson.content[step]}</p>
-      </div>
+      {isListening ? (
+        <>
+          <ListeningPlayer
+            script={listenScript}
+            stepKey={`${lesson.id}-${step}`}
+            autoPlay={autoPlay}
+            onAutoPlayChange={setAutoPlay}
+          />
+          {stepNote && (
+            <div className="step-card listening-step listening-note">
+              <p className="step-content">{stepNote}</p>
+            </div>
+          )}
+        </>
+      ) : (
+        <div className="step-card">
+          <p className="step-content">{lesson.content[step]}</p>
+        </div>
+      )}
 
       <div className="step-nav">
-        <button className="btn btn-outline" disabled={step === 0} onClick={() => setStep((s) => s - 1)}>
+        <button className="btn btn-outline" disabled={step === 0} onClick={() => goToStep(step - 1)}>
           {tr.lessons.prev}
         </button>
         {step < totalSteps - 1 ? (
-          <button className="btn btn-primary" onClick={() => setStep((s) => s + 1)}>
+          <button className="btn btn-primary" onClick={() => goToStep(step + 1)}>
             {tr.lessons.next}
           </button>
         ) : (
@@ -197,12 +214,12 @@ export default function LessonDetail() {
 
       <div className="lesson-nav-row">
         {prevLessonId && (
-          <Link to={`/lessons/${prevLessonId}`} className="lesson-nav-link">
+          <Link to={`/lessons/${prevLessonId}`} className="lesson-nav-link" onClick={() => stopSpeaking()}>
             ← {getLessonById(prevLessonId)?.title}
           </Link>
         )}
         {nextLessonId && (
-          <Link to={`/lessons/${nextLessonId}`} className="lesson-nav-link next">
+          <Link to={`/lessons/${nextLessonId}`} className="lesson-nav-link next" onClick={() => stopSpeaking()}>
             {getLessonById(nextLessonId)?.title} →
           </Link>
         )}

@@ -3,7 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { vocabulary } from '../data/vocabulary';
 import { useProgress } from '../context/ProgressContext';
 import { useLanguage } from '../context/LanguageContext';
-import { speakWord } from '../utils/speech';
+import { speakWord, stopSpeaking } from '../utils/speech';
 import { buildStudyQueue, getDueWordIds } from '../utils/srs';
 import type { StudyMode, SrsRating, VocabWord } from '../types';
 
@@ -25,6 +25,8 @@ export default function VocabularyStudy() {
     setIndex(0);
     setFlipped(false);
   }, [mode, progress.settings.dailyWordGoal, progress.dailyGoals.wordsLearned]);
+
+  useEffect(() => () => stopSpeaking(), []);
 
   const word = queue[index];
   const dueIds = useMemo(() => new Set(getDueWordIds(progress)), [progress]);
