@@ -15,10 +15,10 @@ export default function Home() {
   const achievements = getAchievements(progress);
 
   const stats = [
-    { label: tr.home.lessons, value: progress.completedLessons.length, total: lessons.length, icon: '📚' },
-    { label: tr.home.words, value: progress.learnedWords.length, total: vocabulary.length, icon: '📝' },
-    { label: tr.home.quizzes, value: progress.quizScores.length, total: null, icon: '🎯' },
-    { label: tr.home.streak, value: progress.streak, total: null, icon: '🔥' },
+    { label: tr.home.lessons, value: progress.completedLessons.length, total: lessons.length, icon: '📚', tile: 'tile-indigo' },
+    { label: tr.home.words, value: progress.learnedWords.length, total: vocabulary.length, icon: '📝', tile: 'tile-cyan' },
+    { label: tr.home.quizzes, value: progress.quizScores.length, total: null, icon: '🎯', tile: 'tile-amber' },
+    { label: tr.home.streak, value: progress.streak, total: null, icon: '🔥', tile: 'tile-rose' },
   ];
 
   return (
@@ -35,7 +35,7 @@ export default function Home() {
         <div className="hero-stats">
           {stats.map((s) => (
             <div key={s.label} className="stat-card">
-              <span className="stat-icon">{s.icon}</span>
+              <span className={`stat-icon-glyph ${s.tile}`}>{s.icon}</span>
               <span className="stat-value">
                 {s.total !== null ? `${s.value}/${s.total}` : s.value}
               </span>
@@ -90,52 +90,44 @@ export default function Home() {
 
       <section className="section">
         <h2>{tr.home.whatYouLearn}</h2>
-        <div className="feature-grid">
-          <Link to="/lessons" className="feature-card">
-            <span className="feature-icon">💬</span>
-            <h3>{tr.home.conversation}</h3>
-            <p>{tr.home.conversationDesc}</p>
+        <div className="icon-menu-grid">
+          <Link to="/lessons" className="icon-tile" title={tr.home.conversationDesc}>
+            <span className="icon-tile-glyph tile-indigo">💬</span>
+            <span className="icon-tile-label">{tr.home.conversation}</span>
           </Link>
-          <Link to="/vocabulary" className="feature-card">
-            <span className="feature-icon">📖</span>
-            <h3>{tr.nav.vocabulary}</h3>
-            <p>{tr.home.vocabularyDesc}</p>
+          <Link to="/vocabulary" className="icon-tile" title={tr.home.vocabularyDesc}>
+            <span className="icon-tile-glyph tile-cyan">📖</span>
+            <span className="icon-tile-label">{tr.nav.vocabulary}</span>
           </Link>
-          <Link to="/grammar" className="feature-card">
-            <span className="feature-icon">📝</span>
-            <h3>{tr.nav.grammar}</h3>
-            <p>{tr.home.grammarDesc}</p>
+          <Link to="/grammar" className="icon-tile" title={tr.home.grammarDesc}>
+            <span className="icon-tile-glyph tile-emerald">📝</span>
+            <span className="icon-tile-label">{tr.nav.grammar}</span>
           </Link>
-          <Link to="/quiz" className="feature-card">
-            <span className="feature-icon">🎯</span>
-            <h3>{tr.nav.quiz}</h3>
-            <p>{tr.home.quizDesc}</p>
+          <Link to="/quiz" className="icon-tile" title={tr.home.quizDesc}>
+            <span className="icon-tile-glyph tile-amber">🎯</span>
+            <span className="icon-tile-label">{tr.nav.quiz}</span>
           </Link>
         </div>
       </section>
 
       <section className="section">
         <h2>{tr.home.moreWays}</h2>
-        <div className="feature-grid">
-          <Link to="/review" className="feature-card">
-            <span className="feature-icon">🔁</span>
-            <h3>{tr.practice.review}</h3>
-            <p>{tr.practice.reviewDesc}</p>
+        <div className="icon-menu-grid">
+          <Link to="/review" className="icon-tile" title={tr.practice.reviewDesc}>
+            <span className="icon-tile-glyph tile-rose">🔁</span>
+            <span className="icon-tile-label">{tr.practice.review}</span>
           </Link>
-          <Link to="/speaking" className="feature-card">
-            <span className="feature-icon">🎤</span>
-            <h3>{tr.practice.speaking}</h3>
-            <p>{tr.practice.speakingDesc}</p>
+          <Link to="/speaking" className="icon-tile" title={tr.practice.speakingDesc}>
+            <span className="icon-tile-glyph tile-violet">🎤</span>
+            <span className="icon-tile-label">{tr.practice.speaking}</span>
           </Link>
-          <Link to="/dictionary" className="feature-card">
-            <span className="feature-icon">📖</span>
-            <h3>{tr.practice.dictionary}</h3>
-            <p>{tr.practice.dictionaryDesc}</p>
+          <Link to="/dictionary" className="icon-tile" title={tr.practice.dictionaryDesc}>
+            <span className="icon-tile-glyph tile-sky">📖</span>
+            <span className="icon-tile-label">{tr.practice.dictionary}</span>
           </Link>
-          <Link to="/idioms" className="feature-card">
-            <span className="feature-icon">💡</span>
-            <h3>{tr.practice.idioms}</h3>
-            <p>{tr.practice.idiomsDesc}</p>
+          <Link to="/idioms" className="icon-tile" title={tr.practice.idiomsDesc}>
+            <span className="icon-tile-glyph tile-orange">💡</span>
+            <span className="icon-tile-label">{tr.practice.idioms}</span>
           </Link>
         </div>
       </section>
