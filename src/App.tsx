@@ -22,6 +22,7 @@ import Settings from './pages/Settings';
 import Auth from './pages/Auth';
 import NotFound from './pages/NotFound';
 import './index.css';
+import './responsive.css';
 
 export default function App() {
   return (
