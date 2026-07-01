@@ -329,8 +329,6 @@ export default function LessonDetail() {
     setListening(false);
   }, [stepIndex, flowSteps, handlePlaySpeech]);
 
-
-
   // Clean speaking recognizer ref when component unmounts
   useEffect(() => {
     return () => {
@@ -342,39 +340,6 @@ export default function LessonDetail() {
       }
     };
   }, []);
-
-  if (loading) {
-    return (
-      <div className="page">
-        <p className="muted-text">{tr.common.loading}</p>
-      </div>
-    );
-  }
-
-  if (!lesson || flowSteps.length === 0) {
-    return (
-      <div className="page">
-        <div className="empty-state">
-          <h2>{tr.lessons.notFound}</h2>
-          <Link to="/lessons" className="btn btn-primary">{tr.lessons.backToList}</Link>
-        </div>
-      </div>
-    );
-  }
-
-  const isCompleted = progress.completedLessons.includes(lesson.id);
-  const nextLessonId = getNextLessonId(allLessons, lesson.id);
-  const nextLesson = nextLessonId ? allLessons.find((l) => l.id === nextLessonId) : undefined;
-
-  const currentStep = flowSteps[stepIndex];
-  if (!currentStep) {
-    return (
-      <div className="page">
-        <p className="muted-text">{tr.common.loading}</p>
-      </div>
-    );
-  }
-  const progressPercent = Math.round((stepIndex / flowSteps.length) * 100);
 
   // Speaking Attempt logic
   const handleRecord = () => {
@@ -454,6 +419,7 @@ export default function LessonDetail() {
   };
 
   const handleNextStep = () => {
+    if (!lesson) return;
     if (stepIndex < flowSteps.length - 1) {
       setStepIndex((s) => s + 1);
     } else {
@@ -535,6 +501,41 @@ export default function LessonDetail() {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [loading, lesson, flowSteps, stepIndex, evaluation, selectedOption, scrambleOutput, isChecking, showTranslation, handlePlaySpeech, handleNextStep, checkAnswer, finished]);
+
+  if (loading) {
+    return (
+      <div className="page">
+        <p className="muted-text">{tr.common.loading}</p>
+      </div>
+    );
+  }
+
+  if (!lesson || flowSteps.length === 0) {
+    return (
+      <div className="page">
+        <div className="empty-state">
+          <h2>{tr.lessons.notFound}</h2>
+          <Link to="/lessons" className="btn btn-primary">{tr.lessons.backToList}</Link>
+        </div>
+      </div>
+    );
+  }
+
+  const isCompleted = progress.completedLessons.includes(lesson.id);
+  const nextLessonId = getNextLessonId(allLessons, lesson.id);
+  const nextLesson = nextLessonId ? allLessons.find((l) => l.id === nextLessonId) : undefined;
+
+  const currentStep = flowSteps[stepIndex];
+  if (!currentStep) {
+    return (
+      <div className="page">
+        <p className="muted-text">{tr.common.loading}</p>
+      </div>
+    );
+  }
+  const progressPercent = Math.round((stepIndex / flowSteps.length) * 100);
+
+
 
   if (finished) {
     return (
