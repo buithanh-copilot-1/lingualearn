@@ -65,6 +65,70 @@
       "level": "beginner"
     },
     {
+      "id": "toeic-p1-5",
+      "part": "part1",
+      "imageDesc": "A chef in a white uniform is chopping vegetables on a cutting board in a restaurant kitchen.",
+      "question": "Listen to the four statements and choose the one that best describes the picture.",
+      "options": [
+        "The chef is washing dishes in the sink.",
+        "The chef is chopping vegetables.",
+        "The chef is serving food to customers.",
+        "The kitchen is empty."
+      ],
+      "correctIndex": 1,
+      "explanation": "The chef is described as chopping vegetables, matching option B.",
+      "explanationVi": "Đầu bếp đang thái rau, khớp với đáp án B.",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-p1-6",
+      "part": "part1",
+      "imageDesc": "A librarian is pushing a cart of books between tall bookshelves in a quiet library.",
+      "question": "Listen to the four statements and choose the one that best describes the picture.",
+      "options": [
+        "The librarian is closing the library.",
+        "The shelves are all empty.",
+        "The librarian is pushing a cart of books.",
+        "Visitors are reading at a table."
+      ],
+      "correctIndex": 2,
+      "explanation": "The picture shows the librarian pushing a book cart, matching option C.",
+      "explanationVi": "Bức tranh cho thấy thủ thư đang đẩy xe chở sách, khớp với đáp án C.",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-p1-7",
+      "part": "part1",
+      "imageDesc": "A mechanic is leaning over the open hood of a car, examining the engine with a flashlight.",
+      "question": "Listen to the four statements and choose the one that best describes the picture.",
+      "options": [
+        "The mechanic is washing the car.",
+        "The car's hood is closed.",
+        "The mechanic is examining the engine.",
+        "The mechanic is changing a tire."
+      ],
+      "correctIndex": 2,
+      "explanation": "The mechanic is examining the engine under the open hood, matching option C.",
+      "explanationVi": "Người thợ máy đang kiểm tra động cơ dưới nắp capo đang mở, khớp với đáp án C.",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p1-8",
+      "part": "part1",
+      "imageDesc": "Two colleagues are shaking hands in an office lobby while one of them holds out a business card.",
+      "question": "Listen to the four statements and choose the one that best describes the picture.",
+      "options": [
+        "They are arguing with each other.",
+        "They are shaking hands and exchanging a business card.",
+        "They are sitting down for lunch.",
+        "They are leaving the building separately."
+      ],
+      "correctIndex": 1,
+      "explanation": "The colleagues are shaking hands while exchanging a business card, matching option B.",
+      "explanationVi": "Hai đồng nghiệp đang bắt tay và trao danh thiếp, khớp với đáp án B.",
+      "level": "beginner"
+    },
+    {
       "id": "toeic-p2-1",
       "part": "part2",
       "audioScript": "Where is the nearest post office?",
@@ -152,6 +216,96 @@
       "correctIndex": 1,
       "explanation": "This is a \"How long\" question asking about duration; only option B gives a duration.",
       "explanationVi": "Đây là câu hỏi \"How long\" hỏi về thời lượng; chỉ đáp án B nêu một khoảng thời gian.",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-p2-7",
+      "part": "part2",
+      "audioScript": "When does the flight to Tokyo depart?",
+      "question": "When does the flight to Tokyo depart?",
+      "options": [
+        "At gate 22.",
+        "It leaves at 6:45 in the morning.",
+        "Economy class, please."
+      ],
+      "correctIndex": 1,
+      "explanation": "This is a \"When\" question asking about time; only option B gives a time.",
+      "explanationVi": "Đây là câu hỏi \"When\" hỏi về thời gian; chỉ đáp án B nêu một mốc thời gian cụ thể.",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-p2-8",
+      "part": "part2",
+      "audioScript": "Have you finished reviewing the contract yet?",
+      "question": "Have you finished reviewing the contract yet?",
+      "options": [
+        "Not yet, I'll be done by noon.",
+        "I signed it last year.",
+        "It's a two-page document."
+      ],
+      "correctIndex": 0,
+      "explanation": "This asks about completion status; option A directly answers with a status update.",
+      "explanationVi": "Câu hỏi về tiến độ hoàn thành; đáp án A trả lời trực tiếp về tình trạng công việc.",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p2-9",
+      "part": "part2",
+      "audioScript": "Why was the shipment delayed?",
+      "question": "Why was the shipment delayed?",
+      "options": [
+        "It arrived this morning.",
+        "There was a problem at customs.",
+        "About five hundred units."
+      ],
+      "correctIndex": 1,
+      "explanation": "This is a \"Why\" question; only option B gives a reason for the delay.",
+      "explanationVi": "Đây là câu hỏi \"Why\" hỏi về lý do; chỉ đáp án B nêu nguyên nhân của sự chậm trễ.",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p2-10",
+      "part": "part2",
+      "audioScript": "Should I forward this email to the whole team?",
+      "question": "Should I forward this email to the whole team?",
+      "options": [
+        "Yes, please, they all need to see it.",
+        "I received it yesterday.",
+        "The team has ten members."
+      ],
+      "correctIndex": 0,
+      "explanation": "This is a yes/no suggestion question; option A gives a direct yes answer with a reason.",
+      "explanationVi": "Đây là câu hỏi đề nghị dạng có/không; đáp án A trả lời \"có\" trực tiếp kèm lý do.",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-p2-11",
+      "part": "part2",
+      "audioScript": "Which printer is out of toner?",
+      "question": "Which printer is out of toner?",
+      "options": [
+        "The one near the break room.",
+        "I printed ten pages.",
+        "Yes, it's very expensive."
+      ],
+      "correctIndex": 0,
+      "explanation": "This is a \"Which\" question asking to identify a specific printer; only option A identifies one.",
+      "explanationVi": "Đây là câu hỏi \"Which\" yêu cầu xác định máy in cụ thể; chỉ đáp án A chỉ ra máy in đó.",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p2-12",
+      "part": "part2",
+      "audioScript": "Is the Wi-Fi password the same as last time?",
+      "question": "Is the Wi-Fi password the same as last time?",
+      "options": [
+        "No, it was changed last week.",
+        "The signal is quite strong here.",
+        "I don't have a laptop."
+      ],
+      "correctIndex": 0,
+      "explanation": "This is a yes/no question about whether something changed; option A answers directly.",
+      "explanationVi": "Đây là câu hỏi có/không về việc có thay đổi hay không; đáp án A trả lời trực tiếp.",
       "level": "beginner"
     },
     {
@@ -257,6 +411,108 @@
       "level": "intermediate"
     },
     {
+      "id": "toeic-p3-7",
+      "part": "part3",
+      "groupId": "toeic-p3-g3",
+      "audioScript": "Woman: Hi, I have a reservation under the name Tran for two nights.\nMan: Let me check... I'm sorry, I only see a reservation for one night in our system.\nWoman: That's strange, I booked online and paid for two nights already.\nMan: No problem, I'll fix it right now and send you a confirmation email.",
+      "question": "What problem does the woman report?",
+      "options": [
+        "Her room is too small",
+        "Her reservation shows the wrong number of nights",
+        "She was charged twice",
+        "Her room is not ready"
+      ],
+      "correctIndex": 1,
+      "explanation": "The man's system only shows one night, but the woman booked two nights.",
+      "explanationVi": "Hệ thống của người đàn ông chỉ hiển thị một đêm, trong khi người phụ nữ đã đặt hai đêm.",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p3-8",
+      "part": "part3",
+      "groupId": "toeic-p3-g3",
+      "audioScript": "Woman: Hi, I have a reservation under the name Tran for two nights.\nMan: Let me check... I'm sorry, I only see a reservation for one night in our system.\nWoman: That's strange, I booked online and paid for two nights already.\nMan: No problem, I'll fix it right now and send you a confirmation email.",
+      "question": "How did the woman make her reservation?",
+      "options": [
+        "By phone",
+        "In person last month",
+        "Online",
+        "Through a travel agent"
+      ],
+      "correctIndex": 2,
+      "explanation": "The woman says \"I booked online and paid for two nights already\".",
+      "explanationVi": "Người phụ nữ nói \"Tôi đã đặt online và thanh toán cho hai đêm rồi\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p3-9",
+      "part": "part3",
+      "groupId": "toeic-p3-g3",
+      "audioScript": "Woman: Hi, I have a reservation under the name Tran for two nights.\nMan: Let me check... I'm sorry, I only see a reservation for one night in our system.\nWoman: That's strange, I booked online and paid for two nights already.\nMan: No problem, I'll fix it right now and send you a confirmation email.",
+      "question": "What will the man do next?",
+      "options": [
+        "Cancel the reservation",
+        "Correct the reservation and send a confirmation",
+        "Ask the woman to pay again",
+        "Transfer the call to a manager"
+      ],
+      "correctIndex": 1,
+      "explanation": "The man says \"I'll fix it right now and send you a confirmation email\".",
+      "explanationVi": "Người đàn ông nói \"Tôi sẽ sửa ngay và gửi email xác nhận cho bạn\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p3-10",
+      "part": "part3",
+      "groupId": "toeic-p3-g4",
+      "audioScript": "Man: Thanks for coming in. Are you available for a second interview next Wednesday afternoon?\nWoman: Yes, I'm free after 2 p.m. that day.\nMan: Great, let's set it for 3 p.m. You'll meet with our design director this time.\nWoman: Sounds good. Should I bring my portfolio again?\nMan: Yes, please bring an updated version if you have one.",
+      "question": "What is being scheduled?",
+      "options": [
+        "A product demonstration",
+        "A second job interview",
+        "A team lunch",
+        "A training session"
+      ],
+      "correctIndex": 1,
+      "explanation": "The man asks if she is available for \"a second interview next Wednesday afternoon\".",
+      "explanationVi": "Người đàn ông hỏi cô ấy có rảnh cho \"buổi phỏng vấn lần hai vào chiều thứ Tư tới\" không.",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p3-11",
+      "part": "part3",
+      "groupId": "toeic-p3-g4",
+      "audioScript": "Man: Thanks for coming in. Are you available for a second interview next Wednesday afternoon?\nWoman: Yes, I'm free after 2 p.m. that day.\nMan: Great, let's set it for 3 p.m. You'll meet with our design director this time.\nWoman: Sounds good. Should I bring my portfolio again?\nMan: Yes, please bring an updated version if you have one.",
+      "question": "Who will the woman meet with next?",
+      "options": [
+        "The design director",
+        "The company's CEO",
+        "The HR assistant",
+        "A current employee"
+      ],
+      "correctIndex": 0,
+      "explanation": "The man says \"You'll meet with our design director this time\".",
+      "explanationVi": "Người đàn ông nói \"Lần này bạn sẽ gặp giám đốc thiết kế của chúng tôi\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p3-12",
+      "part": "part3",
+      "groupId": "toeic-p3-g4",
+      "audioScript": "Man: Thanks for coming in. Are you available for a second interview next Wednesday afternoon?\nWoman: Yes, I'm free after 2 p.m. that day.\nMan: Great, let's set it for 3 p.m. You'll meet with our design director this time.\nWoman: Sounds good. Should I bring my portfolio again?\nMan: Yes, please bring an updated version if you have one.",
+      "question": "What does the man ask the woman to bring?",
+      "options": [
+        "A copy of her resume",
+        "Letters of recommendation",
+        "An updated portfolio",
+        "A signed contract"
+      ],
+      "correctIndex": 2,
+      "explanation": "The man asks her to \"bring an updated version\" of her portfolio.",
+      "explanationVi": "Người đàn ông yêu cầu cô ấy \"mang theo phiên bản cập nhật\" của portfolio.",
+      "level": "intermediate"
+    },
+    {
       "id": "toeic-p4-1",
       "part": "part4",
       "groupId": "toeic-p4-g1",
@@ -359,6 +615,99 @@
       "level": "intermediate"
     },
     {
+      "id": "toeic-p4-7",
+      "part": "part4",
+      "groupId": "toeic-p4-g3",
+      "audioScript": "This is a traffic update for the downtown area. There is heavy congestion on Main Street due to ongoing road repairs near the river bridge. Drivers heading to the business district should use Second Avenue as an alternative route. The repair work is expected to continue through Friday.",
+      "question": "What is causing the traffic congestion?",
+      "options": [
+        "A car accident",
+        "Road repairs near the bridge",
+        "A parade downtown",
+        "Bad weather conditions"
+      ],
+      "correctIndex": 1,
+      "explanation": "The talk mentions \"ongoing road repairs near the river bridge\" as the cause.",
+      "explanationVi": "Bản tin nhắc đến \"công trình sửa đường gần cầu sông\" là nguyên nhân.",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p4-8",
+      "part": "part4",
+      "groupId": "toeic-p4-g3",
+      "audioScript": "This is a traffic update for the downtown area. There is heavy congestion on Main Street due to ongoing road repairs near the river bridge. Drivers heading to the business district should use Second Avenue as an alternative route. The repair work is expected to continue through Friday.",
+      "question": "What are drivers advised to do?",
+      "options": [
+        "Avoid downtown entirely",
+        "Use Second Avenue instead",
+        "Wait until Friday to travel",
+        "Take public transportation"
+      ],
+      "correctIndex": 1,
+      "explanation": "The talk advises drivers to \"use Second Avenue as an alternative route\".",
+      "explanationVi": "Bản tin khuyên tài xế \"dùng đường Second Avenue làm lộ trình thay thế\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p4-9",
+      "part": "part4",
+      "groupId": "toeic-p4-g3",
+      "audioScript": "This is a traffic update for the downtown area. There is heavy congestion on Main Street due to ongoing road repairs near the river bridge. Drivers heading to the business district should use Second Avenue as an alternative route. The repair work is expected to continue through Friday.",
+      "question": "How long will the repair work continue?",
+      "options": [
+        "Until tomorrow", "Until next Monday", "Through Friday", "Indefinitely"
+      ],
+      "correctIndex": 2,
+      "explanation": "The talk says the repair work \"is expected to continue through Friday\".",
+      "explanationVi": "Bản tin nói công trình sửa chữa \"dự kiến kéo dài đến hết thứ Sáu\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p4-10",
+      "part": "part4",
+      "groupId": "toeic-p4-g4",
+      "audioScript": "Welcome to Fit Life Gym. Please note that our 6 p.m. yoga class has been moved to Studio B for this week only, due to floor maintenance in Studio A. All other classes will run as usual. Members can check the updated schedule on our mobile app or at the front desk.",
+      "question": "What is the announcement mainly about?",
+      "options": [
+        "A new membership discount",
+        "A temporary class location change",
+        "The gym's closing time",
+        "A new personal trainer"
+      ],
+      "correctIndex": 1,
+      "explanation": "The announcement is about the yoga class being \"moved to Studio B for this week only\".",
+      "explanationVi": "Thông báo nói về việc lớp yoga \"được chuyển sang Studio B chỉ trong tuần này\".",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-p4-11",
+      "part": "part4",
+      "groupId": "toeic-p4-g4",
+      "audioScript": "Welcome to Fit Life Gym. Please note that our 6 p.m. yoga class has been moved to Studio B for this week only, due to floor maintenance in Studio A. All other classes will run as usual. Members can check the updated schedule on our mobile app or at the front desk.",
+      "question": "Why was the class moved?",
+      "options": [
+        "Due to floor maintenance", "Due to low attendance", "Due to a staff shortage", "Due to a holiday"
+      ],
+      "correctIndex": 0,
+      "explanation": "The reason given is \"due to floor maintenance in Studio A\".",
+      "explanationVi": "Lý do được nêu là \"do bảo trì sàn ở Studio A\".",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-p4-12",
+      "part": "part4",
+      "groupId": "toeic-p4-g4",
+      "audioScript": "Welcome to Fit Life Gym. Please note that our 6 p.m. yoga class has been moved to Studio B for this week only, due to floor maintenance in Studio A. All other classes will run as usual. Members can check the updated schedule on our mobile app or at the front desk.",
+      "question": "Where can members find the updated schedule?",
+      "options": [
+        "Only by calling the gym", "On the mobile app or at the front desk", "In a mailed newsletter", "On the parking lot bulletin board"
+      ],
+      "correctIndex": 1,
+      "explanation": "Members can check the schedule \"on our mobile app or at the front desk\".",
+      "explanationVi": "Hội viên có thể xem lịch \"trên ứng dụng di động hoặc tại quầy lễ tân\".",
+      "level": "beginner"
+    },
+    {
       "id": "toeic-p5-1",
       "part": "part5",
       "question": "The new marketing manager will begin work ____ March 1.",
@@ -459,6 +808,106 @@
       "level": "advanced"
     },
     {
+      "id": "toeic-p5-11",
+      "part": "part5",
+      "question": "The committee members ____ the proposal will meet again on Thursday.",
+      "options": ["who reviewed", "reviewed", "reviewing of", "have reviewed"],
+      "correctIndex": 0,
+      "explanation": "A relative clause \"who reviewed the proposal\" is needed to modify \"the committee members\".",
+      "explanationVi": "Cần mệnh đề quan hệ \"who reviewed the proposal\" để bổ nghĩa cho \"the committee members\".",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-p5-12",
+      "part": "part5",
+      "question": "This year's profits were much ____ than last year's.",
+      "options": ["high", "higher", "highest", "more high"],
+      "correctIndex": 1,
+      "explanation": "The comparative form \"higher\" is needed before \"than\".",
+      "explanationVi": "Cần dạng so sánh hơn \"higher\" trước \"than\".",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-p5-13",
+      "part": "part5",
+      "question": "The manager avoided ____ a decision until all data was collected.",
+      "options": ["make", "to make", "making", "made"],
+      "correctIndex": 2,
+      "explanation": "The verb \"avoid\" is followed by a gerund (\"making\"), not an infinitive.",
+      "explanationVi": "Động từ \"avoid\" theo sau là danh động từ (gerund) \"making\", không dùng động từ nguyên mẫu có to.",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p5-14",
+      "part": "part5",
+      "question": "The new policy will apply to all departments ____ Human Resources.",
+      "options": ["except for", "besides", "in addition to", "along with"],
+      "correctIndex": 0,
+      "explanation": "\"Except for\" is used to exclude something from a general statement.",
+      "explanationVi": "\"Except for\" dùng để loại trừ một trường hợp khỏi một phát biểu chung.",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-p5-15",
+      "part": "part5",
+      "question": "If the shipment ____ on time, we would not have lost the client.",
+      "options": ["arrives", "arrived", "had arrived", "will arrive"],
+      "correctIndex": 2,
+      "explanation": "This is a third conditional (\"if... had arrived, ... would not have lost\") about a hypothetical past situation.",
+      "explanationVi": "Đây là câu điều kiện loại 3 (\"if... had arrived, ... would not have lost\") diễn tả tình huống giả định trong quá khứ.",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-p5-16",
+      "part": "part5",
+      "question": "There isn't ____ paper left in the printer tray.",
+      "options": ["many", "much", "few", "a few"],
+      "correctIndex": 1,
+      "explanation": "\"Much\" is used with uncountable nouns like \"paper\" in negative sentences.",
+      "explanationVi": "\"Much\" dùng với danh từ không đếm được như \"paper\" trong câu phủ định.",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-p5-17",
+      "part": "part5",
+      "question": "The annual report ____ by the finance team every January.",
+      "options": ["prepares", "is prepared", "prepared", "has prepared"],
+      "correctIndex": 1,
+      "explanation": "Passive voice (\"is prepared\") is needed since the report doesn't prepare itself.",
+      "explanationVi": "Cần thể bị động (\"is prepared\") vì bản báo cáo không tự chuẩn bị.",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p5-18",
+      "part": "part5",
+      "question": "____ with the results, the director approved the next phase of the project.",
+      "options": ["Satisfy", "Satisfying", "Satisfied", "Satisfaction"],
+      "correctIndex": 2,
+      "explanation": "A past participle clause (\"Satisfied with...\") describes the director's state, similar to \"Being satisfied\".",
+      "explanationVi": "Mệnh đề rút gọn với phân từ 2 (\"Satisfied with...\") mô tả trạng thái của giám đốc.",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-p5-19",
+      "part": "part5",
+      "question": "Each of the applicants ____ required to complete an online assessment.",
+      "options": ["are", "is", "were", "have been"],
+      "correctIndex": 1,
+      "explanation": "\"Each of\" takes a singular verb (\"is\"), even though \"applicants\" is plural.",
+      "explanationVi": "\"Each of\" luôn đi với động từ số ít (\"is\"), dù \"applicants\" là danh từ số nhiều.",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-p5-20",
+      "part": "part5",
+      "question": "Please review the attached file ____ signing the agreement.",
+      "options": ["prior to", "previous", "before that", "in front of"],
+      "correctIndex": 0,
+      "explanation": "\"Prior to\" is a formal preposition meaning \"before\", followed by a gerund (\"signing\").",
+      "explanationVi": "\"Prior to\" là giới từ trang trọng nghĩa \"trước khi\", theo sau là danh động từ (\"signing\").",
+      "level": "advanced"
+    },
+    {
       "id": "toeic-p6-1",
       "part": "part6",
       "groupId": "toeic-p6-g1",
@@ -533,6 +982,83 @@
       "correctIndex": 1,
       "explanation": "This sentence-insertion blank needs a sentence that logically continues the topic of the renovation timeline.",
       "explanationVi": "Chỗ trống dạng chèn câu này cần một câu tiếp nối hợp lý với chủ đề thời gian thi công.",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-p6-5",
+      "part": "part6",
+      "groupId": "toeic-p6-g2",
+      "passageTitle": "Promotional Email",
+      "passages": [
+        {
+          "label": "Email",
+          "text": "Subject: Introducing the SmartBrew Coffee Maker\n\nDear Valued Customer,\n\nWe are excited to (1)____ our newest product, the SmartBrew Coffee Maker. It connects to your phone, (2)____ you to schedule brewing times remotely. For a limited time, customers who order (3)____ May 31 will receive a free set of ceramic mugs. (4)____\n\nVisit our website to place your order today."
+        }
+      ],
+      "question": "(1)",
+      "options": ["introduce", "introduces", "introducing", "introduction"],
+      "correctIndex": 0,
+      "explanation": "After \"excited to\", a base-verb infinitive (\"introduce\") is required.",
+      "explanationVi": "Sau \"excited to\" cần động từ nguyên mẫu (\"introduce\").",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p6-6",
+      "part": "part6",
+      "groupId": "toeic-p6-g2",
+      "passageTitle": "Promotional Email",
+      "passages": [
+        {
+          "label": "Email",
+          "text": "Subject: Introducing the SmartBrew Coffee Maker\n\nDear Valued Customer,\n\nWe are excited to (1)____ our newest product, the SmartBrew Coffee Maker. It connects to your phone, (2)____ you to schedule brewing times remotely. For a limited time, customers who order (3)____ May 31 will receive a free set of ceramic mugs. (4)____\n\nVisit our website to place your order today."
+        }
+      ],
+      "question": "(2)",
+      "options": ["allow", "allowing", "allowed", "allows"],
+      "correctIndex": 1,
+      "explanation": "\"Allowing you to...\" is a participle clause describing the result of connecting to the phone.",
+      "explanationVi": "\"Allowing you to...\" là mệnh đề phân từ diễn tả kết quả của việc kết nối với điện thoại.",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-p6-7",
+      "part": "part6",
+      "groupId": "toeic-p6-g2",
+      "passageTitle": "Promotional Email",
+      "passages": [
+        {
+          "label": "Email",
+          "text": "Subject: Introducing the SmartBrew Coffee Maker\n\nDear Valued Customer,\n\nWe are excited to (1)____ our newest product, the SmartBrew Coffee Maker. It connects to your phone, (2)____ you to schedule brewing times remotely. For a limited time, customers who order (3)____ May 31 will receive a free set of ceramic mugs. (4)____\n\nVisit our website to place your order today."
+        }
+      ],
+      "question": "(3)",
+      "options": ["until", "by", "since", "from"],
+      "correctIndex": 1,
+      "explanation": "\"By May 31\" means \"no later than that date\", the correct deadline preposition here.",
+      "explanationVi": "\"By May 31\" nghĩa là \"chậm nhất vào ngày đó\", đúng giới từ chỉ hạn chót.",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p6-8",
+      "part": "part6",
+      "groupId": "toeic-p6-g2",
+      "passageTitle": "Promotional Email",
+      "passages": [
+        {
+          "label": "Email",
+          "text": "Subject: Introducing the SmartBrew Coffee Maker\n\nDear Valued Customer,\n\nWe are excited to (1)____ our newest product, the SmartBrew Coffee Maker. It connects to your phone, (2)____ you to schedule brewing times remotely. For a limited time, customers who order (3)____ May 31 will receive a free set of ceramic mugs. (4)____\n\nVisit our website to place your order today."
+        }
+      ],
+      "question": "(4) Which sentence best fits this blank?",
+      "options": [
+        "Our headquarters moved to a new building last year.",
+        "Supplies are limited, so don't miss this special offer.",
+        "The company was founded by two engineers in 2005.",
+        "Customer service is available every weekday."
+      ],
+      "correctIndex": 1,
+      "explanation": "This sentence-insertion blank needs a sentence that reinforces urgency about the limited-time offer just mentioned.",
+      "explanationVi": "Chỗ trống dạng chèn câu cần một câu nhấn mạnh tính cấp bách của ưu đãi có giới hạn vừa nêu.",
       "level": "advanced"
     },
     {
@@ -706,6 +1232,210 @@
       "explanation": "Customer Service states the package \"should arrive within 3 business days\".",
       "explanationVi": "Bộ phận chăm sóc khách hàng nói gói hàng \"sẽ đến trong vòng 3 ngày làm việc\".",
       "level": "intermediate"
+    },
+    {
+      "id": "toeic-p7-8",
+      "part": "part7",
+      "groupId": "toeic-p7-g3",
+      "passageTitle": "Job Advertisement",
+      "passages": [
+        {
+          "label": "Advertisement",
+          "text": "GREENLEAF CAFE — NOW HIRING\n\nWe are looking for a part-time Barista to join our team at our downtown location. Responsibilities include preparing beverages, operating the cash register, and keeping the counter area clean. Applicants must be available to work weekend mornings. Previous experience is preferred but not required — full training will be provided. Interested candidates should send their resume to jobs@greenleafcafe.example by June 20."
+        }
+      ],
+      "question": "What position is being advertised?",
+      "options": ["A delivery driver", "A part-time barista", "A store manager", "A cafe accountant"],
+      "correctIndex": 1,
+      "explanation": "The advertisement is for a \"part-time Barista\".",
+      "explanationVi": "Quảng cáo tuyển dụng vị trí \"nhân viên pha chế bán thời gian\".",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-p7-9",
+      "part": "part7",
+      "groupId": "toeic-p7-g3",
+      "passageTitle": "Job Advertisement",
+      "passages": [
+        {
+          "label": "Advertisement",
+          "text": "GREENLEAF CAFE — NOW HIRING\n\nWe are looking for a part-time Barista to join our team at our downtown location. Responsibilities include preparing beverages, operating the cash register, and keeping the counter area clean. Applicants must be available to work weekend mornings. Previous experience is preferred but not required — full training will be provided. Interested candidates should send their resume to jobs@greenleafcafe.example by June 20."
+        }
+      ],
+      "question": "What is required of applicants?",
+      "options": [
+        "At least two years of experience",
+        "Availability on weekend mornings",
+        "A university degree",
+        "Their own transportation"
+      ],
+      "correctIndex": 1,
+      "explanation": "The ad states applicants \"must be available to work weekend mornings\".",
+      "explanationVi": "Quảng cáo nêu rõ ứng viên \"phải sẵn sàng làm việc vào sáng cuối tuần\".",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-p7-10",
+      "part": "part7",
+      "groupId": "toeic-p7-g3",
+      "passageTitle": "Job Advertisement",
+      "passages": [
+        {
+          "label": "Advertisement",
+          "text": "GREENLEAF CAFE — NOW HIRING\n\nWe are looking for a part-time Barista to join our team at our downtown location. Responsibilities include preparing beverages, operating the cash register, and keeping the counter area clean. Applicants must be available to work weekend mornings. Previous experience is preferred but not required — full training will be provided. Interested candidates should send their resume to jobs@greenleafcafe.example by June 20."
+        }
+      ],
+      "question": "What should interested candidates do?",
+      "options": [
+        "Visit the cafe in person",
+        "Call the manager directly",
+        "Email their resume by June 20",
+        "Fill out a paper application"
+      ],
+      "correctIndex": 2,
+      "explanation": "The ad asks candidates to \"send their resume to jobs@greenleafcafe.example by June 20\".",
+      "explanationVi": "Quảng cáo yêu cầu ứng viên \"gửi hồ sơ qua email jobs@greenleafcafe.example trước ngày 20 tháng 6\".",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-p7-11",
+      "part": "part7",
+      "groupId": "toeic-p7-g4",
+      "passageTitle": "Conference schedule change",
+      "passages": [
+        {
+          "label": "Original Schedule",
+          "text": "ANNUAL MARKETING CONFERENCE — DAY 2 SCHEDULE\n9:00 A.M. — Keynote: \"Digital Trends\" by Ms. Alvarez\n10:30 A.M. — Workshop: \"Social Media Strategy\"\n1:00 P.M. — Panel Discussion: \"Customer Loyalty\"\n3:00 P.M. — Closing remarks"
+        },
+        {
+          "label": "Email — From: Conference Organizer",
+          "text": "Subject: Schedule Change for Day 2\n\nDear Attendees,\n\nPlease note that Ms. Alvarez's keynote speech has been moved from 9:00 A.M. to 11:00 A.M. due to a flight delay. The Social Media Strategy workshop will now begin at 9:00 A.M. instead. All other sessions remain unchanged. We apologize for any inconvenience.\n\nConference Organizing Team"
+        },
+        {
+          "label": "Text message — From: Priya (attendee)",
+          "text": "Hi team, just a heads-up — since the keynote moved, I'll join the workshop first and catch the keynote afterward. See you at the panel discussion at 1!"
+        }
+      ],
+      "question": "Why was the keynote speech rescheduled?",
+      "options": [
+        "The speaker had a flight delay",
+        "The room was double-booked",
+        "The organizer canceled it",
+        "Too few people registered"
+      ],
+      "correctIndex": 0,
+      "explanation": "The email explains the keynote moved \"due to a flight delay\".",
+      "explanationVi": "Email giải thích bài phát biểu chính được dời \"do chuyến bay bị trễ\".",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-p7-12",
+      "part": "part7",
+      "groupId": "toeic-p7-g4",
+      "passageTitle": "Conference schedule change",
+      "passages": [
+        {
+          "label": "Original Schedule",
+          "text": "ANNUAL MARKETING CONFERENCE — DAY 2 SCHEDULE\n9:00 A.M. — Keynote: \"Digital Trends\" by Ms. Alvarez\n10:30 A.M. — Workshop: \"Social Media Strategy\"\n1:00 P.M. — Panel Discussion: \"Customer Loyalty\"\n3:00 P.M. — Closing remarks"
+        },
+        {
+          "label": "Email — From: Conference Organizer",
+          "text": "Subject: Schedule Change for Day 2\n\nDear Attendees,\n\nPlease note that Ms. Alvarez's keynote speech has been moved from 9:00 A.M. to 11:00 A.M. due to a flight delay. The Social Media Strategy workshop will now begin at 9:00 A.M. instead. All other sessions remain unchanged. We apologize for any inconvenience.\n\nConference Organizing Team"
+        },
+        {
+          "label": "Text message — From: Priya (attendee)",
+          "text": "Hi team, just a heads-up — since the keynote moved, I'll join the workshop first and catch the keynote afterward. See you at the panel discussion at 1!"
+        }
+      ],
+      "question": "What time does the Social Media Strategy workshop now start?",
+      "options": ["9:00 A.M.", "10:30 A.M.", "11:00 A.M.", "1:00 P.M."],
+      "correctIndex": 0,
+      "explanation": "The email states the workshop \"will now begin at 9:00 A.M. instead\".",
+      "explanationVi": "Email nêu rõ workshop \"nay sẽ bắt đầu lúc 9 giờ sáng\".",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-p7-13",
+      "part": "part7",
+      "groupId": "toeic-p7-g4",
+      "passageTitle": "Conference schedule change",
+      "passages": [
+        {
+          "label": "Original Schedule",
+          "text": "ANNUAL MARKETING CONFERENCE — DAY 2 SCHEDULE\n9:00 A.M. — Keynote: \"Digital Trends\" by Ms. Alvarez\n10:30 A.M. — Workshop: \"Social Media Strategy\"\n1:00 P.M. — Panel Discussion: \"Customer Loyalty\"\n3:00 P.M. — Closing remarks"
+        },
+        {
+          "label": "Email — From: Conference Organizer",
+          "text": "Subject: Schedule Change for Day 2\n\nDear Attendees,\n\nPlease note that Ms. Alvarez's keynote speech has been moved from 9:00 A.M. to 11:00 A.M. due to a flight delay. The Social Media Strategy workshop will now begin at 9:00 A.M. instead. All other sessions remain unchanged. We apologize for any inconvenience.\n\nConference Organizing Team"
+        },
+        {
+          "label": "Text message — From: Priya (attendee)",
+          "text": "Hi team, just a heads-up — since the keynote moved, I'll join the workshop first and catch the keynote afterward. See you at the panel discussion at 1!"
+        }
+      ],
+      "question": "According to the schedule, what topic does Ms. Alvarez speak about?",
+      "options": ["Customer Loyalty", "Social Media Strategy", "Digital Trends", "Closing remarks"],
+      "correctIndex": 2,
+      "explanation": "The original schedule lists Ms. Alvarez's keynote as \"Digital Trends\".",
+      "explanationVi": "Lịch trình gốc ghi bài phát biểu của bà Alvarez là \"Digital Trends\".",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-p7-14",
+      "part": "part7",
+      "groupId": "toeic-p7-g4",
+      "passageTitle": "Conference schedule change",
+      "passages": [
+        {
+          "label": "Original Schedule",
+          "text": "ANNUAL MARKETING CONFERENCE — DAY 2 SCHEDULE\n9:00 A.M. — Keynote: \"Digital Trends\" by Ms. Alvarez\n10:30 A.M. — Workshop: \"Social Media Strategy\"\n1:00 P.M. — Panel Discussion: \"Customer Loyalty\"\n3:00 P.M. — Closing remarks"
+        },
+        {
+          "label": "Email — From: Conference Organizer",
+          "text": "Subject: Schedule Change for Day 2\n\nDear Attendees,\n\nPlease note that Ms. Alvarez's keynote speech has been moved from 9:00 A.M. to 11:00 A.M. due to a flight delay. The Social Media Strategy workshop will now begin at 9:00 A.M. instead. All other sessions remain unchanged. We apologize for any inconvenience.\n\nConference Organizing Team"
+        },
+        {
+          "label": "Text message — From: Priya (attendee)",
+          "text": "Hi team, just a heads-up — since the keynote moved, I'll join the workshop first and catch the keynote afterward. See you at the panel discussion at 1!"
+        }
+      ],
+      "question": "What does Priya plan to do first?",
+      "options": [
+        "Attend the keynote speech",
+        "Attend the workshop",
+        "Attend the panel discussion",
+        "Leave the conference early"
+      ],
+      "correctIndex": 1,
+      "explanation": "Priya says \"I'll join the workshop first and catch the keynote afterward\".",
+      "explanationVi": "Priya nói \"Tôi sẽ tham gia workshop trước rồi xem bài keynote sau\".",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-p7-15",
+      "part": "part7",
+      "groupId": "toeic-p7-g4",
+      "passageTitle": "Conference schedule change",
+      "passages": [
+        {
+          "label": "Original Schedule",
+          "text": "ANNUAL MARKETING CONFERENCE — DAY 2 SCHEDULE\n9:00 A.M. — Keynote: \"Digital Trends\" by Ms. Alvarez\n10:30 A.M. — Workshop: \"Social Media Strategy\"\n1:00 P.M. — Panel Discussion: \"Customer Loyalty\"\n3:00 P.M. — Closing remarks"
+        },
+        {
+          "label": "Email — From: Conference Organizer",
+          "text": "Subject: Schedule Change for Day 2\n\nDear Attendees,\n\nPlease note that Ms. Alvarez's keynote speech has been moved from 9:00 A.M. to 11:00 A.M. due to a flight delay. The Social Media Strategy workshop will now begin at 9:00 A.M. instead. All other sessions remain unchanged. We apologize for any inconvenience.\n\nConference Organizing Team"
+        },
+        {
+          "label": "Text message — From: Priya (attendee)",
+          "text": "Hi team, just a heads-up — since the keynote moved, I'll join the workshop first and catch the keynote afterward. See you at the panel discussion at 1!"
+        }
+      ],
+      "question": "At what time will Priya see her colleagues at the panel discussion?",
+      "options": ["9:00 A.M.", "11:00 A.M.", "1:00 P.M.", "3:00 P.M."],
+      "correctIndex": 2,
+      "explanation": "Priya says \"See you at the panel discussion at 1!\", and the schedule confirms it is at 1:00 P.M.",
+      "explanationVi": "Priya nói \"Gặp mọi người ở buổi thảo luận lúc 1 giờ nhé!\", khớp với lịch trình lúc 1:00 chiều.",
+      "level": "advanced"
     }
   ],
   "speakingTasks": [
@@ -732,6 +1462,23 @@
       "type": "opinion",
       "prompt": "Do you prefer working from home or working in an office? Explain why.",
       "promptVi": "Bạn thích làm việc tại nhà hay ở văn phòng hơn? Giải thích lý do.",
+      "prepSeconds": 15,
+      "speakSeconds": 60
+    },
+    {
+      "id": "toeic-sp-4",
+      "type": "read_aloud",
+      "prompt": "Read the following text aloud clearly and naturally.",
+      "promptVi": "Đọc to đoạn văn sau một cách rõ ràng và tự nhiên.",
+      "script": "Thank you for calling Sunrise Airlines. All of our representatives are currently helping other customers. Your call is important to us, and the estimated wait time is about five minutes. Please stay on the line, or visit our website to manage your booking online.",
+      "prepSeconds": 30,
+      "speakSeconds": 45
+    },
+    {
+      "id": "toeic-sp-5",
+      "type": "opinion",
+      "prompt": "What are the benefits of learning a foreign language for your career? Give your opinion.",
+      "promptVi": "Việc học một ngoại ngữ mang lại lợi ích gì cho sự nghiệp của bạn? Hãy nêu ý kiến của bạn.",
       "prepSeconds": 15,
       "speakSeconds": 60
     }
