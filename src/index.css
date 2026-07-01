@@ -81,6 +81,50 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex: 1;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.navbar-user-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 120;
+}
+
+.navbar-user-skeleton {
+  display: inline-block;
+  width: 72px;
+  height: 32px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--border) 25%, #f1f5f9 50%, var(--border) 75%);
+  background-size: 200% 100%;
+  animation: navbarSkeleton 1.2s ease-in-out infinite;
+}
+
+@keyframes navbarSkeleton {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+.navbar-login-btn {
+  white-space: nowrap;
+}
+
+.desktop-nav {
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  justify-content: flex-end;
+}
+
+.desktop-nav::-webkit-scrollbar {
+  display: none;
 }
 
 .logo {
@@ -2850,6 +2894,8 @@ body {
   position: relative;
   display: flex;
   align-items: center;
+  flex-shrink: 0;
+  z-index: 120;
 }
 
 .notification-bell-btn {
@@ -4103,17 +4149,10 @@ body {
   width: 100%;
 }
 
-/* Mobile-only Nav Actions */
-.mobile-nav-actions {
-  display: none;
-}
-
+/* Mobile: keep bell + avatar visible beside hamburger */
 @media (max-width: 768px) {
-  .mobile-nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-right: 0.75rem;
+  .navbar-user-actions {
+    margin-right: 0.35rem;
   }
 }
 
@@ -4146,6 +4185,8 @@ body {
 .nav-avatar-wrapper {
   position: relative;
   display: inline-flex;
+  flex-shrink: 0;
+  z-index: 120;
 }
 
 .nav-avatar-btn {
@@ -4172,6 +4213,7 @@ body {
   border: 1.5px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow-lg);
+  z-index: 130;
   padding: 0.75rem 0;
   display: flex;
   flex-direction: column;
