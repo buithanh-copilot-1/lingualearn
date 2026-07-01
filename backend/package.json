@@ -19,7 +19,8 @@
     "db:prod:push": "tsx scripts/update-prod-db.ts --push-only",
     "db:prod:seed": "tsx scripts/update-prod-db.ts --seed-only",
     "sync:data": "node scripts/sync-seed-data.mjs",
-    "build:vocab": "node scripts/build-vocabulary.mjs"
+    "build:vocab": "node scripts/build-vocabulary.mjs",
+    "clean:vocab": "node scripts/clean-vocabulary.mjs"
   },
   "dependencies": {
     "@fastify/cors": "^11.0.1",
