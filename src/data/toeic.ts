@@ -25,9 +25,33 @@ export function getToeicQuestionsByExamSet(examSet: string): ToeicQuestion[] {
 }
 
 export const toeicExamSets = [
-  { id: 'mini', labelKey: 'mockTestTitle' as const },
-  { id: 'test2', labelKey: 'practiceTest2Title' as const },
+  {
+    id: 'mini',
+    to: '/toeic/test',
+    quizId: 'toeic-mocktest',
+    titleKey: 'mockTestTitle' as const,
+    descKey: 'mockTestDesc' as const,
+    count: getDefaultBankQuestions().length,
+  },
+  {
+    id: 'test2',
+    to: '/toeic/test/test2',
+    quizId: 'toeic-test2',
+    titleKey: 'practiceTest2Title' as const,
+    descKey: 'practiceTest2Desc' as const,
+    count: getToeicQuestionsByExamSet('test2').length,
+  },
 ];
+
+export function getLatestScorePct(
+  quizScores: { quizId: string; score: number; total: number; date: string }[],
+  quizId: string,
+): number | null {
+  const matches = quizScores.filter((s) => s.quizId === quizId);
+  if (matches.length === 0) return null;
+  const latest = matches[matches.length - 1];
+  return Math.round((latest.score / latest.total) * 100);
+}
 
 /** Groups consecutive questions sharing a groupId into a single drill item (script/passage shown once). */
 export function groupToeicQuestions(questions: ToeicQuestion[]): ToeicQuestion[][] {

@@ -20,6 +20,7 @@ import Speaking from './pages/Speaking';
 import Dictionary from './pages/Dictionary';
 import Idioms from './pages/Idioms';
 import Toeic from './pages/Toeic';
+import ToeicExams from './pages/ToeicExams';
 import ToeicPart from './pages/ToeicPart';
 import ToeicTest from './pages/ToeicTest';
 import ToeicSpeaking from './pages/ToeicSpeaking';
@@ -56,6 +57,7 @@ export default function App() {
                     <Route path="/dictionary" element={<Dictionary />} />
                     <Route path="/idioms" element={<Idioms />} />
                     <Route path="/toeic" element={<Toeic />} />
+                    <Route path="/toeic/exams" element={<ToeicExams />} />
                     <Route path="/toeic/test" element={<ToeicTest />} />
                     <Route path="/toeic/test/:examId" element={<ToeicTest />} />
                     <Route path="/toeic/speaking" element={<ToeicSpeaking />} />

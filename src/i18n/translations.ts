@@ -204,6 +204,8 @@ const en = {
     mockTestComplete: 'Mock Test Complete!', estimatedTotal: 'Estimated total',
     practiceTest2Title: 'Practice Test #2',
     practiceTest2Desc: 'A second full-length original practice test (60 questions), covering all 7 parts in official order.',
+    examsPageTitle: 'Choose a Practice Test', examsPageSubtitle: 'Pick a full-length timed test to take.',
+    examLabel: 'Practice Test', lastScore: 'Last score',
   },
 } as const;
 
@@ -411,6 +413,8 @@ const vi = {
     mockTestComplete: 'Hoàn thành đề mini!', estimatedTotal: 'Tổng điểm ước lượng',
     practiceTest2Title: 'Đề thi thử #2',
     practiceTest2Desc: 'Một đề luyện tập gốc thứ hai (60 câu), đủ cả 7 Part theo đúng thứ tự đề thi thật.',
+    examsPageTitle: 'Chọn đề thi', examsPageSubtitle: 'Chọn một đề thi đầy đủ có tính giờ để làm.',
+    examLabel: 'Đề thi thử', lastScore: 'Điểm gần nhất',
   },
 };
 

@@ -57,10 +57,9 @@ export default function Toeic() {
           <span className="toeic-overview-value">10–990</span>
           <span className="toeic-overview-label">{tr.toeic.scoreRange}</span>
         </div>
-        <div className="toeic-mock-cta-group">
-          <Link to="/toeic/test" className="btn btn-primary">🕐 {tr.toeic.takeMockTest}</Link>
-          <Link to="/toeic/test/test2" className="btn btn-outline">📄 {tr.toeic.practiceTest2Title}</Link>
-        </div>
+        <Link to="/toeic/exams" className="btn btn-primary toeic-mock-cta">
+          🕐 {tr.toeic.examsPageTitle}
+        </Link>
       </div>
 
       <section className="section">
