@@ -4,6 +4,7 @@
 
 import { vocabulary } from '../data/vocabulary';
 import { translateEnToVi, translateManyEnToVi } from './translate';
+import { trackApiRequest } from '../utils/apiActivity';
 
 const DICT_API = 'https://api.dictionaryapi.dev/api/v2/entries/en';
 
@@ -60,7 +61,7 @@ export async function lookupWord(word: string): Promise<DictEntry> {
   const term = word.trim().toLowerCase();
   if (!term) throw new WordNotFoundError(word);
 
-  const res = await fetch(`${DICT_API}/${encodeURIComponent(term)}`);
+  const res = await trackApiRequest(() => fetch(`${DICT_API}/${encodeURIComponent(term)}`));
   if (res.status === 404) throw new WordNotFoundError(term);
   if (!res.ok) throw new Error(`Dictionary request failed (${res.status})`);
 

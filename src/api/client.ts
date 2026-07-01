@@ -1,4 +1,5 @@
 import { API_URL, TOKEN_KEY, REFRESH_KEY } from './config';
+import { trackApiRequest } from '../utils/apiActivity';
 
 export class ApiError extends Error {
   status: number;
@@ -65,40 +66,42 @@ async function getValidToken(): Promise<string | null> {
 }
 
 export async function apiFetch<T>(path: string, options: RequestOptions = {}): Promise<T> {
-  const { auth = false, headers: customHeaders, ...rest } = options;
-  const headers = new Headers(customHeaders);
+  return trackApiRequest(async () => {
+    const { auth = false, headers: customHeaders, ...rest } = options;
+    const headers = new Headers(customHeaders);
 
-  if (!headers.has('Content-Type') && rest.body) {
-    headers.set('Content-Type', 'application/json');
-  }
-
-  if (auth) {
-    const token = await getValidToken();
-    if (!token) throw new ApiError(401, 'Not authenticated');
-    headers.set('Authorization', `Bearer ${token}`);
-  }
-
-  let res = await fetch(`${API_URL}${path}`, { ...rest, headers });
-
-  if (auth && res.status === 401 && getRefreshToken()) {
-    const newToken = await refreshAccessToken();
-    if (newToken) {
-      headers.set('Authorization', `Bearer ${newToken}`);
-      res = await fetch(`${API_URL}${path}`, { ...rest, headers });
+    if (!headers.has('Content-Type') && rest.body) {
+      headers.set('Content-Type', 'application/json');
     }
-  }
 
-  if (!res.ok) {
-    let message = res.statusText;
-    try {
-      const err = await res.json();
-      message = err.error ?? message;
-    } catch {
-      /* ignore */
+    if (auth) {
+      const token = await getValidToken();
+      if (!token) throw new ApiError(401, 'Not authenticated');
+      headers.set('Authorization', `Bearer ${token}`);
     }
-    throw new ApiError(res.status, message);
-  }
 
-  if (res.status === 204) return undefined as T;
-  return res.json() as Promise<T>;
+    let res = await fetch(`${API_URL}${path}`, { ...rest, headers });
+
+    if (auth && res.status === 401 && getRefreshToken()) {
+      const newToken = await refreshAccessToken();
+      if (newToken) {
+        headers.set('Authorization', `Bearer ${newToken}`);
+        res = await fetch(`${API_URL}${path}`, { ...rest, headers });
+      }
+    }
+
+    if (!res.ok) {
+      let message = res.statusText;
+      try {
+        const err = await res.json();
+        message = err.error ?? message;
+      } catch {
+        /* ignore */
+      }
+      throw new ApiError(res.status, message);
+    }
+
+    if (res.status === 204) return undefined as T;
+    return res.json() as Promise<T>;
+  });
 }

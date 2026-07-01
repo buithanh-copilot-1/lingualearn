@@ -56,6 +56,56 @@ body {
   padding-bottom: calc(var(--page-padding-y) + var(--bottom-nav-height) + var(--safe-bottom));
 }
 
+/* Global API loading bar */
+.api-loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 9990;
+  background: transparent;
+  pointer-events: none;
+  padding-top: var(--safe-top);
+}
+
+.api-loading-bar-fill {
+  position: relative;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 50%, var(--accent) 100%);
+  box-shadow: 0 0 10px rgba(79, 70, 229, 0.55), 0 0 4px rgba(6, 182, 212, 0.5);
+  border-radius: 0 3px 3px 0;
+  transition: width 0.25s ease-out, opacity 0.3s ease;
+  overflow: hidden;
+}
+
+.api-loading-bar-fill.is-complete {
+  transition: width 0.2s ease-out, opacity 0.35s ease 0.15s;
+  opacity: 0;
+}
+
+.api-loading-bar-fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 50px;
+  margin-left: -50px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.75), transparent);
+  animation: apiLoadingShimmer 1.15s ease-in-out infinite;
+}
+
+@keyframes apiLoadingShimmer {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(100vw + 50px)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .api-loading-bar-fill::after {
+    display: none;
+  }
+}
+
 /* Navbar */
 .navbar {
   background: var(--surface);

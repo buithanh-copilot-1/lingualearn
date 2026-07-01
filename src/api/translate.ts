@@ -1,4 +1,6 @@
 // Machine translation via MyMemory (free tier, no API key).
+import { trackApiRequest } from '../utils/apiActivity';
+
 const TRANSLATE_API = 'https://api.mymemory.translated.net/get';
 
 interface TranslateResponse {
@@ -10,7 +12,7 @@ export async function translateEnToVi(text: string): Promise<string> {
   if (!q) return '';
 
   const url = `${TRANSLATE_API}?q=${encodeURIComponent(q)}&langpair=en|vi`;
-  const res = await fetch(url);
+  const res = await trackApiRequest(() => fetch(url));
   if (!res.ok) return '';
 
   const data = (await res.json()) as TranslateResponse;
