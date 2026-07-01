@@ -4,7 +4,9 @@ import { getListeningComprehension, extractListeningScript } from '../data/liste
 import { useProgress } from '../context/ProgressContext';
 import { useLanguage } from '../context/LanguageContext';
 import { stopSpeaking } from '../utils/speech';
+import { abortListening } from '../utils/speechRecognition';
 import ListeningPlayer from '../components/ListeningPlayer';
+import SpeechPracticePanel from '../components/SpeechPracticePanel';
 import { useState, useEffect } from 'react';
 
 export default function LessonDetail() {
@@ -19,12 +21,13 @@ export default function LessonDetail() {
   const [cqSelected, setCqSelected] = useState<number | null>(null);
   const [cqCorrect, setCqCorrect] = useState(0);
   const [autoPlay, setAutoPlay] = useState(false);
+  const [playbackFinished, setPlaybackFinished] = useState(false);
 
   const isListening = lesson?.category === 'listening';
   const comprehension = lesson ? getListeningComprehension(lesson.id) : [];
   const hasComprehension = comprehension.length > 0;
 
-  useEffect(() => () => stopSpeaking(), []);
+  useEffect(() => () => { stopSpeaking(); abortListening(); }, []);
 
   useEffect(() => {
     stopSpeaking();
@@ -59,6 +62,8 @@ export default function LessonDetail() {
 
   function goToStep(next: number) {
     stopSpeaking();
+    abortListening();
+    setPlaybackFinished(false);
     setStep(next);
   }
 
@@ -184,6 +189,12 @@ export default function LessonDetail() {
             stepKey={`${lesson.id}-${step}`}
             autoPlay={autoPlay}
             onAutoPlayChange={setAutoPlay}
+            onPlaybackFinished={setPlaybackFinished}
+          />
+          <SpeechPracticePanel
+            expectedText={listenScript}
+            stepKey={`${lesson.id}-${step}`}
+            playbackFinished={playbackFinished}
           />
           {stepNote && (
             <div className="step-card listening-step listening-note">

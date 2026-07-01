@@ -7,6 +7,7 @@ interface ListeningPlayerProps {
   stepKey: string;
   autoPlay: boolean;
   onAutoPlayChange: (value: boolean) => void;
+  onPlaybackFinished?: (finished: boolean) => void;
 }
 
 export default function ListeningPlayer({
@@ -14,12 +15,14 @@ export default function ListeningPlayer({
   stepKey,
   autoPlay,
   onAutoPlayChange,
+  onPlaybackFinished,
 }: ListeningPlayerProps) {
   const { tr } = useLanguage();
   const lt = tr.listening;
   const { status, isSupported, isActive, speak, stop, togglePause } = useSpeech();
   const autoPlayRef = useRef(autoPlay);
   const prevStepKey = useRef(stepKey);
+  const hadPlayedRef = useRef(false);
   const toggleId = useId();
 
   autoPlayRef.current = autoPlay;
@@ -27,13 +30,22 @@ export default function ListeningPlayer({
   useEffect(() => {
     if (prevStepKey.current === stepKey) return;
     prevStepKey.current = stepKey;
+    hadPlayedRef.current = false;
+    onPlaybackFinished?.(false);
     stop();
     if (autoPlayRef.current && script.trim()) {
       speak(script, 0.82);
     }
-  }, [stepKey, script, speak, stop]);
+  }, [stepKey, script, speak, stop, onPlaybackFinished]);
 
   useEffect(() => () => stop(), [stop]);
+
+  useEffect(() => {
+    if (status === 'playing') hadPlayedRef.current = true;
+    if (status === 'idle' && hadPlayedRef.current) {
+      onPlaybackFinished?.(true);
+    }
+  }, [status, onPlaybackFinished]);
 
   if (!isSupported) {
     return (
