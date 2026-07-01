@@ -3957,7 +3957,30 @@ body {
   background-color: #fef2f2;
 }
 
-.dropdown-icon {
-  font-size: 1rem;
+.dropdown-svg-icon {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2px;
+  stroke: currentColor;
+  flex-shrink: 0;
+}
+
+/* XP and Streak glow effects in Lesson completion card */
+.xp-glow {
+  box-shadow: 0 4px 12px rgba(234, 179, 8, 0.12);
+  border-color: rgba(234, 179, 8, 0.3) !important;
+}
+
+.xp-glow .stat-value {
+  color: #eab308 !important;
+}
+
+.streak-glow {
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.3) !important;
+}
+
+.streak-glow .stat-value {
+  color: #ef4444 !important;
 }
 

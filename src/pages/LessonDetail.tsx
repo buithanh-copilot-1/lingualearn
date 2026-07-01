@@ -442,6 +442,14 @@ export default function LessonDetail() {
               <span className="stat-value">100%</span>
               <span className="stat-label">{locale === 'vi' ? 'Hoàn thành' : 'Finished'}</span>
             </div>
+            <div className="lesson-stat-box xp-glow">
+              <span className="stat-value">+15 XP</span>
+              <span className="stat-label">{locale === 'vi' ? 'Điểm tích lũy' : 'XP Points'}</span>
+            </div>
+            <div className="lesson-stat-box streak-glow">
+              <span className="stat-value">🔥 {progress?.streak || 1}</span>
+              <span className="stat-label">{locale === 'vi' ? 'Ngày liên tục' : 'Day Streak'}</span>
+            </div>
           </div>
 
           <div className="lesson-complete-actions">
