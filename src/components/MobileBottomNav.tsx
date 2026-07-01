@@ -2,48 +2,46 @@ import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { useSrs } from '../hooks/useSrs';
 import { isDue } from '../utils/srs';
-import { IconBook, IconStar, IconCompass, IconBell, IconUser } from './BottomNavIcons';
+import { resolveBottomNavTab, type BottomNavTab } from '../utils/bottomNav';
+import { IconHome, IconLessons, IconLearn, IconReview, IconUser } from './BottomNavIcons';
 
 const sideItems = {
   left: [
-    { path: '/', labelKey: 'home' as const, Icon: IconBook },
-    { path: '/lessons', labelKey: 'lessons' as const, Icon: IconStar },
+    { tab: 'home' as const, path: '/', labelKey: 'home' as const, Icon: IconHome },
+    { tab: 'lessons' as const, path: '/lessons', labelKey: 'lessons' as const, Icon: IconLessons },
   ],
   right: [
-    { path: '/review', labelKey: 'review' as const, Icon: IconBell, badge: true },
-    { path: '/progress', labelKey: 'stats' as const, Icon: IconUser },
+    { tab: 'review' as const, path: '/review', labelKey: 'review' as const, Icon: IconReview, badge: true },
+    { tab: 'profile' as const, path: '/profile', labelKey: 'profile' as const, Icon: IconUser },
   ],
 };
 
 const fabItem = {
+  tab: 'learn' as const,
   path: '/practice',
   labelKey: 'practice' as const,
-  Icon: IconCompass,
-  matchPaths: ['/practice', '/speaking', '/dictionary', '/idioms', '/quiz'],
+  Icon: IconLearn,
 };
 
-function isActive(pathname: string, path: string, matchPaths?: string[]): boolean {
-  if (path === '/') return pathname === '/';
-  const paths = matchPaths ?? [path.split('?')[0]];
-  return paths.some((p) => pathname === p || pathname.startsWith(`${p}/`));
-}
-
 function SideNavItem({
+  tab,
   path,
   labelKey,
   Icon,
+  activeTab,
   badge,
   badgeCount,
 }: {
+  tab: BottomNavTab;
   path: string;
-  labelKey: 'home' | 'lessons' | 'review' | 'stats';
-  Icon: typeof IconBook;
+  labelKey: 'home' | 'lessons' | 'review' | 'profile';
+  Icon: typeof IconHome;
+  activeTab: BottomNavTab | null;
   badge?: boolean;
   badgeCount?: number;
 }) {
-  const location = useLocation();
   const { tr } = useLanguage();
-  const active = isActive(location.pathname, path);
+  const active = activeTab === tab;
 
   return (
     <Link
@@ -69,13 +67,14 @@ export default function MobileBottomNav() {
   const { tr } = useLanguage();
   const { deck } = useSrs();
   const dueCount = Object.values(deck).filter(isDue).length;
-  const fabActive = isActive(location.pathname, fabItem.path, fabItem.matchPaths);
+  const activeTab = resolveBottomNavTab(location.pathname);
+  const fabActive = activeTab === fabItem.tab;
 
   return (
     <nav className="bottom-nav" aria-label="Mobile navigation">
       <div className="bottom-nav-bar">
         {sideItems.left.map((item) => (
-          <SideNavItem key={item.path} {...item} />
+          <SideNavItem key={item.tab} {...item} activeTab={activeTab} />
         ))}
 
         <div className="bottom-nav-fab-slot">
@@ -95,8 +94,9 @@ export default function MobileBottomNav() {
 
         {sideItems.right.map((item) => (
           <SideNavItem
-            key={item.path}
+            key={item.tab}
             {...item}
+            activeTab={activeTab}
             badgeCount={item.badge ? dueCount : undefined}
           />
         ))}
