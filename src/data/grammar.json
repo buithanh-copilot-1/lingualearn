@@ -2,7 +2,9 @@
   {
     "id": "g1",
     "title": "Present Simple",
+    "titleVi": "Thì hiện tại đơn",
     "description": "The foundation of English — used for habits, facts, and routines.",
+    "descriptionVi": "Nền tảng của tiếng Anh — dùng cho thói quen, sự thật hiển nhiên và việc lặp lại hàng ngày.",
     "level": "beginner",
     "rules": [
       "Use for daily routines: \"I wake up at 7 AM.\"",
@@ -10,25 +12,39 @@
       "Add -s/-es for he/she/it: \"He plays tennis.\"",
       "Use do/does for questions and negatives."
     ],
+    "rulesVi": [
+      "Dùng cho việc hàng ngày: \"I wake up at 7 AM.\" (Tôi thức dậy lúc 7 giờ sáng.)",
+      "Dùng cho sự thật chung: \"The sun rises in the east.\" (Mặt trời mọc ở phía đông.)",
+      "Ngôi thứ 3 số ít (he/she/it) thêm -s/-es: \"He plays tennis.\"",
+      "Câu hỏi/phủ định dùng do/does + động từ nguyên mẫu."
+    ],
     "examples": [
       {
         "sentence": "She works in a hospital.",
-        "explanation": "Third person singular — add -s to the verb."
+        "sentenceVi": "Cô ấy làm việc ở bệnh viện.",
+        "explanation": "Third person singular — add -s to the verb.",
+        "explanationVi": "Chủ ngữ ngôi thứ 3 số ít — động từ thêm -s."
       },
       {
         "sentence": "Do they live in Hanoi?",
-        "explanation": "Question form with \"do\" + base verb."
+        "sentenceVi": "Họ có sống ở Hà Nội không?",
+        "explanation": "Question form with \"do\" + base verb.",
+        "explanationVi": "Câu hỏi dùng \"do\" + động từ nguyên mẫu."
       },
       {
         "sentence": "I don't eat meat.",
-        "explanation": "Negative with \"don't\" + base verb."
+        "sentenceVi": "Tôi không ăn thịt.",
+        "explanation": "Negative with \"don't\" + base verb.",
+        "explanationVi": "Câu phủ định dùng \"don't\" + động từ nguyên mẫu."
       }
     ]
   },
   {
     "id": "g2",
     "title": "Present Continuous",
+    "titleVi": "Thì hiện tại tiếp diễn",
     "description": "Describe actions happening right now or temporary situations.",
+    "descriptionVi": "Diễn tả hành động đang xảy ra ngay lúc nói hoặc tình huống tạm thời.",
     "level": "beginner",
     "rules": [
       "Form: am/is/are + verb-ing",
@@ -36,25 +52,39 @@
       "Use for temporary situations: \"She is staying with friends.\"",
       "Some verbs (know, like, want) are NOT used in continuous form."
     ],
+    "rulesVi": [
+      "Cấu trúc: am/is/are + V-ing",
+      "Hành động đang diễn ra: \"I am studying.\" (Tôi đang học.)",
+      "Tình huống tạm thời: \"She is staying with friends.\" (Cô ấy đang ở cùng bạn bè.)",
+      "Một số động từ (know, like, want) KHÔNG dùng ở thì tiếp diễn."
+    ],
     "examples": [
       {
         "sentence": "They are watching a movie.",
-        "explanation": "Action in progress right now."
+        "sentenceVi": "Họ đang xem phim.",
+        "explanation": "Action in progress right now.",
+        "explanationVi": "Hành động đang diễn ra tại thời điểm nói."
       },
       {
         "sentence": "Is it raining outside?",
-        "explanation": "Question with \"is\" + verb-ing."
+        "sentenceVi": "Ngoài trời có đang mưa không?",
+        "explanation": "Question with \"is\" + verb-ing.",
+        "explanationVi": "Câu hỏi dùng \"is\" + V-ing."
       },
       {
         "sentence": "He isn't working today.",
-        "explanation": "Negative with \"isn't\" + verb-ing."
+        "sentenceVi": "Hôm nay anh ấy không đi làm.",
+        "explanation": "Negative with \"isn't\" + verb-ing.",
+        "explanationVi": "Câu phủ định dùng \"isn't\" + V-ing."
       }
     ]
   },
   {
     "id": "g3",
     "title": "Past Simple",
+    "titleVi": "Thì quá khứ đơn",
     "description": "Talk about completed actions at a specific time in the past.",
+    "descriptionVi": "Nói về hành động đã hoàn thành tại một thời điểm xác định trong quá khứ.",
     "level": "intermediate",
     "rules": [
       "Regular verbs: add -ed (worked, played, watched).",
@@ -62,25 +92,39 @@
       "Use with time expressions: yesterday, last week, in 2019.",
       "Questions: Did + subject + base verb?"
     ],
+    "rulesVi": [
+      "Động từ có quy tắc: thêm -ed (worked, played, watched).",
+      "Động từ bất quy tắc cần học thuộc (went, saw, bought).",
+      "Thường đi với: yesterday, last week, in 2019...",
+      "Câu hỏi: Did + chủ ngữ + động từ nguyên mẫu?"
+    ],
     "examples": [
       {
         "sentence": "We visited Paris last summer.",
-        "explanation": "Regular verb with -ed ending."
+        "sentenceVi": "Mùa hè năm ngoái chúng tôi đã đến Paris.",
+        "explanation": "Regular verb with -ed ending.",
+        "explanationVi": "Động từ có quy tắc — thêm đuôi -ed."
       },
       {
         "sentence": "She didn't come to the party.",
-        "explanation": "Negative with \"didn't\" + base verb."
+        "sentenceVi": "Cô ấy đã không đến bữa tiệc.",
+        "explanation": "Negative with \"didn't\" + base verb.",
+        "explanationVi": "Câu phủ định dùng \"didn't\" + động từ nguyên mẫu."
       },
       {
         "sentence": "Did you enjoy the concert?",
-        "explanation": "Question form in Past Simple."
+        "sentenceVi": "Bạn có thích buổi hòa nhạc không?",
+        "explanation": "Question form in Past Simple.",
+        "explanationVi": "Câu hỏi ở thì quá khứ đơn."
       }
     ]
   },
   {
     "id": "g4",
     "title": "Present Perfect",
+    "titleVi": "Thì hiện tại hoàn thành",
     "description": "Connect the past with the present — experiences and recent events.",
+    "descriptionVi": "Liên kết quá khứ với hiện tại — kinh nghiệm sống hoặc việc vừa mới xảy ra.",
     "level": "intermediate",
     "rules": [
       "Form: have/has + past participle",
@@ -88,25 +132,39 @@
       "Use for recent actions with present relevance: \"She has just arrived.\"",
       "Time expressions: ever, never, already, yet, just, since, for."
     ],
+    "rulesVi": [
+      "Cấu trúc: have/has + quá khứ phân từ (V3)",
+      "Kinh nghiệm trong đời: \"I have visited Japan.\" (Tôi đã từng đến Nhật.)",
+      "Việc vừa xảy ra, còn liên quan hiện tại: \"She has just arrived.\"",
+      "Trạng từ thường gặp: ever, never, already, yet, just, since, for."
+    ],
     "examples": [
       {
         "sentence": "I have lived here for 5 years.",
-        "explanation": "Action started in past, continues to present."
+        "sentenceVi": "Tôi đã sống ở đây được 5 năm.",
+        "explanation": "Action started in past, continues to present.",
+        "explanationVi": "Hành động bắt đầu từ quá khứ và kéo dài đến hiện tại."
       },
       {
         "sentence": "Have you ever tried sushi?",
-        "explanation": "Asking about life experience."
+        "sentenceVi": "Bạn đã từng thử sushi chưa?",
+        "explanation": "Asking about life experience.",
+        "explanationVi": "Hỏi về kinh nghiệm đã có hay chưa."
       },
       {
         "sentence": "He hasn't finished his homework yet.",
-        "explanation": "Negative — action not completed."
+        "sentenceVi": "Anh ấy vẫn chưa làm xong bài tập.",
+        "explanation": "Negative — action not completed.",
+        "explanationVi": "Câu phủ định — hành động chưa hoàn thành."
       }
     ]
   },
   {
     "id": "g5",
     "title": "Conditionals (If clauses)",
+    "titleVi": "Câu điều kiện (If)",
     "description": "Express hypothetical situations and their consequences.",
+    "descriptionVi": "Diễn tả tình huống giả định và kết quả có thể xảy ra.",
     "level": "advanced",
     "rules": [
       "Zero Conditional: If + present, present — general truths.",
@@ -114,25 +172,39 @@
       "Second Conditional: If + past, would — unreal present/future.",
       "Third Conditional: If + past perfect, would have — unreal past."
     ],
+    "rulesVi": [
+      "Loại 0: If + hiện tại, hiện tại — sự thật hiển nhiên.",
+      "Loại 1: If + hiện tại, will — khả năng thật ở tương lai.",
+      "Loại 2: If + quá khứ, would — giả định không có thật ở hiện tại/tương lai.",
+      "Loại 3: If + quá khứ hoàn thành, would have — giả định về quá khứ (tiếc nuối)."
+    ],
     "examples": [
       {
         "sentence": "If it rains, I will stay home.",
-        "explanation": "First Conditional — real possibility."
+        "sentenceVi": "Nếu trời mưa, tôi sẽ ở nhà.",
+        "explanation": "First Conditional — real possibility.",
+        "explanationVi": "Câu điều kiện loại 1 — khả năng có thật."
       },
       {
         "sentence": "If I were rich, I would travel the world.",
-        "explanation": "Second Conditional — hypothetical."
+        "sentenceVi": "Nếu tôi giàu, tôi sẽ đi du lịch vòng quanh thế giới.",
+        "explanation": "Second Conditional — hypothetical.",
+        "explanationVi": "Câu điều kiện loại 2 — tình huống giả định."
       },
       {
         "sentence": "If I had studied harder, I would have passed.",
-        "explanation": "Third Conditional — regret about past."
+        "sentenceVi": "Nếu tôi học chăm hơn, tôi đã đỗ rồi.",
+        "explanation": "Third Conditional — regret about past.",
+        "explanationVi": "Câu điều kiện loại 3 — tiếc nuối về quá khứ."
       }
     ]
   },
   {
     "id": "g6",
     "title": "Future Simple (Will & Going to)",
+    "titleVi": "Thì tương lai (Will & Going to)",
     "description": "Talk about future plans, predictions, and quick decisions.",
+    "descriptionVi": "Nói về kế hoạch, dự đoán và quyết định tức thì trong tương lai.",
     "level": "beginner",
     "rules": [
       "Will + base verb — predictions and decisions at the moment of speaking.",
@@ -140,25 +212,39 @@
       "Won't = will not for negative future statements.",
       "Time expressions: tomorrow, next month, in two hours, soon."
     ],
+    "rulesVi": [
+      "Will + V nguyên mẫu — dự đoán hoặc quyết định lúc đang nói.",
+      "Going to + V nguyên mẫu — kế hoạch/ý định đã có từ trước.",
+      "Won't = will not cho câu phủ định ở tương lai.",
+      "Thời gian: tomorrow, next month, in two hours, soon..."
+    ],
     "examples": [
       {
         "sentence": "I think it will rain this afternoon.",
-        "explanation": "Prediction about the future."
+        "sentenceVi": "Tôi nghĩ chiều nay trời sẽ mưa.",
+        "explanation": "Prediction about the future.",
+        "explanationVi": "Dự đoán về tương lai."
       },
       {
         "sentence": "We're going to visit Da Nang next week.",
-        "explanation": "Plan made before now."
+        "sentenceVi": "Tuần sau chúng tôi sẽ đi Đà Nẵng.",
+        "explanation": "Plan made before now.",
+        "explanationVi": "Kế hoạch đã định từ trước."
       },
       {
         "sentence": "I'll help you with that.",
-        "explanation": "Spontaneous offer using \"will\"."
+        "sentenceVi": "Tôi sẽ giúp bạn việc đó.",
+        "explanation": "Spontaneous offer using \"will\".",
+        "explanationVi": "Đề nghị giúp đỡ ngay lúc nói — dùng \"will\"."
       }
     ]
   },
   {
     "id": "g7",
     "title": "Articles (A, An, The)",
+    "titleVi": "Mạo từ (A, An, The)",
     "description": "Use articles correctly with nouns in English.",
+    "descriptionVi": "Dùng mạo từ đúng với danh từ trong tiếng Anh.",
     "level": "beginner",
     "rules": [
       "Use \"a\" before consonant sounds: a book, a university (yoo- sound).",
@@ -166,25 +252,39 @@
       "Use \"the\" when the listener knows which thing you mean.",
       "No article with plural general nouns: \"Children love games.\""
     ],
+    "rulesVi": [
+      "Dùng \"a\" trước âm phụ âm: a book, a university (phát âm /juː/).",
+      "Dùng \"an\" trước âm nguyên âm: an apple, an hour (h câm).",
+      "Dùng \"the\" khi người nghe biết rõ đang nói về cái gì.",
+      "Không dùng mạo từ với danh từ số nhiều mang nghĩa chung."
+    ],
     "examples": [
       {
         "sentence": "I saw a movie yesterday. The movie was great.",
-        "explanation": "First mention uses \"a\"; second mention uses \"the\"."
+        "sentenceVi": "Hôm qua tôi xem một bộ phim. Bộ phim đó rất hay.",
+        "explanation": "First mention uses \"a\"; second mention uses \"the\".",
+        "explanationVi": "Lần đầu dùng \"a\"; lần sau dùng \"the\"."
       },
       {
         "sentence": "She is an honest person.",
-        "explanation": "\"Honest\" starts with a vowel sound — use \"an\"."
+        "sentenceVi": "Cô ấy là một người trung thực.",
+        "explanation": "\"Honest\" starts with a vowel sound — use \"an\".",
+        "explanationVi": "\"Honest\" bắt đầu bằng nguyên âm — dùng \"an\"."
       },
       {
         "sentence": "The sun rises in the east.",
-        "explanation": "Unique things often take \"the\"."
+        "sentenceVi": "Mặt trời mọc ở phía đông.",
+        "explanation": "Unique things often take \"the\".",
+        "explanationVi": "Sự vật duy nhất thường dùng \"the\"."
       }
     ]
   },
   {
     "id": "g8",
     "title": "Comparatives & Superlatives",
+    "titleVi": "So sánh hơn & so sánh nhất",
     "description": "Compare people, places, and things.",
+    "descriptionVi": "So sánh người, địa điểm và sự vật.",
     "level": "intermediate",
     "rules": [
       "Short adjectives: add -er (taller, cheaper) or -est (tallest).",
@@ -192,25 +292,39 @@
       "Irregular: good → better → best; bad → worse → worst.",
       "Use than in comparisons: \"She is taller than me.\""
     ],
+    "rulesVi": [
+      "Tính từ ngắn: thêm -er/-est (taller, cheapest).",
+      "Tính từ dài: more/most + tính từ (more expensive, most interesting).",
+      "Bất quy tắc: good → better → best; bad → worse → worst.",
+      "So sánh hơn dùng \"than\": \"She is taller than me.\""
+    ],
     "examples": [
       {
         "sentence": "This hotel is cheaper than that one.",
-        "explanation": "Comparative with short adjective + than."
+        "sentenceVi": "Khách sạn này rẻ hơn khách sạn kia.",
+        "explanation": "Comparative with short adjective + than.",
+        "explanationVi": "So sánh hơn với tính từ ngắn + than."
       },
       {
         "sentence": "It was the most exciting trip of my life.",
-        "explanation": "Superlative with \"most\" + long adjective."
+        "sentenceVi": "Đó là chuyến đi thú vị nhất trong đời tôi.",
+        "explanation": "Superlative with \"most\" + long adjective.",
+        "explanationVi": "So sánh nhất với \"most\" + tính từ dài."
       },
       {
         "sentence": "English is easier than I expected.",
-        "explanation": "Irregular comparative form of \"easy\"."
+        "sentenceVi": "Tiếng Anh dễ hơn tôi nghĩ.",
+        "explanation": "Irregular comparative form of \"easy\".",
+        "explanationVi": "Dạng so sánh bất quy tắc của \"easy\" → easier."
       }
     ]
   },
   {
     "id": "g9",
     "title": "Modal Verbs",
+    "titleVi": "Động từ khuyết thiếu",
     "description": "Express ability, permission, obligation, and advice.",
+    "descriptionVi": "Diễn tả khả năng, sự cho phép, bắt buộc và lời khuyên.",
     "level": "intermediate",
     "rules": [
       "Can — present ability; Could — polite requests or past ability.",
@@ -218,25 +332,39 @@
       "Should — advice or recommendation.",
       "Modals are followed by base verb (no to): \"She can swim.\""
     ],
+    "rulesVi": [
+      "Can — khả năng hiện tại; Could — lời yêu cầu lịch sự hoặc khả năng quá khứ.",
+      "Must / Have to — bắt buộc; Mustn't — cấm.",
+      "Should — lời khuyên, gợi ý.",
+      "Sau động từ khuyết thiếu là V nguyên mẫu (không có \"to\")."
+    ],
     "examples": [
       {
         "sentence": "You should see a doctor.",
-        "explanation": "Giving advice with \"should\"."
+        "sentenceVi": "Bạn nên đi gặp bác sĩ.",
+        "explanation": "Giving advice with \"should\".",
+        "explanationVi": "Đưa lời khuyên với \"should\"."
       },
       {
         "sentence": "Could you speak more slowly, please?",
-        "explanation": "Polite request with \"could\"."
+        "sentenceVi": "Bạn có thể nói chậm hơn được không?",
+        "explanation": "Polite request with \"could\".",
+        "explanationVi": "Yêu cầu lịch sự với \"could\"."
       },
       {
         "sentence": "Students mustn't use phones in the exam.",
-        "explanation": "Prohibition with \"mustn't\"."
+        "sentenceVi": "Học sinh không được dùng điện thoại trong kỳ thi.",
+        "explanation": "Prohibition with \"mustn't\".",
+        "explanationVi": "Cấm làm gì với \"mustn't\"."
       }
     ]
   },
   {
     "id": "g10",
     "title": "Phrasal Verbs Basics",
+    "titleVi": "Cụm động từ cơ bản",
     "description": "Common verb + particle combinations in everyday English.",
+    "descriptionVi": "Các kết hợp động từ + tiểu từ thông dụng trong giao tiếp hàng ngày.",
     "level": "advanced",
     "rules": [
       "Phrasal verb = verb + particle (up, off, on, out) with new meaning.",
@@ -244,18 +372,30 @@
       "Some are inseparable: \"Look after the baby\" (not \"Look the baby after\").",
       "Context often reveals meaning — learn them in phrases."
     ],
+    "rulesVi": [
+      "Cụm động từ = động từ + tiểu từ (up, off, on, out) mang nghĩa mới.",
+      "Có cụm tách được: \"Turn off the light\" / \"Turn the light off.\"",
+      "Có cụm không tách được: \"Look after the baby\" (không nói \"Look the baby after\").",
+      "Nên học theo ngữ cảnh cụm, không dịch từng từ riêng lẻ."
+    ],
     "examples": [
       {
         "sentence": "Please turn down the music.",
-        "explanation": "\"Turn down\" means reduce volume."
+        "sentenceVi": "Làm ơn vặn nhỏ nhạc lại.",
+        "explanation": "\"Turn down\" means reduce volume.",
+        "explanationVi": "\"Turn down\" nghĩa là giảm âm lượng."
       },
       {
         "sentence": "I need to figure out this problem.",
-        "explanation": "\"Figure out\" means find a solution."
+        "sentenceVi": "Tôi cần tìm ra cách giải quyết vấn đề này.",
+        "explanation": "\"Figure out\" means find a solution.",
+        "explanationVi": "\"Figure out\" nghĩa là tìm ra giải pháp."
       },
       {
         "sentence": "She gave up smoking last year.",
-        "explanation": "\"Give up\" means stop trying or quit a habit."
+        "sentenceVi": "Cô ấy đã bỏ hút thuốc năm ngoái.",
+        "explanation": "\"Give up\" means stop trying or quit a habit.",
+        "explanationVi": "\"Give up\" nghĩa là từ bỏ hoặc bỏ một thói quen."
       }
     ]
   }

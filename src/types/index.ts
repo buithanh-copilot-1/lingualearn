@@ -33,12 +33,22 @@ export interface QuizQuestion {
   level: Level;
 }
 
+export interface GrammarExample {
+  sentence: string;
+  sentenceVi?: string;
+  explanation: string;
+  explanationVi?: string;
+}
+
 export interface GrammarTopic {
   id: string;
   title: string;
+  titleVi?: string;
   description: string;
+  descriptionVi?: string;
   rules: string[];
-  examples: { sentence: string; explanation: string }[];
+  rulesVi?: string[];
+  examples: GrammarExample[];
   level: Level;
 }
 

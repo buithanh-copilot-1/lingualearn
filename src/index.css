@@ -380,6 +380,11 @@ body {
 
 .progress-grid { display: flex; flex-direction: column; gap: 1rem; }
 
+.page {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
 /* Page */
 .page-header { margin-bottom: 2rem; }
 .page-header h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; }
@@ -1016,6 +1021,259 @@ body {
 }
 
 /* Grammar */
+.grammar-page .grammar-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.grammar-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.grammar-stat-value {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.grammar-stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.grammar-progress-wrap {
+  grid-column: 1 / -1;
+}
+
+.grammar-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.grammar-search { width: 100%; max-width: none; }
+
+.grammar-topic-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.grammar-topic {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.grammar-topic-reviewed { border-left: 3px solid var(--success); }
+.grammar-topic-expanded { box-shadow: var(--shadow); border-color: var(--primary-light); }
+
+.grammar-topic-header {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1rem 1.1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  color: inherit;
+}
+
+.grammar-topic-heading { min-width: 0; flex: 1; }
+
+.grammar-topic-heading h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.35;
+}
+
+.grammar-topic-title-vi {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-top: 0.15rem;
+}
+
+.grammar-topic-preview {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.35rem;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.grammar-topic-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.grammar-topic-chevron {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-left: 0.25rem;
+}
+
+.grammar-topic-body {
+  padding: 0 1.1rem 1.1rem;
+  border-top: 1px solid var(--border);
+}
+
+.grammar-detail-section {
+  margin-top: 0.85rem;
+  padding: 0.8rem 0.95rem;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.grammar-detail-section-primary {
+  background: linear-gradient(135deg, #eef2ff, #f0fdfa);
+  border-color: #c7d2fe;
+}
+
+.grammar-detail-section h3 {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.grammar-detail-en {
+  font-size: 0.92rem;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.grammar-detail-vi {
+  margin-top: 0.4rem;
+  font-size: 0.92rem;
+  color: var(--accent);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.grammar-rules-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  counter-reset: grammar-rule;
+}
+
+.grammar-rules-list li {
+  counter-increment: grammar-rule;
+  padding-left: 1.75rem;
+  position: relative;
+}
+
+.grammar-rules-list li::before {
+  content: counter(grammar-rule);
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grammar-rule-en {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.grammar-rule-vi {
+  margin-top: 0.25rem;
+  font-size: 0.88rem;
+  color: var(--accent);
+  line-height: 1.45;
+}
+
+.grammar-examples-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.grammar-example-card {
+  padding: 0.75rem 0.85rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.grammar-example-sentence {
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.45;
+  word-break: break-word;
+}
+
+.grammar-example-sentence-vi {
+  margin-top: 0.35rem;
+  font-size: 0.88rem;
+  color: var(--accent);
+  line-height: 1.45;
+}
+
+.grammar-example-note {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.grammar-example-note-vi {
+  margin-top: 0.2rem;
+  font-size: 0.85rem;
+  color: var(--text);
+  line-height: 1.45;
+}
+
+.grammar-inline-label {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.grammar-topic-actions {
+  margin-top: 0.85rem;
+}
+
+/* Legacy grammar card styles (lessons) */
 .grammar-list { display: flex; flex-direction: column; gap: 1.5rem; }
 
 .grammar-card {
@@ -1607,9 +1865,25 @@ body {
   .vocab-pagination { flex-wrap: wrap; }
 
   /* Grammar */
+  .grammar-topic-header { padding: 0.85rem 0.9rem; }
+  .grammar-topic-heading h2 { font-size: 1rem; }
+  .grammar-topic-badges { flex-wrap: wrap; justify-content: flex-end; }
+  .grammar-topic-body { padding: 0 0.9rem 0.9rem; }
+  .grammar-stats { padding: 0.85rem 1rem; }
+  .grammar-stat-value { font-size: 1.15rem; }
   .grammar-card { padding: 1.25rem; }
   .grammar-card-header { flex-wrap: wrap; }
   .grammar-card h2 { font-size: 1.1rem; }
+
+  /* Vocabulary detail */
+  .vocab-detail-header { flex-direction: column; align-items: stretch; }
+  .vocab-detail-header .btn { width: 100%; }
+  .vocab-row-title h3 { font-size: 0.98rem; }
+  .vocab-pagination .btn { flex: 1; min-width: 0; }
+  .study-actions { flex-direction: column; }
+  .study-actions .btn { width: 100%; }
+  .study-prompt-card { padding: 1.5rem 1rem; }
+  .study-prompt-word { font-size: 1.85rem; }
 
   /* Quiz */
   .quiz-card { padding: 1.25rem; }
@@ -1662,6 +1936,10 @@ body {
   .bottom-nav-label { font-size: 0.6rem; }
   .bottom-nav-icon { font-size: 1.2rem; }
   .logo-text { display: none; }
+  .vocab-stats { grid-template-columns: 1fr 1fr; }
+  .vocab-stats .vocab-progress-wrap { grid-column: 1 / -1; }
+  .grammar-stats { grid-template-columns: 1fr 1fr; }
+  .grammar-progress-wrap { grid-column: 1 / -1; }
 }
 
 /* Desktop only hover effects */
@@ -2008,7 +2286,11 @@ body {
   .review-grades { gap: 0.4rem; }
   .review-grade { padding: 0.7rem 0.25rem; font-size: 0.8rem; }
   .speaking-target { font-size: 1.25rem; }
-  .speaking-actions .btn { flex: 1; min-height: 44px; }
-  .dict-search .btn { min-height: 44px; }
+  .speaking-actions { flex-direction: column; }
+  .speaking-actions .btn { width: 100%; min-height: 44px; }
+  .dict-search { flex-direction: column; }
+  .dict-search .btn { width: 100%; min-height: 44px; }
   .idiom-list { grid-template-columns: 1fr; }
+  .idiom-card-header { flex-direction: column; align-items: flex-start; }
+  .vocab-row-main { padding: 0.75rem 0.85rem; }
 }
