@@ -25,10 +25,12 @@ export default function ListenButton({
 }: Props) {
   const { tr } = useLanguage();
   const speechId = id ?? (audioUrl ? `audio:${text}` : text);
-  const { isSpeaking } = useSpeechState(speechId);
+  const { isSpeaking, isPaused } = useSpeechState(speechId);
+  const playLabel = isPaused ? tr.common.resume : label;
 
   function handlePlay(e: MouseEvent<HTMLButtonElement>) {
     if (stopPropagation) e.stopPropagation();
+    // Resumes from where it was paused when the id/resource still matches.
     void playSpeech(text, { audioUrl, id: speechId });
   }
 
@@ -42,8 +44,8 @@ export default function ListenButton({
       <div className={`listen-btn-group listen-btn-group-icon ${className}`}>
         <button
           type="button"
-          className={`listen-btn listen-btn-icon ${isSpeaking ? 'listen-btn-active' : ''}`}
-          aria-label={label}
+          className={`listen-btn listen-btn-icon ${isSpeaking ? 'listen-btn-active' : ''} ${isPaused ? 'listen-btn-paused' : ''}`}
+          aria-label={playLabel}
           aria-pressed={isSpeaking}
           onClick={handlePlay}
           disabled={isSpeaking}
@@ -57,7 +59,7 @@ export default function ListenButton({
             aria-label={tr.common.stop}
             onClick={handleStop}
           >
-            ⏹
+            ⏸
           </button>
         )}
       </div>
@@ -74,6 +76,7 @@ export default function ListenButton({
           ? 'btn btn-sm btn-outline'
           : '',
     isSpeaking ? 'listen-btn-active' : '',
+    isPaused ? 'listen-btn-paused' : '',
   ]
     .filter(Boolean)
     .join(' ');
@@ -89,7 +92,7 @@ export default function ListenButton({
       >
         <SoundWave active={isSpeaking} size={variant === 'large' ? 'md' : 'sm'} />
         <span className="listen-btn-label">
-          {isSpeaking ? tr.common.listening : label}
+          {isSpeaking ? tr.common.listening : playLabel}
         </span>
       </button>
       {isSpeaking && (
@@ -98,7 +101,7 @@ export default function ListenButton({
           className={`listen-btn listen-btn-stop ${variant === 'outline' || variant === 'default' ? 'btn btn-sm btn-outline' : ''}`}
           onClick={handleStop}
         >
-          ⏹ <span className="listen-btn-label">{tr.common.stop}</span>
+          ⏸ <span className="listen-btn-label">{tr.common.stop}</span>
         </button>
       )}
     </div>

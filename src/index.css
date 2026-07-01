@@ -2361,6 +2361,11 @@ body {
   background: #eef2ff !important;
   box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
 }
+.listen-btn-paused {
+  border-color: var(--warning) !important;
+  color: #b45309 !important;
+  background: #fffbeb !important;
+}
 .listen-btn-label { white-space: nowrap; }
 
 .listen-btn-group {
@@ -3972,10 +3977,21 @@ body {
   cursor: default;
 }
 
+.audio-play-btn.paused {
+  background-color: var(--warning);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
+}
+
 .btn-audio-mini-active {
   background: #fef2f2 !important;
   color: #b91c1c !important;
   border-color: #fca5a5 !important;
+}
+
+.btn-audio-mini-paused {
+  background: #fffbeb !important;
+  color: #b45309 !important;
+  border-color: #fcd34d !important;
 }
 
 .speed-toggle-btn {

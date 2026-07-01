@@ -1,7 +1,7 @@
 import type { Locale } from '../types';
 
 const en = {
-  common: { loading: 'Loading...', listening: 'Playing...', stop: 'Stop' },
+  common: { loading: 'Loading...', listening: 'Playing...', stop: 'Pause', resume: 'Resume' },
   nav: { home: 'Home', lessons: 'Lessons', vocabulary: 'Vocabulary', grammar: 'Grammar', quiz: 'Quiz', practice: 'Practice', toeic: 'TOEIC', progress: 'Progress', settings: 'Settings', profile: 'Profile', login: 'Sign In', logout: 'Sign Out' },
   bottom: { home: 'Home', lessons: 'Lessons', practice: 'Learn', review: 'Review', profile: 'Me' },
   home: {
@@ -210,7 +210,7 @@ const en = {
 } as const;
 
 const vi = {
-  common: { loading: 'Đang tải...', listening: 'Đang phát...', stop: 'Dừng' },
+  common: { loading: 'Đang tải...', listening: 'Đang phát...', stop: 'Tạm dừng', resume: 'Tiếp tục' },
   nav: { home: 'Trang chủ', lessons: 'Bài học', vocabulary: 'Từ vựng', grammar: 'Ngữ pháp', quiz: 'Kiểm tra', practice: 'Luyện tập', toeic: 'TOEIC', progress: 'Tiến độ', settings: 'Cài đặt', profile: 'Trang cá nhân', login: 'Đăng nhập', logout: 'Đăng xuất' },
   bottom: { home: 'Trang chủ', lessons: 'Bài học', practice: 'Học', review: 'Ôn tập', profile: 'Tôi' },
   home: {
