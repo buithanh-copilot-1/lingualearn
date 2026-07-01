@@ -121,7 +121,7 @@ function playAudioFeedback(type: 'correct' | 'incorrect') {
 
 interface FlowStep {
   id: string;
-  type: 'learn' | 'quiz_choice' | 'quiz_scramble' | 'quiz_speak';
+  type: 'learn' | 'quiz_choice' | 'quiz_scramble' | 'quiz_speak' | 'quiz_write';
   english: string;
   translation: string;
   speaker?: string;
@@ -149,6 +149,7 @@ export default function LessonDetail() {
   // Quiz States
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [scrambleOutput, setScrambleOutput] = useState<string[]>([]);
+  const [writeInput, setWriteInput] = useState('');
   const [evaluation, setEvaluation] = useState<'correct' | 'incorrect' | null>(null);
   const [isChecking, setIsChecking] = useState(false);
 
@@ -208,7 +209,7 @@ export default function LessonDetail() {
 
       // If step has translation, weave in mini-games/quizzes
       if (step.translation) {
-        if (idx % 2 === 0) {
+        if (idx % 3 === 0) {
           // Multiple choice
           const distractors = parsed
             .filter((_, dIdx) => dIdx !== idx)
@@ -240,7 +241,7 @@ export default function LessonDetail() {
             options,
             correctIndex: options.indexOf(step.translation),
           });
-        } else {
+        } else if (idx % 3 === 1) {
           // Scrambled Sentence Game
           const cleanText = step.english
             .replace(/[.,/#!$%^&*;:{}=\-_`~()?]/g, '')
@@ -255,7 +256,23 @@ export default function LessonDetail() {
               translation: step.translation,
               scrambledWords: [...words].sort(() => Math.random() - 0.5),
             });
+          } else {
+            // Fallback to quiz_write if too short/long
+            flow.push({
+              id: `write-${idx}`,
+              type: 'quiz_write',
+              english: step.english,
+              translation: step.translation,
+            });
           }
+        } else {
+          // Translate and Write step (quiz_write)
+          flow.push({
+            id: `write-${idx}`,
+            type: 'quiz_write',
+            english: step.english,
+            translation: step.translation,
+          });
         }
 
         // Add Speaking check at key milestones (every 3 steps or final step)
@@ -305,6 +322,7 @@ export default function LessonDetail() {
     setShowTranslation(false);
     setSelectedOption(null);
     setScrambleOutput([]);
+    setWriteInput('');
     setEvaluation(null);
     setSpeakingScore(null);
     setSpeakingError(null);
@@ -403,11 +421,24 @@ export default function LessonDetail() {
         .trim();
       const outputSentence = scrambleOutput.join(' ').toLowerCase().trim();
       correct = outputSentence === cleanTarget;
+    } else if (currentStep.type === 'quiz_write') {
+      const cleanTarget = currentStep.english
+        .replace(/[.,/#!$%^&*;:{}=\-_`~()?]/g, '')
+        .replace(/\s{2,}/g, ' ')
+        .toLowerCase()
+        .trim();
+      const cleanInput = writeInput
+        .replace(/[.,/#!$%^&*;:{}=\-_`~()?]/g, '')
+        .replace(/\s{2,}/g, ' ')
+        .toLowerCase()
+        .trim();
+      correct = cleanInput === cleanTarget;
     }
 
     if (correct) {
       playAudioFeedback('correct');
       setEvaluation('correct');
+      handlePlaySpeech(currentStep.english);
     } else {
       playAudioFeedback('incorrect');
       setEvaluation('incorrect');
@@ -449,7 +480,8 @@ export default function LessonDetail() {
         }
         const canCheck =
           (step.type === 'quiz_choice' && selectedOption !== null) ||
-          (step.type === 'quiz_scramble' && scrambleOutput.length > 0);
+          (step.type === 'quiz_scramble' && scrambleOutput.length > 0) ||
+          (step.type === 'quiz_write' && writeInput.trim().length > 0);
 
         if (canCheck && !isChecking) {
           checkAnswer();
@@ -733,6 +765,36 @@ export default function LessonDetail() {
           </div>
         )}
 
+        {currentStep.type === 'quiz_write' && (
+          <div className="quiz-step-card card-pop animate-fade-in">
+            <h3 className="quiz-prompt-title">
+              {locale === 'vi' ? 'Dịch câu này sang tiếng Anh:' : 'Translate this sentence into English:'}
+            </h3>
+
+            <div className="write-vietnamese-cue">
+              💡 {currentStep.translation}
+            </div>
+
+            <div className="write-input-container">
+              <textarea
+                disabled={evaluation !== null}
+                className={`write-text-input ${
+                  evaluation === 'correct' ? 'correct-border' : evaluation === 'incorrect' ? 'incorrect-border' : ''
+                }`}
+                placeholder={locale === 'vi' ? 'Nhập câu trả lời bằng tiếng Anh...' : 'Type English sentence here...'}
+                value={writeInput}
+                onChange={(e) => setWriteInput(e.target.value)}
+                rows={3}
+                autoFocus
+              />
+            </div>
+
+            <div className="write-hint-text">
+              💡 {locale === 'vi' ? 'Mẹo: Nhấn Enter để gửi bài làm' : 'Tip: Press Enter to submit answer'}
+            </div>
+          </div>
+        )}
+
         {currentStep.type === 'quiz_speak' && (
           <div className="quiz-step-card card-pop">
             <h3 className="quiz-prompt-title">
@@ -853,7 +915,8 @@ export default function LessonDetail() {
                   disabled={
                     isChecking ||
                     (currentStep.type === 'quiz_choice' && selectedOption === null) ||
-                    (currentStep.type === 'quiz_scramble' && scrambleOutput.length === 0)
+                    (currentStep.type === 'quiz_scramble' && scrambleOutput.length === 0) ||
+                    (currentStep.type === 'quiz_write' && writeInput.trim().length === 0)
                   }
                   onClick={checkAnswer}
                 >
