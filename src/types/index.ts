@@ -149,6 +149,7 @@ export interface ToeicPassage {
 export interface ToeicQuestion {
   id: string;
   part: ToeicPartId;
+  examSet?: string;
   groupId?: string;
   audioScript?: string;
   imageDesc?: string;

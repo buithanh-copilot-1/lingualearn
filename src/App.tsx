@@ -57,6 +57,7 @@ export default function App() {
                     <Route path="/idioms" element={<Idioms />} />
                     <Route path="/toeic" element={<Toeic />} />
                     <Route path="/toeic/test" element={<ToeicTest />} />
+                    <Route path="/toeic/test/:examId" element={<ToeicTest />} />
                     <Route path="/toeic/speaking" element={<ToeicSpeaking />} />
                     <Route path="/toeic/part/:partId" element={<ToeicPart />} />
                     <Route path="/progress" element={<ProgressPage />} />

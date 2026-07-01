@@ -201,6 +201,8 @@ const en = {
     timeLimit: 'min time limit', startMockTest: 'Start Mock Test',
     mockTestNote: 'This is a shortened mini-test for practice — scores are estimated and not an official TOEIC certification.',
     mockTestComplete: 'Mock Test Complete!', estimatedTotal: 'Estimated total',
+    practiceTest2Title: 'Practice Test #2',
+    practiceTest2Desc: 'A second full-length original practice test (60 questions), covering all 7 parts in official order.',
   },
 } as const;
 
@@ -405,6 +407,8 @@ const vi = {
     timeLimit: 'phút thời gian làm bài', startMockTest: 'Bắt đầu làm đề',
     mockTestNote: 'Đây là đề mini rút gọn để luyện tập — điểm số chỉ mang tính ước lượng, không phải chứng chỉ TOEIC chính thức.',
     mockTestComplete: 'Hoàn thành đề mini!', estimatedTotal: 'Tổng điểm ước lượng',
+    practiceTest2Title: 'Đề thi thử #2',
+    practiceTest2Desc: 'Một đề luyện tập gốc thứ hai (60 câu), đủ cả 7 Part theo đúng thứ tự đề thi thật.',
   },
 };
 

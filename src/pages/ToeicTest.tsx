@@ -1,14 +1,13 @@
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { useProgress } from '../hooks/useProgress';
-import { toeicQuestions, groupToeicQuestions } from '../data/toeic';
+import { getDefaultBankQuestions, getToeicQuestionsByExamSet, groupToeicQuestions } from '../data/toeic';
 import { toeicParts, toeicPartMap, TOEIC_MAX_SECTION_SCORE } from '../data/toeicParts';
 import ToeicQuestionCard from '../components/ToeicQuestionCard';
+import NotFound from './NotFound';
 
 type Phase = 'intro' | 'playing' | 'finished';
-
-const MOCK_TEST_MINUTES = 25;
 
 function toeicScaledScore(correct: number, total: number): number {
   if (total === 0) return 0;
@@ -17,22 +16,29 @@ function toeicScaledScore(correct: number, total: number): number {
 }
 
 export default function ToeicTest() {
+  const { examId } = useParams();
   const { tr, locale } = useLanguage();
   const { saveQuizScore } = useProgress();
 
+  const isTest2 = examId === 'test2';
+  const title = isTest2 ? tr.toeic.practiceTest2Title : tr.toeic.mockTestTitle;
+  const desc = isTest2 ? tr.toeic.practiceTest2Desc : tr.toeic.mockTestDesc;
+  const quizId = isTest2 ? 'toeic-test2' : 'toeic-mocktest';
+
   // Official part order: Listening (1-4) then Reading (5-7).
-  const groups = useMemo(
-    () => toeicParts.flatMap((p) => groupToeicQuestions(toeicQuestions.filter((q) => q.part === p.id))),
-    [],
-  );
+  const groups = useMemo(() => {
+    const pool = isTest2 ? getToeicQuestionsByExamSet('test2') : getDefaultBankQuestions();
+    return toeicParts.flatMap((p) => groupToeicQuestions(pool.filter((q) => q.part === p.id)));
+  }, [isTest2]);
   const totalQuestions = useMemo(() => groups.reduce((sum, g) => sum + g.length, 0), [groups]);
+  const timeLimitMinutes = useMemo(() => Math.max(10, Math.round(120 * (totalQuestions / 200))), [totalQuestions]);
 
   const [phase, setPhase] = useState<Phase>('intro');
   const [groupIdx, setGroupIdx] = useState(0);
   const [subIdx, setSubIdx] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [results, setResults] = useState<{ correct: boolean; skill: 'listening' | 'reading' }[]>([]);
-  const [secondsLeft, setSecondsLeft] = useState(MOCK_TEST_MINUTES * 60);
+  const [secondsLeft, setSecondsLeft] = useState(timeLimitMinutes * 60);
   const timerRef = useRef<number | null>(null);
 
   const currentGroup = groups[groupIdx];
@@ -41,24 +47,20 @@ export default function ToeicTest() {
 
   const finish = useCallback((finalResults: typeof results) => {
     if (timerRef.current) window.clearInterval(timerRef.current);
-    const listeningResults = finalResults.filter((r) => r.skill === 'listening');
-    const readingResults = finalResults.filter((r) => r.skill === 'reading');
     const totalCorrect = finalResults.filter((r) => r.correct).length;
-    saveQuizScore('toeic-mocktest', totalCorrect, totalQuestions);
+    saveQuizScore(quizId, totalCorrect, totalQuestions);
     setResults(finalResults);
     setPhase('finished');
-    void listeningResults;
-    void readingResults;
-  }, [saveQuizScore, totalQuestions]);
+  }, [saveQuizScore, totalQuestions, quizId]);
 
   const start = useCallback(() => {
     setGroupIdx(0);
     setSubIdx(0);
     setSelected(null);
     setResults([]);
-    setSecondsLeft(MOCK_TEST_MINUTES * 60);
+    setSecondsLeft(timeLimitMinutes * 60);
     setPhase('playing');
-  }, []);
+  }, [timeLimitMinutes]);
 
   useEffect(() => {
     if (phase !== 'playing') return;
@@ -83,6 +85,8 @@ export default function ToeicTest() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [secondsLeft, phase]);
 
+  if (examId && examId !== 'test2') return <NotFound />;
+  if (totalQuestions === 0) return <NotFound />;
   if (!currentGroup && phase === 'playing') return null;
 
   const handleSelect = (i: number) => {
@@ -118,8 +122,8 @@ export default function ToeicTest() {
       <div className="page">
         <div className="page-header">
           <Link to="/toeic" className="link-more">← {tr.toeic.backToHub}</Link>
-          <h1>{tr.toeic.mockTestTitle}</h1>
-          <p>{tr.toeic.mockTestDesc}</p>
+          <h1>{title}</h1>
+          <p>{desc}</p>
         </div>
 
         <div className="toeic-intro-card">
@@ -129,7 +133,7 @@ export default function ToeicTest() {
               <span className="toeic-intro-stat-label">{tr.toeic.practiceQuestions}</span>
             </div>
             <div>
-              <span className="toeic-intro-stat-value">{MOCK_TEST_MINUTES}'</span>
+              <span className="toeic-intro-stat-value">{timeLimitMinutes}'</span>
               <span className="toeic-intro-stat-label">{tr.toeic.timeLimit}</span>
             </div>
           </div>

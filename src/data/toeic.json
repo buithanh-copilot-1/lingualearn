@@ -1436,6 +1436,977 @@
       "explanation": "Priya says \"See you at the panel discussion at 1!\", and the schedule confirms it is at 1:00 P.M.",
       "explanationVi": "Priya nói \"Gặp mọi người ở buổi thảo luận lúc 1 giờ nhé!\", khớp với lịch trình lúc 1:00 chiều.",
       "level": "advanced"
+    },
+    {
+      "id": "toeic-t2-p1-1",
+      "part": "part1",
+      "examSet": "test2",
+      "imageDesc": "A group of tourists are taking photos in front of a large museum entrance with stone columns.",
+      "question": "Listen to the four statements and choose the one that best describes the picture.",
+      "options": [
+        "The tourists are taking photos of the museum.",
+        "The museum is completely empty.",
+        "The tourists are entering a train station.",
+        "Workers are cleaning the columns."
+      ],
+      "correctIndex": 0,
+      "explanation": "The tourists are photographing the museum entrance, matching option A.",
+      "explanationVi": "Nhóm khách du lịch đang chụp ảnh trước cổng bảo tàng, khớp với đáp án A.",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-t2-p1-2",
+      "part": "part1",
+      "examSet": "test2",
+      "imageDesc": "A woman is watering potted plants on the balcony of her apartment.",
+      "question": "Listen to the four statements and choose the one that best describes the picture.",
+      "options": [
+        "The woman is painting the balcony railing.",
+        "The woman is watering plants.",
+        "The balcony has no plants at all.",
+        "The woman is hanging laundry."
+      ],
+      "correctIndex": 1,
+      "explanation": "The woman is watering the potted plants, matching option B.",
+      "explanationVi": "Người phụ nữ đang tưới cây trên ban công, khớp với đáp án B.",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-t2-p1-3",
+      "part": "part1",
+      "examSet": "test2",
+      "imageDesc": "A delivery worker is unloading cardboard boxes from the back of a van parked outside a store.",
+      "question": "Listen to the four statements and choose the one that best describes the picture.",
+      "options": [
+        "The van is driving away.",
+        "The worker is loading boxes into the van.",
+        "The worker is unloading boxes from the van.",
+        "The store is closed."
+      ],
+      "correctIndex": 2,
+      "explanation": "The worker is taking boxes out of the van, matching option C.",
+      "explanationVi": "Người giao hàng đang dỡ các thùng hàng ra khỏi xe tải, khớp với đáp án C.",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-t2-p2-1",
+      "part": "part2",
+      "examSet": "test2",
+      "audioScript": "What time does the store open on Sundays?",
+      "question": "What time does the store open on Sundays?",
+      "options": ["At ten in the morning.", "It's a clothing store.", "Yes, every Sunday."],
+      "correctIndex": 0,
+      "explanation": "This \"What time\" question is answered directly with a time in option A.",
+      "explanationVi": "Câu hỏi \"What time\" được trả lời trực tiếp bằng một mốc giờ ở đáp án A.",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-t2-p2-2",
+      "part": "part2",
+      "examSet": "test2",
+      "audioScript": "Could you turn down the music a little?",
+      "question": "Could you turn down the music a little?",
+      "options": ["Sure, sorry about that.", "I bought a new speaker.", "It's a great song."],
+      "correctIndex": 0,
+      "explanation": "This is a polite request; option A agrees and apologizes.",
+      "explanationVi": "Đây là lời yêu cầu lịch sự; đáp án A đồng ý và xin lỗi.",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-t2-p2-3",
+      "part": "part2",
+      "examSet": "test2",
+      "audioScript": "How much does shipping cost for international orders?",
+      "question": "How much does shipping cost for international orders?",
+      "options": ["It usually takes a week.", "About fifteen dollars.", "We ship on Mondays."],
+      "correctIndex": 1,
+      "explanation": "This \"How much\" question asks about cost; only option B gives a price.",
+      "explanationVi": "Câu hỏi \"How much\" hỏi về chi phí; chỉ đáp án B nêu một mức giá.",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-t2-p2-4",
+      "part": "part2",
+      "examSet": "test2",
+      "audioScript": "Didn't you already send the invoice?",
+      "question": "Didn't you already send the invoice?",
+      "options": ["Yes, I sent it this morning.", "The invoice is quite long.", "I need a new printer."],
+      "correctIndex": 0,
+      "explanation": "This negative question is confirmed directly by option A.",
+      "explanationVi": "Câu hỏi phủ định này được xác nhận trực tiếp bởi đáp án A.",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-t2-p2-5",
+      "part": "part2",
+      "examSet": "test2",
+      "audioScript": "Would you rather meet in person or by video call?",
+      "question": "Would you rather meet in person or by video call?",
+      "options": ["A video call would be easier for me.", "I met her last year.", "Yes, I would like that."],
+      "correctIndex": 0,
+      "explanation": "This \"or\" choice question is answered by picking one option, as in A.",
+      "explanationVi": "Câu hỏi lựa chọn \"or\" được trả lời bằng cách chọn một trong hai vế, như ở đáp án A.",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-t2-p2-6",
+      "part": "part2",
+      "examSet": "test2",
+      "audioScript": "Who approved this budget change?",
+      "question": "Who approved this budget change?",
+      "options": ["Next quarter.", "The finance director did.", "About five thousand dollars."],
+      "correctIndex": 1,
+      "explanation": "This \"Who\" question is answered with a person in option B.",
+      "explanationVi": "Câu hỏi \"Who\" được trả lời bằng một người cụ thể ở đáp án B.",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-t2-p2-7",
+      "part": "part2",
+      "examSet": "test2",
+      "audioScript": "Is the elevator working today?",
+      "question": "Is the elevator working today?",
+      "options": ["No, please use the stairs.", "It's on the fifth floor.", "I take the elevator every day."],
+      "correctIndex": 0,
+      "explanation": "This yes/no question about a state is answered directly by option A.",
+      "explanationVi": "Câu hỏi có/không về tình trạng được trả lời trực tiếp bởi đáp án A.",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-t2-p2-8",
+      "part": "part2",
+      "examSet": "test2",
+      "audioScript": "When will the new product line launch?",
+      "question": "When will the new product line launch?",
+      "options": ["In the warehouse downtown.", "Sometime next spring.", "It comes in three colors."],
+      "correctIndex": 1,
+      "explanation": "This \"When\" question is answered with a time in option B.",
+      "explanationVi": "Câu hỏi \"When\" được trả lời bằng một mốc thời gian ở đáp án B.",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-t2-p3-1",
+      "part": "part3",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p3-g1",
+      "audioScript": "Woman: Hi, I'd like to change my flight from Friday to Saturday if possible.\nMan: Let me check availability... Yes, there's a seat on Saturday's 2 p.m. flight, but there's a fifty-dollar change fee.\nWoman: That's fine. Can you also add a checked bag while you're at it?\nMan: Sure, I'll add that now and email you the updated ticket.",
+      "question": "What does the woman want to do?",
+      "options": ["Cancel her flight", "Change her flight date", "Upgrade her seat", "Request a refund"],
+      "correctIndex": 1,
+      "explanation": "The woman says she'd like to \"change my flight from Friday to Saturday\".",
+      "explanationVi": "Người phụ nữ nói cô ấy muốn \"đổi chuyến bay từ thứ Sáu sang thứ Bảy\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-t2-p3-2",
+      "part": "part3",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p3-g1",
+      "audioScript": "Woman: Hi, I'd like to change my flight from Friday to Saturday if possible.\nMan: Let me check availability... Yes, there's a seat on Saturday's 2 p.m. flight, but there's a fifty-dollar change fee.\nWoman: That's fine. Can you also add a checked bag while you're at it?\nMan: Sure, I'll add that now and email you the updated ticket.",
+      "question": "How much is the change fee?",
+      "options": ["Fifteen dollars", "Twenty-five dollars", "Fifty dollars", "There is no fee"],
+      "correctIndex": 2,
+      "explanation": "The man mentions \"a fifty-dollar change fee\".",
+      "explanationVi": "Người đàn ông nhắc đến \"phí đổi vé năm mươi đô la\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-t2-p3-3",
+      "part": "part3",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p3-g1",
+      "audioScript": "Woman: Hi, I'd like to change my flight from Friday to Saturday if possible.\nMan: Let me check availability... Yes, there's a seat on Saturday's 2 p.m. flight, but there's a fifty-dollar change fee.\nWoman: That's fine. Can you also add a checked bag while you're at it?\nMan: Sure, I'll add that now and email you the updated ticket.",
+      "question": "What will the man send the woman?",
+      "options": ["A refund confirmation", "An updated ticket", "A boarding pass only", "A hotel voucher"],
+      "correctIndex": 1,
+      "explanation": "The man says he will \"email you the updated ticket\".",
+      "explanationVi": "Người đàn ông nói sẽ \"gửi email vé đã cập nhật\" cho cô.",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-t2-p3-4",
+      "part": "part3",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p3-g2",
+      "audioScript": "Man: Have you heard anything from the supplier about our delayed shipment?\nWoman: Yes, they said the container missed the scheduled ship and will go out on the next one.\nMan: That pushes our delivery back by how long?\nWoman: About a week, unfortunately. I'll let our customers know.",
+      "question": "What are the speakers discussing?",
+      "options": ["A delayed shipment", "A canceled order", "A new supplier contract", "A pricing dispute"],
+      "correctIndex": 0,
+      "explanation": "The man asks about \"our delayed shipment\" at the start of the conversation.",
+      "explanationVi": "Người đàn ông hỏi về \"lô hàng bị trễ của chúng ta\" ngay từ đầu đoạn hội thoại.",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-t2-p3-5",
+      "part": "part3",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p3-g2",
+      "audioScript": "Man: Have you heard anything from the supplier about our delayed shipment?\nWoman: Yes, they said the container missed the scheduled ship and will go out on the next one.\nMan: That pushes our delivery back by how long?\nWoman: About a week, unfortunately. I'll let our customers know.",
+      "question": "Why was the shipment delayed?",
+      "options": [
+        "It missed the scheduled ship",
+        "It was damaged in transit",
+        "The paperwork was incomplete",
+        "The factory closed early"
+      ],
+      "correctIndex": 0,
+      "explanation": "The woman explains \"the container missed the scheduled ship\".",
+      "explanationVi": "Người phụ nữ giải thích \"container đã lỡ chuyến tàu theo lịch\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-t2-p3-6",
+      "part": "part3",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p3-g2",
+      "audioScript": "Man: Have you heard anything from the supplier about our delayed shipment?\nWoman: Yes, they said the container missed the scheduled ship and will go out on the next one.\nMan: That pushes our delivery back by how long?\nWoman: About a week, unfortunately. I'll let our customers know.",
+      "question": "What will the woman do next?",
+      "options": [
+        "Contact the supplier again",
+        "Inform the customers",
+        "Cancel the shipment",
+        "File a complaint"
+      ],
+      "correctIndex": 1,
+      "explanation": "The woman says \"I'll let our customers know\".",
+      "explanationVi": "Người phụ nữ nói \"Tôi sẽ báo cho khách hàng của chúng ta biết\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-t2-p3-7",
+      "part": "part3",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p3-g3",
+      "audioScript": "Woman: Hi, I bought this jacket last week, but it doesn't fit. Can I return it?\nMan: Of course, do you have the receipt?\nWoman: Yes, right here. I'd actually prefer an exchange for a larger size instead of a refund.\nMan: No problem, let me check if we have that size in stock.",
+      "question": "Why did the woman come to the store?",
+      "options": ["To buy a new jacket", "To return or exchange a jacket", "To complain about a price", "To ask for a job application"],
+      "correctIndex": 1,
+      "explanation": "The woman explains the jacket \"doesn't fit\" and asks about returning it.",
+      "explanationVi": "Người phụ nữ giải thích chiếc áo khoác \"không vừa\" và hỏi về việc trả hàng.",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-t2-p3-8",
+      "part": "part3",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p3-g3",
+      "audioScript": "Woman: Hi, I bought this jacket last week, but it doesn't fit. Can I return it?\nMan: Of course, do you have the receipt?\nWoman: Yes, right here. I'd actually prefer an exchange for a larger size instead of a refund.\nMan: No problem, let me check if we have that size in stock.",
+      "question": "What does the woman prefer?",
+      "options": ["A cash refund", "A store credit", "An exchange for a larger size", "A gift card"],
+      "correctIndex": 2,
+      "explanation": "The woman says she'd \"prefer an exchange for a larger size instead of a refund\".",
+      "explanationVi": "Người phụ nữ nói cô ấy \"muốn đổi sang cỡ lớn hơn thay vì hoàn tiền\".",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-t2-p3-9",
+      "part": "part3",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p3-g3",
+      "audioScript": "Woman: Hi, I bought this jacket last week, but it doesn't fit. Can I return it?\nMan: Of course, do you have the receipt?\nWoman: Yes, right here. I'd actually prefer an exchange for a larger size instead of a refund.\nMan: No problem, let me check if we have that size in stock.",
+      "question": "What will the man do next?",
+      "options": ["Process a refund", "Check if the size is in stock", "Call the manager", "Give the woman a discount"],
+      "correctIndex": 1,
+      "explanation": "The man says he will \"check if we have that size in stock\".",
+      "explanationVi": "Người đàn ông nói sẽ \"kiểm tra xem có size đó trong kho không\".",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-t2-p3-10",
+      "part": "part3",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p3-g4",
+      "audioScript": "Man: I'm finalizing the schedule for the client visit next week. Can you confirm the meeting room?\nWoman: Yes, I booked the large conference room for 10 a.m. to noon.\nMan: Great. Should we also arrange lunch afterward?\nWoman: Good idea, I'll reserve a table at the restaurant next door for 12:30.",
+      "question": "What is the man preparing?",
+      "options": ["A training manual", "A schedule for a client visit", "A performance review", "A budget report"],
+      "correctIndex": 1,
+      "explanation": "The man says he is \"finalizing the schedule for the client visit next week\".",
+      "explanationVi": "Người đàn ông nói anh đang \"hoàn thiện lịch trình cho chuyến thăm khách hàng tuần sau\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-t2-p3-11",
+      "part": "part3",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p3-g4",
+      "audioScript": "Man: I'm finalizing the schedule for the client visit next week. Can you confirm the meeting room?\nWoman: Yes, I booked the large conference room for 10 a.m. to noon.\nMan: Great. Should we also arrange lunch afterward?\nWoman: Good idea, I'll reserve a table at the restaurant next door for 12:30.",
+      "question": "What time was the conference room booked for?",
+      "options": ["9 a.m. to 11 a.m.", "10 a.m. to noon", "1 p.m. to 3 p.m.", "All day"],
+      "correctIndex": 1,
+      "explanation": "The woman says she \"booked the large conference room for 10 a.m. to noon\".",
+      "explanationVi": "Người phụ nữ nói cô ấy \"đã đặt phòng họp lớn từ 10 giờ sáng đến 12 giờ trưa\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-t2-p3-12",
+      "part": "part3",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p3-g4",
+      "audioScript": "Man: I'm finalizing the schedule for the client visit next week. Can you confirm the meeting room?\nWoman: Yes, I booked the large conference room for 10 a.m. to noon.\nMan: Great. Should we also arrange lunch afterward?\nWoman: Good idea, I'll reserve a table at the restaurant next door for 12:30.",
+      "question": "What will the woman do next?",
+      "options": ["Cancel the meeting room", "Reserve a table for lunch", "Print the schedule", "Call the client"],
+      "correctIndex": 1,
+      "explanation": "The woman says \"I'll reserve a table at the restaurant next door for 12:30\".",
+      "explanationVi": "Người phụ nữ nói \"Tôi sẽ đặt bàn tại nhà hàng bên cạnh lúc 12:30\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-t2-p4-1",
+      "part": "part4",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p4-g1",
+      "audioScript": "Welcome to the City History Museum audio tour. As you walk through Gallery One, you'll see artifacts from the founding of our city over two hundred years ago. Please keep your device volume low out of respect for other visitors, and feel free to pause the tour at any exhibit. The tour will take approximately forty-five minutes to complete.",
+      "question": "What is Gallery One about?",
+      "options": ["Modern art", "The founding of the city", "Local wildlife", "Famous scientists"],
+      "correctIndex": 1,
+      "explanation": "The tour mentions \"artifacts from the founding of our city over two hundred years ago\".",
+      "explanationVi": "Bài hướng dẫn nhắc đến \"hiện vật từ thời thành lập thành phố hơn hai trăm năm trước\".",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-t2-p4-2",
+      "part": "part4",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p4-g1",
+      "audioScript": "Welcome to the City History Museum audio tour. As you walk through Gallery One, you'll see artifacts from the founding of our city over two hundred years ago. Please keep your device volume low out of respect for other visitors, and feel free to pause the tour at any exhibit. The tour will take approximately forty-five minutes to complete.",
+      "question": "What are visitors asked to do?",
+      "options": ["Keep their device volume low", "Take photos of every exhibit", "Stay with a tour guide", "Avoid Gallery One"],
+      "correctIndex": 0,
+      "explanation": "Visitors are asked to \"keep your device volume low out of respect for other visitors\".",
+      "explanationVi": "Khách tham quan được yêu cầu \"giữ âm lượng thiết bị nhỏ để tôn trọng khách khác\".",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-t2-p4-3",
+      "part": "part4",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p4-g1",
+      "audioScript": "Welcome to the City History Museum audio tour. As you walk through Gallery One, you'll see artifacts from the founding of our city over two hundred years ago. Please keep your device volume low out of respect for other visitors, and feel free to pause the tour at any exhibit. The tour will take approximately forty-five minutes to complete.",
+      "question": "How long does the tour take?",
+      "options": ["Fifteen minutes", "Thirty minutes", "Forty-five minutes", "Two hours"],
+      "correctIndex": 2,
+      "explanation": "The tour states it \"will take approximately forty-five minutes to complete\".",
+      "explanationVi": "Bài hướng dẫn nói tour \"sẽ mất khoảng bốn mươi lăm phút để hoàn thành\".",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-t2-p4-4",
+      "part": "part4",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p4-g2",
+      "audioScript": "Attention, employees. Starting next month, the parking garage on Elm Street will be reserved for visitors only. Employees should instead park in the new lot on Birch Street, which is a five-minute walk from the main building. A shuttle will also run every twenty minutes during rush hour for anyone who prefers not to walk.",
+      "question": "What change is being announced?",
+      "options": [
+        "A new employee parking location",
+        "A change in office hours",
+        "A new visitor policy for meetings",
+        "A change in the shuttle schedule only"
+      ],
+      "correctIndex": 0,
+      "explanation": "The announcement is about employees needing to park in a new location on Birch Street.",
+      "explanationVi": "Thông báo nói về việc nhân viên cần đỗ xe ở địa điểm mới trên đường Birch.",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-t2-p4-5",
+      "part": "part4",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p4-g2",
+      "audioScript": "Attention, employees. Starting next month, the parking garage on Elm Street will be reserved for visitors only. Employees should instead park in the new lot on Birch Street, which is a five-minute walk from the main building. A shuttle will also run every twenty minutes during rush hour for anyone who prefers not to walk.",
+      "question": "Who can now use the Elm Street garage?",
+      "options": ["Only employees", "Only visitors", "Only delivery trucks", "No one, it is closed"],
+      "correctIndex": 1,
+      "explanation": "The Elm Street garage \"will be reserved for visitors only\".",
+      "explanationVi": "Bãi đỗ xe Elm Street \"sẽ chỉ dành riêng cho khách\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-t2-p4-6",
+      "part": "part4",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p4-g2",
+      "audioScript": "Attention, employees. Starting next month, the parking garage on Elm Street will be reserved for visitors only. Employees should instead park in the new lot on Birch Street, which is a five-minute walk from the main building. A shuttle will also run every twenty minutes during rush hour for anyone who prefers not to walk.",
+      "question": "How often will the shuttle run during rush hour?",
+      "options": ["Every ten minutes", "Every twenty minutes", "Every hour", "Only in the morning"],
+      "correctIndex": 1,
+      "explanation": "The shuttle \"will also run every twenty minutes during rush hour\".",
+      "explanationVi": "Xe đưa đón \"sẽ chạy mỗi hai mươi phút trong giờ cao điểm\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-t2-p4-7",
+      "part": "part4",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p4-g3",
+      "audioScript": "And now for the weekend weather forecast. Saturday will be sunny with a high of twenty-eight degrees, perfect for the outdoor food festival downtown. However, we're tracking a storm system that may bring rain on Sunday afternoon, so festival organizers recommend visiting on Saturday if possible.",
+      "question": "What event is mentioned in the forecast?",
+      "options": ["A marathon", "An outdoor food festival", "A concert", "A parade"],
+      "correctIndex": 1,
+      "explanation": "The forecast mentions \"the outdoor food festival downtown\".",
+      "explanationVi": "Bản tin thời tiết nhắc đến \"lễ hội ẩm thực ngoài trời ở trung tâm thành phố\".",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-t2-p4-8",
+      "part": "part4",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p4-g3",
+      "audioScript": "And now for the weekend weather forecast. Saturday will be sunny with a high of twenty-eight degrees, perfect for the outdoor food festival downtown. However, we're tracking a storm system that may bring rain on Sunday afternoon, so festival organizers recommend visiting on Saturday if possible.",
+      "question": "What is the weather like on Saturday?",
+      "options": ["Rainy and cold", "Sunny", "Snowy", "Extremely windy"],
+      "correctIndex": 1,
+      "explanation": "The forecast says \"Saturday will be sunny with a high of twenty-eight degrees\".",
+      "explanationVi": "Bản tin nói \"thứ Bảy sẽ nắng với nhiệt độ cao nhất hai mươi tám độ\".",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-t2-p4-9",
+      "part": "part4",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p4-g3",
+      "audioScript": "And now for the weekend weather forecast. Saturday will be sunny with a high of twenty-eight degrees, perfect for the outdoor food festival downtown. However, we're tracking a storm system that may bring rain on Sunday afternoon, so festival organizers recommend visiting on Saturday if possible.",
+      "question": "What do festival organizers recommend?",
+      "options": [
+        "Canceling the festival",
+        "Visiting on Saturday",
+        "Bringing an umbrella on Saturday",
+        "Rescheduling to next month"
+      ],
+      "correctIndex": 1,
+      "explanation": "Organizers \"recommend visiting on Saturday if possible\" due to expected Sunday rain.",
+      "explanationVi": "Ban tổ chức \"khuyến nghị đến vào thứ Bảy nếu có thể\" do dự báo mưa vào Chủ nhật.",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-t2-p5-1",
+      "part": "part5",
+      "examSet": "test2",
+      "question": "The new employee handbook is ____ than the previous edition.",
+      "options": ["clear", "clearer", "clearest", "most clear"],
+      "correctIndex": 1,
+      "explanation": "The comparative form \"clearer\" is required before \"than\".",
+      "explanationVi": "Cần dạng so sánh hơn \"clearer\" trước \"than\".",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-t2-p5-2",
+      "part": "part5",
+      "examSet": "test2",
+      "question": "We need to look ____ this issue before the client calls back.",
+      "options": ["into", "at", "for", "up"],
+      "correctIndex": 0,
+      "explanation": "\"Look into\" is a phrasal verb meaning \"to investigate\".",
+      "explanationVi": "\"Look into\" là cụm động từ nghĩa \"điều tra, xem xét kỹ\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-t2-p5-3",
+      "part": "part5",
+      "examSet": "test2",
+      "question": "It is essential that every visitor ____ a badge at all times.",
+      "options": ["wears", "wear", "wearing", "to wear"],
+      "correctIndex": 1,
+      "explanation": "The subjunctive mood after \"it is essential that\" uses the base form \"wear\".",
+      "explanationVi": "Thức giả định (subjunctive) sau \"it is essential that\" dùng động từ nguyên mẫu \"wear\".",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-t2-p5-4",
+      "part": "part5",
+      "examSet": "test2",
+      "question": "Mr. Kim, ____ of the sales department, will present the results.",
+      "options": ["head", "the head", "heading", "headed"],
+      "correctIndex": 1,
+      "explanation": "\"The head\" functions as an appositive noun phrase renaming \"Mr. Kim\".",
+      "explanationVi": "\"The head\" là cụm danh từ đồng vị bổ nghĩa cho \"Mr. Kim\".",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-t2-p5-5",
+      "part": "part5",
+      "examSet": "test2",
+      "question": "The workshop covers both time management ____ team communication.",
+      "options": ["but also", "and", "or", "as well"],
+      "correctIndex": 1,
+      "explanation": "\"Both... and...\" is the correct correlative conjunction pair.",
+      "explanationVi": "\"Both... and...\" là cặp liên từ tương quan chính xác.",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-t2-p5-6",
+      "part": "part5",
+      "examSet": "test2",
+      "question": "By the time the manager arrives, the team ____ the presentation.",
+      "options": ["finishes", "will have finished", "finished", "is finishing"],
+      "correctIndex": 1,
+      "explanation": "Future perfect (\"will have finished\") shows an action completed before a future point in time.",
+      "explanationVi": "Thì tương lai hoàn thành (\"will have finished\") diễn tả hành động hoàn tất trước một mốc trong tương lai.",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-t2-p5-7",
+      "part": "part5",
+      "examSet": "test2",
+      "question": "The proposal was rejected ____ its strong financial projections.",
+      "options": ["despite", "because of", "due", "so that"],
+      "correctIndex": 0,
+      "explanation": "\"Despite\" shows contrast — the proposal was rejected even though the projections were strong.",
+      "explanationVi": "\"Despite\" thể hiện sự tương phản — đề xuất bị từ chối dù dự báo tài chính khả quan.",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-t2-p5-8",
+      "part": "part5",
+      "examSet": "test2",
+      "question": "Employees are encouraged to give ____ feedback during the review.",
+      "options": ["honest", "honestly", "honesty", "honestness"],
+      "correctIndex": 0,
+      "explanation": "An adjective (\"honest\") is needed to modify the noun \"feedback\".",
+      "explanationVi": "Cần tính từ (\"honest\") để bổ nghĩa cho danh từ \"feedback\".",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-t2-p5-9",
+      "part": "part5",
+      "examSet": "test2",
+      "question": "Neither of the candidates ____ available for an interview this week.",
+      "options": ["are", "is", "were", "have been"],
+      "correctIndex": 1,
+      "explanation": "\"Neither of\" takes a singular verb (\"is\").",
+      "explanationVi": "\"Neither of\" luôn đi với động từ số ít (\"is\").",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-t2-p5-10",
+      "part": "part5",
+      "examSet": "test2",
+      "question": "The company plans to expand ____ three new cities next year.",
+      "options": ["into", "for", "at", "on"],
+      "correctIndex": 0,
+      "explanation": "\"Expand into\" is the correct collocation meaning to grow a business into new markets.",
+      "explanationVi": "\"Expand into\" là cụm từ đúng, nghĩa là mở rộng kinh doanh sang thị trường mới.",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-t2-p5-11",
+      "part": "part5",
+      "examSet": "test2",
+      "question": "____ the machine is repaired, production will remain paused.",
+      "options": ["Until", "During", "While", "For"],
+      "correctIndex": 0,
+      "explanation": "\"Until\" introduces a time clause meaning \"up to the point when\".",
+      "explanationVi": "\"Until\" giới thiệu mệnh đề thời gian nghĩa là \"cho đến khi\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-t2-p5-12",
+      "part": "part5",
+      "examSet": "test2",
+      "question": "The applicant's résumé and cover letter ____ reviewed by the HR team.",
+      "options": ["was", "were", "is", "has been"],
+      "correctIndex": 1,
+      "explanation": "\"Résumé and cover letter\" is a compound subject, requiring the plural verb \"were\".",
+      "explanationVi": "\"Résumé and cover letter\" là chủ ngữ ghép, cần động từ số nhiều \"were\".",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-t2-p6-1",
+      "part": "part6",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p6-g1",
+      "passageTitle": "Lease Renewal Notice",
+      "passages": [
+        {
+          "label": "Notice",
+          "text": "Dear Resident,\n\nYour current lease is set to (1)____ on August 31. If you would like to renew, please (2)____ the attached form and return it to the management office by August 10. Residents who renew before this date will (3)____ a reduced administrative fee. (4)____\n\nThank you for being a valued resident."
+        }
+      ],
+      "question": "(1)",
+      "options": ["expire", "expires", "expiring", "expiration"],
+      "correctIndex": 0,
+      "explanation": "After \"is set to\", the base-verb infinitive \"expire\" is required.",
+      "explanationVi": "Sau \"is set to\" cần động từ nguyên mẫu \"expire\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-t2-p6-2",
+      "part": "part6",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p6-g1",
+      "passageTitle": "Lease Renewal Notice",
+      "passages": [
+        {
+          "label": "Notice",
+          "text": "Dear Resident,\n\nYour current lease is set to (1)____ on August 31. If you would like to renew, please (2)____ the attached form and return it to the management office by August 10. Residents who renew before this date will (3)____ a reduced administrative fee. (4)____\n\nThank you for being a valued resident."
+        }
+      ],
+      "question": "(2)",
+      "options": ["complete", "completes", "completing", "completed"],
+      "correctIndex": 0,
+      "explanation": "After \"please\", the base-verb imperative form \"complete\" is required.",
+      "explanationVi": "Sau \"please\" cần động từ nguyên mẫu ở dạng mệnh lệnh \"complete\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-t2-p6-3",
+      "part": "part6",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p6-g1",
+      "passageTitle": "Lease Renewal Notice",
+      "passages": [
+        {
+          "label": "Notice",
+          "text": "Dear Resident,\n\nYour current lease is set to (1)____ on August 31. If you would like to renew, please (2)____ the attached form and return it to the management office by August 10. Residents who renew before this date will (3)____ a reduced administrative fee. (4)____\n\nThank you for being a valued resident."
+        }
+      ],
+      "question": "(3)",
+      "options": ["pay", "spend", "cost", "charge"],
+      "correctIndex": 0,
+      "explanation": "\"Pay a fee\" is the correct collocation; \"spend\", \"cost\", and \"charge\" don't fit this structure.",
+      "explanationVi": "\"Pay a fee\" là cụm từ đúng; \"spend\", \"cost\", \"charge\" không phù hợp với cấu trúc này.",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-t2-p6-4",
+      "part": "part6",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p6-g1",
+      "passageTitle": "Lease Renewal Notice",
+      "passages": [
+        {
+          "label": "Notice",
+          "text": "Dear Resident,\n\nYour current lease is set to (1)____ on August 31. If you would like to renew, please (2)____ the attached form and return it to the management office by August 10. Residents who renew before this date will (3)____ a reduced administrative fee. (4)____\n\nThank you for being a valued resident."
+        }
+      ],
+      "question": "(4) Which sentence best fits this blank?",
+      "options": [
+        "The building was constructed in 1998.",
+        "After this date, the standard fee will apply.",
+        "Our office is closed on public holidays.",
+        "We wish you a pleasant stay in the city."
+      ],
+      "correctIndex": 1,
+      "explanation": "This blank needs a sentence that logically follows the discount deadline just mentioned.",
+      "explanationVi": "Chỗ trống này cần một câu tiếp nối hợp lý với thời hạn ưu đãi vừa được nêu.",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-t2-p7-1",
+      "part": "part7",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p7-g1",
+      "passageTitle": "Product Recall Notice",
+      "passages": [
+        {
+          "label": "Notice",
+          "text": "PRODUCT RECALL: SunGlow Table Lamp, Model SG-220\n\nBrightHome Inc. is voluntarily recalling the SunGlow Table Lamp (Model SG-220, sold between January and April) due to a wiring defect that may pose a fire risk. Customers should stop using the lamp immediately and contact our support line at 1-800-555-0199 for a full refund or free replacement. Proof of purchase is not required."
+        }
+      ],
+      "question": "Why is the product being recalled?",
+      "options": [
+        "A packaging error",
+        "A wiring defect",
+        "A pricing mistake",
+        "A shipping delay"
+      ],
+      "correctIndex": 1,
+      "explanation": "The notice cites \"a wiring defect that may pose a fire risk\" as the reason.",
+      "explanationVi": "Thông báo nêu lý do là \"lỗi dây điện có thể gây nguy cơ cháy nổ\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-t2-p7-2",
+      "part": "part7",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p7-g1",
+      "passageTitle": "Product Recall Notice",
+      "passages": [
+        {
+          "label": "Notice",
+          "text": "PRODUCT RECALL: SunGlow Table Lamp, Model SG-220\n\nBrightHome Inc. is voluntarily recalling the SunGlow Table Lamp (Model SG-220, sold between January and April) due to a wiring defect that may pose a fire risk. Customers should stop using the lamp immediately and contact our support line at 1-800-555-0199 for a full refund or free replacement. Proof of purchase is not required."
+        }
+      ],
+      "question": "What should customers do?",
+      "options": [
+        "Continue using the lamp carefully",
+        "Return it to any hardware store",
+        "Stop using it and contact support",
+        "Repair it themselves"
+      ],
+      "correctIndex": 2,
+      "explanation": "Customers are told to \"stop using the lamp immediately and contact our support line\".",
+      "explanationVi": "Khách hàng được yêu cầu \"ngừng sử dụng đèn ngay và liên hệ đường dây hỗ trợ\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-t2-p7-3",
+      "part": "part7",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p7-g1",
+      "passageTitle": "Product Recall Notice",
+      "passages": [
+        {
+          "label": "Notice",
+          "text": "PRODUCT RECALL: SunGlow Table Lamp, Model SG-220\n\nBrightHome Inc. is voluntarily recalling the SunGlow Table Lamp (Model SG-220, sold between January and April) due to a wiring defect that may pose a fire risk. Customers should stop using the lamp immediately and contact our support line at 1-800-555-0199 for a full refund or free replacement. Proof of purchase is not required."
+        }
+      ],
+      "question": "Is proof of purchase required for a refund?",
+      "options": ["Yes, always", "No, it is not required", "Only for replacements", "Only within 30 days"],
+      "correctIndex": 1,
+      "explanation": "The notice states \"Proof of purchase is not required\".",
+      "explanationVi": "Thông báo nêu rõ \"Không yêu cầu hóa đơn mua hàng\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-t2-p7-4",
+      "part": "part7",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p7-g2",
+      "passageTitle": "Job application emails",
+      "passages": [
+        {
+          "label": "Email 1 — From: Minh Le",
+          "text": "Subject: Application for Graphic Designer Position\n\nDear Hiring Team,\n\nI am writing to apply for the Graphic Designer position listed on your careers page. I have attached my résumé and portfolio for your review. I have three years of experience designing marketing materials for retail brands. I would welcome the opportunity to discuss my application further.\n\nBest regards,\nMinh Le"
+        },
+        {
+          "label": "Email 2 — From: HR Team",
+          "text": "Subject: RE: Application for Graphic Designer Position\n\nDear Mr. Le,\n\nThank you for your application. We were impressed by your portfolio and would like to invite you for an initial interview on Tuesday, June 3, at 2 p.m. via video call. Please confirm your availability by replying to this email.\n\nBest regards,\nHR Team"
+        }
+      ],
+      "question": "What is attached to Minh Le's email?",
+      "options": [
+        "A reference letter",
+        "A résumé and portfolio",
+        "A signed contract",
+        "A certificate"
+      ],
+      "correctIndex": 1,
+      "explanation": "Minh Le writes \"I have attached my résumé and portfolio for your review\".",
+      "explanationVi": "Minh Le viết \"Tôi đã đính kèm sơ yếu lý lịch và portfolio để quý công ty xem xét\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-t2-p7-5",
+      "part": "part7",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p7-g2",
+      "passageTitle": "Job application emails",
+      "passages": [
+        {
+          "label": "Email 1 — From: Minh Le",
+          "text": "Subject: Application for Graphic Designer Position\n\nDear Hiring Team,\n\nI am writing to apply for the Graphic Designer position listed on your careers page. I have attached my résumé and portfolio for your review. I have three years of experience designing marketing materials for retail brands. I would welcome the opportunity to discuss my application further.\n\nBest regards,\nMinh Le"
+        },
+        {
+          "label": "Email 2 — From: HR Team",
+          "text": "Subject: RE: Application for Graphic Designer Position\n\nDear Mr. Le,\n\nThank you for your application. We were impressed by your portfolio and would like to invite you for an initial interview on Tuesday, June 3, at 2 p.m. via video call. Please confirm your availability by replying to this email.\n\nBest regards,\nHR Team"
+        }
+      ],
+      "question": "How much experience does Minh Le have?",
+      "options": ["One year", "Two years", "Three years", "Five years"],
+      "correctIndex": 2,
+      "explanation": "Minh Le says he has \"three years of experience designing marketing materials\".",
+      "explanationVi": "Minh Le nói anh có \"ba năm kinh nghiệm thiết kế tài liệu marketing\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-t2-p7-6",
+      "part": "part7",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p7-g2",
+      "passageTitle": "Job application emails",
+      "passages": [
+        {
+          "label": "Email 1 — From: Minh Le",
+          "text": "Subject: Application for Graphic Designer Position\n\nDear Hiring Team,\n\nI am writing to apply for the Graphic Designer position listed on your careers page. I have attached my résumé and portfolio for your review. I have three years of experience designing marketing materials for retail brands. I would welcome the opportunity to discuss my application further.\n\nBest regards,\nMinh Le"
+        },
+        {
+          "label": "Email 2 — From: HR Team",
+          "text": "Subject: RE: Application for Graphic Designer Position\n\nDear Mr. Le,\n\nThank you for your application. We were impressed by your portfolio and would like to invite you for an initial interview on Tuesday, June 3, at 2 p.m. via video call. Please confirm your availability by replying to this email.\n\nBest regards,\nHR Team"
+        }
+      ],
+      "question": "How will the interview be conducted?",
+      "options": ["In person at the office", "By phone", "Via video call", "By written test"],
+      "correctIndex": 2,
+      "explanation": "The HR team invites him to an interview \"via video call\".",
+      "explanationVi": "Bộ phận nhân sự mời anh phỏng vấn \"qua cuộc gọi video\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-t2-p7-7",
+      "part": "part7",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p7-g3",
+      "passageTitle": "Business trip change",
+      "passages": [
+        {
+          "label": "Original Itinerary",
+          "text": "BUSINESS TRIP ITINERARY — Ho Chi Minh City\nDay 1: Arrive 2:00 P.M., check in at Riverside Hotel\nDay 2: 9:00 A.M. client meeting at Saigon Tower; 6:00 P.M. dinner with partners\nDay 3: 10:00 A.M. factory tour; 3:00 P.M. depart for airport"
+        },
+        {
+          "label": "Email — From: Travel Coordinator",
+          "text": "Subject: Updated Itinerary\n\nHi team,\n\nThe client has asked to move the Day 2 meeting to 11:00 A.M. instead of 9:00 A.M., since their director is arriving late that morning. Dinner and the Day 3 factory tour remain unchanged. Please update your calendars accordingly.\n\nThanks,\nTravel Coordinator"
+        },
+        {
+          "label": "Text message — From: Duc (colleague)",
+          "text": "Thanks for the update! Since the meeting starts later, I'll use the extra morning to review the presentation slides one more time. See you at the hotel lobby at 10:30."
+        }
+      ],
+      "question": "Why was the Day 2 meeting time changed?",
+      "options": [
+        "The hotel was overbooked",
+        "The client's director is arriving late",
+        "The meeting room was unavailable",
+        "The team requested more rest time"
+      ],
+      "correctIndex": 1,
+      "explanation": "The email explains the change is \"since their director is arriving late that morning\".",
+      "explanationVi": "Email giải thích lý do thay đổi là \"vì giám đốc của khách hàng đến trễ sáng đó\".",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-t2-p7-8",
+      "part": "part7",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p7-g3",
+      "passageTitle": "Business trip change",
+      "passages": [
+        {
+          "label": "Original Itinerary",
+          "text": "BUSINESS TRIP ITINERARY — Ho Chi Minh City\nDay 1: Arrive 2:00 P.M., check in at Riverside Hotel\nDay 2: 9:00 A.M. client meeting at Saigon Tower; 6:00 P.M. dinner with partners\nDay 3: 10:00 A.M. factory tour; 3:00 P.M. depart for airport"
+        },
+        {
+          "label": "Email — From: Travel Coordinator",
+          "text": "Subject: Updated Itinerary\n\nHi team,\n\nThe client has asked to move the Day 2 meeting to 11:00 A.M. instead of 9:00 A.M., since their director is arriving late that morning. Dinner and the Day 3 factory tour remain unchanged. Please update your calendars accordingly.\n\nThanks,\nTravel Coordinator"
+        },
+        {
+          "label": "Text message — From: Duc (colleague)",
+          "text": "Thanks for the update! Since the meeting starts later, I'll use the extra morning to review the presentation slides one more time. See you at the hotel lobby at 10:30."
+        }
+      ],
+      "question": "What time is the client meeting now scheduled for?",
+      "options": ["9:00 A.M.", "10:30 A.M.", "11:00 A.M.", "6:00 P.M."],
+      "correctIndex": 2,
+      "explanation": "The email states the meeting moved \"to 11:00 A.M. instead of 9:00 A.M.\".",
+      "explanationVi": "Email nêu rõ cuộc họp được dời \"sang 11 giờ sáng thay vì 9 giờ sáng\".",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-t2-p7-9",
+      "part": "part7",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p7-g3",
+      "passageTitle": "Business trip change",
+      "passages": [
+        {
+          "label": "Original Itinerary",
+          "text": "BUSINESS TRIP ITINERARY — Ho Chi Minh City\nDay 1: Arrive 2:00 P.M., check in at Riverside Hotel\nDay 2: 9:00 A.M. client meeting at Saigon Tower; 6:00 P.M. dinner with partners\nDay 3: 10:00 A.M. factory tour; 3:00 P.M. depart for airport"
+        },
+        {
+          "label": "Email — From: Travel Coordinator",
+          "text": "Subject: Updated Itinerary\n\nHi team,\n\nThe client has asked to move the Day 2 meeting to 11:00 A.M. instead of 9:00 A.M., since their director is arriving late that morning. Dinner and the Day 3 factory tour remain unchanged. Please update your calendars accordingly.\n\nThanks,\nTravel Coordinator"
+        },
+        {
+          "label": "Text message — From: Duc (colleague)",
+          "text": "Thanks for the update! Since the meeting starts later, I'll use the extra morning to review the presentation slides one more time. See you at the hotel lobby at 10:30."
+        }
+      ],
+      "question": "What does Duc plan to do with the extra time?",
+      "options": [
+        "Sleep in later",
+        "Review the presentation slides",
+        "Visit the factory early",
+        "Go sightseeing"
+      ],
+      "correctIndex": 1,
+      "explanation": "Duc says he'll \"use the extra morning to review the presentation slides one more time\".",
+      "explanationVi": "Đức nói anh sẽ \"tận dụng buổi sáng rảnh để xem lại slide thuyết trình một lần nữa\".",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-t2-p7-10",
+      "part": "part7",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p7-g3",
+      "passageTitle": "Business trip change",
+      "passages": [
+        {
+          "label": "Original Itinerary",
+          "text": "BUSINESS TRIP ITINERARY — Ho Chi Minh City\nDay 1: Arrive 2:00 P.M., check in at Riverside Hotel\nDay 2: 9:00 A.M. client meeting at Saigon Tower; 6:00 P.M. dinner with partners\nDay 3: 10:00 A.M. factory tour; 3:00 P.M. depart for airport"
+        },
+        {
+          "label": "Email — From: Travel Coordinator",
+          "text": "Subject: Updated Itinerary\n\nHi team,\n\nThe client has asked to move the Day 2 meeting to 11:00 A.M. instead of 9:00 A.M., since their director is arriving late that morning. Dinner and the Day 3 factory tour remain unchanged. Please update your calendars accordingly.\n\nThanks,\nTravel Coordinator"
+        },
+        {
+          "label": "Text message — From: Duc (colleague)",
+          "text": "Thanks for the update! Since the meeting starts later, I'll use the extra morning to review the presentation slides one more time. See you at the hotel lobby at 10:30."
+        }
+      ],
+      "question": "According to the original itinerary, what happens on Day 3?",
+      "options": [
+        "A client meeting and dinner",
+        "Arrival and hotel check-in",
+        "A factory tour and departure",
+        "A day off with no activities"
+      ],
+      "correctIndex": 2,
+      "explanation": "Day 3 lists \"10:00 A.M. factory tour; 3:00 P.M. depart for airport\".",
+      "explanationVi": "Ngày 3 ghi \"10 giờ sáng tham quan nhà máy; 3 giờ chiều khởi hành ra sân bay\".",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-t2-p7-11",
+      "part": "part7",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p7-g3",
+      "passageTitle": "Business trip change",
+      "passages": [
+        {
+          "label": "Original Itinerary",
+          "text": "BUSINESS TRIP ITINERARY — Ho Chi Minh City\nDay 1: Arrive 2:00 P.M., check in at Riverside Hotel\nDay 2: 9:00 A.M. client meeting at Saigon Tower; 6:00 P.M. dinner with partners\nDay 3: 10:00 A.M. factory tour; 3:00 P.M. depart for airport"
+        },
+        {
+          "label": "Email — From: Travel Coordinator",
+          "text": "Subject: Updated Itinerary\n\nHi team,\n\nThe client has asked to move the Day 2 meeting to 11:00 A.M. instead of 9:00 A.M., since their director is arriving late that morning. Dinner and the Day 3 factory tour remain unchanged. Please update your calendars accordingly.\n\nThanks,\nTravel Coordinator"
+        },
+        {
+          "label": "Text message — From: Duc (colleague)",
+          "text": "Thanks for the update! Since the meeting starts later, I'll use the extra morning to review the presentation slides one more time. See you at the hotel lobby at 10:30."
+        }
+      ],
+      "question": "Where will Duc meet his colleague before the meeting?",
+      "options": ["At Saigon Tower", "At the airport", "At the hotel lobby", "At the factory"],
+      "correctIndex": 2,
+      "explanation": "Duc says \"See you at the hotel lobby at 10:30\".",
+      "explanationVi": "Đức nói \"Gặp nhau ở sảnh khách sạn lúc 10:30 nhé\".",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-t2-p7-12",
+      "part": "part7",
+      "examSet": "test2",
+      "groupId": "toeic-t2-p7-g3",
+      "passageTitle": "Business trip change",
+      "passages": [
+        {
+          "label": "Original Itinerary",
+          "text": "BUSINESS TRIP ITINERARY — Ho Chi Minh City\nDay 1: Arrive 2:00 P.M., check in at Riverside Hotel\nDay 2: 9:00 A.M. client meeting at Saigon Tower; 6:00 P.M. dinner with partners\nDay 3: 10:00 A.M. factory tour; 3:00 P.M. depart for airport"
+        },
+        {
+          "label": "Email — From: Travel Coordinator",
+          "text": "Subject: Updated Itinerary\n\nHi team,\n\nThe client has asked to move the Day 2 meeting to 11:00 A.M. instead of 9:00 A.M., since their director is arriving late that morning. Dinner and the Day 3 factory tour remain unchanged. Please update your calendars accordingly.\n\nThanks,\nTravel Coordinator"
+        },
+        {
+          "label": "Text message — From: Duc (colleague)",
+          "text": "Thanks for the update! Since the meeting starts later, I'll use the extra morning to review the presentation slides one more time. See you at the hotel lobby at 10:30."
+        }
+      ],
+      "question": "What time does the team check in at the hotel on Day 1?",
+      "options": ["9:00 A.M.", "11:00 A.M.", "2:00 P.M.", "6:00 P.M."],
+      "correctIndex": 2,
+      "explanation": "Day 1 of the itinerary lists \"Arrive 2:00 P.M., check in at Riverside Hotel\".",
+      "explanationVi": "Ngày 1 trong lịch trình ghi \"Đến lúc 2 giờ chiều, nhận phòng tại khách sạn Riverside\".",
+      "level": "advanced"
     }
   ],
   "speakingTasks": [
