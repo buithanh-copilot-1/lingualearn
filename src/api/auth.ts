@@ -51,3 +51,11 @@ export async function logout() {
 export async function fetchMe() {
   return apiFetch<{ user: AuthUser; progress: UserProgress }>('/api/auth/me', { auth: true });
 }
+
+export async function updateProfile(displayName: string) {
+  return apiFetch<{ success: boolean; user: AuthUser }>('/api/auth/profile', {
+    method: 'PUT',
+    auth: true,
+    body: JSON.stringify({ displayName }),
+  });
+}

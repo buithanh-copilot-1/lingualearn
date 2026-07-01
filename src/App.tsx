@@ -21,6 +21,7 @@ import Dictionary from './pages/Dictionary';
 import Idioms from './pages/Idioms';
 import ProgressPage from './pages/Progress';
 import Settings from './pages/Settings';
+import Profile from './pages/Profile';
 import Auth from './pages/Auth';
 import NotFound from './pages/NotFound';
 import './index.css';
@@ -52,6 +53,7 @@ export default function App() {
                     <Route path="/idioms" element={<Idioms />} />
                     <Route path="/progress" element={<ProgressPage />} />
                     <Route path="/settings" element={<Settings />} />
+                    <Route path="/profile" element={<Profile />} />
                     <Route path="/auth" element={<Auth />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>

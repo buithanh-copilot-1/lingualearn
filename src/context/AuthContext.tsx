@@ -18,6 +18,7 @@ interface AuthContextValue {
   login: (email: string, password: string) => Promise<void>;
   register: (email: string, password: string, displayName?: string) => Promise<void>;
   logout: () => Promise<void>;
+  updateProfile: (displayName: string) => Promise<void>;
   error: string | null;
   clearError: () => void;
 }
@@ -117,6 +118,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setProgressFromServer(loadLocalProgress());
   }, [setProgressFromServer]);
 
+  const updateProfile = useCallback(async (displayName: string) => {
+    setError(null);
+    try {
+      const data = await authApi.updateProfile(displayName);
+      setUser(data.user);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Update profile failed');
+      throw e;
+    }
+  }, []);
+
   return (
     <AuthContext.Provider
       value={{
@@ -126,6 +138,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         login,
         register,
         logout,
+        updateProfile,
         error,
         clearError,
       }}

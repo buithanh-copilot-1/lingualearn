@@ -17,8 +17,12 @@ const navItems = [
 export default function Navbar() {
   const location = useLocation();
   const { tr } = useLanguage();
-  const { isAuthenticated, logout } = useAuth();
+  const { user, isAuthenticated, logout } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const initials = user?.displayName
+    ? user.displayName.substring(0, 2).toUpperCase()
+    : user?.email.substring(0, 2).toUpperCase() || 'U';
 
   useEffect(() => {
     setMenuOpen(false);
@@ -60,9 +64,11 @@ export default function Navbar() {
           )}
           <li>
             {isAuthenticated ? (
-              <button type="button" className="nav-auth-btn" onClick={() => void logout()}>
-                {tr.nav.logout}
-              </button>
+              <Link to="/profile" className="nav-avatar-link" title={user?.displayName || user?.email}>
+                <div className="nav-avatar-circle">
+                  {initials}
+                </div>
+              </Link>
             ) : (
               <Link to="/auth" className={location.pathname === '/auth' ? 'active' : ''}>
                 {tr.nav.login}
@@ -72,8 +78,13 @@ export default function Navbar() {
         </ul>
 
         {isAuthenticated && (
-          <div className="mobile-notification-bell">
+          <div className="mobile-nav-actions">
             <NotificationBell />
+            <Link to="/profile" className="mobile-avatar-link" title={user?.displayName || user?.email}>
+              <div className="nav-avatar-circle small">
+                {initials}
+              </div>
+            </Link>
           </div>
         )}
 

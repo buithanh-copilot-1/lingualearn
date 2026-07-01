@@ -161,4 +161,27 @@ export async function authRoutes(app: FastifyInstance) {
       progress: await buildProgressResponse(user.id),
     };
   });
+
+  app.put('/profile', { preHandler: [app.authenticate] }, async (request, reply) => {
+    const updateProfileSchema = z.object({
+      displayName: z.string().min(1).max(50),
+    });
+
+    const body = updateProfileSchema.safeParse(request.body);
+    if (!body.success) {
+      return reply.status(400).send({ error: 'Invalid input' });
+    }
+
+    const user = await prisma.user.update({
+      where: { id: request.user.sub },
+      data: {
+        displayName: body.data.displayName,
+      },
+    });
+
+    return {
+      success: true,
+      user: sanitizeUser(user),
+    };
+  });
 }
