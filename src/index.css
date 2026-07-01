@@ -555,6 +555,281 @@ body {
 .flashcard-example { font-size: 0.85rem; color: var(--text-muted); font-style: italic; margin-bottom: 0.75rem; }
 .flashcard-category { font-size: 0.75rem; color: var(--primary); font-weight: 600; margin-bottom: 0.75rem; }
 
+/* Vocabulary page */
+.vocab-page .vocab-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.vocab-study-btn { flex-shrink: 0; }
+
+.vocab-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.vocab-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.vocab-stat-value {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1.2;
+}
+
+.vocab-stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.vocab-progress-wrap {
+  grid-column: 1 / -1;
+  margin-top: 0.25rem;
+}
+
+.vocab-progress-bar {
+  height: 8px;
+  background: var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.vocab-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.vocab-progress-label {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.vocab-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.vocab-search { width: 100%; max-width: none; }
+
+.vocab-toolbar-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.vocab-toolbar-row .filter-scroll { flex: 1; min-width: 0; }
+
+.vocab-select {
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-family: inherit;
+  color: var(--text);
+  cursor: pointer;
+  min-height: 36px;
+  flex-shrink: 0;
+}
+
+.vocab-select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.vocab-result-count {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.vocab-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.vocab-row {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.vocab-row:hover { border-color: var(--primary-light); }
+.vocab-row-learned { border-left: 3px solid var(--success); }
+.vocab-row-expanded { box-shadow: var(--shadow); border-color: var(--primary-light); }
+
+.vocab-row-main {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  color: inherit;
+}
+
+.vocab-row-leading {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.vocab-status {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.vocab-status-done {
+  background: var(--success);
+  border-color: var(--success);
+  color: white;
+}
+
+.vocab-row-text { min-width: 0; flex: 1; }
+
+.vocab-row-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.vocab-row-title h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.vocab-row-phonetic {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.1rem;
+}
+
+.vocab-row-preview {
+  font-size: 0.85rem;
+  color: var(--text);
+  margin-top: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vocab-row-chevron {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.vocab-row-detail {
+  padding: 0 1rem 1rem 3.25rem;
+  border-top: 1px solid var(--border);
+  background: linear-gradient(180deg, #f8fafc, var(--surface));
+}
+
+.vocab-row-meaning {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0.75rem 0 0.5rem;
+}
+
+.vocab-row-example {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 0.75rem;
+}
+
+.vocab-row-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.vocab-row-category {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--primary);
+  background: #eef2ff;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+
+.vocab-row-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.vocab-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.vocab-page-info {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  min-width: 7rem;
+  text-align: center;
+}
+
+.study-progress {
+  margin-bottom: 1rem;
+}
+
 /* Grammar */
 .grammar-list { display: flex; flex-direction: column; gap: 1.5rem; }
 
@@ -1135,6 +1410,16 @@ body {
   /* Flashcards */
   .flashcard-grid { grid-template-columns: 1fr; gap: 1rem; }
   .flashcard { height: 200px; }
+
+  .vocab-page .vocab-header { flex-direction: column; }
+  .vocab-study-btn { width: 100%; }
+  .vocab-stats { grid-template-columns: repeat(3, 1fr); padding: 0.85rem 1rem; }
+  .vocab-stat-value { font-size: 1.15rem; }
+  .vocab-toolbar-row { flex-direction: column; align-items: stretch; }
+  .vocab-select { width: 100%; border-radius: 8px; }
+  .vocab-row-detail { padding-left: 1rem; }
+  .vocab-row-meta { flex-direction: column; align-items: flex-start; }
+  .vocab-pagination { flex-wrap: wrap; }
 
   /* Grammar */
   .grammar-card { padding: 1.25rem; }
