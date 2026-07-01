@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320">
+  <rect width="480" height="320" fill="#dbeafe"/>
+  <rect y="230" width="480" height="90" fill="#e2e8f0"/>
+  <polygon points="60,230 240,60 420,230" fill="#f1f5f9" stroke="#94a3b8" stroke-width="3"/>
+  <rect x="110" y="130" width="24" height="100" fill="#cbd5e1"/>
+  <rect x="170" y="130" width="24" height="100" fill="#cbd5e1"/>
+  <rect x="230" y="130" width="24" height="100" fill="#cbd5e1"/>
+  <rect x="290" y="130" width="24" height="100" fill="#cbd5e1"/>
+  <rect x="350" y="130" width="24" height="100" fill="#cbd5e1"/>
+  <rect x="60" y="225" width="360" height="14" fill="#94a3b8"/>
+  <g>
+    <ellipse cx="150" cy="255" rx="16" ry="16" fill="#f2c9a0"/>
+    <rect x="134" y="270" width="32" height="45" rx="10" fill="#dc2626"/>
+    <rect x="140" y="248" width="20" height="24" fill="#334155"/>
+  </g>
+  <g>
+    <ellipse cx="200" cy="258" rx="16" ry="16" fill="#d9a066"/>
+    <rect x="184" y="273" width="32" height="42" rx="10" fill="#16a34a"/>
+  </g>
+  <g>
+    <ellipse cx="250" cy="256" rx="16" ry="16" fill="#f2c9a0"/>
+    <rect x="234" y="271" width="32" height="44" rx="10" fill="#4f46e5"/>
+    <rect x="240" y="240" width="20" height="10" fill="#1e293b"/>
+  </g>
+</svg>

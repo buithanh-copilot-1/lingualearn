@@ -2,6 +2,7 @@ import { useState } from 'react';
 import type { ToeicQuestion, Locale } from '../types';
 import type { TranslationKeys } from '../i18n/translations';
 import ListenButton from './ListenButton';
+import ZoomableImage from './ZoomableImage';
 
 interface Props {
   question: ToeicQuestion;
@@ -18,7 +19,15 @@ export default function ToeicQuestionCard({ question, isNewGroup, selected, onSe
 
   return (
     <>
-      {isNewGroup && question.imageDesc && (
+      {isNewGroup && question.imageUrl && (
+        <ZoomableImage
+          src={question.imageUrl}
+          alt={question.imageDesc ?? tr.toeic.part}
+          hint={tr.toeic.clickToZoom}
+        />
+      )}
+
+      {isNewGroup && !question.imageUrl && question.imageDesc && (
         <div className="toeic-image-placeholder">
           <span className="toeic-image-icon">🖼️</span>
           <p>{question.imageDesc}</p>

@@ -153,6 +153,7 @@ export interface ToeicQuestion {
   groupId?: string;
   audioScript?: string;
   imageDesc?: string;
+  imageUrl?: string;
   passageTitle?: string;
   passages?: ToeicPassage[];
   question: string;
@@ -172,6 +173,7 @@ export interface ToeicSpeakingTask {
   promptVi: string;
   script?: string;
   imageDesc?: string;
+  imageUrl?: string;
   prepSeconds: number;
   speakSeconds: number;
 }

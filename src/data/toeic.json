@@ -14,7 +14,8 @@
       "correctIndex": 0,
       "explanation": "The woman is typing on a laptop, which matches option A.",
       "explanationVi": "Người phụ nữ đang gõ máy tính xách tay, khớp với đáp án A.",
-      "level": "beginner"
+      "level": "beginner",
+      "imageUrl": "/toeic-images/p1-1-woman-laptop.svg"
     },
     {
       "id": "toeic-p1-2",
@@ -30,7 +31,8 @@
       "correctIndex": 1,
       "explanation": "The two men are looking at a blueprint (a document) together, matching option B.",
       "explanationVi": "Hai người đàn ông đang cùng xem một bản vẽ (tài liệu), khớp với đáp án B.",
-      "level": "beginner"
+      "level": "beginner",
+      "imageUrl": "/toeic-images/p1-2-blueprint.svg"
     },
     {
       "id": "toeic-p1-3",
@@ -46,7 +48,8 @@
       "correctIndex": 2,
       "explanation": "The picture shows passengers boarding a bus while it rains, matching option C.",
       "explanationVi": "Bức tranh cho thấy hành khách đang lên xe buýt trong lúc trời mưa, khớp với đáp án C.",
-      "level": "intermediate"
+      "level": "intermediate",
+      "imageUrl": "/toeic-images/p1-3-bus-rain.svg"
     },
     {
       "id": "toeic-p1-4",
@@ -62,7 +65,8 @@
       "correctIndex": 2,
       "explanation": "An employee is restocking and arranging cans on the shelf, matching option C.",
       "explanationVi": "Một nhân viên đang sắp xếp các lon hàng lên kệ, khớp với đáp án C.",
-      "level": "beginner"
+      "level": "beginner",
+      "imageUrl": "/toeic-images/p1-4-supermarket.svg"
     },
     {
       "id": "toeic-p1-5",
@@ -78,7 +82,8 @@
       "correctIndex": 1,
       "explanation": "The chef is described as chopping vegetables, matching option B.",
       "explanationVi": "Đầu bếp đang thái rau, khớp với đáp án B.",
-      "level": "beginner"
+      "level": "beginner",
+      "imageUrl": "/toeic-images/p1-5-chef.svg"
     },
     {
       "id": "toeic-p1-6",
@@ -94,7 +99,8 @@
       "correctIndex": 2,
       "explanation": "The picture shows the librarian pushing a book cart, matching option C.",
       "explanationVi": "Bức tranh cho thấy thủ thư đang đẩy xe chở sách, khớp với đáp án C.",
-      "level": "beginner"
+      "level": "beginner",
+      "imageUrl": "/toeic-images/p1-6-librarian.svg"
     },
     {
       "id": "toeic-p1-7",
@@ -110,7 +116,8 @@
       "correctIndex": 2,
       "explanation": "The mechanic is examining the engine under the open hood, matching option C.",
       "explanationVi": "Người thợ máy đang kiểm tra động cơ dưới nắp capo đang mở, khớp với đáp án C.",
-      "level": "intermediate"
+      "level": "intermediate",
+      "imageUrl": "/toeic-images/p1-7-mechanic.svg"
     },
     {
       "id": "toeic-p1-8",
@@ -126,7 +133,8 @@
       "correctIndex": 1,
       "explanation": "The colleagues are shaking hands while exchanging a business card, matching option B.",
       "explanationVi": "Hai đồng nghiệp đang bắt tay và trao danh thiếp, khớp với đáp án B.",
-      "level": "beginner"
+      "level": "beginner",
+      "imageUrl": "/toeic-images/p1-8-handshake.svg"
     },
     {
       "id": "toeic-p2-1",
@@ -655,7 +663,10 @@
       "audioScript": "This is a traffic update for the downtown area. There is heavy congestion on Main Street due to ongoing road repairs near the river bridge. Drivers heading to the business district should use Second Avenue as an alternative route. The repair work is expected to continue through Friday.",
       "question": "How long will the repair work continue?",
       "options": [
-        "Until tomorrow", "Until next Monday", "Through Friday", "Indefinitely"
+        "Until tomorrow",
+        "Until next Monday",
+        "Through Friday",
+        "Indefinitely"
       ],
       "correctIndex": 2,
       "explanation": "The talk says the repair work \"is expected to continue through Friday\".",
@@ -686,7 +697,10 @@
       "audioScript": "Welcome to Fit Life Gym. Please note that our 6 p.m. yoga class has been moved to Studio B for this week only, due to floor maintenance in Studio A. All other classes will run as usual. Members can check the updated schedule on our mobile app or at the front desk.",
       "question": "Why was the class moved?",
       "options": [
-        "Due to floor maintenance", "Due to low attendance", "Due to a staff shortage", "Due to a holiday"
+        "Due to floor maintenance",
+        "Due to low attendance",
+        "Due to a staff shortage",
+        "Due to a holiday"
       ],
       "correctIndex": 0,
       "explanation": "The reason given is \"due to floor maintenance in Studio A\".",
@@ -700,7 +714,10 @@
       "audioScript": "Welcome to Fit Life Gym. Please note that our 6 p.m. yoga class has been moved to Studio B for this week only, due to floor maintenance in Studio A. All other classes will run as usual. Members can check the updated schedule on our mobile app or at the front desk.",
       "question": "Where can members find the updated schedule?",
       "options": [
-        "Only by calling the gym", "On the mobile app or at the front desk", "In a mailed newsletter", "On the parking lot bulletin board"
+        "Only by calling the gym",
+        "On the mobile app or at the front desk",
+        "In a mailed newsletter",
+        "On the parking lot bulletin board"
       ],
       "correctIndex": 1,
       "explanation": "Members can check the schedule \"on our mobile app or at the front desk\".",
@@ -711,7 +728,12 @@
       "id": "toeic-p5-1",
       "part": "part5",
       "question": "The new marketing manager will begin work ____ March 1.",
-      "options": ["on", "in", "at", "by"],
+      "options": [
+        "on",
+        "in",
+        "at",
+        "by"
+      ],
       "correctIndex": 0,
       "explanation": "Use \"on\" with specific dates.",
       "explanationVi": "Dùng giới từ \"on\" với ngày cụ thể.",
@@ -721,7 +743,12 @@
       "id": "toeic-p5-2",
       "part": "part5",
       "question": "All employees ____ to complete the safety training by the end of the month.",
-      "options": ["require", "requiring", "are required", "requirement"],
+      "options": [
+        "require",
+        "requiring",
+        "are required",
+        "requirement"
+      ],
       "correctIndex": 2,
       "explanation": "The passive form \"are required\" fits the subject \"employees\" and the infinitive \"to complete\".",
       "explanationVi": "Thể bị động \"are required\" phù hợp với chủ ngữ \"employees\" và động từ nguyên mẫu có to \"to complete\".",
@@ -731,7 +758,12 @@
       "id": "toeic-p5-3",
       "part": "part5",
       "question": "Please submit your report ____ than Friday afternoon.",
-      "options": ["earlier", "sooner", "later", "no later"],
+      "options": [
+        "earlier",
+        "sooner",
+        "later",
+        "no later"
+      ],
       "correctIndex": 3,
       "explanation": "\"No later than\" is a fixed expression meaning \"by this time at the latest\".",
       "explanationVi": "\"No later than\" là cụm cố định nghĩa là \"chậm nhất là vào lúc này\".",
@@ -741,7 +773,12 @@
       "id": "toeic-p5-4",
       "part": "part5",
       "question": "The conference room is currently ____ for a client meeting.",
-      "options": ["occupy", "occupied", "occupation", "occupying"],
+      "options": [
+        "occupy",
+        "occupied",
+        "occupation",
+        "occupying"
+      ],
       "correctIndex": 1,
       "explanation": "\"Occupied\" (past participle as adjective) describes the state of the room after \"is\".",
       "explanationVi": "\"Occupied\" (tính từ dạng phân từ 2) mô tả trạng thái của căn phòng sau động từ \"is\".",
@@ -751,7 +788,12 @@
       "id": "toeic-p5-5",
       "part": "part5",
       "question": "____ the heavy rain, the outdoor event proceeded as scheduled.",
-      "options": ["Although", "Despite", "Because", "Unless"],
+      "options": [
+        "Although",
+        "Despite",
+        "Because",
+        "Unless"
+      ],
       "correctIndex": 1,
       "explanation": "\"Despite\" is followed by a noun phrase (\"the heavy rain\"), unlike \"Although\" which needs a clause.",
       "explanationVi": "\"Despite\" theo sau là cụm danh từ (\"the heavy rain\"), khác với \"Although\" cần một mệnh đề.",
@@ -761,7 +803,12 @@
       "id": "toeic-p5-6",
       "part": "part5",
       "question": "Ms. Patel has worked at this company ____ 2019.",
-      "options": ["for", "since", "during", "within"],
+      "options": [
+        "for",
+        "since",
+        "during",
+        "within"
+      ],
       "correctIndex": 1,
       "explanation": "\"Since\" is used with a specific starting point in time in the present perfect tense.",
       "explanationVi": "\"Since\" dùng với một mốc thời gian bắt đầu cụ thể trong thì hiện tại hoàn thành.",
@@ -771,7 +818,12 @@
       "id": "toeic-p5-7",
       "part": "part5",
       "question": "The company's revenue grew ____ over the past three years.",
-      "options": ["significant", "significance", "significantly", "signify"],
+      "options": [
+        "significant",
+        "significance",
+        "significantly",
+        "signify"
+      ],
       "correctIndex": 2,
       "explanation": "An adverb (\"significantly\") is needed to modify the verb \"grew\".",
       "explanationVi": "Cần một trạng từ (\"significantly\") để bổ nghĩa cho động từ \"grew\".",
@@ -781,7 +833,12 @@
       "id": "toeic-p5-8",
       "part": "part5",
       "question": "Neither the manager ____ the assistant was available to answer the call.",
-      "options": ["and", "or", "nor", "but"],
+      "options": [
+        "and",
+        "or",
+        "nor",
+        "but"
+      ],
       "correctIndex": 2,
       "explanation": "\"Neither... nor...\" is the correct correlative conjunction pair.",
       "explanationVi": "\"Neither... nor...\" là cặp liên từ tương quan chính xác.",
@@ -791,7 +848,12 @@
       "id": "toeic-p5-9",
       "part": "part5",
       "question": "This model is more energy-efficient than ____ we used last year.",
-      "options": ["it", "one", "the one", "ones"],
+      "options": [
+        "it",
+        "one",
+        "the one",
+        "ones"
+      ],
       "correctIndex": 2,
       "explanation": "\"The one\" replaces a specific singular noun already mentioned (the previous model).",
       "explanationVi": "\"The one\" thay thế cho một danh từ số ít cụ thể đã được nhắc đến (mẫu trước đó).",
@@ -801,7 +863,12 @@
       "id": "toeic-p5-10",
       "part": "part5",
       "question": "The technician ____ the printer before the meeting started.",
-      "options": ["fixes", "fixed", "had fixed", "fixing"],
+      "options": [
+        "fixes",
+        "fixed",
+        "had fixed",
+        "fixing"
+      ],
       "correctIndex": 2,
       "explanation": "Past perfect (\"had fixed\") shows an action completed before another past action (\"the meeting started\").",
       "explanationVi": "Thì quá khứ hoàn thành (\"had fixed\") diễn tả hành động hoàn tất trước một hành động khác trong quá khứ (\"the meeting started\").",
@@ -811,7 +878,12 @@
       "id": "toeic-p5-11",
       "part": "part5",
       "question": "The committee members ____ the proposal will meet again on Thursday.",
-      "options": ["who reviewed", "reviewed", "reviewing of", "have reviewed"],
+      "options": [
+        "who reviewed",
+        "reviewed",
+        "reviewing of",
+        "have reviewed"
+      ],
       "correctIndex": 0,
       "explanation": "A relative clause \"who reviewed the proposal\" is needed to modify \"the committee members\".",
       "explanationVi": "Cần mệnh đề quan hệ \"who reviewed the proposal\" để bổ nghĩa cho \"the committee members\".",
@@ -821,7 +893,12 @@
       "id": "toeic-p5-12",
       "part": "part5",
       "question": "This year's profits were much ____ than last year's.",
-      "options": ["high", "higher", "highest", "more high"],
+      "options": [
+        "high",
+        "higher",
+        "highest",
+        "more high"
+      ],
       "correctIndex": 1,
       "explanation": "The comparative form \"higher\" is needed before \"than\".",
       "explanationVi": "Cần dạng so sánh hơn \"higher\" trước \"than\".",
@@ -831,7 +908,12 @@
       "id": "toeic-p5-13",
       "part": "part5",
       "question": "The manager avoided ____ a decision until all data was collected.",
-      "options": ["make", "to make", "making", "made"],
+      "options": [
+        "make",
+        "to make",
+        "making",
+        "made"
+      ],
       "correctIndex": 2,
       "explanation": "The verb \"avoid\" is followed by a gerund (\"making\"), not an infinitive.",
       "explanationVi": "Động từ \"avoid\" theo sau là danh động từ (gerund) \"making\", không dùng động từ nguyên mẫu có to.",
@@ -841,7 +923,12 @@
       "id": "toeic-p5-14",
       "part": "part5",
       "question": "The new policy will apply to all departments ____ Human Resources.",
-      "options": ["except for", "besides", "in addition to", "along with"],
+      "options": [
+        "except for",
+        "besides",
+        "in addition to",
+        "along with"
+      ],
       "correctIndex": 0,
       "explanation": "\"Except for\" is used to exclude something from a general statement.",
       "explanationVi": "\"Except for\" dùng để loại trừ một trường hợp khỏi một phát biểu chung.",
@@ -851,7 +938,12 @@
       "id": "toeic-p5-15",
       "part": "part5",
       "question": "If the shipment ____ on time, we would not have lost the client.",
-      "options": ["arrives", "arrived", "had arrived", "will arrive"],
+      "options": [
+        "arrives",
+        "arrived",
+        "had arrived",
+        "will arrive"
+      ],
       "correctIndex": 2,
       "explanation": "This is a third conditional (\"if... had arrived, ... would not have lost\") about a hypothetical past situation.",
       "explanationVi": "Đây là câu điều kiện loại 3 (\"if... had arrived, ... would not have lost\") diễn tả tình huống giả định trong quá khứ.",
@@ -861,7 +953,12 @@
       "id": "toeic-p5-16",
       "part": "part5",
       "question": "There isn't ____ paper left in the printer tray.",
-      "options": ["many", "much", "few", "a few"],
+      "options": [
+        "many",
+        "much",
+        "few",
+        "a few"
+      ],
       "correctIndex": 1,
       "explanation": "\"Much\" is used with uncountable nouns like \"paper\" in negative sentences.",
       "explanationVi": "\"Much\" dùng với danh từ không đếm được như \"paper\" trong câu phủ định.",
@@ -871,7 +968,12 @@
       "id": "toeic-p5-17",
       "part": "part5",
       "question": "The annual report ____ by the finance team every January.",
-      "options": ["prepares", "is prepared", "prepared", "has prepared"],
+      "options": [
+        "prepares",
+        "is prepared",
+        "prepared",
+        "has prepared"
+      ],
       "correctIndex": 1,
       "explanation": "Passive voice (\"is prepared\") is needed since the report doesn't prepare itself.",
       "explanationVi": "Cần thể bị động (\"is prepared\") vì bản báo cáo không tự chuẩn bị.",
@@ -881,7 +983,12 @@
       "id": "toeic-p5-18",
       "part": "part5",
       "question": "____ with the results, the director approved the next phase of the project.",
-      "options": ["Satisfy", "Satisfying", "Satisfied", "Satisfaction"],
+      "options": [
+        "Satisfy",
+        "Satisfying",
+        "Satisfied",
+        "Satisfaction"
+      ],
       "correctIndex": 2,
       "explanation": "A past participle clause (\"Satisfied with...\") describes the director's state, similar to \"Being satisfied\".",
       "explanationVi": "Mệnh đề rút gọn với phân từ 2 (\"Satisfied with...\") mô tả trạng thái của giám đốc.",
@@ -891,7 +998,12 @@
       "id": "toeic-p5-19",
       "part": "part5",
       "question": "Each of the applicants ____ required to complete an online assessment.",
-      "options": ["are", "is", "were", "have been"],
+      "options": [
+        "are",
+        "is",
+        "were",
+        "have been"
+      ],
       "correctIndex": 1,
       "explanation": "\"Each of\" takes a singular verb (\"is\"), even though \"applicants\" is plural.",
       "explanationVi": "\"Each of\" luôn đi với động từ số ít (\"is\"), dù \"applicants\" là danh từ số nhiều.",
@@ -901,7 +1013,12 @@
       "id": "toeic-p5-20",
       "part": "part5",
       "question": "Please review the attached file ____ signing the agreement.",
-      "options": ["prior to", "previous", "before that", "in front of"],
+      "options": [
+        "prior to",
+        "previous",
+        "before that",
+        "in front of"
+      ],
       "correctIndex": 0,
       "explanation": "\"Prior to\" is a formal preposition meaning \"before\", followed by a gerund (\"signing\").",
       "explanationVi": "\"Prior to\" là giới từ trang trọng nghĩa \"trước khi\", theo sau là danh động từ (\"signing\").",
@@ -919,7 +1036,12 @@
         }
       ],
       "question": "(1)",
-      "options": ["relocate", "relocated", "relocating", "relocation"],
+      "options": [
+        "relocate",
+        "relocated",
+        "relocating",
+        "relocation"
+      ],
       "correctIndex": 1,
       "explanation": "\"Will be temporarily relocated\" is passive voice, requiring the past participle \"relocated\".",
       "explanationVi": "\"Will be temporarily relocated\" là thể bị động, cần dùng phân từ 2 \"relocated\".",
@@ -937,7 +1059,12 @@
         }
       ],
       "question": "(2)",
-      "options": ["introduce", "introduced", "introduces", "introducing"],
+      "options": [
+        "introduce",
+        "introduced",
+        "introduces",
+        "introducing"
+      ],
       "correctIndex": 0,
       "explanation": "\"Is expected to improve... and introduce\" — parallel base-verb form after \"to\".",
       "explanationVi": "\"Is expected to improve... and introduce\" — dùng động từ nguyên mẫu song song sau \"to\".",
@@ -955,7 +1082,12 @@
         }
       ],
       "question": "(3)",
-      "options": ["convenience", "inconvenience", "conveniently", "convenient"],
+      "options": [
+        "convenience",
+        "inconvenience",
+        "conveniently",
+        "convenient"
+      ],
       "correctIndex": 1,
       "explanation": "\"Apologize for any inconvenience\" is a common fixed business expression.",
       "explanationVi": "\"Apologize for any inconvenience\" là cụm diễn đạt cố định thường dùng trong văn phong công sở.",
@@ -996,7 +1128,12 @@
         }
       ],
       "question": "(1)",
-      "options": ["introduce", "introduces", "introducing", "introduction"],
+      "options": [
+        "introduce",
+        "introduces",
+        "introducing",
+        "introduction"
+      ],
       "correctIndex": 0,
       "explanation": "After \"excited to\", a base-verb infinitive (\"introduce\") is required.",
       "explanationVi": "Sau \"excited to\" cần động từ nguyên mẫu (\"introduce\").",
@@ -1014,7 +1151,12 @@
         }
       ],
       "question": "(2)",
-      "options": ["allow", "allowing", "allowed", "allows"],
+      "options": [
+        "allow",
+        "allowing",
+        "allowed",
+        "allows"
+      ],
       "correctIndex": 1,
       "explanation": "\"Allowing you to...\" is a participle clause describing the result of connecting to the phone.",
       "explanationVi": "\"Allowing you to...\" là mệnh đề phân từ diễn tả kết quả của việc kết nối với điện thoại.",
@@ -1032,7 +1174,12 @@
         }
       ],
       "question": "(3)",
-      "options": ["until", "by", "since", "from"],
+      "options": [
+        "until",
+        "by",
+        "since",
+        "from"
+      ],
       "correctIndex": 1,
       "explanation": "\"By May 31\" means \"no later than that date\", the correct deadline preposition here.",
       "explanationVi": "\"By May 31\" nghĩa là \"chậm nhất vào ngày đó\", đúng giới từ chỉ hạn chót.",
@@ -1096,7 +1243,12 @@
         }
       ],
       "question": "How long will the water be shut off?",
-      "options": ["One hour", "Two hours", "Four hours", "All day"],
+      "options": [
+        "One hour",
+        "Two hours",
+        "Four hours",
+        "All day"
+      ],
       "correctIndex": 2,
       "explanation": "From 9 A.M. to 1 P.M. is four hours.",
       "explanationVi": "Từ 9 giờ sáng đến 1 giờ chiều là bốn tiếng đồng hồ.",
@@ -1245,7 +1397,12 @@
         }
       ],
       "question": "What position is being advertised?",
-      "options": ["A delivery driver", "A part-time barista", "A store manager", "A cafe accountant"],
+      "options": [
+        "A delivery driver",
+        "A part-time barista",
+        "A store manager",
+        "A cafe accountant"
+      ],
       "correctIndex": 1,
       "explanation": "The advertisement is for a \"part-time Barista\".",
       "explanationVi": "Quảng cáo tuyển dụng vị trí \"nhân viên pha chế bán thời gian\".",
@@ -1348,7 +1505,12 @@
         }
       ],
       "question": "What time does the Social Media Strategy workshop now start?",
-      "options": ["9:00 A.M.", "10:30 A.M.", "11:00 A.M.", "1:00 P.M."],
+      "options": [
+        "9:00 A.M.",
+        "10:30 A.M.",
+        "11:00 A.M.",
+        "1:00 P.M."
+      ],
       "correctIndex": 0,
       "explanation": "The email states the workshop \"will now begin at 9:00 A.M. instead\".",
       "explanationVi": "Email nêu rõ workshop \"nay sẽ bắt đầu lúc 9 giờ sáng\".",
@@ -1374,7 +1536,12 @@
         }
       ],
       "question": "According to the schedule, what topic does Ms. Alvarez speak about?",
-      "options": ["Customer Loyalty", "Social Media Strategy", "Digital Trends", "Closing remarks"],
+      "options": [
+        "Customer Loyalty",
+        "Social Media Strategy",
+        "Digital Trends",
+        "Closing remarks"
+      ],
       "correctIndex": 2,
       "explanation": "The original schedule lists Ms. Alvarez's keynote as \"Digital Trends\".",
       "explanationVi": "Lịch trình gốc ghi bài phát biểu của bà Alvarez là \"Digital Trends\".",
@@ -1431,7 +1598,12 @@
         }
       ],
       "question": "At what time will Priya see her colleagues at the panel discussion?",
-      "options": ["9:00 A.M.", "11:00 A.M.", "1:00 P.M.", "3:00 P.M."],
+      "options": [
+        "9:00 A.M.",
+        "11:00 A.M.",
+        "1:00 P.M.",
+        "3:00 P.M."
+      ],
       "correctIndex": 2,
       "explanation": "Priya says \"See you at the panel discussion at 1!\", and the schedule confirms it is at 1:00 P.M.",
       "explanationVi": "Priya nói \"Gặp mọi người ở buổi thảo luận lúc 1 giờ nhé!\", khớp với lịch trình lúc 1:00 chiều.",
@@ -1452,7 +1624,8 @@
       "correctIndex": 0,
       "explanation": "The tourists are photographing the museum entrance, matching option A.",
       "explanationVi": "Nhóm khách du lịch đang chụp ảnh trước cổng bảo tàng, khớp với đáp án A.",
-      "level": "beginner"
+      "level": "beginner",
+      "imageUrl": "/toeic-images/t2-p1-1-museum.svg"
     },
     {
       "id": "toeic-t2-p1-2",
@@ -1469,7 +1642,8 @@
       "correctIndex": 1,
       "explanation": "The woman is watering the potted plants, matching option B.",
       "explanationVi": "Người phụ nữ đang tưới cây trên ban công, khớp với đáp án B.",
-      "level": "beginner"
+      "level": "beginner",
+      "imageUrl": "/toeic-images/t2-p1-2-balcony.svg"
     },
     {
       "id": "toeic-t2-p1-3",
@@ -1486,7 +1660,8 @@
       "correctIndex": 2,
       "explanation": "The worker is taking boxes out of the van, matching option C.",
       "explanationVi": "Người giao hàng đang dỡ các thùng hàng ra khỏi xe tải, khớp với đáp án C.",
-      "level": "beginner"
+      "level": "beginner",
+      "imageUrl": "/toeic-images/t2-p1-3-delivery.svg"
     },
     {
       "id": "toeic-t2-p2-1",
@@ -1494,7 +1669,11 @@
       "examSet": "test2",
       "audioScript": "What time does the store open on Sundays?",
       "question": "What time does the store open on Sundays?",
-      "options": ["At ten in the morning.", "It's a clothing store.", "Yes, every Sunday."],
+      "options": [
+        "At ten in the morning.",
+        "It's a clothing store.",
+        "Yes, every Sunday."
+      ],
       "correctIndex": 0,
       "explanation": "This \"What time\" question is answered directly with a time in option A.",
       "explanationVi": "Câu hỏi \"What time\" được trả lời trực tiếp bằng một mốc giờ ở đáp án A.",
@@ -1506,7 +1685,11 @@
       "examSet": "test2",
       "audioScript": "Could you turn down the music a little?",
       "question": "Could you turn down the music a little?",
-      "options": ["Sure, sorry about that.", "I bought a new speaker.", "It's a great song."],
+      "options": [
+        "Sure, sorry about that.",
+        "I bought a new speaker.",
+        "It's a great song."
+      ],
       "correctIndex": 0,
       "explanation": "This is a polite request; option A agrees and apologizes.",
       "explanationVi": "Đây là lời yêu cầu lịch sự; đáp án A đồng ý và xin lỗi.",
@@ -1518,7 +1701,11 @@
       "examSet": "test2",
       "audioScript": "How much does shipping cost for international orders?",
       "question": "How much does shipping cost for international orders?",
-      "options": ["It usually takes a week.", "About fifteen dollars.", "We ship on Mondays."],
+      "options": [
+        "It usually takes a week.",
+        "About fifteen dollars.",
+        "We ship on Mondays."
+      ],
       "correctIndex": 1,
       "explanation": "This \"How much\" question asks about cost; only option B gives a price.",
       "explanationVi": "Câu hỏi \"How much\" hỏi về chi phí; chỉ đáp án B nêu một mức giá.",
@@ -1530,7 +1717,11 @@
       "examSet": "test2",
       "audioScript": "Didn't you already send the invoice?",
       "question": "Didn't you already send the invoice?",
-      "options": ["Yes, I sent it this morning.", "The invoice is quite long.", "I need a new printer."],
+      "options": [
+        "Yes, I sent it this morning.",
+        "The invoice is quite long.",
+        "I need a new printer."
+      ],
       "correctIndex": 0,
       "explanation": "This negative question is confirmed directly by option A.",
       "explanationVi": "Câu hỏi phủ định này được xác nhận trực tiếp bởi đáp án A.",
@@ -1542,7 +1733,11 @@
       "examSet": "test2",
       "audioScript": "Would you rather meet in person or by video call?",
       "question": "Would you rather meet in person or by video call?",
-      "options": ["A video call would be easier for me.", "I met her last year.", "Yes, I would like that."],
+      "options": [
+        "A video call would be easier for me.",
+        "I met her last year.",
+        "Yes, I would like that."
+      ],
       "correctIndex": 0,
       "explanation": "This \"or\" choice question is answered by picking one option, as in A.",
       "explanationVi": "Câu hỏi lựa chọn \"or\" được trả lời bằng cách chọn một trong hai vế, như ở đáp án A.",
@@ -1554,7 +1749,11 @@
       "examSet": "test2",
       "audioScript": "Who approved this budget change?",
       "question": "Who approved this budget change?",
-      "options": ["Next quarter.", "The finance director did.", "About five thousand dollars."],
+      "options": [
+        "Next quarter.",
+        "The finance director did.",
+        "About five thousand dollars."
+      ],
       "correctIndex": 1,
       "explanation": "This \"Who\" question is answered with a person in option B.",
       "explanationVi": "Câu hỏi \"Who\" được trả lời bằng một người cụ thể ở đáp án B.",
@@ -1566,7 +1765,11 @@
       "examSet": "test2",
       "audioScript": "Is the elevator working today?",
       "question": "Is the elevator working today?",
-      "options": ["No, please use the stairs.", "It's on the fifth floor.", "I take the elevator every day."],
+      "options": [
+        "No, please use the stairs.",
+        "It's on the fifth floor.",
+        "I take the elevator every day."
+      ],
       "correctIndex": 0,
       "explanation": "This yes/no question about a state is answered directly by option A.",
       "explanationVi": "Câu hỏi có/không về tình trạng được trả lời trực tiếp bởi đáp án A.",
@@ -1578,7 +1781,11 @@
       "examSet": "test2",
       "audioScript": "When will the new product line launch?",
       "question": "When will the new product line launch?",
-      "options": ["In the warehouse downtown.", "Sometime next spring.", "It comes in three colors."],
+      "options": [
+        "In the warehouse downtown.",
+        "Sometime next spring.",
+        "It comes in three colors."
+      ],
       "correctIndex": 1,
       "explanation": "This \"When\" question is answered with a time in option B.",
       "explanationVi": "Câu hỏi \"When\" được trả lời bằng một mốc thời gian ở đáp án B.",
@@ -1591,7 +1798,12 @@
       "groupId": "toeic-t2-p3-g1",
       "audioScript": "Woman: Hi, I'd like to change my flight from Friday to Saturday if possible.\nMan: Let me check availability... Yes, there's a seat on Saturday's 2 p.m. flight, but there's a fifty-dollar change fee.\nWoman: That's fine. Can you also add a checked bag while you're at it?\nMan: Sure, I'll add that now and email you the updated ticket.",
       "question": "What does the woman want to do?",
-      "options": ["Cancel her flight", "Change her flight date", "Upgrade her seat", "Request a refund"],
+      "options": [
+        "Cancel her flight",
+        "Change her flight date",
+        "Upgrade her seat",
+        "Request a refund"
+      ],
       "correctIndex": 1,
       "explanation": "The woman says she'd like to \"change my flight from Friday to Saturday\".",
       "explanationVi": "Người phụ nữ nói cô ấy muốn \"đổi chuyến bay từ thứ Sáu sang thứ Bảy\".",
@@ -1604,7 +1816,12 @@
       "groupId": "toeic-t2-p3-g1",
       "audioScript": "Woman: Hi, I'd like to change my flight from Friday to Saturday if possible.\nMan: Let me check availability... Yes, there's a seat on Saturday's 2 p.m. flight, but there's a fifty-dollar change fee.\nWoman: That's fine. Can you also add a checked bag while you're at it?\nMan: Sure, I'll add that now and email you the updated ticket.",
       "question": "How much is the change fee?",
-      "options": ["Fifteen dollars", "Twenty-five dollars", "Fifty dollars", "There is no fee"],
+      "options": [
+        "Fifteen dollars",
+        "Twenty-five dollars",
+        "Fifty dollars",
+        "There is no fee"
+      ],
       "correctIndex": 2,
       "explanation": "The man mentions \"a fifty-dollar change fee\".",
       "explanationVi": "Người đàn ông nhắc đến \"phí đổi vé năm mươi đô la\".",
@@ -1617,7 +1834,12 @@
       "groupId": "toeic-t2-p3-g1",
       "audioScript": "Woman: Hi, I'd like to change my flight from Friday to Saturday if possible.\nMan: Let me check availability... Yes, there's a seat on Saturday's 2 p.m. flight, but there's a fifty-dollar change fee.\nWoman: That's fine. Can you also add a checked bag while you're at it?\nMan: Sure, I'll add that now and email you the updated ticket.",
       "question": "What will the man send the woman?",
-      "options": ["A refund confirmation", "An updated ticket", "A boarding pass only", "A hotel voucher"],
+      "options": [
+        "A refund confirmation",
+        "An updated ticket",
+        "A boarding pass only",
+        "A hotel voucher"
+      ],
       "correctIndex": 1,
       "explanation": "The man says he will \"email you the updated ticket\".",
       "explanationVi": "Người đàn ông nói sẽ \"gửi email vé đã cập nhật\" cho cô.",
@@ -1630,7 +1852,12 @@
       "groupId": "toeic-t2-p3-g2",
       "audioScript": "Man: Have you heard anything from the supplier about our delayed shipment?\nWoman: Yes, they said the container missed the scheduled ship and will go out on the next one.\nMan: That pushes our delivery back by how long?\nWoman: About a week, unfortunately. I'll let our customers know.",
       "question": "What are the speakers discussing?",
-      "options": ["A delayed shipment", "A canceled order", "A new supplier contract", "A pricing dispute"],
+      "options": [
+        "A delayed shipment",
+        "A canceled order",
+        "A new supplier contract",
+        "A pricing dispute"
+      ],
       "correctIndex": 0,
       "explanation": "The man asks about \"our delayed shipment\" at the start of the conversation.",
       "explanationVi": "Người đàn ông hỏi về \"lô hàng bị trễ của chúng ta\" ngay từ đầu đoạn hội thoại.",
@@ -1679,7 +1906,12 @@
       "groupId": "toeic-t2-p3-g3",
       "audioScript": "Woman: Hi, I bought this jacket last week, but it doesn't fit. Can I return it?\nMan: Of course, do you have the receipt?\nWoman: Yes, right here. I'd actually prefer an exchange for a larger size instead of a refund.\nMan: No problem, let me check if we have that size in stock.",
       "question": "Why did the woman come to the store?",
-      "options": ["To buy a new jacket", "To return or exchange a jacket", "To complain about a price", "To ask for a job application"],
+      "options": [
+        "To buy a new jacket",
+        "To return or exchange a jacket",
+        "To complain about a price",
+        "To ask for a job application"
+      ],
       "correctIndex": 1,
       "explanation": "The woman explains the jacket \"doesn't fit\" and asks about returning it.",
       "explanationVi": "Người phụ nữ giải thích chiếc áo khoác \"không vừa\" và hỏi về việc trả hàng.",
@@ -1692,7 +1924,12 @@
       "groupId": "toeic-t2-p3-g3",
       "audioScript": "Woman: Hi, I bought this jacket last week, but it doesn't fit. Can I return it?\nMan: Of course, do you have the receipt?\nWoman: Yes, right here. I'd actually prefer an exchange for a larger size instead of a refund.\nMan: No problem, let me check if we have that size in stock.",
       "question": "What does the woman prefer?",
-      "options": ["A cash refund", "A store credit", "An exchange for a larger size", "A gift card"],
+      "options": [
+        "A cash refund",
+        "A store credit",
+        "An exchange for a larger size",
+        "A gift card"
+      ],
       "correctIndex": 2,
       "explanation": "The woman says she'd \"prefer an exchange for a larger size instead of a refund\".",
       "explanationVi": "Người phụ nữ nói cô ấy \"muốn đổi sang cỡ lớn hơn thay vì hoàn tiền\".",
@@ -1705,7 +1942,12 @@
       "groupId": "toeic-t2-p3-g3",
       "audioScript": "Woman: Hi, I bought this jacket last week, but it doesn't fit. Can I return it?\nMan: Of course, do you have the receipt?\nWoman: Yes, right here. I'd actually prefer an exchange for a larger size instead of a refund.\nMan: No problem, let me check if we have that size in stock.",
       "question": "What will the man do next?",
-      "options": ["Process a refund", "Check if the size is in stock", "Call the manager", "Give the woman a discount"],
+      "options": [
+        "Process a refund",
+        "Check if the size is in stock",
+        "Call the manager",
+        "Give the woman a discount"
+      ],
       "correctIndex": 1,
       "explanation": "The man says he will \"check if we have that size in stock\".",
       "explanationVi": "Người đàn ông nói sẽ \"kiểm tra xem có size đó trong kho không\".",
@@ -1718,7 +1960,12 @@
       "groupId": "toeic-t2-p3-g4",
       "audioScript": "Man: I'm finalizing the schedule for the client visit next week. Can you confirm the meeting room?\nWoman: Yes, I booked the large conference room for 10 a.m. to noon.\nMan: Great. Should we also arrange lunch afterward?\nWoman: Good idea, I'll reserve a table at the restaurant next door for 12:30.",
       "question": "What is the man preparing?",
-      "options": ["A training manual", "A schedule for a client visit", "A performance review", "A budget report"],
+      "options": [
+        "A training manual",
+        "A schedule for a client visit",
+        "A performance review",
+        "A budget report"
+      ],
       "correctIndex": 1,
       "explanation": "The man says he is \"finalizing the schedule for the client visit next week\".",
       "explanationVi": "Người đàn ông nói anh đang \"hoàn thiện lịch trình cho chuyến thăm khách hàng tuần sau\".",
@@ -1731,7 +1978,12 @@
       "groupId": "toeic-t2-p3-g4",
       "audioScript": "Man: I'm finalizing the schedule for the client visit next week. Can you confirm the meeting room?\nWoman: Yes, I booked the large conference room for 10 a.m. to noon.\nMan: Great. Should we also arrange lunch afterward?\nWoman: Good idea, I'll reserve a table at the restaurant next door for 12:30.",
       "question": "What time was the conference room booked for?",
-      "options": ["9 a.m. to 11 a.m.", "10 a.m. to noon", "1 p.m. to 3 p.m.", "All day"],
+      "options": [
+        "9 a.m. to 11 a.m.",
+        "10 a.m. to noon",
+        "1 p.m. to 3 p.m.",
+        "All day"
+      ],
       "correctIndex": 1,
       "explanation": "The woman says she \"booked the large conference room for 10 a.m. to noon\".",
       "explanationVi": "Người phụ nữ nói cô ấy \"đã đặt phòng họp lớn từ 10 giờ sáng đến 12 giờ trưa\".",
@@ -1744,7 +1996,12 @@
       "groupId": "toeic-t2-p3-g4",
       "audioScript": "Man: I'm finalizing the schedule for the client visit next week. Can you confirm the meeting room?\nWoman: Yes, I booked the large conference room for 10 a.m. to noon.\nMan: Great. Should we also arrange lunch afterward?\nWoman: Good idea, I'll reserve a table at the restaurant next door for 12:30.",
       "question": "What will the woman do next?",
-      "options": ["Cancel the meeting room", "Reserve a table for lunch", "Print the schedule", "Call the client"],
+      "options": [
+        "Cancel the meeting room",
+        "Reserve a table for lunch",
+        "Print the schedule",
+        "Call the client"
+      ],
       "correctIndex": 1,
       "explanation": "The woman says \"I'll reserve a table at the restaurant next door for 12:30\".",
       "explanationVi": "Người phụ nữ nói \"Tôi sẽ đặt bàn tại nhà hàng bên cạnh lúc 12:30\".",
@@ -1757,7 +2014,12 @@
       "groupId": "toeic-t2-p4-g1",
       "audioScript": "Welcome to the City History Museum audio tour. As you walk through Gallery One, you'll see artifacts from the founding of our city over two hundred years ago. Please keep your device volume low out of respect for other visitors, and feel free to pause the tour at any exhibit. The tour will take approximately forty-five minutes to complete.",
       "question": "What is Gallery One about?",
-      "options": ["Modern art", "The founding of the city", "Local wildlife", "Famous scientists"],
+      "options": [
+        "Modern art",
+        "The founding of the city",
+        "Local wildlife",
+        "Famous scientists"
+      ],
       "correctIndex": 1,
       "explanation": "The tour mentions \"artifacts from the founding of our city over two hundred years ago\".",
       "explanationVi": "Bài hướng dẫn nhắc đến \"hiện vật từ thời thành lập thành phố hơn hai trăm năm trước\".",
@@ -1770,7 +2032,12 @@
       "groupId": "toeic-t2-p4-g1",
       "audioScript": "Welcome to the City History Museum audio tour. As you walk through Gallery One, you'll see artifacts from the founding of our city over two hundred years ago. Please keep your device volume low out of respect for other visitors, and feel free to pause the tour at any exhibit. The tour will take approximately forty-five minutes to complete.",
       "question": "What are visitors asked to do?",
-      "options": ["Keep their device volume low", "Take photos of every exhibit", "Stay with a tour guide", "Avoid Gallery One"],
+      "options": [
+        "Keep their device volume low",
+        "Take photos of every exhibit",
+        "Stay with a tour guide",
+        "Avoid Gallery One"
+      ],
       "correctIndex": 0,
       "explanation": "Visitors are asked to \"keep your device volume low out of respect for other visitors\".",
       "explanationVi": "Khách tham quan được yêu cầu \"giữ âm lượng thiết bị nhỏ để tôn trọng khách khác\".",
@@ -1783,7 +2050,12 @@
       "groupId": "toeic-t2-p4-g1",
       "audioScript": "Welcome to the City History Museum audio tour. As you walk through Gallery One, you'll see artifacts from the founding of our city over two hundred years ago. Please keep your device volume low out of respect for other visitors, and feel free to pause the tour at any exhibit. The tour will take approximately forty-five minutes to complete.",
       "question": "How long does the tour take?",
-      "options": ["Fifteen minutes", "Thirty minutes", "Forty-five minutes", "Two hours"],
+      "options": [
+        "Fifteen minutes",
+        "Thirty minutes",
+        "Forty-five minutes",
+        "Two hours"
+      ],
       "correctIndex": 2,
       "explanation": "The tour states it \"will take approximately forty-five minutes to complete\".",
       "explanationVi": "Bài hướng dẫn nói tour \"sẽ mất khoảng bốn mươi lăm phút để hoàn thành\".",
@@ -1814,7 +2086,12 @@
       "groupId": "toeic-t2-p4-g2",
       "audioScript": "Attention, employees. Starting next month, the parking garage on Elm Street will be reserved for visitors only. Employees should instead park in the new lot on Birch Street, which is a five-minute walk from the main building. A shuttle will also run every twenty minutes during rush hour for anyone who prefers not to walk.",
       "question": "Who can now use the Elm Street garage?",
-      "options": ["Only employees", "Only visitors", "Only delivery trucks", "No one, it is closed"],
+      "options": [
+        "Only employees",
+        "Only visitors",
+        "Only delivery trucks",
+        "No one, it is closed"
+      ],
       "correctIndex": 1,
       "explanation": "The Elm Street garage \"will be reserved for visitors only\".",
       "explanationVi": "Bãi đỗ xe Elm Street \"sẽ chỉ dành riêng cho khách\".",
@@ -1827,7 +2104,12 @@
       "groupId": "toeic-t2-p4-g2",
       "audioScript": "Attention, employees. Starting next month, the parking garage on Elm Street will be reserved for visitors only. Employees should instead park in the new lot on Birch Street, which is a five-minute walk from the main building. A shuttle will also run every twenty minutes during rush hour for anyone who prefers not to walk.",
       "question": "How often will the shuttle run during rush hour?",
-      "options": ["Every ten minutes", "Every twenty minutes", "Every hour", "Only in the morning"],
+      "options": [
+        "Every ten minutes",
+        "Every twenty minutes",
+        "Every hour",
+        "Only in the morning"
+      ],
       "correctIndex": 1,
       "explanation": "The shuttle \"will also run every twenty minutes during rush hour\".",
       "explanationVi": "Xe đưa đón \"sẽ chạy mỗi hai mươi phút trong giờ cao điểm\".",
@@ -1840,7 +2122,12 @@
       "groupId": "toeic-t2-p4-g3",
       "audioScript": "And now for the weekend weather forecast. Saturday will be sunny with a high of twenty-eight degrees, perfect for the outdoor food festival downtown. However, we're tracking a storm system that may bring rain on Sunday afternoon, so festival organizers recommend visiting on Saturday if possible.",
       "question": "What event is mentioned in the forecast?",
-      "options": ["A marathon", "An outdoor food festival", "A concert", "A parade"],
+      "options": [
+        "A marathon",
+        "An outdoor food festival",
+        "A concert",
+        "A parade"
+      ],
       "correctIndex": 1,
       "explanation": "The forecast mentions \"the outdoor food festival downtown\".",
       "explanationVi": "Bản tin thời tiết nhắc đến \"lễ hội ẩm thực ngoài trời ở trung tâm thành phố\".",
@@ -1853,7 +2140,12 @@
       "groupId": "toeic-t2-p4-g3",
       "audioScript": "And now for the weekend weather forecast. Saturday will be sunny with a high of twenty-eight degrees, perfect for the outdoor food festival downtown. However, we're tracking a storm system that may bring rain on Sunday afternoon, so festival organizers recommend visiting on Saturday if possible.",
       "question": "What is the weather like on Saturday?",
-      "options": ["Rainy and cold", "Sunny", "Snowy", "Extremely windy"],
+      "options": [
+        "Rainy and cold",
+        "Sunny",
+        "Snowy",
+        "Extremely windy"
+      ],
       "correctIndex": 1,
       "explanation": "The forecast says \"Saturday will be sunny with a high of twenty-eight degrees\".",
       "explanationVi": "Bản tin nói \"thứ Bảy sẽ nắng với nhiệt độ cao nhất hai mươi tám độ\".",
@@ -1882,7 +2174,12 @@
       "part": "part5",
       "examSet": "test2",
       "question": "The new employee handbook is ____ than the previous edition.",
-      "options": ["clear", "clearer", "clearest", "most clear"],
+      "options": [
+        "clear",
+        "clearer",
+        "clearest",
+        "most clear"
+      ],
       "correctIndex": 1,
       "explanation": "The comparative form \"clearer\" is required before \"than\".",
       "explanationVi": "Cần dạng so sánh hơn \"clearer\" trước \"than\".",
@@ -1893,7 +2190,12 @@
       "part": "part5",
       "examSet": "test2",
       "question": "We need to look ____ this issue before the client calls back.",
-      "options": ["into", "at", "for", "up"],
+      "options": [
+        "into",
+        "at",
+        "for",
+        "up"
+      ],
       "correctIndex": 0,
       "explanation": "\"Look into\" is a phrasal verb meaning \"to investigate\".",
       "explanationVi": "\"Look into\" là cụm động từ nghĩa \"điều tra, xem xét kỹ\".",
@@ -1904,7 +2206,12 @@
       "part": "part5",
       "examSet": "test2",
       "question": "It is essential that every visitor ____ a badge at all times.",
-      "options": ["wears", "wear", "wearing", "to wear"],
+      "options": [
+        "wears",
+        "wear",
+        "wearing",
+        "to wear"
+      ],
       "correctIndex": 1,
       "explanation": "The subjunctive mood after \"it is essential that\" uses the base form \"wear\".",
       "explanationVi": "Thức giả định (subjunctive) sau \"it is essential that\" dùng động từ nguyên mẫu \"wear\".",
@@ -1915,7 +2222,12 @@
       "part": "part5",
       "examSet": "test2",
       "question": "Mr. Kim, ____ of the sales department, will present the results.",
-      "options": ["head", "the head", "heading", "headed"],
+      "options": [
+        "head",
+        "the head",
+        "heading",
+        "headed"
+      ],
       "correctIndex": 1,
       "explanation": "\"The head\" functions as an appositive noun phrase renaming \"Mr. Kim\".",
       "explanationVi": "\"The head\" là cụm danh từ đồng vị bổ nghĩa cho \"Mr. Kim\".",
@@ -1926,7 +2238,12 @@
       "part": "part5",
       "examSet": "test2",
       "question": "The workshop covers both time management ____ team communication.",
-      "options": ["but also", "and", "or", "as well"],
+      "options": [
+        "but also",
+        "and",
+        "or",
+        "as well"
+      ],
       "correctIndex": 1,
       "explanation": "\"Both... and...\" is the correct correlative conjunction pair.",
       "explanationVi": "\"Both... and...\" là cặp liên từ tương quan chính xác.",
@@ -1937,7 +2254,12 @@
       "part": "part5",
       "examSet": "test2",
       "question": "By the time the manager arrives, the team ____ the presentation.",
-      "options": ["finishes", "will have finished", "finished", "is finishing"],
+      "options": [
+        "finishes",
+        "will have finished",
+        "finished",
+        "is finishing"
+      ],
       "correctIndex": 1,
       "explanation": "Future perfect (\"will have finished\") shows an action completed before a future point in time.",
       "explanationVi": "Thì tương lai hoàn thành (\"will have finished\") diễn tả hành động hoàn tất trước một mốc trong tương lai.",
@@ -1948,7 +2270,12 @@
       "part": "part5",
       "examSet": "test2",
       "question": "The proposal was rejected ____ its strong financial projections.",
-      "options": ["despite", "because of", "due", "so that"],
+      "options": [
+        "despite",
+        "because of",
+        "due",
+        "so that"
+      ],
       "correctIndex": 0,
       "explanation": "\"Despite\" shows contrast — the proposal was rejected even though the projections were strong.",
       "explanationVi": "\"Despite\" thể hiện sự tương phản — đề xuất bị từ chối dù dự báo tài chính khả quan.",
@@ -1959,7 +2286,12 @@
       "part": "part5",
       "examSet": "test2",
       "question": "Employees are encouraged to give ____ feedback during the review.",
-      "options": ["honest", "honestly", "honesty", "honestness"],
+      "options": [
+        "honest",
+        "honestly",
+        "honesty",
+        "honestness"
+      ],
       "correctIndex": 0,
       "explanation": "An adjective (\"honest\") is needed to modify the noun \"feedback\".",
       "explanationVi": "Cần tính từ (\"honest\") để bổ nghĩa cho danh từ \"feedback\".",
@@ -1970,7 +2302,12 @@
       "part": "part5",
       "examSet": "test2",
       "question": "Neither of the candidates ____ available for an interview this week.",
-      "options": ["are", "is", "were", "have been"],
+      "options": [
+        "are",
+        "is",
+        "were",
+        "have been"
+      ],
       "correctIndex": 1,
       "explanation": "\"Neither of\" takes a singular verb (\"is\").",
       "explanationVi": "\"Neither of\" luôn đi với động từ số ít (\"is\").",
@@ -1981,7 +2318,12 @@
       "part": "part5",
       "examSet": "test2",
       "question": "The company plans to expand ____ three new cities next year.",
-      "options": ["into", "for", "at", "on"],
+      "options": [
+        "into",
+        "for",
+        "at",
+        "on"
+      ],
       "correctIndex": 0,
       "explanation": "\"Expand into\" is the correct collocation meaning to grow a business into new markets.",
       "explanationVi": "\"Expand into\" là cụm từ đúng, nghĩa là mở rộng kinh doanh sang thị trường mới.",
@@ -1992,7 +2334,12 @@
       "part": "part5",
       "examSet": "test2",
       "question": "____ the machine is repaired, production will remain paused.",
-      "options": ["Until", "During", "While", "For"],
+      "options": [
+        "Until",
+        "During",
+        "While",
+        "For"
+      ],
       "correctIndex": 0,
       "explanation": "\"Until\" introduces a time clause meaning \"up to the point when\".",
       "explanationVi": "\"Until\" giới thiệu mệnh đề thời gian nghĩa là \"cho đến khi\".",
@@ -2003,7 +2350,12 @@
       "part": "part5",
       "examSet": "test2",
       "question": "The applicant's résumé and cover letter ____ reviewed by the HR team.",
-      "options": ["was", "were", "is", "has been"],
+      "options": [
+        "was",
+        "were",
+        "is",
+        "has been"
+      ],
       "correctIndex": 1,
       "explanation": "\"Résumé and cover letter\" is a compound subject, requiring the plural verb \"were\".",
       "explanationVi": "\"Résumé and cover letter\" là chủ ngữ ghép, cần động từ số nhiều \"were\".",
@@ -2022,7 +2374,12 @@
         }
       ],
       "question": "(1)",
-      "options": ["expire", "expires", "expiring", "expiration"],
+      "options": [
+        "expire",
+        "expires",
+        "expiring",
+        "expiration"
+      ],
       "correctIndex": 0,
       "explanation": "After \"is set to\", the base-verb infinitive \"expire\" is required.",
       "explanationVi": "Sau \"is set to\" cần động từ nguyên mẫu \"expire\".",
@@ -2041,7 +2398,12 @@
         }
       ],
       "question": "(2)",
-      "options": ["complete", "completes", "completing", "completed"],
+      "options": [
+        "complete",
+        "completes",
+        "completing",
+        "completed"
+      ],
       "correctIndex": 0,
       "explanation": "After \"please\", the base-verb imperative form \"complete\" is required.",
       "explanationVi": "Sau \"please\" cần động từ nguyên mẫu ở dạng mệnh lệnh \"complete\".",
@@ -2060,7 +2422,12 @@
         }
       ],
       "question": "(3)",
-      "options": ["pay", "spend", "cost", "charge"],
+      "options": [
+        "pay",
+        "spend",
+        "cost",
+        "charge"
+      ],
       "correctIndex": 0,
       "explanation": "\"Pay a fee\" is the correct collocation; \"spend\", \"cost\", and \"charge\" don't fit this structure.",
       "explanationVi": "\"Pay a fee\" là cụm từ đúng; \"spend\", \"cost\", \"charge\" không phù hợp với cấu trúc này.",
@@ -2151,7 +2518,12 @@
         }
       ],
       "question": "Is proof of purchase required for a refund?",
-      "options": ["Yes, always", "No, it is not required", "Only for replacements", "Only within 30 days"],
+      "options": [
+        "Yes, always",
+        "No, it is not required",
+        "Only for replacements",
+        "Only within 30 days"
+      ],
       "correctIndex": 1,
       "explanation": "The notice states \"Proof of purchase is not required\".",
       "explanationVi": "Thông báo nêu rõ \"Không yêu cầu hóa đơn mua hàng\".",
@@ -2202,7 +2574,12 @@
         }
       ],
       "question": "How much experience does Minh Le have?",
-      "options": ["One year", "Two years", "Three years", "Five years"],
+      "options": [
+        "One year",
+        "Two years",
+        "Three years",
+        "Five years"
+      ],
       "correctIndex": 2,
       "explanation": "Minh Le says he has \"three years of experience designing marketing materials\".",
       "explanationVi": "Minh Le nói anh có \"ba năm kinh nghiệm thiết kế tài liệu marketing\".",
@@ -2225,7 +2602,12 @@
         }
       ],
       "question": "How will the interview be conducted?",
-      "options": ["In person at the office", "By phone", "Via video call", "By written test"],
+      "options": [
+        "In person at the office",
+        "By phone",
+        "Via video call",
+        "By written test"
+      ],
       "correctIndex": 2,
       "explanation": "The HR team invites him to an interview \"via video call\".",
       "explanationVi": "Bộ phận nhân sự mời anh phỏng vấn \"qua cuộc gọi video\".",
@@ -2284,7 +2666,12 @@
         }
       ],
       "question": "What time is the client meeting now scheduled for?",
-      "options": ["9:00 A.M.", "10:30 A.M.", "11:00 A.M.", "6:00 P.M."],
+      "options": [
+        "9:00 A.M.",
+        "10:30 A.M.",
+        "11:00 A.M.",
+        "6:00 P.M."
+      ],
       "correctIndex": 2,
       "explanation": "The email states the meeting moved \"to 11:00 A.M. instead of 9:00 A.M.\".",
       "explanationVi": "Email nêu rõ cuộc họp được dời \"sang 11 giờ sáng thay vì 9 giờ sáng\".",
@@ -2375,7 +2762,12 @@
         }
       ],
       "question": "Where will Duc meet his colleague before the meeting?",
-      "options": ["At Saigon Tower", "At the airport", "At the hotel lobby", "At the factory"],
+      "options": [
+        "At Saigon Tower",
+        "At the airport",
+        "At the hotel lobby",
+        "At the factory"
+      ],
       "correctIndex": 2,
       "explanation": "Duc says \"See you at the hotel lobby at 10:30\".",
       "explanationVi": "Đức nói \"Gặp nhau ở sảnh khách sạn lúc 10:30 nhé\".",
@@ -2402,7 +2794,12 @@
         }
       ],
       "question": "What time does the team check in at the hotel on Day 1?",
-      "options": ["9:00 A.M.", "11:00 A.M.", "2:00 P.M.", "6:00 P.M."],
+      "options": [
+        "9:00 A.M.",
+        "11:00 A.M.",
+        "2:00 P.M.",
+        "6:00 P.M."
+      ],
       "correctIndex": 2,
       "explanation": "Day 1 of the itinerary lists \"Arrive 2:00 P.M., check in at Riverside Hotel\".",
       "explanationVi": "Ngày 1 trong lịch trình ghi \"Đến lúc 2 giờ chiều, nhận phòng tại khách sạn Riverside\".",
@@ -2426,7 +2823,8 @@
       "promptVi": "Miêu tả bức tranh sau càng chi tiết càng tốt.",
       "imageDesc": "A busy open-plan office: several employees are working at desks with computers, one person is presenting on a whiteboard to two colleagues, and there is a coffee machine in the corner.",
       "prepSeconds": 30,
-      "speakSeconds": 45
+      "speakSeconds": 45,
+      "imageUrl": "/toeic-images/sp-2-office.svg"
     },
     {
       "id": "toeic-sp-3",

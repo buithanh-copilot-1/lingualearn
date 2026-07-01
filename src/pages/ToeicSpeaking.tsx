@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { toeicSpeakingTasks } from '../data/toeic';
 import ListenButton from '../components/ListenButton';
+import ZoomableImage from '../components/ZoomableImage';
 import {
   isRecognitionSupported,
   createRecognizer,
@@ -98,7 +99,11 @@ export default function ToeicSpeaking() {
           </div>
         )}
 
-        {task.imageDesc && (
+        {task.imageUrl && (
+          <ZoomableImage src={task.imageUrl} alt={task.imageDesc ?? tr.toeic.taskDescribePicture} hint={tr.toeic.clickToZoom} />
+        )}
+
+        {!task.imageUrl && task.imageDesc && (
           <div className="toeic-image-placeholder">
             <span className="toeic-image-icon">🖼️</span>
             <p>{task.imageDesc}</p>
