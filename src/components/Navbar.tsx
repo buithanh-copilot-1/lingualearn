@@ -11,6 +11,7 @@ const navItems = [
   { path: '/grammar', labelKey: 'grammar' as const, icon: '✏️' },
   { path: '/quiz', labelKey: 'quiz' as const, icon: '🎯' },
   { path: '/practice', labelKey: 'practice' as const, icon: '🎧' },
+  { path: '/toeic', labelKey: 'toeic' as const, icon: '🏆' },
   { path: '/progress', labelKey: 'progress' as const, icon: '📊' },
 ];
 

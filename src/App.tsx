@@ -19,6 +19,10 @@ import Review from './pages/Review';
 import Speaking from './pages/Speaking';
 import Dictionary from './pages/Dictionary';
 import Idioms from './pages/Idioms';
+import Toeic from './pages/Toeic';
+import ToeicPart from './pages/ToeicPart';
+import ToeicTest from './pages/ToeicTest';
+import ToeicSpeaking from './pages/ToeicSpeaking';
 import ProgressPage from './pages/Progress';
 import Settings from './pages/Settings';
 import Profile from './pages/Profile';
@@ -51,6 +55,10 @@ export default function App() {
                     <Route path="/speaking" element={<Speaking />} />
                     <Route path="/dictionary" element={<Dictionary />} />
                     <Route path="/idioms" element={<Idioms />} />
+                    <Route path="/toeic" element={<Toeic />} />
+                    <Route path="/toeic/test" element={<ToeicTest />} />
+                    <Route path="/toeic/speaking" element={<ToeicSpeaking />} />
+                    <Route path="/toeic/part/:partId" element={<ToeicPart />} />
                     <Route path="/progress" element={<ProgressPage />} />
                     <Route path="/settings" element={<Settings />} />
                     <Route path="/profile" element={<Profile />} />

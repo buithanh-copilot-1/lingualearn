@@ -1,0 +1,739 @@
+{
+  "questions": [
+    {
+      "id": "toeic-p1-1",
+      "part": "part1",
+      "imageDesc": "A woman is sitting at a desk, typing on a laptop while holding a cup of coffee.",
+      "question": "Listen to the four statements and choose the one that best describes the picture.",
+      "options": [
+        "She is typing on a laptop.",
+        "She is washing some dishes.",
+        "She is reading a newspaper.",
+        "She is answering the phone."
+      ],
+      "correctIndex": 0,
+      "explanation": "The woman is typing on a laptop, which matches option A.",
+      "explanationVi": "Người phụ nữ đang gõ máy tính xách tay, khớp với đáp án A.",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-p1-2",
+      "part": "part1",
+      "imageDesc": "Two men in hard hats are standing near a construction site, looking at a blueprint together.",
+      "question": "Listen to the four statements and choose the one that best describes the picture.",
+      "options": [
+        "The men are painting a wall.",
+        "The men are examining a document together.",
+        "The men are loading a truck.",
+        "The men are having lunch outdoors."
+      ],
+      "correctIndex": 1,
+      "explanation": "The two men are looking at a blueprint (a document) together, matching option B.",
+      "explanationVi": "Hai người đàn ông đang cùng xem một bản vẽ (tài liệu), khớp với đáp án B.",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-p1-3",
+      "part": "part1",
+      "imageDesc": "Several passengers are boarding a bus at a covered bus stop while it is raining.",
+      "question": "Listen to the four statements and choose the one that best describes the picture.",
+      "options": [
+        "The passengers are waiting in a boarding line.",
+        "The bus driver is repairing the vehicle.",
+        "The passengers are getting on a bus in the rain.",
+        "The bus stop is completely empty."
+      ],
+      "correctIndex": 2,
+      "explanation": "The picture shows passengers boarding a bus while it rains, matching option C.",
+      "explanationVi": "Bức tranh cho thấy hành khách đang lên xe buýt trong lúc trời mưa, khớp với đáp án C.",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p1-4",
+      "part": "part1",
+      "imageDesc": "A shelf in a supermarket is being restocked by an employee arranging cans in neat rows.",
+      "question": "Listen to the four statements and choose the one that best describes the picture.",
+      "options": [
+        "The shelf has been completely emptied.",
+        "A customer is pushing a shopping cart.",
+        "An employee is arranging items on a shelf.",
+        "The store is closed for the day."
+      ],
+      "correctIndex": 2,
+      "explanation": "An employee is restocking and arranging cans on the shelf, matching option C.",
+      "explanationVi": "Một nhân viên đang sắp xếp các lon hàng lên kệ, khớp với đáp án C.",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-p2-1",
+      "part": "part2",
+      "audioScript": "Where is the nearest post office?",
+      "question": "Where is the nearest post office?",
+      "options": [
+        "It's just around the corner, next to the bank.",
+        "I mailed the package yesterday.",
+        "Yes, I have some stamps."
+      ],
+      "correctIndex": 0,
+      "explanation": "This is a \"Where\" question asking for a location; only option A gives a location.",
+      "explanationVi": "Đây là câu hỏi \"Where\" hỏi về địa điểm; chỉ đáp án A đưa ra một địa điểm cụ thể.",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-p2-2",
+      "part": "part2",
+      "audioScript": "Could you send me the sales report by Friday?",
+      "question": "Could you send me the sales report by Friday?",
+      "options": [
+        "Sure, I'll email it to you this afternoon.",
+        "It's on the third floor.",
+        "The report was very interesting."
+      ],
+      "correctIndex": 0,
+      "explanation": "This is a request; option A directly agrees to the request.",
+      "explanationVi": "Đây là câu yêu cầu; đáp án A đồng ý trực tiếp với yêu cầu đó.",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-p2-3",
+      "part": "part2",
+      "audioScript": "Who's in charge of the marketing campaign this quarter?",
+      "question": "Who's in charge of the marketing campaign this quarter?",
+      "options": [
+        "It starts next Monday.",
+        "Ms. Tran is leading it.",
+        "About twenty thousand dollars."
+      ],
+      "correctIndex": 1,
+      "explanation": "This is a \"Who\" question; only option B names a person.",
+      "explanationVi": "Đây là câu hỏi \"Who\" hỏi về người; chỉ đáp án B nêu tên một người cụ thể.",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p2-4",
+      "part": "part2",
+      "audioScript": "Isn't the conference room already booked for 3 p.m.?",
+      "question": "Isn't the conference room already booked for 3 p.m.?",
+      "options": [
+        "No, it's free until 4.",
+        "The room is on the second floor.",
+        "I really enjoyed the conference."
+      ],
+      "correctIndex": 0,
+      "explanation": "This is a negative question about availability; option A directly answers with availability information.",
+      "explanationVi": "Đây là câu hỏi phủ định về việc phòng có trống hay không; đáp án A trả lời trực tiếp về tình trạng phòng.",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-p2-5",
+      "part": "part2",
+      "audioScript": "Would you like tea or coffee?",
+      "question": "Would you like tea or coffee?",
+      "options": [
+        "Coffee, please, no sugar.",
+        "I bought it at the supermarket.",
+        "Yes, I would."
+      ],
+      "correctIndex": 0,
+      "explanation": "This is an \"or\" choice question; option A picks one of the two choices, which is the natural response.",
+      "explanationVi": "Đây là câu hỏi lựa chọn \"or\"; đáp án A chọn một trong hai lựa chọn, là phản hồi tự nhiên nhất.",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-p2-6",
+      "part": "part2",
+      "audioScript": "How long will the training session take?",
+      "question": "How long will the training session take?",
+      "options": [
+        "In the main conference hall.",
+        "About two hours.",
+        "Yes, everyone must attend."
+      ],
+      "correctIndex": 1,
+      "explanation": "This is a \"How long\" question asking about duration; only option B gives a duration.",
+      "explanationVi": "Đây là câu hỏi \"How long\" hỏi về thời lượng; chỉ đáp án B nêu một khoảng thời gian.",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-p3-1",
+      "part": "part3",
+      "groupId": "toeic-p3-g1",
+      "audioScript": "Man: Hi, I'm calling about the printer in the second-floor office. It's been jamming all morning.\nWoman: I'm sorry to hear that. Can you tell me the model number? I'll send a technician right away.\nMan: I don't have it in front of me, but it's the one near the accounting department. Could someone come by this afternoon?\nWoman: Of course. I'll schedule a visit for 2 p.m. today.",
+      "question": "Why is the man calling?",
+      "options": [
+        "To order a new printer",
+        "To report a broken printer",
+        "To cancel a repair appointment",
+        "To ask about office hours"
+      ],
+      "correctIndex": 1,
+      "explanation": "The man says the printer \"has been jamming all morning\", so he is reporting a problem.",
+      "explanationVi": "Người đàn ông nói máy in \"bị kẹt giấy suốt cả buổi sáng\", nên anh ấy đang báo cáo sự cố.",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p3-2",
+      "part": "part3",
+      "groupId": "toeic-p3-g1",
+      "audioScript": "Man: Hi, I'm calling about the printer in the second-floor office. It's been jamming all morning.\nWoman: I'm sorry to hear that. Can you tell me the model number? I'll send a technician right away.\nMan: I don't have it in front of me, but it's the one near the accounting department. Could someone come by this afternoon?\nWoman: Of course. I'll schedule a visit for 2 p.m. today.",
+      "question": "Where is the printer located?",
+      "options": [
+        "Near the accounting department",
+        "In the main lobby",
+        "In the woman's office",
+        "On the first floor"
+      ],
+      "correctIndex": 0,
+      "explanation": "The man says the printer is \"the one near the accounting department\".",
+      "explanationVi": "Người đàn ông nói máy in là \"cái gần phòng kế toán\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p3-3",
+      "part": "part3",
+      "groupId": "toeic-p3-g1",
+      "audioScript": "Man: Hi, I'm calling about the printer in the second-floor office. It's been jamming all morning.\nWoman: I'm sorry to hear that. Can you tell me the model number? I'll send a technician right away.\nMan: I don't have it in front of me, but it's the one near the accounting department. Could someone come by this afternoon?\nWoman: Of course. I'll schedule a visit for 2 p.m. today.",
+      "question": "What will the woman most likely do next?",
+      "options": [
+        "Order replacement parts",
+        "Schedule a technician visit",
+        "Transfer the call to another department",
+        "Cancel the service request"
+      ],
+      "correctIndex": 1,
+      "explanation": "The woman says \"I'll schedule a visit for 2 p.m. today\".",
+      "explanationVi": "Người phụ nữ nói \"Tôi sẽ sắp xếp lịch đến vào 2 giờ chiều nay\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p3-4",
+      "part": "part3",
+      "groupId": "toeic-p3-g2",
+      "audioScript": "Woman: Did you get a chance to look over the budget proposal I sent yesterday?\nMan: Yes, it looks solid overall, but I think the marketing line is a bit too high.\nWoman: I was thinking the same thing. Should we cut it by ten percent?\nMan: That sounds reasonable. Let's discuss it more at tomorrow's meeting.",
+      "question": "What are the speakers mainly discussing?",
+      "options": [
+        "A hiring decision",
+        "A budget proposal",
+        "A travel itinerary",
+        "A customer complaint"
+      ],
+      "correctIndex": 1,
+      "explanation": "The woman refers to \"the budget proposal I sent yesterday\".",
+      "explanationVi": "Người phụ nữ nhắc đến \"đề xuất ngân sách tôi đã gửi hôm qua\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p3-5",
+      "part": "part3",
+      "groupId": "toeic-p3-g2",
+      "audioScript": "Woman: Did you get a chance to look over the budget proposal I sent yesterday?\nMan: Yes, it looks solid overall, but I think the marketing line is a bit too high.\nWoman: I was thinking the same thing. Should we cut it by ten percent?\nMan: That sounds reasonable. Let's discuss it more at tomorrow's meeting.",
+      "question": "What does the man think about the marketing budget?",
+      "options": [
+        "It is too low",
+        "It is too high",
+        "It is exactly right",
+        "It has not been decided yet"
+      ],
+      "correctIndex": 1,
+      "explanation": "The man says \"the marketing line is a bit too high\".",
+      "explanationVi": "Người đàn ông nói \"khoản mục marketing hơi cao\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p3-6",
+      "part": "part3",
+      "groupId": "toeic-p3-g2",
+      "audioScript": "Woman: Did you get a chance to look over the budget proposal I sent yesterday?\nMan: Yes, it looks solid overall, but I think the marketing line is a bit too high.\nWoman: I was thinking the same thing. Should we cut it by ten percent?\nMan: That sounds reasonable. Let's discuss it more at tomorrow's meeting.",
+      "question": "What will the speakers most likely do tomorrow?",
+      "options": [
+        "Sign a contract",
+        "Interview a candidate",
+        "Continue discussing the budget",
+        "Visit a client's office"
+      ],
+      "correctIndex": 2,
+      "explanation": "The man says \"Let's discuss it more at tomorrow's meeting\".",
+      "explanationVi": "Người đàn ông nói \"Hãy bàn thêm ở cuộc họp ngày mai\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p4-1",
+      "part": "part4",
+      "groupId": "toeic-p4-g1",
+      "audioScript": "Attention, shoppers. Greenfield Supermarket will be closing one hour early today, at 8 p.m., for annual inventory. We apologize for any inconvenience. All checkout lanes will remain open until closing time, so please complete your shopping soon. Thank you for shopping with us.",
+      "question": "What is the announcement mainly about?",
+      "options": [
+        "A special holiday sale",
+        "An early store closing",
+        "A new store location",
+        "A change in store hours permanently"
+      ],
+      "correctIndex": 1,
+      "explanation": "The announcement says the store \"will be closing one hour early today\".",
+      "explanationVi": "Thông báo nói cửa hàng \"sẽ đóng cửa sớm một tiếng hôm nay\".",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-p4-2",
+      "part": "part4",
+      "groupId": "toeic-p4-g1",
+      "audioScript": "Attention, shoppers. Greenfield Supermarket will be closing one hour early today, at 8 p.m., for annual inventory. We apologize for any inconvenience. All checkout lanes will remain open until closing time, so please complete your shopping soon. Thank you for shopping with us.",
+      "question": "Why is the store closing early?",
+      "options": [
+        "For a staff meeting",
+        "For annual inventory",
+        "Due to a power outage",
+        "For a private event"
+      ],
+      "correctIndex": 1,
+      "explanation": "The announcement gives the reason as \"for annual inventory\".",
+      "explanationVi": "Thông báo nêu lý do là \"để kiểm kê hàng năm\".",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-p4-3",
+      "part": "part4",
+      "groupId": "toeic-p4-g1",
+      "audioScript": "Attention, shoppers. Greenfield Supermarket will be closing one hour early today, at 8 p.m., for annual inventory. We apologize for any inconvenience. All checkout lanes will remain open until closing time, so please complete your shopping soon. Thank you for shopping with us.",
+      "question": "What are shoppers asked to do?",
+      "options": [
+        "Leave the store immediately",
+        "Finish shopping soon",
+        "Come back tomorrow",
+        "Line up for a refund"
+      ],
+      "correctIndex": 1,
+      "explanation": "The announcement asks shoppers to \"complete your shopping soon\".",
+      "explanationVi": "Thông báo yêu cầu khách hàng \"hoàn tất việc mua sắm sớm\".",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-p4-4",
+      "part": "part4",
+      "groupId": "toeic-p4-g2",
+      "audioScript": "Good morning, everyone. Before we start today's meeting, I'd like to remind you that the new expense reporting system goes live next Monday. All employees must submit receipts through the app instead of paper forms starting then. IT will hold a short training session this Thursday at 10 a.m. in Room 204 for anyone who needs help.",
+      "question": "What is the speaker mainly announcing?",
+      "options": [
+        "A new expense reporting system",
+        "A change in office location",
+        "A company holiday schedule",
+        "A new employee's start date"
+      ],
+      "correctIndex": 0,
+      "explanation": "The speaker announces that \"the new expense reporting system goes live next Monday\".",
+      "explanationVi": "Người nói thông báo rằng \"hệ thống báo cáo chi phí mới sẽ chính thức hoạt động vào thứ Hai tới\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p4-5",
+      "part": "part4",
+      "groupId": "toeic-p4-g2",
+      "audioScript": "Good morning, everyone. Before we start today's meeting, I'd like to remind you that the new expense reporting system goes live next Monday. All employees must submit receipts through the app instead of paper forms starting then. IT will hold a short training session this Thursday at 10 a.m. in Room 204 for anyone who needs help.",
+      "question": "What must employees do starting next Monday?",
+      "options": [
+        "Submit receipts through an app",
+        "Attend a training every week",
+        "Print paper forms",
+        "Move to a new office"
+      ],
+      "correctIndex": 0,
+      "explanation": "Employees must \"submit receipts through the app instead of paper forms\".",
+      "explanationVi": "Nhân viên phải \"nộp hóa đơn qua ứng dụng thay vì mẫu giấy\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p4-6",
+      "part": "part4",
+      "groupId": "toeic-p4-g2",
+      "audioScript": "Good morning, everyone. Before we start today's meeting, I'd like to remind you that the new expense reporting system goes live next Monday. All employees must submit receipts through the app instead of paper forms starting then. IT will hold a short training session this Thursday at 10 a.m. in Room 204 for anyone who needs help.",
+      "question": "When is the training session?",
+      "options": [
+        "Monday morning",
+        "Thursday at 10 a.m.",
+        "Friday afternoon",
+        "Next month"
+      ],
+      "correctIndex": 1,
+      "explanation": "The training session is held \"this Thursday at 10 a.m.\".",
+      "explanationVi": "Buổi tập huấn diễn ra \"thứ Năm này lúc 10 giờ sáng\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p5-1",
+      "part": "part5",
+      "question": "The new marketing manager will begin work ____ March 1.",
+      "options": ["on", "in", "at", "by"],
+      "correctIndex": 0,
+      "explanation": "Use \"on\" with specific dates.",
+      "explanationVi": "Dùng giới từ \"on\" với ngày cụ thể.",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-p5-2",
+      "part": "part5",
+      "question": "All employees ____ to complete the safety training by the end of the month.",
+      "options": ["require", "requiring", "are required", "requirement"],
+      "correctIndex": 2,
+      "explanation": "The passive form \"are required\" fits the subject \"employees\" and the infinitive \"to complete\".",
+      "explanationVi": "Thể bị động \"are required\" phù hợp với chủ ngữ \"employees\" và động từ nguyên mẫu có to \"to complete\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p5-3",
+      "part": "part5",
+      "question": "Please submit your report ____ than Friday afternoon.",
+      "options": ["earlier", "sooner", "later", "no later"],
+      "correctIndex": 3,
+      "explanation": "\"No later than\" is a fixed expression meaning \"by this time at the latest\".",
+      "explanationVi": "\"No later than\" là cụm cố định nghĩa là \"chậm nhất là vào lúc này\".",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-p5-4",
+      "part": "part5",
+      "question": "The conference room is currently ____ for a client meeting.",
+      "options": ["occupy", "occupied", "occupation", "occupying"],
+      "correctIndex": 1,
+      "explanation": "\"Occupied\" (past participle as adjective) describes the state of the room after \"is\".",
+      "explanationVi": "\"Occupied\" (tính từ dạng phân từ 2) mô tả trạng thái của căn phòng sau động từ \"is\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p5-5",
+      "part": "part5",
+      "question": "____ the heavy rain, the outdoor event proceeded as scheduled.",
+      "options": ["Although", "Despite", "Because", "Unless"],
+      "correctIndex": 1,
+      "explanation": "\"Despite\" is followed by a noun phrase (\"the heavy rain\"), unlike \"Although\" which needs a clause.",
+      "explanationVi": "\"Despite\" theo sau là cụm danh từ (\"the heavy rain\"), khác với \"Although\" cần một mệnh đề.",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-p5-6",
+      "part": "part5",
+      "question": "Ms. Patel has worked at this company ____ 2019.",
+      "options": ["for", "since", "during", "within"],
+      "correctIndex": 1,
+      "explanation": "\"Since\" is used with a specific starting point in time in the present perfect tense.",
+      "explanationVi": "\"Since\" dùng với một mốc thời gian bắt đầu cụ thể trong thì hiện tại hoàn thành.",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-p5-7",
+      "part": "part5",
+      "question": "The company's revenue grew ____ over the past three years.",
+      "options": ["significant", "significance", "significantly", "signify"],
+      "correctIndex": 2,
+      "explanation": "An adverb (\"significantly\") is needed to modify the verb \"grew\".",
+      "explanationVi": "Cần một trạng từ (\"significantly\") để bổ nghĩa cho động từ \"grew\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p5-8",
+      "part": "part5",
+      "question": "Neither the manager ____ the assistant was available to answer the call.",
+      "options": ["and", "or", "nor", "but"],
+      "correctIndex": 2,
+      "explanation": "\"Neither... nor...\" is the correct correlative conjunction pair.",
+      "explanationVi": "\"Neither... nor...\" là cặp liên từ tương quan chính xác.",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-p5-9",
+      "part": "part5",
+      "question": "This model is more energy-efficient than ____ we used last year.",
+      "options": ["it", "one", "the one", "ones"],
+      "correctIndex": 2,
+      "explanation": "\"The one\" replaces a specific singular noun already mentioned (the previous model).",
+      "explanationVi": "\"The one\" thay thế cho một danh từ số ít cụ thể đã được nhắc đến (mẫu trước đó).",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-p5-10",
+      "part": "part5",
+      "question": "The technician ____ the printer before the meeting started.",
+      "options": ["fixes", "fixed", "had fixed", "fixing"],
+      "correctIndex": 2,
+      "explanation": "Past perfect (\"had fixed\") shows an action completed before another past action (\"the meeting started\").",
+      "explanationVi": "Thì quá khứ hoàn thành (\"had fixed\") diễn tả hành động hoàn tất trước một hành động khác trong quá khứ (\"the meeting started\").",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-p6-1",
+      "part": "part6",
+      "groupId": "toeic-p6-g1",
+      "passageTitle": "Internal Memo",
+      "passages": [
+        {
+          "label": "Memo",
+          "text": "To: All Staff\nFrom: Facilities Department\nSubject: Office Renovation\n\nWe are pleased to announce that the third-floor office renovation will begin next week. During this period, employees on that floor will be temporarily (1)____ to desks on the fifth floor. The renovation is expected to improve lighting and (2)____ new, more comfortable furniture. We apologize for any (3)____ this may cause. (4)____\n\nThank you for your patience during this process."
+        }
+      ],
+      "question": "(1)",
+      "options": ["relocate", "relocated", "relocating", "relocation"],
+      "correctIndex": 1,
+      "explanation": "\"Will be temporarily relocated\" is passive voice, requiring the past participle \"relocated\".",
+      "explanationVi": "\"Will be temporarily relocated\" là thể bị động, cần dùng phân từ 2 \"relocated\".",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-p6-2",
+      "part": "part6",
+      "groupId": "toeic-p6-g1",
+      "passageTitle": "Internal Memo",
+      "passages": [
+        {
+          "label": "Memo",
+          "text": "To: All Staff\nFrom: Facilities Department\nSubject: Office Renovation\n\nWe are pleased to announce that the third-floor office renovation will begin next week. During this period, employees on that floor will be temporarily (1)____ to desks on the fifth floor. The renovation is expected to improve lighting and (2)____ new, more comfortable furniture. We apologize for any (3)____ this may cause. (4)____\n\nThank you for your patience during this process."
+        }
+      ],
+      "question": "(2)",
+      "options": ["introduce", "introduced", "introduces", "introducing"],
+      "correctIndex": 0,
+      "explanation": "\"Is expected to improve... and introduce\" — parallel base-verb form after \"to\".",
+      "explanationVi": "\"Is expected to improve... and introduce\" — dùng động từ nguyên mẫu song song sau \"to\".",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-p6-3",
+      "part": "part6",
+      "groupId": "toeic-p6-g1",
+      "passageTitle": "Internal Memo",
+      "passages": [
+        {
+          "label": "Memo",
+          "text": "To: All Staff\nFrom: Facilities Department\nSubject: Office Renovation\n\nWe are pleased to announce that the third-floor office renovation will begin next week. During this period, employees on that floor will be temporarily (1)____ to desks on the fifth floor. The renovation is expected to improve lighting and (2)____ new, more comfortable furniture. We apologize for any (3)____ this may cause. (4)____\n\nThank you for your patience during this process."
+        }
+      ],
+      "question": "(3)",
+      "options": ["convenience", "inconvenience", "conveniently", "convenient"],
+      "correctIndex": 1,
+      "explanation": "\"Apologize for any inconvenience\" is a common fixed business expression.",
+      "explanationVi": "\"Apologize for any inconvenience\" là cụm diễn đạt cố định thường dùng trong văn phong công sở.",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p6-4",
+      "part": "part6",
+      "groupId": "toeic-p6-g1",
+      "passageTitle": "Internal Memo",
+      "passages": [
+        {
+          "label": "Memo",
+          "text": "To: All Staff\nFrom: Facilities Department\nSubject: Office Renovation\n\nWe are pleased to announce that the third-floor office renovation will begin next week. During this period, employees on that floor will be temporarily (1)____ to desks on the fifth floor. The renovation is expected to improve lighting and (2)____ new, more comfortable furniture. We apologize for any (3)____ this may cause. (4)____\n\nThank you for your patience during this process."
+        }
+      ],
+      "question": "(4) Which sentence best fits this blank?",
+      "options": [
+        "The cafeteria will be closed on weekends.",
+        "The project is scheduled to finish within two weeks.",
+        "Please remember to submit your timesheet by Friday.",
+        "Our company was founded over twenty years ago."
+      ],
+      "correctIndex": 1,
+      "explanation": "This sentence-insertion blank needs a sentence that logically continues the topic of the renovation timeline.",
+      "explanationVi": "Chỗ trống dạng chèn câu này cần một câu tiếp nối hợp lý với chủ đề thời gian thi công.",
+      "level": "advanced"
+    },
+    {
+      "id": "toeic-p7-1",
+      "part": "part7",
+      "groupId": "toeic-p7-g1",
+      "passageTitle": "Notice",
+      "passages": [
+        {
+          "label": "Notice",
+          "text": "NOTICE TO ALL TENANTS\n\nThe building's water supply will be shut off on Saturday, June 14, from 9 A.M. to 1 P.M. for scheduled pipe maintenance. Please store enough water in advance if needed. We recommend avoiding the use of washing machines and dishwashers during this time. The management office apologizes for any inconvenience and thanks you for your understanding."
+        }
+      ],
+      "question": "What is the purpose of the notice?",
+      "options": [
+        "To announce a rent increase",
+        "To inform tenants of a water shutoff",
+        "To advertise a new apartment",
+        "To request maintenance feedback"
+      ],
+      "correctIndex": 1,
+      "explanation": "The notice states \"the building's water supply will be shut off\", informing tenants of the shutoff.",
+      "explanationVi": "Thông báo nêu rõ \"nguồn nước của tòa nhà sẽ bị cắt\", nhằm báo cho cư dân biết trước.",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-p7-2",
+      "part": "part7",
+      "groupId": "toeic-p7-g1",
+      "passageTitle": "Notice",
+      "passages": [
+        {
+          "label": "Notice",
+          "text": "NOTICE TO ALL TENANTS\n\nThe building's water supply will be shut off on Saturday, June 14, from 9 A.M. to 1 P.M. for scheduled pipe maintenance. Please store enough water in advance if needed. We recommend avoiding the use of washing machines and dishwashers during this time. The management office apologizes for any inconvenience and thanks you for your understanding."
+        }
+      ],
+      "question": "How long will the water be shut off?",
+      "options": ["One hour", "Two hours", "Four hours", "All day"],
+      "correctIndex": 2,
+      "explanation": "From 9 A.M. to 1 P.M. is four hours.",
+      "explanationVi": "Từ 9 giờ sáng đến 1 giờ chiều là bốn tiếng đồng hồ.",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-p7-3",
+      "part": "part7",
+      "groupId": "toeic-p7-g1",
+      "passageTitle": "Notice",
+      "passages": [
+        {
+          "label": "Notice",
+          "text": "NOTICE TO ALL TENANTS\n\nThe building's water supply will be shut off on Saturday, June 14, from 9 A.M. to 1 P.M. for scheduled pipe maintenance. Please store enough water in advance if needed. We recommend avoiding the use of washing machines and dishwashers during this time. The management office apologizes for any inconvenience and thanks you for your understanding."
+        }
+      ],
+      "question": "What are tenants advised to avoid?",
+      "options": [
+        "Using the elevator",
+        "Parking in the garage",
+        "Using washing machines and dishwashers",
+        "Making noise after 10 P.M."
+      ],
+      "correctIndex": 2,
+      "explanation": "The notice recommends \"avoiding the use of washing machines and dishwashers\".",
+      "explanationVi": "Thông báo khuyến nghị \"tránh sử dụng máy giặt và máy rửa bát\".",
+      "level": "beginner"
+    },
+    {
+      "id": "toeic-p7-4",
+      "part": "part7",
+      "groupId": "toeic-p7-g2",
+      "passageTitle": "Email exchange",
+      "passages": [
+        {
+          "label": "Email 1 — From: Linh Nguyen",
+          "text": "Subject: Order #4521 delay\n\nDear Customer Service,\n\nI placed order #4521 two weeks ago and it still hasn't arrived. The tracking page hasn't updated in five days. Could you please check the status and let me know when I can expect delivery?\n\nThank you,\nLinh Nguyen"
+        },
+        {
+          "label": "Email 2 — From: Customer Service",
+          "text": "Subject: RE: Order #4521 delay\n\nDear Ms. Nguyen,\n\nThank you for reaching out, and we apologize for the delay. After checking with our shipping partner, we found that your package was held at customs. It has now been released and should arrive within 3 business days. As an apology, we have applied a 15% discount code (THANKS15) to your account for your next purchase.\n\nBest regards,\nCustomer Service Team"
+        }
+      ],
+      "question": "Why did Ms. Nguyen write the first email?",
+      "options": [
+        "To cancel her order",
+        "To ask about a delayed package",
+        "To request a refund",
+        "To change her shipping address"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ms. Nguyen says her order \"still hasn't arrived\" and asks about its status.",
+      "explanationVi": "Cô Nguyen nói đơn hàng của mình \"vẫn chưa đến\" và hỏi về tình trạng đơn hàng.",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p7-5",
+      "part": "part7",
+      "groupId": "toeic-p7-g2",
+      "passageTitle": "Email exchange",
+      "passages": [
+        {
+          "label": "Email 1 — From: Linh Nguyen",
+          "text": "Subject: Order #4521 delay\n\nDear Customer Service,\n\nI placed order #4521 two weeks ago and it still hasn't arrived. The tracking page hasn't updated in five days. Could you please check the status and let me know when I can expect delivery?\n\nThank you,\nLinh Nguyen"
+        },
+        {
+          "label": "Email 2 — From: Customer Service",
+          "text": "Subject: RE: Order #4521 delay\n\nDear Ms. Nguyen,\n\nThank you for reaching out, and we apologize for the delay. After checking with our shipping partner, we found that your package was held at customs. It has now been released and should arrive within 3 business days. As an apology, we have applied a 15% discount code (THANKS15) to your account for your next purchase.\n\nBest regards,\nCustomer Service Team"
+        }
+      ],
+      "question": "Why was the package delayed?",
+      "options": [
+        "It was lost by the shipping company",
+        "It was held at customs",
+        "The wrong address was used",
+        "The item was out of stock"
+      ],
+      "correctIndex": 1,
+      "explanation": "Customer Service explains that \"your package was held at customs\".",
+      "explanationVi": "Bộ phận chăm sóc khách hàng giải thích rằng \"gói hàng của bạn bị giữ lại ở hải quan\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p7-6",
+      "part": "part7",
+      "groupId": "toeic-p7-g2",
+      "passageTitle": "Email exchange",
+      "passages": [
+        {
+          "label": "Email 1 — From: Linh Nguyen",
+          "text": "Subject: Order #4521 delay\n\nDear Customer Service,\n\nI placed order #4521 two weeks ago and it still hasn't arrived. The tracking page hasn't updated in five days. Could you please check the status and let me know when I can expect delivery?\n\nThank you,\nLinh Nguyen"
+        },
+        {
+          "label": "Email 2 — From: Customer Service",
+          "text": "Subject: RE: Order #4521 delay\n\nDear Ms. Nguyen,\n\nThank you for reaching out, and we apologize for the delay. After checking with our shipping partner, we found that your package was held at customs. It has now been released and should arrive within 3 business days. As an apology, we have applied a 15% discount code (THANKS15) to your account for your next purchase.\n\nBest regards,\nCustomer Service Team"
+        }
+      ],
+      "question": "What is offered to Ms. Nguyen as an apology?",
+      "options": [
+        "A full refund",
+        "A free gift",
+        "A discount code for her next purchase",
+        "Free express shipping for life"
+      ],
+      "correctIndex": 2,
+      "explanation": "Customer Service says they \"applied a 15% discount code... for your next purchase\".",
+      "explanationVi": "Bộ phận chăm sóc khách hàng nói họ \"đã áp dụng mã giảm giá 15%... cho lần mua tiếp theo\".",
+      "level": "intermediate"
+    },
+    {
+      "id": "toeic-p7-7",
+      "part": "part7",
+      "groupId": "toeic-p7-g2",
+      "passageTitle": "Email exchange",
+      "passages": [
+        {
+          "label": "Email 1 — From: Linh Nguyen",
+          "text": "Subject: Order #4521 delay\n\nDear Customer Service,\n\nI placed order #4521 two weeks ago and it still hasn't arrived. The tracking page hasn't updated in five days. Could you please check the status and let me know when I can expect delivery?\n\nThank you,\nLinh Nguyen"
+        },
+        {
+          "label": "Email 2 — From: Customer Service",
+          "text": "Subject: RE: Order #4521 delay\n\nDear Ms. Nguyen,\n\nThank you for reaching out, and we apologize for the delay. After checking with our shipping partner, we found that your package was held at customs. It has now been released and should arrive within 3 business days. As an apology, we have applied a 15% discount code (THANKS15) to your account for your next purchase.\n\nBest regards,\nCustomer Service Team"
+        }
+      ],
+      "question": "When can Ms. Nguyen expect her package to arrive?",
+      "options": [
+        "Within 3 business days",
+        "The same day",
+        "In two weeks",
+        "It will not be delivered"
+      ],
+      "correctIndex": 0,
+      "explanation": "Customer Service states the package \"should arrive within 3 business days\".",
+      "explanationVi": "Bộ phận chăm sóc khách hàng nói gói hàng \"sẽ đến trong vòng 3 ngày làm việc\".",
+      "level": "intermediate"
+    }
+  ],
+  "speakingTasks": [
+    {
+      "id": "toeic-sp-1",
+      "type": "read_aloud",
+      "prompt": "Read the following text aloud clearly and naturally.",
+      "promptVi": "Đọc to đoạn văn sau một cách rõ ràng và tự nhiên.",
+      "script": "Welcome to Riverside Mall. Our stores are open from nine in the morning until ten at night, seven days a week. Today, visit the second floor for our seasonal sale, with discounts of up to fifty percent on selected items. Don't forget to check our mobile app for exclusive coupons.",
+      "prepSeconds": 30,
+      "speakSeconds": 45
+    },
+    {
+      "id": "toeic-sp-2",
+      "type": "describe_picture",
+      "prompt": "Describe the picture in as much detail as you can.",
+      "promptVi": "Miêu tả bức tranh sau càng chi tiết càng tốt.",
+      "imageDesc": "A busy open-plan office: several employees are working at desks with computers, one person is presenting on a whiteboard to two colleagues, and there is a coffee machine in the corner.",
+      "prepSeconds": 30,
+      "speakSeconds": 45
+    },
+    {
+      "id": "toeic-sp-3",
+      "type": "opinion",
+      "prompt": "Do you prefer working from home or working in an office? Explain why.",
+      "promptVi": "Bạn thích làm việc tại nhà hay ở văn phòng hơn? Giải thích lý do.",
+      "prepSeconds": 15,
+      "speakSeconds": 60
+    }
+  ]
+}

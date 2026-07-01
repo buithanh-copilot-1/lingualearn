@@ -8,7 +8,7 @@ const dest = join(root, '..', 'src', 'data');
 
 mkdirSync(dest, { recursive: true });
 
-for (const file of ['lessons.json', 'vocabulary.json', 'grammar.json', 'quizzes.json']) {
+for (const file of ['lessons.json', 'vocabulary.json', 'grammar.json', 'quizzes.json', 'toeic.json']) {
   copyFileSync(join(src, file), join(dest, file));
   console.log(`Synced ${file}`);
 }

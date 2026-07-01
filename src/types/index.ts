@@ -126,3 +126,51 @@ export interface Achievement {
 
 export type QuizMode = 'all' | 'grammar' | 'conversation' | 'vocabulary';
 export type QuizLevel = 'all' | Level;
+
+export type ToeicPartId = 'part1' | 'part2' | 'part3' | 'part4' | 'part5' | 'part6' | 'part7';
+export type ToeicSkill = 'listening' | 'reading';
+
+export interface ToeicPartInfo {
+  id: ToeicPartId;
+  skill: ToeicSkill;
+  name: string;
+  nameVi: string;
+  officialCount: number;
+  officialMinutes: number;
+  description: string;
+  descriptionVi: string;
+}
+
+export interface ToeicPassage {
+  label: string;
+  text: string;
+}
+
+export interface ToeicQuestion {
+  id: string;
+  part: ToeicPartId;
+  groupId?: string;
+  audioScript?: string;
+  imageDesc?: string;
+  passageTitle?: string;
+  passages?: ToeicPassage[];
+  question: string;
+  options: string[];
+  correctIndex: number;
+  explanation: string;
+  explanationVi: string;
+  level: Level;
+}
+
+export type ToeicSpeakingTaskType = 'read_aloud' | 'describe_picture' | 'opinion';
+
+export interface ToeicSpeakingTask {
+  id: string;
+  type: ToeicSpeakingTaskType;
+  prompt: string;
+  promptVi: string;
+  script?: string;
+  imageDesc?: string;
+  prepSeconds: number;
+  speakSeconds: number;
+}

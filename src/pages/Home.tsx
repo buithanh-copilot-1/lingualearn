@@ -129,6 +129,10 @@ export default function Home() {
             <span className="icon-tile-glyph tile-orange">💡</span>
             <span className="icon-tile-label">{tr.practice.idioms}</span>
           </Link>
+          <Link to="/toeic" className="icon-tile" title={tr.toeic.subtitle}>
+            <span className="icon-tile-glyph tile-emerald">🏆</span>
+            <span className="icon-tile-label">{tr.toeic.title}</span>
+          </Link>
         </div>
       </section>
     </div>
