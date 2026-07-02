@@ -48,12 +48,12 @@ function BottomNavTabItem({
       <span className="bottom-nav-tab-ring">
         <span className="bottom-nav-tab-btn">
           <Icon className="bottom-nav-tab-icon" strokeWidth={active ? 2 : 1.65} />
-          {badge && badgeCount !== undefined && badgeCount > 0 && (
-            <span className="bottom-nav-badge" aria-label={`${badgeCount} due`}>
-              {badgeCount > 99 ? '99+' : badgeCount}
-            </span>
-          )}
         </span>
+        {badge && badgeCount !== undefined && badgeCount > 0 && (
+          <span className="bottom-nav-badge" aria-label={`${badgeCount} due`}>
+            {badgeCount > 99 ? '99+' : badgeCount}
+          </span>
+        )}
       </span>
       <span className="bottom-nav-tab-label">{tr.bottom[labelKey]}</span>
     </Link>
