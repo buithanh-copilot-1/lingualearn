@@ -2582,6 +2582,10 @@ body {
   width: 64px; padding: 0.4rem; border: 1px solid var(--border);
   border-radius: 6px; text-align: center; font-family: inherit;
 }
+.settings-time-input {
+  width: 120px !important;
+  font-size: 0.95rem;
+}
 .settings-actions { display: flex; flex-direction: column; gap: 0.5rem; }
 
 .search-full { width: 100%; margin-bottom: 1.5rem; }

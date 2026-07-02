@@ -29,6 +29,9 @@ const preferencesSchema = z.object({
   reviewDue: z.boolean().optional(),
   achievements: z.boolean().optional(),
   systemNotices: z.boolean().optional(),
+  vocabReminderEnabled: z.boolean().optional(),
+  vocabReminderTime: z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/).nullable().optional(),
+  timezone: z.string().min(1).optional(),
 });
 
 export async function notificationRoutes(app: FastifyInstance) {

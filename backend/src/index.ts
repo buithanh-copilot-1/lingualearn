@@ -12,6 +12,7 @@ import { authRoutes } from './modules/auth/auth.routes.js';
 import { progressRoutes } from './modules/progress/progress.routes.js';
 import { contentRoutes } from './modules/content/content.routes.js';
 import { notificationRoutes } from './modules/notification/notification.routes.js';
+import { startReminderScheduler } from './modules/notification/reminder.scheduler.js';
 import { bootstrapDatabase } from './bootstrap.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -65,6 +66,7 @@ try {
   await app.listen({ port: config.port, host: config.host });
   console.log(`Server running at http://${config.host}:${config.port}`);
   bootstrapDatabase(app);
+  startReminderScheduler();
 } catch (err) {
   app.log.error(err);
   process.exit(1);

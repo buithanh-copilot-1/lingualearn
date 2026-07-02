@@ -107,6 +107,10 @@ const en = {
     notifReview: 'Spaced repetition reviews',
     notifAchievements: 'Learning milestones & achievements',
     notifSystem: 'System notices & maintenance',
+    notifVocabReminder: 'Vocabulary Study Reminder',
+    notifVocabReminderDesc: 'Get a push notification each day at a time you choose, reminding you to study new vocabulary.',
+    notifVocabReminderEnable: 'Daily vocabulary reminder',
+    notifVocabReminderTime: 'Reminder time',
   },
   auth: {
     loginTitle: 'Welcome back',
@@ -316,6 +320,10 @@ const vi = {
     notifReview: 'Nhắc nhở từ vựng cần ôn tập',
     notifAchievements: 'Ghi nhận mốc học tập & thành tích',
     notifSystem: 'Thông báo hệ thống & bảo trì',
+    notifVocabReminder: 'Nhắc học từ vựng',
+    notifVocabReminderDesc: 'Nhận thông báo đẩy mỗi ngày vào giờ bạn chọn để nhắc học từ vựng mới.',
+    notifVocabReminderEnable: 'Nhắc học từ vựng hàng ngày',
+    notifVocabReminderTime: 'Giờ nhắc',
   },
   auth: {
     loginTitle: 'Chào mừng trở lại',

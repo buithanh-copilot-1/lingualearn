@@ -67,6 +67,37 @@ export default function Settings() {
     }
   };
 
+  const handleVocabReminderToggle = async () => {
+    if (!prefs) return;
+    const original = { ...prefs };
+    const enabling = !prefs.vocabReminderEnabled;
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const patch: Partial<Omit<NotificationPreferences, 'userId'>> = {
+      vocabReminderEnabled: enabling,
+      ...(enabling ? { vocabReminderTime: prefs.vocabReminderTime ?? '20:00', timezone } : {}),
+    };
+    setPrefs({ ...prefs, ...patch });
+    try {
+      if (enabling && 'Notification' in window && Notification.permission === 'default') {
+        await Notification.requestPermission();
+      }
+      await updateNotificationPreferences(patch);
+    } catch {
+      setPrefs(original);
+    }
+  };
+
+  const handleVocabReminderTimeChange = async (time: string) => {
+    if (!prefs) return;
+    const original = { ...prefs };
+    setPrefs({ ...prefs, vocabReminderTime: time });
+    try {
+      await updateNotificationPreferences({ vocabReminderTime: time });
+    } catch {
+      setPrefs(original);
+    }
+  };
+
   async function handleImport(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -171,6 +202,35 @@ export default function Settings() {
               </button>
             </div>
           </div>
+        </div>
+      )}
+
+      {isAuthenticated && prefs && (
+        <div className="settings-section">
+          <h3>{tr.settings.notifVocabReminder}</h3>
+          <p className="muted-text">{tr.settings.notifVocabReminderDesc}</p>
+          <div className="settings-toggle-row">
+            <label>{tr.settings.notifVocabReminderEnable}</label>
+            <button
+              type="button"
+              className={`toggle-switch ${prefs.vocabReminderEnabled ? 'active' : ''}`}
+              onClick={() => void handleVocabReminderToggle()}
+              aria-label="Toggle vocabulary study reminder"
+            >
+              <span className="toggle-slider" />
+            </button>
+          </div>
+          {prefs.vocabReminderEnabled && (
+            <div className="settings-goal-row">
+              <label>{tr.settings.notifVocabReminderTime}</label>
+              <input
+                type="time"
+                value={prefs.vocabReminderTime ?? '20:00'}
+                onChange={(e) => void handleVocabReminderTimeChange(e.target.value)}
+                className="settings-time-input"
+              />
+            </div>
+          )}
         </div>
       )}
 

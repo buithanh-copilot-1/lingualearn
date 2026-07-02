@@ -62,6 +62,9 @@ export interface NotificationPreferences {
   reviewDue: boolean;
   achievements: boolean;
   systemNotices: boolean;
+  vocabReminderEnabled: boolean;
+  vocabReminderTime: string | null;
+  timezone: string | null;
 }
 
 export function fetchNotificationPreferences() {

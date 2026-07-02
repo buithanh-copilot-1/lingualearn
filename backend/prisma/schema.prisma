@@ -33,6 +33,7 @@ enum NotificationType {
   review_due
   achievement
   system
+  vocab_reminder
 }
 
 model User {
@@ -276,13 +277,17 @@ model Notification {
 }
 
 model NotificationPreference {
-  userId         String  @id @map("user_id")
-  streakReminder Boolean @default(true) @map("streak_reminder")
-  goalAchieved   Boolean @default(true) @map("goal_achieved")
-  newContent     Boolean @default(true) @map("new_content")
-  reviewDue      Boolean @default(true) @map("review_due")
-  achievements   Boolean @default(true)
-  systemNotices  Boolean @default(true) @map("system_notices")
+  userId                String   @id @map("user_id")
+  streakReminder        Boolean  @default(true) @map("streak_reminder")
+  goalAchieved          Boolean  @default(true) @map("goal_achieved")
+  newContent            Boolean  @default(true) @map("new_content")
+  reviewDue             Boolean  @default(true) @map("review_due")
+  achievements          Boolean  @default(true)
+  systemNotices         Boolean  @default(true) @map("system_notices")
+  vocabReminderEnabled  Boolean  @default(false) @map("vocab_reminder_enabled")
+  vocabReminderTime     String?  @map("vocab_reminder_time")
+  timezone              String?  @map("timezone")
+  lastVocabReminderDate String?  @map("last_vocab_reminder_date")
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 

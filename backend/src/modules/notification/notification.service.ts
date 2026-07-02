@@ -77,6 +77,7 @@ export async function sendNotification(input: CreateNotificationInput) {
       review_due: prefs.reviewDue,
       achievement: prefs.achievements,
       system: prefs.systemNotices,
+      vocab_reminder: prefs.vocabReminderEnabled,
     };
     if (prefMap[input.type] === false) return null;
   }
@@ -218,6 +219,9 @@ export async function updatePreferences(
     reviewDue: boolean;
     achievements: boolean;
     systemNotices: boolean;
+    vocabReminderEnabled: boolean;
+    vocabReminderTime: string | null;
+    timezone: string;
   }>,
 ) {
   return prisma.notificationPreference.upsert({
@@ -225,6 +229,62 @@ export async function updatePreferences(
     update: data,
     create: { userId, ...data },
   });
+}
+
+// ---------------------------------------------------------------------------
+// Scheduled vocabulary reminders
+// ---------------------------------------------------------------------------
+
+const DEFAULT_TIMEZONE = 'Asia/Ho_Chi_Minh';
+
+/** Returns "HH:mm" and "YYYY-MM-DD" for a given date in the given IANA timezone. */
+function localClock(date: Date, timeZone: string) {
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  }).formatToParts(date);
+  const get = (type: string) => parts.find((p) => p.type === type)?.value ?? '';
+  return {
+    hhmm: `${get('hour')}:${get('minute')}`,
+    dateStr: `${get('year')}-${get('month')}-${get('day')}`,
+  };
+}
+
+/**
+ * Checks every user with vocabulary reminders enabled and sends one if their
+ * configured local time matches right now (and one hasn't already gone out
+ * today). Intended to be called on a short interval (see reminder.scheduler.ts).
+ */
+export async function checkAndSendVocabReminders() {
+  const now = new Date();
+  const candidates = await prisma.notificationPreference.findMany({
+    where: { vocabReminderEnabled: true, vocabReminderTime: { not: null } },
+    select: { userId: true, vocabReminderTime: true, timezone: true, lastVocabReminderDate: true },
+  });
+
+  for (const pref of candidates) {
+    const { hhmm, dateStr } = localClock(now, pref.timezone ?? DEFAULT_TIMEZONE);
+    if (hhmm !== pref.vocabReminderTime) continue;
+    if (pref.lastVocabReminderDate === dateStr) continue;
+
+    // Mark as sent for today first to avoid double-sends if this tick overlaps the next.
+    await prisma.notificationPreference.update({
+      where: { userId: pref.userId },
+      data: { lastVocabReminderDate: dateStr },
+    });
+
+    await sendNotification({
+      userId: pref.userId,
+      type: 'vocab_reminder',
+      title: '📝 Đến giờ học từ vựng rồi!',
+      message: 'Dành vài phút ôn từ mới hôm nay để giữ vững chuỗi ngày học của bạn nhé.',
+    });
+  }
 }
 
 // ---------------------------------------------------------------------------
