@@ -98,6 +98,32 @@ export default function Settings() {
     }
   };
 
+  const handleWordSuggestToggle = async () => {
+    if (!prefs) return;
+    const original = { ...prefs };
+    const enabling = !prefs.wordSuggestEnabled;
+    setPrefs({ ...prefs, wordSuggestEnabled: enabling });
+    try {
+      if (enabling && 'Notification' in window && Notification.permission === 'default') {
+        await Notification.requestPermission();
+      }
+      await updateNotificationPreferences({ wordSuggestEnabled: enabling });
+    } catch {
+      setPrefs(original);
+    }
+  };
+
+  const handleWordSuggestIntervalChange = async (minutes: number) => {
+    if (!prefs || minutes < 1) return;
+    const original = { ...prefs };
+    setPrefs({ ...prefs, wordSuggestIntervalMin: minutes });
+    try {
+      await updateNotificationPreferences({ wordSuggestIntervalMin: minutes });
+    } catch {
+      setPrefs(original);
+    }
+  };
+
   async function handleImport(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -228,6 +254,36 @@ export default function Settings() {
                 value={prefs.vocabReminderTime ?? '20:00'}
                 onChange={(e) => void handleVocabReminderTimeChange(e.target.value)}
                 className="settings-time-input"
+              />
+            </div>
+          )}
+        </div>
+      )}
+
+      {isAuthenticated && prefs && (
+        <div className="settings-section">
+          <h3>{tr.settings.notifWordSuggest}</h3>
+          <p className="muted-text">{tr.settings.notifWordSuggestDesc}</p>
+          <div className="settings-toggle-row">
+            <label>{tr.settings.notifWordSuggestEnable}</label>
+            <button
+              type="button"
+              className={`toggle-switch ${prefs.wordSuggestEnabled ? 'active' : ''}`}
+              onClick={() => void handleWordSuggestToggle()}
+              aria-label="Toggle new word suggestions"
+            >
+              <span className="toggle-slider" />
+            </button>
+          </div>
+          {prefs.wordSuggestEnabled && (
+            <div className="settings-goal-row">
+              <label>{tr.settings.notifWordSuggestInterval}</label>
+              <input
+                type="number"
+                min={1}
+                max={1440}
+                value={prefs.wordSuggestIntervalMin}
+                onChange={(e) => void handleWordSuggestIntervalChange(Math.max(1, +e.target.value))}
               />
             </div>
           )}

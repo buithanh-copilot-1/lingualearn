@@ -78,6 +78,7 @@ export async function sendNotification(input: CreateNotificationInput) {
       achievement: prefs.achievements,
       system: prefs.systemNotices,
       vocab_reminder: prefs.vocabReminderEnabled,
+      vocab_suggestion: prefs.wordSuggestEnabled,
     };
     if (prefMap[input.type] === false) return null;
   }
@@ -222,6 +223,8 @@ export async function updatePreferences(
     vocabReminderEnabled: boolean;
     vocabReminderTime: string | null;
     timezone: string;
+    wordSuggestEnabled: boolean;
+    wordSuggestIntervalMin: number;
   }>,
 ) {
   return prisma.notificationPreference.upsert({
@@ -283,6 +286,78 @@ export async function checkAndSendVocabReminders() {
       type: 'vocab_reminder',
       title: '📝 Đến giờ học từ vựng rồi!',
       message: 'Dành vài phút ôn từ mới hôm nay để giữ vững chuỗi ngày học của bạn nhé.',
+    });
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Scheduled new-word suggestions
+// ---------------------------------------------------------------------------
+
+interface SuggestedWord {
+  id: string;
+  word: string;
+  phonetic: string;
+  meaning: string;
+  example: string;
+}
+
+/** Picks a word the user hasn't learned yet; falls back to any published word. */
+async function pickWordForUser(userId: string): Promise<SuggestedWord | null> {
+  const unlearned = await prisma.$queryRaw<SuggestedWord[]>`
+    SELECT vw.id, vw.word, vw.phonetic, vw.meaning, vw.example
+    FROM vocab_words vw
+    WHERE vw.is_published = true
+      AND NOT EXISTS (
+        SELECT 1 FROM word_progress wp WHERE wp.word_id = vw.id AND wp.user_id = ${userId}
+      )
+    ORDER BY RANDOM()
+    LIMIT 1
+  `;
+  if (unlearned[0]) return unlearned[0];
+
+  const any = await prisma.$queryRaw<SuggestedWord[]>`
+    SELECT id, word, phonetic, meaning, example
+    FROM vocab_words
+    WHERE is_published = true
+    ORDER BY RANDOM()
+    LIMIT 1
+  `;
+  return any[0] ?? null;
+}
+
+/**
+ * Checks every user with new-word suggestions enabled and, once their
+ * configured interval has elapsed since the last send, pushes a notification
+ * containing a full word: term, meaning, and an example sentence.
+ */
+export async function checkAndSendWordSuggestions() {
+  const now = Date.now();
+  const candidates = await prisma.notificationPreference.findMany({
+    where: { wordSuggestEnabled: true },
+    select: { userId: true, wordSuggestIntervalMin: true, lastWordSuggestSentAt: true },
+  });
+
+  for (const pref of candidates) {
+    const intervalMs = Math.max(1, pref.wordSuggestIntervalMin) * 60_000;
+    const dueAt = pref.lastWordSuggestSentAt ? pref.lastWordSuggestSentAt.getTime() + intervalMs : 0;
+    if (now < dueAt) continue;
+
+    // Mark as sent first to avoid double-sends if this tick overlaps the next.
+    await prisma.notificationPreference.update({
+      where: { userId: pref.userId },
+      data: { lastWordSuggestSentAt: new Date(now) },
+    });
+
+    const word = await pickWordForUser(pref.userId);
+    if (!word) continue;
+
+    await sendNotification({
+      userId: pref.userId,
+      type: 'vocab_suggestion',
+      title: `📚 ${word.word}${word.phonetic ? ` [${word.phonetic}]` : ''}`,
+      message: `Nghĩa: ${word.meaning}\nVí dụ: ${word.example}`,
+      data: { wordId: word.id },
     });
   }
 }

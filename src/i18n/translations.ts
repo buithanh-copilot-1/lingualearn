@@ -111,6 +111,10 @@ const en = {
     notifVocabReminderDesc: 'Get a push notification each day at a time you choose, reminding you to study new vocabulary.',
     notifVocabReminderEnable: 'Daily vocabulary reminder',
     notifVocabReminderTime: 'Reminder time',
+    notifWordSuggest: 'New Word Suggestions',
+    notifWordSuggestDesc: 'Get a push notification every so often with a new word, its meaning, and an example sentence.',
+    notifWordSuggestEnable: 'Suggest new words',
+    notifWordSuggestInterval: 'Every (minutes)',
   },
   auth: {
     loginTitle: 'Welcome back',
@@ -324,6 +328,10 @@ const vi = {
     notifVocabReminderDesc: 'Nhận thông báo đẩy mỗi ngày vào giờ bạn chọn để nhắc học từ vựng mới.',
     notifVocabReminderEnable: 'Nhắc học từ vựng hàng ngày',
     notifVocabReminderTime: 'Giờ nhắc',
+    notifWordSuggest: 'Gợi ý từ vựng mới',
+    notifWordSuggestDesc: 'Nhận thông báo đẩy định kỳ với một từ mới kèm nghĩa và câu ví dụ.',
+    notifWordSuggestEnable: 'Gợi ý từ vựng mới',
+    notifWordSuggestInterval: 'Mỗi (phút)',
   },
   auth: {
     loginTitle: 'Chào mừng trở lại',

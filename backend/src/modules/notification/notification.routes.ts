@@ -32,6 +32,8 @@ const preferencesSchema = z.object({
   vocabReminderEnabled: z.boolean().optional(),
   vocabReminderTime: z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/).nullable().optional(),
   timezone: z.string().min(1).optional(),
+  wordSuggestEnabled: z.boolean().optional(),
+  wordSuggestIntervalMin: z.number().int().min(1).max(1440).optional(),
 });
 
 export async function notificationRoutes(app: FastifyInstance) {

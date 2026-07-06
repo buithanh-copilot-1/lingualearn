@@ -65,6 +65,8 @@ export interface NotificationPreferences {
   vocabReminderEnabled: boolean;
   vocabReminderTime: string | null;
   timezone: string | null;
+  wordSuggestEnabled: boolean;
+  wordSuggestIntervalMin: number;
 }
 
 export function fetchNotificationPreferences() {
