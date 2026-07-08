@@ -303,26 +303,39 @@ interface SuggestedWord {
 }
 
 /** Picks a word the user hasn't learned yet; falls back to any published word. */
+// Guards against stale/bad rows (meaning left blank, punctuation-only, or
+// literally identical to the English word — i.e. never actually translated)
+// that may still exist in a database that hasn't been re-seeded with the
+// cleaned vocabulary bank yet.
+const HAS_REAL_MEANING_SQL = `
+  vw.meaning IS NOT NULL
+  AND length(trim(vw.meaning)) > 1
+  AND lower(trim(vw.meaning)) <> lower(trim(vw.word))
+  AND trim(vw.meaning) !~ '^[^[:alnum:]]+$'
+`;
+
 async function pickWordForUser(userId: string): Promise<SuggestedWord | null> {
-  const unlearned = await prisma.$queryRaw<SuggestedWord[]>`
+  const unlearned = await prisma.$queryRawUnsafe<SuggestedWord[]>(`
     SELECT vw.id, vw.word, vw.phonetic, vw.meaning, vw.example
     FROM vocab_words vw
     WHERE vw.is_published = true
+      AND ${HAS_REAL_MEANING_SQL}
       AND NOT EXISTS (
-        SELECT 1 FROM word_progress wp WHERE wp.word_id = vw.id AND wp.user_id = ${userId}
+        SELECT 1 FROM word_progress wp WHERE wp.word_id = vw.id AND wp.user_id = $1
       )
     ORDER BY RANDOM()
     LIMIT 1
-  `;
+  `, userId);
   if (unlearned[0]) return unlearned[0];
 
-  const any = await prisma.$queryRaw<SuggestedWord[]>`
+  const any = await prisma.$queryRawUnsafe<SuggestedWord[]>(`
     SELECT id, word, phonetic, meaning, example
-    FROM vocab_words
+    FROM vocab_words vw
     WHERE is_published = true
+      AND ${HAS_REAL_MEANING_SQL}
     ORDER BY RANDOM()
     LIMIT 1
-  `;
+  `);
   return any[0] ?? null;
 }
 
