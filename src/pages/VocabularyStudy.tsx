@@ -1,40 +1,53 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useAllVocabulary } from '../hooks/useContent';
 import { useProgress } from '../hooks/useProgress';
 import { useLanguage } from '../context/LanguageContext';
+import { shuffle } from '../utils/shuffle';
 import VocabWordDetail from '../components/VocabWordDetail';
 import ListenButton from '../components/ListenButton';
 import { useSpeechState } from '../hooks/useSpeech';
+import type { VocabWord } from '../types';
 
 export default function VocabularyStudy() {
   const { data: vocabulary, loading } = useAllVocabulary();
   const { progress, learnWord } = useProgress();
   const { tr } = useLanguage();
-  const unlearned = vocabulary.filter((w) => !progress.learnedWords.includes(w.id));
+
+  const [sessionWords, setSessionWords] = useState<VocabWord[]>([]);
   const [index, setIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const [sessionLearned, setSessionLearned] = useState(0);
+  const [knownIds, setKnownIds] = useState<Set<string>>(new Set());
+  const seeded = useRef(false);
 
-  const word = unlearned[index];
+  // Seed a randomly-ordered session list once, after vocabulary has loaded.
+  useEffect(() => {
+    if (!seeded.current && vocabulary.length > 0) {
+      const unlearned = vocabulary.filter((w) => !progress.learnedWords.includes(w.id));
+      setSessionWords(shuffle(unlearned));
+      seeded.current = true;
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [vocabulary]);
+
+  const remaining = sessionWords.filter((w) => !knownIds.has(w.id));
+  const word = remaining.length > 0 ? remaining[index % remaining.length] : undefined;
   const { isSpeaking } = useSpeechState(word?.word);
-  const sessionTotal = unlearned.length;
-  const sessionPct = sessionTotal > 0 ? Math.round((index / sessionTotal) * 100) : 0;
+  const sessionTotal = sessionWords.length;
+  const sessionPct = sessionTotal > 0 ? Math.round((knownIds.size / sessionTotal) * 100) : 0;
 
   function handleKnow() {
-    if (word) {
-      learnWord(word.id);
-      setSessionLearned((s) => s + 1);
-      setRevealed(false);
-      if (index >= unlearned.length - 1) {
-        setIndex(0);
-      }
-    }
+    if (!word) return;
+    learnWord(word.id);
+    setSessionLearned((s) => s + 1);
+    setKnownIds((prev) => new Set(prev).add(word.id));
+    setRevealed(false);
   }
 
   function handleReview() {
     setRevealed(false);
-    setIndex((i) => (i + 1) % unlearned.length);
+    setIndex((i) => i + 1);
   }
 
   if (loading) {
@@ -45,7 +58,7 @@ export default function VocabularyStudy() {
     );
   }
 
-  if (unlearned.length === 0) {
+  if (seeded.current && remaining.length === 0) {
     return (
       <div className="page">
         <div className="study-complete-card">
@@ -57,12 +70,20 @@ export default function VocabularyStudy() {
     );
   }
 
+  if (!word) {
+    return (
+      <div className="page">
+        <p className="muted-text">{tr.vocabulary.loading}</p>
+      </div>
+    );
+  }
+
   return (
     <div className="page study-page">
       <div className="study-header">
         <Link to="/vocabulary" className="back-link">← {tr.vocabulary.exitStudy}</Link>
         <span className="study-counter">
-          {index + 1}/{sessionTotal}
+          {knownIds.size + 1}/{sessionTotal}
           {sessionLearned > 0 && ` · +${sessionLearned}`}
         </span>
       </div>

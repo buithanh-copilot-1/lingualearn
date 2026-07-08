@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react';
 import type { SrsCard, SrsGrade, VocabWord } from '../types';
 import { newCard, scheduleCard, isDue, deckStats, type DeckStats } from '../utils/srs';
+import { shuffle } from '../utils/shuffle';
 
 const STORAGE_KEY = 'lingualearn-srs';
 
@@ -53,7 +54,7 @@ export function useSrs() {
         if (!card) fresh.push(w);
         else if (isDue(card)) due.push(w);
       }
-      return [...due, ...fresh.slice(0, newLimit)];
+      return [...shuffle(due), ...shuffle(fresh).slice(0, newLimit)];
     },
     [deck],
   );
