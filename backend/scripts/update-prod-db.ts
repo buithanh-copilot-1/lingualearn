@@ -88,7 +88,7 @@ async function main() {
   try {
     if (mode === 'push' || mode === 'all') {
       console.log('\n[1/2] prisma db push...');
-      execSync('npx prisma db push', { stdio: 'inherit', env, cwd: backendRoot });
+      execSync('npx prisma db push --accept-data-loss', { stdio: 'inherit', env, cwd: backendRoot });
     }
 
     if (mode === 'seed' || mode === 'all') {
