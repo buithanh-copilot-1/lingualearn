@@ -6,7 +6,7 @@ import { sendNotification } from './notification.service.js';
 // ---------------------------------------------------------------------------
 
 const STREAK_MILESTONES = [3, 7, 14, 30, 50, 100, 200, 365];
-const WORD_MILESTONES = [10, 25, 50, 100, 200, 500, 1000, 2000, 5000];
+const WORD_MILESTONES = [10, 25, 50, 100, 200, 500, 1000, 2000, 3000];
 const LESSON_MILESTONES = [5, 10, 25, 50, 100];
 const QUIZ_MILESTONES = [5, 10, 25, 50, 100];
 

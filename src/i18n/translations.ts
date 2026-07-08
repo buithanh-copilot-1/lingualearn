@@ -44,7 +44,7 @@ const en = {
     markComplete: 'Mark as Complete', done: 'Done', viewGrammar: 'View related grammar',
   },
   vocabulary: {
-    title: 'Vocabulary', subtitle: 'Browse, search, and study 5000+ words with Vietnamese meanings.',
+    title: 'Vocabulary', subtitle: 'Browse, search, and study 3,600+ words with Vietnamese meanings.',
     search: 'Search words or meanings...', noMatch: 'No words match your filters.',
     studyMode: 'Study Mode', studySubtitle: 'Review words you haven\'t learned yet',
     allLearned: 'You\'ve learned all words! Great job!',
@@ -261,7 +261,7 @@ const vi = {
     markComplete: 'Đánh dấu hoàn thành', done: 'Xong', viewGrammar: 'Xem ngữ pháp liên quan',
   },
   vocabulary: {
-    title: 'Từ vựng', subtitle: 'Duyệt, tìm kiếm và học hơn 5000 từ kèm nghĩa tiếng Việt.',
+    title: 'Từ vựng', subtitle: 'Duyệt, tìm kiếm và học hơn 3.600 từ kèm nghĩa tiếng Việt.',
     search: 'Tìm từ hoặc nghĩa...', noMatch: 'Không tìm thấy từ phù hợp.',
     studyMode: 'Chế độ học', studySubtitle: 'Ôn các từ chưa học',
     allLearned: 'Bạn đã học hết tất cả từ! Tuyệt vời!',
