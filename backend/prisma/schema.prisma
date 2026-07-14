@@ -289,9 +289,10 @@ model NotificationPreference {
   vocabReminderTime     String?  @map("vocab_reminder_time")
   timezone              String?  @map("timezone")
   lastVocabReminderDate String?  @map("last_vocab_reminder_date")
-  wordSuggestEnabled     Boolean   @default(false) @map("word_suggest_enabled")
-  wordSuggestIntervalMin Int       @default(5) @map("word_suggest_interval_min")
-  lastWordSuggestSentAt  DateTime? @map("last_word_suggest_sent_at")
+  wordSuggestEnabled       Boolean   @default(false) @map("word_suggest_enabled")
+  wordSuggestIntervalMin   Int       @default(5) @map("word_suggest_interval_min")
+  lastWordSuggestSentAt    DateTime? @map("last_word_suggest_sent_at")
+  recentSuggestedWordIds   Json      @default("[]") @map("recent_suggested_word_ids")
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 

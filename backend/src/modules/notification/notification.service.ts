@@ -314,20 +314,43 @@ const HAS_REAL_MEANING_SQL = `
   AND trim(vw.meaning) !~ '^[^[:alnum:]]+$'
 `;
 
-async function pickWordForUser(userId: string): Promise<SuggestedWord | null> {
+// How many recently-suggested word ids to remember per user before a word
+// becomes eligible to be suggested again.
+const RECENT_HISTORY_CAP = 150;
+
+async function pickWordForUser(userId: string, excludeIds: string[]): Promise<SuggestedWord | null> {
+  const exclude = excludeIds.length > 0 ? excludeIds : ['__none__'];
+
+  // 1. Prefer an unlearned word that also wasn't suggested recently.
   const unlearned = await prisma.$queryRawUnsafe<SuggestedWord[]>(`
     SELECT vw.id, vw.word, vw.phonetic, vw.meaning, vw.example
     FROM vocab_words vw
     WHERE vw.is_published = true
       AND ${HAS_REAL_MEANING_SQL}
+      AND NOT (vw.id = ANY($2::text[]))
       AND NOT EXISTS (
         SELECT 1 FROM word_progress wp WHERE wp.word_id = vw.id AND wp.user_id = $1
       )
     ORDER BY RANDOM()
     LIMIT 1
-  `, userId);
+  `, userId, exclude);
   if (unlearned[0]) return unlearned[0];
 
+  // 2. Pool exhausted (every unlearned word was recently suggested) — allow
+  // learned words back in, still avoiding the recent-history list.
+  const notRecentlySuggested = await prisma.$queryRawUnsafe<SuggestedWord[]>(`
+    SELECT id, word, phonetic, meaning, example
+    FROM vocab_words vw
+    WHERE is_published = true
+      AND ${HAS_REAL_MEANING_SQL}
+      AND NOT (vw.id = ANY($1::text[]))
+    ORDER BY RANDOM()
+    LIMIT 1
+  `, exclude);
+  if (notRecentlySuggested[0]) return notRecentlySuggested[0];
+
+  // 3. Entire valid vocabulary has been suggested recently (small bank) —
+  // ignore history as a last resort so we still send something.
   const any = await prisma.$queryRawUnsafe<SuggestedWord[]>(`
     SELECT id, word, phonetic, meaning, example
     FROM vocab_words vw
@@ -348,7 +371,12 @@ export async function checkAndSendWordSuggestions() {
   const now = Date.now();
   const candidates = await prisma.notificationPreference.findMany({
     where: { wordSuggestEnabled: true },
-    select: { userId: true, wordSuggestIntervalMin: true, lastWordSuggestSentAt: true },
+    select: {
+      userId: true,
+      wordSuggestIntervalMin: true,
+      lastWordSuggestSentAt: true,
+      recentSuggestedWordIds: true,
+    },
   });
 
   for (const pref of candidates) {
@@ -362,8 +390,16 @@ export async function checkAndSendWordSuggestions() {
       data: { lastWordSuggestSentAt: new Date(now) },
     });
 
-    const word = await pickWordForUser(pref.userId);
+    const recentIds = Array.isArray(pref.recentSuggestedWordIds)
+      ? (pref.recentSuggestedWordIds as string[])
+      : [];
+    const word = await pickWordForUser(pref.userId, recentIds);
     if (!word) continue;
+
+    await prisma.notificationPreference.update({
+      where: { userId: pref.userId },
+      data: { recentSuggestedWordIds: [...recentIds, word.id].slice(-RECENT_HISTORY_CAP) },
+    });
 
     await sendNotification({
       userId: pref.userId,
